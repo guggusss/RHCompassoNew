@@ -592,7 +592,7 @@ if (isset($_POST['botaoVolta'])) {
                             <input type="checkbox" name="email_boas_check" value="NULL"/>Vazio
                         </div>
                         <div>
-                            <label for="acessos">DATA</label>
+                            <label for="acessos">Acessos</label>
                             <input type="date" id='acessos' name="acessos" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Acessos"/>
                             <input type="checkbox" name="acessos_check" value="NULL"/>Vazio
@@ -713,7 +713,7 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='110px'>Data Admissão</th>
                         <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
-                        <th scope="col" width='330px'>Comentário</th>
+                        <th scope="col" width='150px'></th>
                         <th scope="col" width='100px'></th>
                     </tr>
                 </thead>
@@ -784,7 +784,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
-                            <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
+                            <td id='add-administrativo'></td>
                             <td><button title= "Salvar" type="submit" value="salva" class="btn btn-default" action="#">Salvar</button></td>
                         </form>
                     </tr>
