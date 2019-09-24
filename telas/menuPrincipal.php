@@ -702,7 +702,7 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='200px'>Sexo</th>
                         <th scope="col" width='150px'>Fone</th>
                         <th scope="col" width='200px'>Cargo</th>
-                        <th scope="col" width='110px'>Controle Data Admissão</th>
+                        <th scope="col" width='110px'>Log Registro Dia RH Envia DP</th>
                         <th scope="col" width='120px'>Remuneração Base</th>
                         <th scope="col" width='100px'>Gratificação</th>
                         <th scope="col" width='120px'>Remuneração Total</th>
@@ -773,7 +773,7 @@ if (isset($_POST['botaoVolta'])) {
                             </select></td>
                             <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\)[\s][0-9]{1}[0-9]{4}-[0-9]{4}" name="fone_contato" id="telefone" maxlength="15" required></td>
                             <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
-                            <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao" required></td>
+                            <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao"></td>
                             <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" required></td>
                             <td id='add-gratificacao'><input class='intable' type="number" step=".01" name="gratificacao" required></td>
                             <td></td>
