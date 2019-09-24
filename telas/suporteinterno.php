@@ -178,6 +178,7 @@ $emailsoli = buscavias($conn, $id);
                         <th>Equipamento</th>
                         <th>Necessidade de Translado</th>
                         <th>Grupos de E-mail</th>
+                        <th>Usuários ativos</th>
                         <th></th>
                         <th></th>
                     </tr>
