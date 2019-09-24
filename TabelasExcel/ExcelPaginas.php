@@ -70,6 +70,7 @@ $result = mysqli_query($connect, $sql);
                         <th width= "150px">Cliente</th>
                         <th width='150px'>Projeto</th>
                         <th width='250px'>Email</th>
+                        <th width='110px'>Data Admissão</th>
                         <th width='200px'>Posição(Comentários)</th>
                         <th width='200px'>Administrativo + Flyback - Hotel</th>
 
@@ -95,6 +96,7 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["PROJETO"].'</td>
          <td>'.$row["CLIENTE"].'</td>
          <td>'.$row["EMAIL"].'</td>
+         <td>'.$row["DATA_ADMISSAO"].'</td>
          <td>'.$row["POSICAO_COMENTARIO"].'</td>
          <td>'.$row["ADMINISTRATIVO"].'</td>
        </tr>
