@@ -1,0 +1,56 @@
+#impressas{
+    width: 10%;
+    padding: .3em;
+    height: 15px;
+}
+#email{
+    width: 10%;
+    padding: .3em;
+    height: 15px;
+}
+#tabela01{
+    width: 95%;
+    margin-left: 2em;
+	margin-bottom : .5em;
+    table-layout: fixed;
+}
+#documentos{
+    width: 15%;
+    padding: .5em;
+    height: 30px;
+}
+#orientacoes{
+    padding: .5em;
+    height: 30px;
+}
+td:nth-child(2){
+    background-color: rgb(255, 229, 153);
+    width: 10%;
+    padding: .5em;
+    height: 15px;
+}
+.sim{
+    background-color:rgb(255, 229, 153);
+}
+.info{
+  background-color:rgb(39,99,196);
+  color: #F2FFFC;
+}
+#info1 {
+  width: 300px;
+  padding:10px;
+	}
+#info2{
+  width: 100px;
+  padding:10px;
+}
+#info3{
+  width: 100px;
+  padding:10px;
+}
+.cor{
+color:rgb(0,32,96);
+}
+#title{
+  color:rgb(0,32,96);
+}

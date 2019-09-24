@@ -1,0 +1,41 @@
+.img{
+  margin: 0px;
+}
+.img2{
+  margin-top: 0px;
+}
+#align_info{
+  margin-top: 30px;
+}
+#align_img{
+  margin: 0px;
+  margin-top: -5px;
+}
+.txt1{
+  color:rgb(31,59,115);
+  font-size: 15px;
+  margin: 0px;
+  margin-left: -145px;
+  line-height: 20px;
+}
+.txt2{
+  color:rgb(31,59,115);
+  font-size: 15px;
+  line-height: 13px;
+}
+#cor{
+  font-size: 10px;
+  color:rgb(0,32,96);
+}
+#cores{
+  color:rgb(31,59,115);
+}
+#tamanho{
+  font-size: 11px;
+}
+#tamanho2{
+  font-size: 10px;
+}
+#cor0{
+  color:rgb(0,32,96);
+}

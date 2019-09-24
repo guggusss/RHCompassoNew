@@ -1,0 +1,13 @@
+#senhaUsuario{
+    background-color: rgb(50, 65, 114);
+    color: #FFF;
+    padding: 5px;
+    border-radius: 30px;
+    border-bottom: #FFF;
+    margin-left: 55em;
+}
+#senhaUsuario:focus{
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
