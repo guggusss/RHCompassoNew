@@ -713,7 +713,7 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='110px'>Data Admissão</th>
                         <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
-                        <th scope="col" width='150px'></th>
+                        <th scope="col" width='150px'>Comentários</th>
                         <th scope="col" width='100px'></th>
                     </tr>
                 </thead>
@@ -784,7 +784,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
-                            <td id='add-administrativo'></td>
+                            <td id='add-administrativo'><input class='intable' type="text" name="Comentario" required></td>
                             <td><button title= "Salvar" type="submit" value="salva" class="btn btn-default" action="#">Salvar</button></td>
                         </form>
                     </tr>

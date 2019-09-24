@@ -73,6 +73,7 @@
                     <th width='110px'>Posição(Data)</th>
                     <th width='200px'>Posição(Comentários)</th>
                     <th width='200px'>Administrativo + Flyback - Hotel</th>
+                    <th width='200px'>Comentários</th>
                     <th width='150px'></th>
                 </tr>
             </thead>
