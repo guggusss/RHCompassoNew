@@ -144,8 +144,8 @@ $result = mysqli_query($connect, $sql);
    <h1>Proposta de Contratação</h1>
     <table class="table table-bordered">
                         <th>Nome</th>
-                        <th>Proposta Recebida</th>
-                        <th>De acordo Direção</th>
+                        <th>Enquadramento remuneração envio</th>
+                        <th>Enquadramento remuneração retorno</th>
                         <th>Enquadramento(Validação Ex Funcionário)</th>
                         <th>Envio da Proposta</th>
                         <th>Comunicar proposta enviada Solicitante</th>
