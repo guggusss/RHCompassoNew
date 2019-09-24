@@ -709,7 +709,7 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='200px'>Solicitante</th>
                         <th scope="col" width='150px'>Cliente</th>
                         <th scope="col" width='150px'>Projeto</th>
-                        <th scope="col" width='330px'>Email</th>
+                        <th scope="col" width='330px'>E-mail Pessoal</th>
                         <th scope="col" width='110px'>Data Admissão</th>
                         <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
