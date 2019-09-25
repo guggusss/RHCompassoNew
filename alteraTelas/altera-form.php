@@ -131,6 +131,7 @@
                             <td id='add-posicao_data'><input class='intable' type="date" name="POSICAO_DATA" value = "<?=$funcionarios['POSICAO_DATA']; ?>"></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="POSICAO_COMENTARIO" value = "<?=$funcionarios['POSICAO_COMENTARIO']; ?>"></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="ADMINISTRATIVO" value = "<?=$funcionarios['ADMINISTRATIVO']; ?>"></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value = "<?=$funcionarios['COMENTARIo']; ?>"></td>
                     <td><button class="btn btn-default" type="submit">Alterar</button></td>
                 </form>
             
