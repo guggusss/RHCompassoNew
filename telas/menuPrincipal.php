@@ -692,7 +692,7 @@ if (isset($_POST['botaoVolta'])) {
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th scope="col" width='150px'>Status</th>
+                        <th scope="col" width='200px'>Status</th>
                         <th scope="col" width='60px'>Sede</th>
                         <th scope="col" width='60px'>Tipo</th>
                         <th scope="col" width='150px'>Captação</th>
@@ -713,8 +713,6 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='110px'>Data Admissão</th>
                         <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
-                        <th scope="col" width='150px'></th>
-                        <th scope="col" width='100px'></th>
                     </tr>
                 </thead>
                     <tbody>
@@ -752,7 +750,21 @@ if (isset($_POST['botaoVolta'])) {
 
                 <tr>
                         <form id='form-add' method="POST" action="../salva.php">
-                            <td>Nova Admissão</td>
+                            <td><select id="status" name="STATUS" class="intable" value="<?=$rows_dados['STATUS']?>" required>
+                                <option value="" selected="selected"></option>
+                                <option value="AGUARDAR ACEITE">AGUARDAR ACEITE</option>
+                                <option value="FINALIZADO">FINALIZADO</option>
+                                <option value="DESISTENCIA">DESISTENCIA</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="RETORNO DOCS">RETORNO DOCS</option>
+                                <option value="REALIZAR CONTATO">REALIZAR CONTATO</option>
+                                <option value="CONTATO REALIZADO">CONTATO REALIZADO</option>
+                                <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
+                                <option value="RECUSADO">RECUSADO</option>
+                            </select></td>
                             <td><select id="add-sede" name='sede' class="selectadd intable" required>
                                 <option value="" selected="selected"></option>
                                 <?php foreach ($listar as $linha):?>
