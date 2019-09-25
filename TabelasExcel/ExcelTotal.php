@@ -196,7 +196,6 @@ if(isset($_POST["export"]))
                             <th>integração agendada</th>
                             <th>integração realizada</th>
                             <th>sala</th>
-                            <th>acompanhamento mensal</th>
                             <th>Layot Boas vindas Mensal</th>
                         </tr>
         ';
