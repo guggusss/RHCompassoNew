@@ -373,18 +373,21 @@ if (isset($_POST['botaoVolta'])) {
                             <label for="status">Status</label>
                             <select id="status" name="STATUS" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
-                                <option value="AGUARDAR ACEITE">AGUARDAR ACEITE</option>
-                                <option value="FINALIZADO">FINALIZADO</option>
-                                <option value="DESISTENCIA">DESISTENCIA</option>
-                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
-                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
-                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
+                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
                                 <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
+                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
                                 <option value="RETORNO DOCS">RETORNO DOCS</option>
-                                <option value="REALIZAR CONTATO">REALIZAR CONTATO</option>
-                                <option value="CONTATO REALIZADO">CONTATO REALIZADO</option>
-                                <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
-                                <option value="RECUSADO">RECUSADO</option>
+                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
+                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
+                                
+                                
                             </select>
                         </div>
                         <div>
@@ -752,18 +755,19 @@ if (isset($_POST['botaoVolta'])) {
                         <form id='form-add' method="POST" action="../salva.php">
                             <td><select id="STATUS" name="STATUS" class="intable" value="<?=$rows_dados['STATUS']?>" required>
                                 <option value="" selected="selected"></option>
-                                <option value="AGUARDAR ACEITE">AGUARDAR ACEITE</option>
-                                <option value="FINALIZADO">FINALIZADO</option>
-                                <option value="DESISTENCIA">DESISTENCIA</option>
-                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
-                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
-                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
+                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
                                 <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
+                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
                                 <option value="RETORNO DOCS">RETORNO DOCS</option>
-                                <option value="REALIZAR CONTATO">REALIZAR CONTATO</option>
-                                <option value="CONTATO REALIZADO">CONTATO REALIZADO</option>
-                                <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
-                                <option value="RECUSADO">RECUSADO</option>
+                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
+                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
                             </select></td>
                             <td><select id="add-sede" name='sede' class="selectadd intable" required>
                                 <option value="" selected="selected"></option>
