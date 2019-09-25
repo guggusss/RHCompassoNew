@@ -15,7 +15,7 @@
   $DataG = date_create();
   date_modify($DataG, '+ 2 day');
   $DataFim = date_format($DataG, 'd/m/Y');
-  $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
+
 ?>
 <!DOCTYPE html>
 <html>
