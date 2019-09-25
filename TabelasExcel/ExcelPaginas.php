@@ -152,6 +152,7 @@ $result = mysqli_query($connect, $sql);
                         <th>Aceite/recusa candidato</th>
                         <th>Comentário</th>
                         <th>Comunicar Status da Proposta ao Solicitante</th>
+                        <th width='150px'>Projeto</th>
 
      <?php
      while($row = mysqli_fetch_array($result))
@@ -167,6 +168,7 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["ACEITE_RECUSA_CANDIDATO"].'</td>
          <td>'.$row["COMENTARIO"].'</td>
          <td>'.$row["COMUNICAR_STATUS"].'</td>
+         <td>'.$row["PROJETO"].'</td>
        </tr>
         ';
      }
