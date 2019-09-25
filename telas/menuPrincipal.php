@@ -744,6 +744,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td ><?php echo $rows_dados['DATA_ADMISSAO']; ?></td>
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
+                            <td><?php echo $rows_dados['COMENTARIOS']; ?></td>
                             <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
                             <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default">Editar</span></a></td>
                         </td>
