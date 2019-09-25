@@ -14,6 +14,26 @@ $listar = listar($conn);
 $id = $_GET['id'];
 $_SESSION['id'] = $id;
 
+/*
+ $existe = ExisteUsuario($usuario);
+
+            if(!$existe){
+                $cmd = "INSERT INTO `users`(`usuario`) VALUES('$usuario')";
+                $result = mysql_query($cmd);
+                if(!$result){
+                    echo "<script>alert('Já exite um usuário registrado com os mesmo dados! Faça login...');</script>";
+                }
+
+                else{
+                    echo "<script>alert('Usuario registrado! Faça login agora!');</script>";
+                }
+            }
+
+            else if($existe){
+                echo "<script>alert('Já exite um usuário registrado com os mesmo dados! Faça login...');</script>";
+            } 
+            */
+
 $suporte = buscasuporte($conn, $id);
 $testeGrupoEmail = $suporte['EQUIPE'];
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -178,6 +198,7 @@ $emailsoli = buscavias($conn, $id);
                         <th>Equipamento</th>
                         <th>Necessidade de Translado</th>
                         <th>Grupos de E-mail</th>
+                        <th>Usuário Ativo</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -335,6 +356,22 @@ $emailsoli = buscavias($conn, $id);
             }
             
         }
+            //função para ver se tem usuarios iguais
+        function ExisteUsuario($u){
+
+            $cmd = "SELECT * FROM `suporte_interno` WHERE `USUARIO`='$u'";
+            $result = mysql_query($cmd);
+            $rows = mysql_num_rows($result);
+
+        if(1 == $rows){
+            return true;
+        }
+
+        else{
+            return false;
+        }
+        }
+
     </script>
 </body>
 
