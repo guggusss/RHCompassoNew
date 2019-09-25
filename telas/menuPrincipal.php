@@ -309,7 +309,7 @@ if (isset($_POST['botaoVolta'])) {
             $resultado = mysqli_query($conn, $sql);
 
     }  else {
-        $resultado = mysqli_query($conn, "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA
+        $resultado = mysqli_query($conn, "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO
                                         FROM admissao_dominio as a
                                         LEFT JOIN parametros_captacao as p
                                         on a.ID_CAPTACAO = p.CAPTACAO_ID
@@ -750,7 +750,7 @@ if (isset($_POST['botaoVolta'])) {
 
                 <tr>
                         <form id='form-add' method="POST" action="../salva.php">
-                            <td><select id="status" name="STATUS" class="intable" value="<?=$rows_dados['STATUS']?>" required>
+                            <td><select id="STATUS" name="STATUS" class="intable" value="<?=$rows_dados['STATUS']?>" required>
                                 <option value="" selected="selected"></option>
                                 <option value="AGUARDAR ACEITE">AGUARDAR ACEITE</option>
                                 <option value="FINALIZADO">FINALIZADO</option>
