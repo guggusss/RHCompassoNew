@@ -156,7 +156,7 @@ $efetivacao = buscavencimentos($conn, $id);
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th colspan='8'>Gestão</th>
+                        <th colspan='6'>Gestão</th>
                     </tr>
                     <tr>
                         <th>Status</th>
@@ -165,8 +165,6 @@ $efetivacao = buscavencimentos($conn, $id);
                         <th>Gestor local</th>
                         <th>Gestor local sabe?</th>
                         <th>Quem do projeto receberá a pessoa?</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

@@ -171,8 +171,6 @@ $translado = buscasuporte($conn, $id);
                         <th></th>
                         <th colspan = '3'>1°Alerta Vencimento 45 dias</th>
                         <th colspan = '3'>2°Alerta Vencimetno 90 dias</th>
-                        <th></th>
-                        <th></th>
 
                     </tr>
                     <tr>
@@ -183,8 +181,6 @@ $translado = buscasuporte($conn, $id);
                         <th>Envio Solicitante</th>
                         <th>Data do Vencimento</th>
                         <th>Efetivção</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

@@ -170,8 +170,6 @@ $translado = buscasuporte($conn, $id);
                         <th>Agência (Bancária)</th>
                         <th>Número da Conta</th>
                         <th>Tipo de Conta</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

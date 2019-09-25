@@ -156,8 +156,6 @@ $docreceb = buscavias($conn, $id);
                         <th colspan='2'>E-mail Adm Caderno Compasso </th>
                         <th>Malote (Caderno) + <br/>CTPS (Controle RH)</th>
                         <th>Recebido após assinatura Escanear Docs e<br/> Salvar na Pasta</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                     <tr>
                         <th></th>
@@ -166,8 +164,6 @@ $docreceb = buscavias($conn, $id);
                         <th>Protocolo</th>
                         <th>E-mail Solicitado </th>
                         <th>Recebido</th>
-                        <th></th>
-                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>
