@@ -15,6 +15,7 @@ if(isset($_POST["export"]))
                   ACEITE_RECUSA_CANDIDATO,
                   COMENTARIO,
                   COMUNICAR_STATUS,
+                  PROJETO
                   FROM admissao_dominio AS a
                   LEFT JOIN propostas_contratacoes AS p
                   on ID_USUARIO = USUARIO_ID
@@ -37,6 +38,7 @@ $result = mysqli_query($connect, $query);
                   <th width= "150px">Aceite/recusa candidato</th>
                   <th width= "150px">Comentário</th>
                   <th width= "150px">Comunicar Status da Proposta ao Solicitante</th>
+                  <th width= "150px">Projeto</th>
                   </tr>
 
   ';
@@ -55,6 +57,7 @@ $result = mysqli_query($connect, $query);
             <td>'.$row["ACEITE_RECUSA_CANDIDATO"].'</td>
             <td>'.$row["COMENTARIO"].'</td>
             <td>'.$row["COMUNICAR_STATUS"].'</td>
+            <td>'.$row["PROJETO"].'</td>
             </tr>
             ';
   }

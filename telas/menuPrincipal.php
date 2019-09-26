@@ -273,9 +273,7 @@ if (isset($_POST['botaoVolta'])) {
             $assinados = $_POST['assinados'];
             $where[] = " `DOCUMENTOS_RECEBIDOS_ASSINADOS` = '{$assinados}'"; 
         }
-
-
-        $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO
+        $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA
         FROM admissao_dominio as a
         LEFT JOIN parametros_captacao as p
         on a.ID_CAPTACAO = p.CAPTACAO_ID
@@ -784,8 +782,8 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\)[\s][0-9]{1}[0-9]{4}-[0-9]{4}" name="fone_contato" id="telefone" maxlength="15" required></td>
                             <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
                             <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao"></td> 
-                            <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" required></td>
-                            <td id='add-gratificacao'><input class='intable' type="number" step=".01" name="gratificacao" required></td>
+                            <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" min="0" required></td>
+                            <td id='add-gratificacao'><input class='intable' type="number" step=".01" name="gratificacao" min="0" required></td>
                             <td></td>
                             <td id='add-solicitante'><input  class='intable' type="text" name="solicitante" required></td>
                             <td id='add-cliente'><input class='intable' type="text" name="cliente" required></td>
@@ -794,7 +792,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
-                            <td id='add-comentarios'><input class='intable' type="text" name="Comentarios" required></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="Comentario" required></td>
                             <td><button title= "Salvar" type="submit" value="salva" class="btn btn-default" action="#">Salvar</button></td>
                             <td></td>
                         </form>
