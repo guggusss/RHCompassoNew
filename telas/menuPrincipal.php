@@ -3,20 +3,15 @@ require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
-
 $listar = listar($conn);
 //if ($_GET['botaoLimpar']=='Limpar') {
 if (isset($_POST['botaoVolta'])) {
   header('Location: menuprincipal.php');
 }
-
-
 //if ($_GET['botao']=='Filtrar') {
     if (isset($_POST['botaoVolta'])) {
         header('Location: menuprincipal.php');
       }
-
-
       //if ($_GET['botao']=='Filtrar') {
     if (isset($_POST['botao'])) {
             
@@ -302,12 +297,9 @@ if (isset($_POST['botaoVolta'])) {
         on i.ID_USUARIO = a.USUARIO_ID
         LEFT JOIN vias_documentos_funcionarios as via
         ON via.ID_USUARIO = a.USUARIO_ID";
-
-
         if( sizeof( $where ) )
             $sql .= ' WHERE '.implode( ' AND ',$where );
             $resultado = mysqli_query($conn, $sql);
-
     }  else {
         $resultado = mysqli_query($conn, "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO
                                         FROM admissao_dominio as a
@@ -331,9 +323,7 @@ if (isset($_POST['botaoVolta'])) {
                                         ON via.ID_USUARIO = a.USUARIO_ID
                                         where  STATUS <> 'FINALIZADO' && STATUS <> 'RECUSADO' && STATUS <> 'DESISTENCIA'
                                         order by YEAR(DATA_ADMISSAO) ASC, MONTH(DATA_ADMISSAO) ASC, DAY(DATA_ADMISSAO) ASC" );
-
     }
-
 //$resultado = mysqli_query($conn, "SELECT * FROM teste");
 // $usuarios = mysql_fetch_assoc($resultado);
 ?>
@@ -976,10 +966,8 @@ if (isset($_POST['botaoVolta'])) {
     }
     if(edit.value.length==2){
     edit.value+=":";}
-
     if(edit.value.length==5){
     edit.value+=" - ";}
-
     if(edit.value.length==10){
     edit.value+=":";}
     }
