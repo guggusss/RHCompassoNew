@@ -22,18 +22,17 @@ if(isset($_POST["export"]))
                         <th width="200px">Nome</th>
                         <th width="85px">Fone</th>
                         <th width="100px">Cargo</th>
-                        <th width="110px">Log Registro Dia RH Envia DP</th>
+                        <th width="110px">Controle Data Admissão</th>
                         <th width="100px">Remuneração Base</th>
                         <th width="100px">Gratificação</th>
                         <th width="100px">Remuneração Total</th>
                         <th width="200px">Solicitante</th>
                         <th width= "150px">Cliente</th>
                         <th width="150px">Projeto</th>
-                        <th width="250px">Email Pessoal</th>
+                        <th width="250px">Email</th>
                         <th width="110px">Data Admissão</th>
                         <th width="200px">Posição(Comentários)</th>
                         <th width="200px">Administrativo + Flyback - Hotel</th>
-                        <th width="200px">Comentários</th>
                     </tr>
   ';
   while($row = mysqli_fetch_array($result))

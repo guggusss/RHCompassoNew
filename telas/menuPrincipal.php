@@ -705,14 +705,14 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='200px'>Sexo</th>
                         <th scope="col" width='150px'>Fone</th>
                         <th scope="col" width='200px'>Cargo</th>
-                        <th scope="col" width='110px'>Log Registro Dia RH Envia DP</th>
+                        <th scope="col" width='110px'>Controle Data Admissão</th>
                         <th scope="col" width='120px'>Remuneração Base</th>
                         <th scope="col" width='100px'>Gratificação</th>
                         <th scope="col" width='120px'>Remuneração Total</th>
                         <th scope="col" width='200px'>Solicitante</th>
                         <th scope="col" width='150px'>Cliente</th>
                         <th scope="col" width='150px'>Projeto</th>
-                        <th scope="col" width='330px'>Email Pessoal</th>
+                        <th scope="col" width='330px'>E-mail Pessoal</th>
                         <th scope="col" width='110px'>Data Admissão</th>
                         <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
@@ -748,7 +748,6 @@ if (isset($_POST['botaoVolta'])) {
                             <td ><?php echo $rows_dados['DATA_ADMISSAO']; ?></td>
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
-                            <td><?php echo $rows_dados['COMENTARIOS']; ?></td>
                             <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
                             <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default">Editar</span></a></td>
                         </td>
@@ -793,7 +792,7 @@ if (isset($_POST['botaoVolta'])) {
                             </select></td>
                             <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\)[\s][0-9]{1}[0-9]{4}-[0-9]{4}" name="fone_contato" id="telefone" maxlength="15" required></td>
                             <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
-                            <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao"></td> 
+                            <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao" required></td>
                             <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" required></td>
                             <td id='add-gratificacao'><input class='intable' type="number" step=".01" name="gratificacao" required></td>
                             <td></td>
@@ -804,7 +803,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
-                            <td id='add-comentario'><input class='intable' type="text" name="Comentario" required></td>
+                            <td id='add-administrativo'></td>
                             <td><button title= "Salvar" type="submit" value="salva" class="btn btn-default" action="#">Salvar</button></td>
                             <td></td>
                         </form>
@@ -816,65 +815,60 @@ if (isset($_POST['botaoVolta'])) {
             </section>
 
         </section>
-            <section class="container estruct">
-                <h2 class="titulo" align='center'>Legendas</h2>
+            <section class="legendas estruct">
+                <h2 class="titulo">Legendas</h2>
                 <table id='table-legendas'>
                     <tr class='tb2'>
                         <th scope="col" class='tb2'>STATUS</th>
                         <th scope="col" class='tb2'>TIPO</th>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
-                        <td class='tb2'>Gestor solicitou a proposta de contratação</td>
-                        <td align='center'><input type='button' value='Aprovação' onclick =  ??? ></td>
+                        <td class='tb2'>AGUARDAR ACEITE</td>
+                        <td class='tb2'>Aguardando o Aceite após o envio da proposta</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
-                        <td class='tb2'>Gestor submeteu a proposta de contratação para aprovação da diretoria</td>
+                        <td class='tb2'>FINALIZADO</td>
+                        <td class='tb2'>Admissao concluída</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>APROVADO DIRETORIA</td>
-                        <td class='tb2'>Diretoria aprovou recrutamento irá seguir</td>
+                        <td class='tb2'>DESISTENCIA</td>
+                        <td class='tb2'>Aceitou a proposta, mas desistiu antes da admissão</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>EM VALIDAÇÃO</td>
-                        <td class='tb2'>Proposta em elaboração pelo time de recrutamento</td>
+                        <td class='tb2'>EM ANDAMENTO</td>
+                        <td class='tb2'>Em andamento admissão</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>NEGOCIAÇÃO</td>
-                        <td class='tb2'>Profissional solicitou contra proposta</td>
-                    </tr>
-                    <tr class='tb2'>
-                        <td class='tb2'>PROPOSTA ENVIADA</td>
-                        <td class='tb2'>Recrutamento enviou a proposta e está aguardando retorno</td>
-                    </tr>
-                    <tr>
-                        <td class='tb2'>E-MAIL: PROPOSTA ACEITA</td>
-                        <td class='tb2'>Profissional aceitou a proposta</td>
-                    </tr>
-                    <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: EM ANDAMENTO</td>
-                        <td class='tb2'>DP aprovou a proposta e seguirá a admissão</td>
-                    </tr>
-                    <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: PROPOSTA INVÁLIDA</td>
-                        <td class='tb2'>DP reprovou recrutamento revisar a proposta</td>
-                    </tr>
-                    <tr class='tb2'>
                         <td class='tb2'>EM CONTRATO</td>
-                        <td class='tb2'>Admissão concluída - envio dos alerta de vencimento de contrato</td>
+                        <td class='tb2'>Em contrato, admissão concluída, pendente os envios de contrato</td>
                     </tr>
                     <tr class='tb2'>
+                        <td class='tb2'>EM VALIDAÇÃO</td>
+                        <td class='tb2'>Dados da proposta estão em validação antes do envio</td>
+                    </tr>
+                    <tr>
                         <td class='tb2'>RETORNO DOCS</td>
-                        <td class='tb2'>Admissão concluída - aguardando documentos fisícos admissão assinados</td>
+                        <td class='tb2'>Aguardando documentos de admissão assinados pelo funcionário</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: DESISTENCIA</td>
-                        <td class='tb2'>Profissional desistiu da admissão após aceite</td>
+                        <td class='tb2'>NEGOCIAÇÃO</td>
+                        <td class='tb2'>Quando o candato faz uma contraproposta e estamos negociando com o Gestor</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>E-MAIL RECUSADO</td>
-                        <td class='tb2'>Profissional recusou a proposta</td>
+                        <td class='tb2'>REALIZAR CONTATO</td>
+                        <td class='tb2'>Time Contratações ainda não entrou em contato com o canditado para verificar se o profissional irá aceitar a proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>CONTATO REALIZADO</td>
+                        <td class='tb2'>Time Contratações realizou contato com o canditado para verificar se o profissional irá aceitar a proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>RETORNO PENDENTE</td>
+                        <td class='tb2'>Aguardando retorno do profissional do aceite da proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>RECUSADO</td>
+                        <td class='tb2'>Profissional recusou a proposta contratação</td>
                     </tr>
                 </table>
                 <table class='legendas-sedes'>
