@@ -773,7 +773,7 @@ if (isset($_POST['botaoVolta'])) {
                             </select></td>
                             <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\)[\s][0-9]{1}[0-9]{4}-[0-9]{4}" name="fone_contato" id="telefone" maxlength="15" required></td>
                             <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
-                            <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao"></td>
+                            <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao"></td> 
                             <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" required></td>
                             <td id='add-gratificacao'><input class='intable' type="number" step=".01" name="gratificacao" required></td>
                             <td></td>
@@ -783,7 +783,6 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-email'><input class='intable' type="email" name="email" required></td>
                             <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
-                            <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
                             <td><button title= "Salvar" type="submit" value="salva" class="btn btn-default" action="#">Salvar</button></td>
                         </form>
