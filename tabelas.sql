@@ -28,29 +28,29 @@ INSERT INTO `tipo`(`TIPO_ID`, `NOME_TIPO`) VALUES ('1', 'CLT'), ('2', 'CC'), ('3
 
 
 CREATE TABLE If not EXISTS`admissao_dominio` (
-`USUARIO_ID` int(11) NOT NULL AUTO_INCREMENT,
-`ID_CAPTACAO` int DEFAULT NULL,
-`STATUS` varchar(45) NOT NULL,
-`ID_SEDE` int DEFAULT NULL,
-`ID_TIPO` int DEFAULT NULL,
-`SEXO` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-`CARGA_HORARIA` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-`HORARIO` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-`NOME` varchar(40) DEFAULT NULL,
-`FONE_CONTATO` varchar(45) DEFAULT NULL,
- `CARGO` varchar(45) DEFAULT NULL,
-`CONTROLE_DATA_ADMISSAO` text DEFAULT NULL,
-`REMUNERACAO_BASE` decimal(7,2) DEFAULT NULL,
- `GRATIFICACAO` decimal(7,2) DEFAULT NULL,
-`SOLICITANTE` varchar(45) DEFAULT NULL,
-`PROJETO` varchar(100) DEFAULT NULL,
-`CLIENTE` varchar(45) DEFAULT NULL,
-`EMAIL` varchar(45) DEFAULT NULL,
-`DATA_ADMISSAO` date DEFAULT NULL,
-`POSICAO_DATA` date  DEFAULT NULL,
-`POSICAO_COMENTARIO` VARCHAR(45)  DEFAULT NULL,
-`ADMINISTRATIVO` varchar(100) DEFAULT NULL,
- PRIMARY KEY (`USUARIO_ID`),
+  `USUARIO_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_CAPTACAO` int DEFAULT NULL,
+  `STATUS` varchar(45) NOT NULL,
+  `ID_SEDE` int DEFAULT NULL,
+  `ID_TIPO` int DEFAULT NULL,
+  `SEXO` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `CARGA_HORARIA` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `HORARIO` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `NOME` varchar(40) DEFAULT NULL,
+  `FONE_CONTATO` varchar(45) DEFAULT NULL,
+  `CARGO` varchar(45) DEFAULT NULL,
+  `CONTROLE_DATA_ADMISSAO` text DEFAULT NULL,
+  `REMUNERACAO_BASE` decimal(7,2) DEFAULT NULL,
+  `GRATIFICACAO` decimal(7,2) DEFAULT NULL,
+  `SOLICITANTE` varchar(45) DEFAULT NULL,
+  `PROJETO` varchar(100) DEFAULT NULL,
+  `CLIENTE` varchar(45) DEFAULT NULL,
+  `EMAIL` varchar(45) DEFAULT NULL,
+  `DATA_ADMISSAO` date DEFAULT NULL,
+  `POSICAO_COMENTARIO` VARCHAR(45)  DEFAULT NULL,
+  `ADMINISTRATIVO` varchar(100) DEFAULT NULL,
+  `COMENTARIOS` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`USUARIO_ID`),
   CONSTRAINT `fk_ID_CAPTACAO_ADMISSAO_DOMINIO_CAP`
   FOREIGN KEY (`ID_CAPTACAO`)
   REFERENCES `parametros_captacao` (`CAPTACAO_ID`),
@@ -59,16 +59,6 @@ CREATE TABLE If not EXISTS`admissao_dominio` (
   FOREIGN KEY (`ID_TIPO`)
   REFERENCES `tipo` (`TIPO_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `admissao_dominio` (`USUARIO_ID`, `ID_CAPTACAO`, `STATUS`, `ID_SEDE`, `ID_TIPO`, `SEXO`, `CARGA_HORARIA`, `HORARIO`, `NOME`, `FONE_CONTATO`, `CARGO`, `CONTROLE_DATA_ADMISSAO`, `REMUNERACAO_BASE`, `GRATIFICACAO`, `SOLICITANTE`, `PROJETO`, `CLIENTE`, `EMAIL`, `DATA_ADMISSAO`, `POSICAO_COMENTARIO`, `ADMINISTRATIVO`, `COMENTARIOS`) VALUES
-  (1, 4, 'EM VALIDAÃ‡ÃƒO', 2, 2, '', '', '09:00 - 12:00', 'carlos', '(54) 99123-7768', 'estagio', '2019-09-14', '800.00', '0.01', 'eu', 'eu', 'eu', 'carlos.a.zambiasi@gmail.com', '2019-09-11', 'ASDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF', 'a', NULL),
-  (4, 1, 'FINALIZADO', 1, 1, 'Masculino', '80', '09:00 - 12:00', 'marcelo', '(54) 12312-3123', 'estagio', '', '800.00', '1.00', 'rh', 'rh', 'rh', 'rhrh@rh.com.br', '2018-12-31', 'rh', 'rh', NULL),
-  (5, 1, 'FINALIZADO', 1, 1, '', '120', '09:00 - 12:00', 'marcelo', '(54) 12312-3123', 'estagio', '', '800.00', '1.00', 'rh', 'rh', 'rh', 'rhrh@rh.com.br', '2019-09-01', 'rh', 'ate', NULL),
-  (6, 1, 'EM VALIDAÃ‡ÃƒO', 1, 1, 'Masculino', '80', '09:00 - 12:00', 'carlos2', '(54) 99123-7768', 'estagio', '2019-09-02', '850.00', '1.00', 'eu', 'eu', 'eu', 'carlos.a.zambiasi@gmail.com', '2019-09-01', 'eu', 'TESTE', NULL),
-  (7, 1, 'EM VALIDAÃ‡ÃƒO', 1, 1, 'Masculino', '80', '09:00 - 12:00', 'carlos2', '(54) 99123-7768', 'estagio', '', '8200.00', '1.00', 'eu', 'eu', 'eu', 'carlos.a.zambiasi@gmail.com', '2019-09-02', 'eu', 'rh', NULL),
-  (8, 3, 'EM VALIDAÃ‡ÃƒO', 4, 3, 'Feminino', '', '09:00 - 12:00', 'marcelo', '(54) 12312-3123', 'estagio', '2019-09-19', '0.01', '0.01', 'rh', 'rh', 'rh', 'rhrh@rh.com.br', '2019-09-19', '777', '777', NULL),
-  (9, 1, 'EM VALIDAÃ‡ÃƒO', 1, 1, 'NÃ£o definido', '80', '09:00 - 12:00', 'marcelo', '(54) 99123-7768', 'estagio', '2019-09-10', '100.00', '0.01', 'TY', 'TY', 'TY', 'rhrh@rh.com.br', '2019-09-03', 'TY', 'TY', NULL);
-
 
 CREATE TABLE if not exists `propostas_contratacoes` (
   `PROPOSTA_ID` int(10) not null auto_increment,
@@ -190,6 +180,7 @@ CREATE TABLE IF NOT EXISTS `bancorh`.`suporte_interno` (
   `ID_USUARIO` INT NOT NULL,
   `EMAIL_SUP` VARCHAR(45)  DEFAULT NULL,
   `USUARIO` VARCHAR(45)  DEFAULT NULL,
+  `USUARIO_ATV` INT(45)  DEFAULT NULL,
   `SENHA` VARCHAR(45)  DEFAULT NULL,
   `EQUIPAMENTO` VARCHAR(45)  DEFAULT NULL,
   `TRANSLADO` VARCHAR(45)  DEFAULT NULL,
@@ -215,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `bancorh`.`interno` (
   `EMAIL_GESTOR_APOIO_SEDE` VARCHAR(45)  DEFAULT NULL,
   `EMAIL_INICIO_ATIVIDADES` date  DEFAULT NULL,
   `EMAIL_BOAS_VINDAS` date  DEFAULT NULL,
-  `DATA` date default null,
+  `ACESSOS` date default null,
   PRIMARY KEY (`ID_INTERNO`),
   INDEX `fk_USUARIO_ID` (`ID_USUARIO` ASC),
   CONSTRAINT `fk_USUARIO_ID`
@@ -275,7 +266,6 @@ CREATE TABLE IF NOT EXISTS `bancorh`.`boas_vindas` (
   `BOAS_VINDAS_INGR_AGENDADA` DATE  DEFAULT NULL,
   `BOAS_VINDAS_INGR_REALIZADA` DATE  DEFAULT NULL,
   `BOAS_VINDAS_SALA` VARCHAR(45)  DEFAULT NULL,
-  `BOAS_VINDA_ACOMPANHAMENTO_MENSAL` DATE  DEFAULT NULL,
   `LAYOUT_BOAS_VINDAS_MENSAL` DATE  DEFAULT NULL,
   PRIMARY KEY (`ID_BOAS_VINDAS`),
   INDEX `fk_USUARIO_ID` (`ID_USUARIO` ASC),
