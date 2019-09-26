@@ -72,7 +72,6 @@
                     <th width='110px'>Data Admissão</th>
                     <th width='200px'>Posição(Comentários)</th>
                     <th width='200px'>Administrativo + Flyback - Hotel</th>
-                    <th width='200px'>Comentários</th>
                     <th width='150px'></th>
                 </tr>
             </thead>
@@ -129,7 +128,6 @@
                             <td id='add-admissao'><input class='intable' type="date" name="DATA_ADMISSAO" value = "<?=$funcionarios['DATA_ADMISSAO']; ?>"></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="POSICAO_COMENTARIO" value = "<?=$funcionarios['POSICAO_COMENTARIO']; ?>"></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="ADMINISTRATIVO" value = "<?=$funcionarios['ADMINISTRATIVO']; ?>"></td>
-                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value = "<?=$funcionarios['COMENTARIO']; ?>"></td>
                     <td><button class="btn btn-default" type="submit">Alterar</button></td>
                 </form>
             
