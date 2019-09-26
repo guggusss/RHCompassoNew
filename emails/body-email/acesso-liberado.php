@@ -7,8 +7,7 @@
   $funcionario = buscaFuncionarios($conn, $id);
   $dados = buscainterno($conn, $id);
   $email = buscasuporte($conn, $id);
-  $dataAdmissao = $funcionario['DATA_ADMISSAO'];
-  //$dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
+  $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
 ?>
 <!DOCTYPE html>
 
