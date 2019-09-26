@@ -14,26 +14,6 @@ $listar = listar($conn);
 $id = $_GET['id'];
 $_SESSION['id'] = $id;
 
-/*
- $existe = ExisteUsuario($usuario);
-
-            if(!$existe){
-                $cmd = "INSERT INTO `users`(`usuario`) VALUES('$usuario')";
-                $result = mysql_query($cmd);
-                if(!$result){
-                    echo "<script>alert('Já exite um usuário registrado com os mesmo dados! Faça login...');</script>";
-                }
-
-                else{
-                    echo "<script>alert('Usuario registrado! Faça login agora!');</script>";
-                }
-            }
-
-            else if($existe){
-                echo "<script>alert('Já exite um usuário registrado com os mesmo dados! Faça login...');</script>";
-            } 
-            */
-
 $suporte = buscasuporte($conn, $id);
 $testeGrupoEmail = $suporte['EQUIPE'];
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -198,7 +178,7 @@ $emailsoli = buscavias($conn, $id);
                         <th>Equipamento</th>
                         <th>Necessidade de Translado</th>
                         <th>Grupos de E-mail</th>
-                        <th>Usuário Ativo</th>
+                        <th>Usuários ativos</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -213,7 +193,6 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['EQUIPE']; ?></td>
-                            <td><?php ?></td>
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
@@ -238,65 +217,60 @@ $emailsoli = buscavias($conn, $id);
 			<input type="button" name="botao-ok" value="Gerar uma senha" onclick = "funcao()" id="senhaUsuario">
         </section>
                  
-        <section class="container estruct">
-                <h2 class="titulo" align='center'>Legendas</h2>
+            <section class="legendas estruct">
+                <h2>Legendas</h2>
                 <table id='table-legendas'>
                     <tr class='tb2'>
-                        <th scope="col" class='tb2'>STATUS</th>
-                        <th scope="col" class='tb2'>TIPO</th>
+                        <th class='tb2'>STATUS</th>
+                        <th class='tb2'>TIPO</th>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
-                        <td class='tb2'>Gestor solicitou a proposta de contratação</td>
-                        <td align='center'><input type='button' value='Aprovação' onclick =  ??? ></td>
+                        <td class='tb2'>AGUARDAR ACEITE</td>
+                        <td class='tb2'>Aguardando o Aceite após o envio da proposta</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
-                        <td class='tb2'>Gestor submeteu a proposta de contratação para aprovação da diretoria</td>
+                        <td class='tb2'>FINALIZADO</td>
+                        <td class='tb2'>Admissao concluída</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>APROVADO DIRETORIA</td>
-                        <td class='tb2'>Diretoria aprovou recrutamento irá seguir</td>
+                        <td class='tb2'>DESISTENCIA</td>
+                        <td class='tb2'>Aceitou a proposta, mas desistiu antes da admissão</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>EM VALIDAÇÃO</td>
-                        <td class='tb2'>Proposta em elaboração pelo time de recrutamento</td>
+                        <td class='tb2'>EM ANDAMENTO</td>
+                        <td class='tb2'>Em andamento admissão</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>NEGOCIAÇÃO</td>
-                        <td class='tb2'>Profissional solicitou contra proposta</td>
-                    </tr>
-                    <tr class='tb2'>
-                        <td class='tb2'>PROPOSTA ENVIADA</td>
-                        <td class='tb2'>Recrutamento enviou a proposta e está aguardando retorno</td>
-                    </tr>
-                    <tr>
-                        <td class='tb2'>E-MAIL: PROPOSTA ACEITA</td>
-                        <td class='tb2'>Profissional aceitou a proposta</td>
-                    </tr>
-                    <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: EM ANDAMENTO</td>
-                        <td class='tb2'>DP aprovou a proposta e seguirá a admissão</td>
-                    </tr>
-                    <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: PROPOSTA INVÁLIDA</td>
-                        <td class='tb2'>DP reprovou recrutamento revisar a proposta</td>
-                    </tr>
-                    <tr class='tb2'>
                         <td class='tb2'>EM CONTRATO</td>
-                        <td class='tb2'>Admissão concluída - envio dos alerta de vencimento de contrato</td>
+                        <td class='tb2'>Em contrato, admissão concluída, pendente os envios de contrato</td>
                     </tr>
                     <tr class='tb2'>
+                        <td class='tb2'>EM VALIDAÇÃO</td>
+                        <td class='tb2'>Dados da proposta estão em validação antes do envio</td>
+                    </tr>
+                    <tr>
                         <td class='tb2'>RETORNO DOCS</td>
-                        <td class='tb2'>Admissão concluída - aguardando documentos fisícos admissão assinados</td>
+                        <td class='tb2'>Aguardando documentos de admissão assinados pelo funcionário</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: DESISTENCIA</td>
-                        <td class='tb2'>Profissional desistiu da admissão após aceite</td>
+                        <td class='tb2'>NEGOCIAÇÃO</td>
+                        <td class='tb2'>Quando o candato faz uma contraproposta e estamos negociando com o Gestor</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>E-MAIL RECUSADO</td>
-                        <td class='tb2'>Profissional recusou a proposta</td>
+                        <td class='tb2'>REALIZAR CONTATO</td>
+                        <td class='tb2'>Time Contratações ainda não entrou em contato com o canditado para verificar se o profissional irá aceitar a proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>CONTATO REALIZADO</td>
+                        <td class='tb2'>Time Contratações realizou contato com o canditado para verificar se o profissional irá aceitar a proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>RETORNO PENDENTE</td>
+                        <td class='tb2'>Aguardando retorno do profissional do aceite da proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>RECUSADO</td>
+                        <td class='tb2'>Profissional recusou a proposta contratação</td>
                     </tr>
                 </table>
                 </table>
@@ -357,22 +331,6 @@ $emailsoli = buscavias($conn, $id);
             }
             
         }
-            //função para ver se tem usuarios iguais
-        function ExisteUsuario($u){
-
-            $cmd = "SELECT * FROM `suporte_interno` WHERE `USUARIO`='$u'";
-            $result = mysql_query($cmd);
-            $rows = mysql_num_rows($result);
-
-        if(1 == $rows){
-            return true;
-        }
-
-        else{
-            return false;
-        }
-        }
-
     </script>
 </body>
 

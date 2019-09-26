@@ -28,7 +28,6 @@ $result = mysqli_query($connect, $query);
             <th width= "150px">Necessidade de translado</th>
             <th width= "150px">Grupos de Email</th>
             <th width= "150px">Projeto</th>
-            <th width= "150px">Usuário Ativo</th>
         </tr>
   ';
   while($row = mysqli_fetch_array($result))
