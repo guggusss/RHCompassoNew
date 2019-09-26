@@ -175,6 +175,7 @@ if(isset($_POST["export"]))
                             <th>Usuário</th>
                             <th>Senha de acesso</th>
                             <th>Equipamento</th>
+                            <th>Usuário Ativo</th>
                             <th>Necessidade de translado</th>
                             <th>Cadastro Usuário</th>
                             <th>Senha</th>
