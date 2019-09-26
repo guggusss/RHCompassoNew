@@ -162,8 +162,6 @@ $emailsoli = buscavias($conn, $id);
                         <th>Envio para funcionário</th>
                         <th>Recebido por e-mail ASO assinado</th>
                         <th>Anexar ASO assinado na Domínio</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

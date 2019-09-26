@@ -33,6 +33,7 @@ if(isset($_POST["export"]))
                         <th width="110px">Data Admissão</th>
                         <th width="200px">Posição(Comentários)</th>
                         <th width="200px">Administrativo + Flyback - Hotel</th>
+                        <th width="200px">Comentários</th>
                     </tr>
   ';
   while($row = mysqli_fetch_array($result))

@@ -166,8 +166,6 @@ $translado = buscasuporte($conn, $id);
                         <th>Documentos Recebidos Plataforma<br/> Domínio + Validação  CBO</th>
                         <th>Termo PSI</th>
                         <th>Incluir Admissão na Provisória</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

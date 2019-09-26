@@ -165,13 +165,11 @@ $translado = buscasuporte($conn, $id);
                         <th>Envio</th>
                         <th>Recebido</th>
                         <th>Anexar comprovante<br/> no Domínio</th>
-                        <th>Planilha de Contas</th>
+                        <th>Cadstro Intranet</th>
                         <th>Formulário + Comprovante Bancário</th>
                         <th>Agência (Bancária)</th>
                         <th>Número da Conta</th>
                         <th>Tipo de Conta</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
