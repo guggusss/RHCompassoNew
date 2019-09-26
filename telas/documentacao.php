@@ -166,6 +166,8 @@ $translado = buscasuporte($conn, $id);
                         <th>Documentos físicos</th>
                         <th>CTPS</th>
                         <th>Rastreamento</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     <tr>
                         <th></th>
@@ -174,6 +176,8 @@ $translado = buscasuporte($conn, $id);
                         <th>Cópia RG/CPF/PIS/Titulo Eleitor/<br/>Declaração Oracle/Foto 3x4/<br/>Comprovante endereço</th>
                         <th>CTPS Recebida</th>
                         <th>Código de rastreio</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
