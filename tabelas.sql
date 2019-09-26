@@ -60,6 +60,15 @@ CREATE TABLE If not EXISTS`admissao_dominio` (
   REFERENCES `tipo` (`TIPO_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `admissao_dominio` (`USUARIO_ID`, `ID_CAPTACAO`, `STATUS`, `ID_SEDE`, `ID_TIPO`, `SEXO`, `CARGA_HORARIA`, `HORARIO`, `NOME`, `FONE_CONTATO`, `CARGO`, `CONTROLE_DATA_ADMISSAO`, `REMUNERACAO_BASE`, `GRATIFICACAO`, `SOLICITANTE`, `PROJETO`, `CLIENTE`, `EMAIL`, `DATA_ADMISSAO`, `POSICAO_COMENTARIO`, `ADMINISTRATIVO`, `COMENTARIOS`) VALUES
+  (1, 4, 'EM VALIDAÃ‡ÃƒO', 2, 2, '', '', '09:00 - 12:00', 'carlos', '(54) 99123-7768', 'estagio', '2019-09-14', '800.00', '0.01', 'eu', 'eu', 'eu', 'carlos.a.zambiasi@gmail.com', '2019-09-11', 'ASDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF', 'a', NULL),
+  (4, 1, 'FINALIZADO', 1, 1, 'Masculino', '80', '09:00 - 12:00', 'marcelo', '(54) 12312-3123', 'estagio', '', '800.00', '1.00', 'rh', 'rh', 'rh', 'rhrh@rh.com.br', '2018-12-31', 'rh', 'rh', NULL),
+  (5, 1, 'FINALIZADO', 1, 1, '', '120', '09:00 - 12:00', 'marcelo', '(54) 12312-3123', 'estagio', '', '800.00', '1.00', 'rh', 'rh', 'rh', 'rhrh@rh.com.br', '2019-09-01', 'rh', 'ate', NULL),
+  (6, 1, 'EM VALIDAÃ‡ÃƒO', 1, 1, 'Masculino', '80', '09:00 - 12:00', 'carlos2', '(54) 99123-7768', 'estagio', '2019-09-02', '850.00', '1.00', 'eu', 'eu', 'eu', 'carlos.a.zambiasi@gmail.com', '2019-09-01', 'eu', 'TESTE', NULL),
+  (7, 1, 'EM VALIDAÃ‡ÃƒO', 1, 1, 'Masculino', '80', '09:00 - 12:00', 'carlos2', '(54) 99123-7768', 'estagio', '', '8200.00', '1.00', 'eu', 'eu', 'eu', 'carlos.a.zambiasi@gmail.com', '2019-09-02', 'eu', 'rh', NULL),
+  (8, 3, 'EM VALIDAÃ‡ÃƒO', 4, 3, 'Feminino', '', '09:00 - 12:00', 'marcelo', '(54) 12312-3123', 'estagio', '2019-09-19', '0.01', '0.01', 'rh', 'rh', 'rh', 'rhrh@rh.com.br', '2019-09-19', '777', '777', NULL),
+  (9, 1, 'EM VALIDAÃ‡ÃƒO', 1, 1, 'NÃ£o definido', '80', '09:00 - 12:00', 'marcelo', '(54) 99123-7768', 'estagio', '2019-09-10', '100.00', '0.01', 'TY', 'TY', 'TY', 'rhrh@rh.com.br', '2019-09-03', 'TY', 'TY', NULL);
+
 
 CREATE TABLE if not exists `propostas_contratacoes` (
   `PROPOSTA_ID` int(10) not null auto_increment,
@@ -185,7 +194,6 @@ CREATE TABLE IF NOT EXISTS `bancorh`.`suporte_interno` (
   `EQUIPAMENTO` VARCHAR(45)  DEFAULT NULL,
   `TRANSLADO` VARCHAR(45)  DEFAULT NULL,
   `EQUIPE` VARCHAR(100) DEFAULT NULL,
-  `USUARIO_ATIVO` VARCHAR(45) DEFAULT, NULL,
   PRIMARY KEY (`ID_SUPORTE_INTERNO`),
   INDEX `fk_ID_USUARIO` (`ID_USUARIO` ASC),
   CONSTRAINT `fk_ID_USUARIO`
