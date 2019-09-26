@@ -3,20 +3,15 @@ require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
-
 $listar = listar($conn);
 //if ($_GET['botaoLimpar']=='Limpar') {
 if (isset($_POST['botaoVolta'])) {
   header('Location: menuprincipal.php');
 }
-
-
 //if ($_GET['botao']=='Filtrar') {
     if (isset($_POST['botaoVolta'])) {
         header('Location: menuprincipal.php');
       }
-
-
       //if ($_GET['botao']=='Filtrar') {
     if (isset($_POST['botao'])) {
             
@@ -278,8 +273,6 @@ if (isset($_POST['botaoVolta'])) {
             $assinados = $_POST['assinados'];
             $where[] = " `DOCUMENTOS_RECEBIDOS_ASSINADOS` = '{$assinados}'"; 
         }
-
-
         $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA
         FROM admissao_dominio as a
         LEFT JOIN parametros_captacao as p
@@ -302,14 +295,11 @@ if (isset($_POST['botaoVolta'])) {
         on i.ID_USUARIO = a.USUARIO_ID
         LEFT JOIN vias_documentos_funcionarios as via
         ON via.ID_USUARIO = a.USUARIO_ID";
-
-
         if( sizeof( $where ) )
             $sql .= ' WHERE '.implode( ' AND ',$where );
             $resultado = mysqli_query($conn, $sql);
-
     }  else {
-        $resultado = mysqli_query($conn, "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA
+        $resultado = mysqli_query($conn, "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO
                                         FROM admissao_dominio as a
                                         LEFT JOIN parametros_captacao as p
                                         on a.ID_CAPTACAO = p.CAPTACAO_ID
@@ -331,9 +321,7 @@ if (isset($_POST['botaoVolta'])) {
                                         ON via.ID_USUARIO = a.USUARIO_ID
                                         where  STATUS <> 'FINALIZADO' && STATUS <> 'RECUSADO' && STATUS <> 'DESISTENCIA'
                                         order by YEAR(DATA_ADMISSAO) ASC, MONTH(DATA_ADMISSAO) ASC, DAY(DATA_ADMISSAO) ASC" );
-
     }
-
 //$resultado = mysqli_query($conn, "SELECT * FROM teste");
 // $usuarios = mysql_fetch_assoc($resultado);
 ?>
@@ -373,18 +361,21 @@ if (isset($_POST['botaoVolta'])) {
                             <label for="status">Status</label>
                             <select id="status" name="STATUS" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
-                                <option value="AGUARDAR ACEITE">AGUARDAR ACEITE</option>
-                                <option value="FINALIZADO">FINALIZADO</option>
-                                <option value="DESISTENCIA">DESISTENCIA</option>
-                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
-                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
-                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
+                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
                                 <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
+                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
                                 <option value="RETORNO DOCS">RETORNO DOCS</option>
-                                <option value="REALIZAR CONTATO">REALIZAR CONTATO</option>
-                                <option value="CONTATO REALIZADO">CONTATO REALIZADO</option>
-                                <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
-                                <option value="RECUSADO">RECUSADO</option>
+                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
+                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
+                                
+                                
                             </select>
                         </div>
                         <div>
@@ -592,7 +583,7 @@ if (isset($_POST['botaoVolta'])) {
                             <input type="checkbox" name="email_boas_check" value="NULL"/>Vazio
                         </div>
                         <div>
-                            <label for="acessos">DATA</label>
+                            <label for="acessos">Acessos</label>
                             <input type="date" id='acessos' name="acessos" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Acessos"/>
                             <input type="checkbox" name="acessos_check" value="NULL"/>Vazio
@@ -692,7 +683,7 @@ if (isset($_POST['botaoVolta'])) {
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th scope="col" width='150px'>Status</th>
+                        <th scope="col" width='200px'>Status</th>
                         <th scope="col" width='60px'>Sede</th>
                         <th scope="col" width='60px'>Tipo</th>
                         <th scope="col" width='150px'>Captação</th>
@@ -713,7 +704,8 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='110px'>Data Admissão</th>
                         <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
-                        <th scope="col" width='330px'>Comentário</th>
+                        <th scope="col" width='200px'>Comentários</th>
+                        <th scope="col" width='150px'></th>
                         <th scope="col" width='100px'></th>
                     </tr>
                 </thead>
@@ -744,6 +736,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td ><?php echo $rows_dados['DATA_ADMISSAO']; ?></td>
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
+                            <td><?php echo $rows_dados['COMENTARIOS']; ?></td>
                             <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
                             <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default">Editar</span></a></td>
                         </td>
@@ -752,7 +745,22 @@ if (isset($_POST['botaoVolta'])) {
 
                 <tr>
                         <form id='form-add' method="POST" action="../salva.php">
-                            <td>Nova Admissão</td>
+                            <td><select id="STATUS" name="STATUS" class="intable" value="<?=$rows_dados['STATUS']?>" required>
+                                <option value="" selected="selected"></option>
+                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
+                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
+                                <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
+                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="RETORNO DOCS">RETORNO DOCS</option>
+                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
+                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
+                            </select></td>
                             <td><select id="add-sede" name='sede' class="selectadd intable" required>
                                 <option value="" selected="selected"></option>
                                 <?php foreach ($listar as $linha):?>
@@ -784,6 +792,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="Comentario" required></td>
                             <td><button title= "Salvar" type="submit" value="salva" class="btn btn-default" action="#">Salvar</button></td>
                         </form>
                     </tr>
@@ -954,10 +963,8 @@ if (isset($_POST['botaoVolta'])) {
     }
     if(edit.value.length==2){
     edit.value+=":";}
-
     if(edit.value.length==5){
     edit.value+=" - ";}
-
     if(edit.value.length==10){
     edit.value+=":";}
     }
