@@ -803,6 +803,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="Comentario" required></td>
                             <td><button title= "Salvar" type="submit" value="salva" class="btn btn-default" action="#">Salvar</button></td>
                         </form>
                     </tr>
