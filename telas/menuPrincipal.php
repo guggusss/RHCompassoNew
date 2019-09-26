@@ -280,7 +280,7 @@ if (isset($_POST['botaoVolta'])) {
         }
 
 
-        $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA
+        $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO
         FROM admissao_dominio as a
         LEFT JOIN parametros_captacao as p
         on a.ID_CAPTACAO = p.CAPTACAO_ID
@@ -309,7 +309,7 @@ if (isset($_POST['botaoVolta'])) {
             $resultado = mysqli_query($conn, $sql);
 
     }  else {
-        $resultado = mysqli_query($conn, "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA
+        $resultado = mysqli_query($conn, "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO
                                         FROM admissao_dominio as a
                                         LEFT JOIN parametros_captacao as p
                                         on a.ID_CAPTACAO = p.CAPTACAO_ID
@@ -373,18 +373,21 @@ if (isset($_POST['botaoVolta'])) {
                             <label for="status">Status</label>
                             <select id="status" name="STATUS" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
-                                <option value="AGUARDAR ACEITE">AGUARDAR ACEITE</option>
-                                <option value="FINALIZADO">FINALIZADO</option>
-                                <option value="DESISTENCIA">DESISTENCIA</option>
-                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
-                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
-                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
+                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
                                 <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
+                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
                                 <option value="RETORNO DOCS">RETORNO DOCS</option>
-                                <option value="REALIZAR CONTATO">REALIZAR CONTATO</option>
-                                <option value="CONTATO REALIZADO">CONTATO REALIZADO</option>
-                                <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
-                                <option value="RECUSADO">RECUSADO</option>
+                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
+                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
+                                
+                                
                             </select>
                         </div>
                         <div>
@@ -692,7 +695,7 @@ if (isset($_POST['botaoVolta'])) {
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th scope="col" width='150px'>Status</th>
+                        <th scope="col" width='200px'>Status</th>
                         <th scope="col" width='60px'>Sede</th>
                         <th scope="col" width='60px'>Tipo</th>
                         <th scope="col" width='150px'>Captação</th>
@@ -702,18 +705,19 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='200px'>Sexo</th>
                         <th scope="col" width='150px'>Fone</th>
                         <th scope="col" width='200px'>Cargo</th>
-                        <th scope="col" width='110px'>Controle Data Admissão</th>
+                        <th scope="col" width='110px'>Log Registro Dia RH Envia DP</th>
                         <th scope="col" width='120px'>Remuneração Base</th>
                         <th scope="col" width='100px'>Gratificação</th>
                         <th scope="col" width='120px'>Remuneração Total</th>
                         <th scope="col" width='200px'>Solicitante</th>
                         <th scope="col" width='150px'>Cliente</th>
                         <th scope="col" width='150px'>Projeto</th>
-                        <th scope="col" width='330px'>Email</th>
+                        <th scope="col" width='330px'>Email Pessoal</th>
                         <th scope="col" width='110px'>Data Admissão</th>
                         <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
-                        <th scope="col" width='150px'>Comentários</th>
+                        <th scope="col" width='200px'>Comentários</th>
+                        <th scope="col" width='150px'></th>
                         <th scope="col" width='100px'></th>
                     </tr>
                 </thead>
@@ -753,7 +757,22 @@ if (isset($_POST['botaoVolta'])) {
 
                 <tr>
                         <form id='form-add' method="POST" action="../salva.php">
-                            <td>Nova Admissão</td>
+                            <td><select id="STATUS" name="STATUS" class="intable" value="<?=$rows_dados['STATUS']?>" required>
+                                <option value="" selected="selected"></option>
+                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
+                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
+                                <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
+                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="RETORNO DOCS">RETORNO DOCS</option>
+                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
+                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
+                            </select></td>
                             <td><select id="add-sede" name='sede' class="selectadd intable" required>
                                 <option value="" selected="selected"></option>
                                 <?php foreach ($listar as $linha):?>
@@ -774,7 +793,7 @@ if (isset($_POST['botaoVolta'])) {
                             </select></td>
                             <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\)[\s][0-9]{1}[0-9]{4}-[0-9]{4}" name="fone_contato" id="telefone" maxlength="15" required></td>
                             <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
-                            <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao" required></td>
+                            <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao"></td> 
                             <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" required></td>
                             <td id='add-gratificacao'><input class='intable' type="number" step=".01" name="gratificacao" required></td>
                             <td></td>
@@ -785,8 +804,9 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
-                            <td id='add-comentario'><input class='intable' type="text" name="Comentario" required></td>
+                            <td id='add-comentarios'><input class='intable' type="text" name="Comentarios" required></td>
                             <td><button title= "Salvar" type="submit" value="salva" class="btn btn-default" action="#">Salvar</button></td>
+                            <td></td>
                         </form>
                     </tr>
                 </tbody>
@@ -796,60 +816,65 @@ if (isset($_POST['botaoVolta'])) {
             </section>
 
         </section>
-            <section class="legendas estruct">
-                <h2 class="titulo">Legendas</h2>
+            <section class="container estruct">
+                <h2 class="titulo" align='center'>Legendas</h2>
                 <table id='table-legendas'>
                     <tr class='tb2'>
                         <th scope="col" class='tb2'>STATUS</th>
                         <th scope="col" class='tb2'>TIPO</th>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>AGUARDAR ACEITE</td>
-                        <td class='tb2'>Aguardando o Aceite após o envio da proposta</td>
+                        <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
+                        <td class='tb2'>Gestor solicitou a proposta de contratação</td>
+                        <td align='center'><input type='button' value='Aprovação' onclick =  ??? ></td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>FINALIZADO</td>
-                        <td class='tb2'>Admissao concluída</td>
+                        <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
+                        <td class='tb2'>Gestor submeteu a proposta de contratação para aprovação da diretoria</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>DESISTENCIA</td>
-                        <td class='tb2'>Aceitou a proposta, mas desistiu antes da admissão</td>
+                        <td class='tb2'>APROVADO DIRETORIA</td>
+                        <td class='tb2'>Diretoria aprovou recrutamento irá seguir</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>EM ANDAMENTO</td>
-                        <td class='tb2'>Em andamento admissão</td>
-                    </tr>
-                    <tr>
-                        <td class='tb2'>EM CONTRATO</td>
-                        <td class='tb2'>Em contrato, admissão concluída, pendente os envios de contrato</td>
-                    </tr>
-                    <tr class='tb2'>
                         <td class='tb2'>EM VALIDAÇÃO</td>
-                        <td class='tb2'>Dados da proposta estão em validação antes do envio</td>
+                        <td class='tb2'>Proposta em elaboração pelo time de recrutamento</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>RETORNO DOCS</td>
-                        <td class='tb2'>Aguardando documentos de admissão assinados pelo funcionário</td>
-                    </tr>
-                    <tr class='tb2'>
                         <td class='tb2'>NEGOCIAÇÃO</td>
-                        <td class='tb2'>Quando o candato faz uma contraproposta e estamos negociando com o Gestor</td>
+                        <td class='tb2'>Profissional solicitou contra proposta</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>REALIZAR CONTATO</td>
-                        <td class='tb2'>Time Contratações ainda não entrou em contato com o canditado para verificar se o profissional irá aceitar a proposta</td>
+                        <td class='tb2'>PROPOSTA ENVIADA</td>
+                        <td class='tb2'>Recrutamento enviou a proposta e está aguardando retorno</td>
+                    </tr>
+                    <tr>
+                        <td class='tb2'>E-MAIL: PROPOSTA ACEITA</td>
+                        <td class='tb2'>Profissional aceitou a proposta</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>CONTATO REALIZADO</td>
-                        <td class='tb2'>Time Contratações realizou contato com o canditado para verificar se o profissional irá aceitar a proposta</td>
+                        <td class='tb2'>E-MAIL: EM ANDAMENTO</td>
+                        <td class='tb2'>DP aprovou a proposta e seguirá a admissão</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>RETORNO PENDENTE</td>
-                        <td class='tb2'>Aguardando retorno do profissional do aceite da proposta</td>
+                        <td class='tb2'>E-MAIL: PROPOSTA INVÁLIDA</td>
+                        <td class='tb2'>DP reprovou recrutamento revisar a proposta</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>RECUSADO</td>
-                        <td class='tb2'>Profissional recusou a proposta contratação</td>
+                        <td class='tb2'>EM CONTRATO</td>
+                        <td class='tb2'>Admissão concluída - envio dos alerta de vencimento de contrato</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>RETORNO DOCS</td>
+                        <td class='tb2'>Admissão concluída - aguardando documentos fisícos admissão assinados</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E-MAIL: DESISTENCIA</td>
+                        <td class='tb2'>Profissional desistiu da admissão após aceite</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E-MAIL RECUSADO</td>
+                        <td class='tb2'>Profissional recusou a proposta</td>
                     </tr>
                 </table>
                 <table class='legendas-sedes'>

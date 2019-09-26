@@ -69,7 +69,7 @@ $result = mysqli_query($connect, $sql);
                         <th width='200px'>Solicitante</th>
                         <th width= "150px">Cliente</th>
                         <th width='150px'>Projeto</th>
-                        <th width='250px'>Email</th>
+                        <th width='250px'>Email Pessoal</th>
                         <th width='110px'>Data Admissão</th>
                         <th width='200px'>Posição(Comentários)</th>
                         <th width='200px'>Administrativo + Flyback - Hotel</th>
@@ -121,7 +121,7 @@ $sql = "SELECT ID_USUARIO, PROPOSTA_RECEBIDA,
         DE_ACORDO_DIRECAO,ENQUADRAMENTO,
         ENVIO_PROPOSTA,COMUNICAR_PROPOSTA_ENVIADA,
         ACEITE_RECUSA_CANDIDATO,COMENTARIO,
-        COMUNICAR_STATUS, STATUS, PROJETO, NOME
+        COMUNICAR_STATUS, STATUS, NOME
         from propostas_contratacoes as p
         LEFT JOIN admissao_dominio as a
         on p.ID_USUARIO = a.USUARIO_ID
@@ -152,7 +152,6 @@ $result = mysqli_query($connect, $sql);
                         <th>Aceite/recusa candidato</th>
                         <th>Comentário</th>
                         <th>Comunicar Status da Proposta ao Solicitante</th>
-                        <th width='150px'>Projeto</th>
 
      <?php
      while($row = mysqli_fetch_array($result))
@@ -168,7 +167,6 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["ACEITE_RECUSA_CANDIDATO"].'</td>
          <td>'.$row["COMENTARIO"].'</td>
          <td>'.$row["COMUNICAR_STATUS"].'</td>
-         <td>'.$row["PROJETO"].'</td>
        </tr>
         ';
      }
@@ -552,7 +550,7 @@ $result = mysqli_query($connect, $sql);
                         <th>Envio</th>
                         <th>Recebido</th>
                         <th>Anexar comprovante na Domínio</th>
-                        <th>Planilha de Contas</th>
+                        <th>Cadastro Intranet</th>
                         <th>Formuário + comprovante bancário</th>
                         <th width='150px'>Projeto</th>
 
@@ -814,7 +812,7 @@ $result = mysqli_query($connect, $sql);
 <?PHP
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, BOAS_VINDAS_INGR_AGENDADA, BOAS_VINDAS_INGR_REALIZADA,
-        BOAS_VINDAS_SALA, BOAS_VINDA_ACOMPANHAMENTO_MENSAL, LAYOUT_BOAS_VINDAS_MENSAL,
+        BOAS_VINDAS_SALA, LAYOUT_BOAS_VINDAS_MENSAL,
         STATUS, PROJETO, NOME
         from boas_vindas as p
         LEFT JOIN admissao_dominio as a
@@ -838,10 +836,7 @@ $result = mysqli_query($connect, $sql);
    <h1>Boas Vindas</h1>
     <table class="table table-bordered">
                       <tr>
-                        <th></th>
-                        <th></th>
-                        <th colspan='5'>Boas Vindas Compasso</th>
-                        <th></th>
+                        <th colspan='7'>Boas Vindas Compasso</th>
                       </tr>
                       <tr>
                         <th>STATUS</th>
@@ -849,7 +844,6 @@ $result = mysqli_query($connect, $sql);
                         <th>integração agendada</th>
                         <th>integração realizada</th>
                         <th>sala</th>
-                        <th>acompanhamento mensal</th>
                         <th>Layot Boas vindas Mensal</th>
                         <th width='150px'>Projeto</th>
                       </tr>
@@ -864,7 +858,6 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["BOAS_VINDAS_INGR_AGENDADA"].'</td>
          <td>'.$row["BOAS_VINDAS_INGR_REALIZADA"].'</td>
          <td>'.$row["BOAS_VINDAS_SALA"].'</td>
-         <td>'.$row["BOAS_VINDA_ACOMPANHAMENTO_MENSAL"].'</td>
          <td>'.$row["LAYOUT_BOAS_VINDAS_MENSAL"].'</td>
          <td>'.$row["PROJETO"].'</td>
        </tr>
