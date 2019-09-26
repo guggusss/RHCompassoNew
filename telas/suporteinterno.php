@@ -197,7 +197,7 @@ $emailsoli = buscavias($conn, $id);
                         <th>Senha Acesso</th>
                         <th>Equipamento</th>
                         <th>Necessidade de Translado</th>
-                        <th>Grupos de E-mail</th>
+                        <th width='278px'>Grupos de E-mail</th>
                         <th>Usuário Ativo</th>
                         <th></th>
                         <th></th>
@@ -230,7 +230,8 @@ $emailsoli = buscavias($conn, $id);
                             <td><input type="text" class='intable' name="EQUIPAMENTO"  value="<?=$equipamento['EQUIPAMENTO']?>"></td>
                             <td><input type="text" class='intable' id="campo" name="TRANSLADO"  value="<?=$translado['TRANSLADO']?>"></td>
                             <td><select multiple"" onclick="anexaGrupo()" class="intable" id="books" name="EQUIPE[]" value="<?=$anexar_equipe['EQUIPE']?>"></select></td>
-                            <td></td>
+                            <td><input type="text" class='intable' name ="USUARIO_ATV"  value="<?=$usuario['USUARIO_ATV']?>"></td>
+                            <td><input type="text" class='intable' name ="USUARIO_ATV"  value="<?=$usuario['USUARIO_ATV']?>"></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
                 </tbody>
