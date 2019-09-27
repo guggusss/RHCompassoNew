@@ -223,8 +223,8 @@ if(isset($_POST["export"]))
          <td>'.$row["CLIENTE"].'</td>
          <td>'.$row["EMAIL"].'</td>
          <td>'.$row["DATA_ADMISSAO"].'</td>
-         <td>'.$row["PROPOSTA_RECEBIDA"].'</td>
-         <td>'.$row["DE_ACORDO_DIRECAO"].'</td>
+         <td>'.$row["ENQUADRAMENTO_REMUNERACAO_ENVIO"].'</td>
+         <td>'.$row["ENQUADRAMENTO_REMUNERACAO_RETORNO"].'</td>
          <td>'.$row['ENQUADRAMENTO'].'</td>
          <td>'.$row["ENVIO_PROPOSTA"].'</td>
          <td>'.$row['COMUNICAR_PROPOSTA_ENVIADA'].'</td>
