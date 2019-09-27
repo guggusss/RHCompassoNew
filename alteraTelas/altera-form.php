@@ -53,6 +53,7 @@
             <h2 id='titulo-table'></h2>
             <thead>
                 <tr>
+                    <th width='200px'>Status</th>
                     <th width='60px'>Sede</th>
                     <th width='60px'>Tipo</th>
                     <th width='100px'>Captação</th>
@@ -62,18 +63,20 @@
                     <th width='200px'>Sexo</th>
                     <th width='150px'>Fone</th>
                     <th width='200px'>Cargo</th>
-                    <th width='110px'>Controle Data Admissão</th>
+                    <th width='110px'>Log Registro Dia RH Envia DP</th>
                     <th width='100px'>Remuneração Base</th>
                     <th width='100px'>Gratificação</th>
                     <th width='200px'>Solicitante</th>
                     <th width='150px'>Cliente</th>
                     <th width='150px'>Projeto</th>
-                    <th width='330px'>Email</th>
+                    <th width='330px'>Email Pessoal</th>
                     <th width='110px'>Data Admissão</th>
                     <th width='110px'>Posição(Data)</th>
                     <th width='200px'>Posição(Comentários)</th>
                     <th width='200px'>Administrativo + Flyback - Hotel</th>
-                    <th width='150px'></th>
+                    <th scope="col" width='200px'>Comentários</th>
+                    <th scope="col" width='150px'></th>
+                    
                 </tr>
             </thead>
 
@@ -81,6 +84,23 @@
             
                 <form  id='altera-func' method='POST' action='altera-funcionario.php'>
                     <input type='hidden' name="USUARIO_ID" value='<?php echo $funcionarios['USUARIO_ID']?>' />
+
+                    <td><select name="status" class="intable" value="<?=$rows_dados['STATUS']?>">
+                                <option value="" selected="selected"></option>
+                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
+                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
+                                <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
+                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="RETORNO DOCS">RETORNO DOCS</option>
+                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
+                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
+                            </select></td>
 
                     <td><select name="ID_SEDE" class="selectadd intable" id="recipient-funcao">
                         <option>Escolha...</option>
@@ -119,7 +139,7 @@
                             </select></td>
                             <td id='add-fone'><input class='intable' type="tel" name="FONE_CONTATO" value = "<?=$funcionarios['FONE_CONTATO']; ?>"></td>
                             <td id='add-cargo'><input class='intable' type="text" name="CARGO" value = "<?=$funcionarios['CARGO']; ?>"></td>
-                            <td id='add-contole-data'><input class='intable' type="date" name="CONTROLE_DATA_ADMISSAO" value = "<?=$funcionarios['CONTROLE_DATA_ADMISSAO']; ?>"></td>
+                            <td id='add-log-registro-dia-rh-envia-dp'><input class='intable' type="date" name="LOG_REGISTRO_DIA_RH_ENVIA_DP" value = "<?=$funcionarios['LOG_REGISTRO_DIA_RH_ENVIA_DP']; ?>"></td>
                             <td id='add-remuneracao'><input class='intable' type="text" name="REMUNERACAO_BASE" value = "<?=$REMUNERACAO_BASE?>"></td>
                             <td id='add-gratificacao'><input class='intable' type="text" name="GRATIFICACAO" value = "<?=$GRATIFICACAO?>"></td>
                             <td id='add-solicitante'><input  class='intable' type="text" name="SOLICITANTE" value = "<?=$funcionarios['SOLICITANTE']; ?>"></td>
@@ -130,6 +150,7 @@
                             <td id='add-posicao_data'><input class='intable' type="date" name="POSICAO_DATA" value = "<?=$funcionarios['POSICAO_DATA']; ?>"></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="POSICAO_COMENTARIO" value = "<?=$funcionarios['POSICAO_COMENTARIO']; ?>"></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="ADMINISTRATIVO" value = "<?=$funcionarios['ADMINISTRATIVO']; ?>"></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="Comentario" required></td>
                     <td><button class="btn btn-default" type="submit">Alterar</button></td>
                 </form>
             
@@ -137,52 +158,65 @@
         </table>
     
     </section>
-    <section class="legendas estruct">
-                <h2>Legendas</h2>
+    <section class="container estruct">
+                <h2 class="titulo" align='center'>Legendas</h2>
                 <table id='table-legendas'>
                     <tr class='tb2'>
                         <th class='tb2'>STATUS</th>
                         <th class='tb2'>TIPO</th>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>AGUARDAR ACEITE</td>
-                        <td class='tb2'>Aguardando o Aceite após o envio da proposta</td>
+                        <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
+                        <td class='tb2'>Gestor solicitou a proposta de contratação</td>
+                        <td align='center'><input type='button' value='Aprovação' onclick =  ??? ></td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>FINALIZADO</td>
-                        <td class='tb2'>Admissao concluída</td>
+                        <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
+                        <td class='tb2'>Gestor submeteu a proposta de contratação para aprovação da diretoria</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>DESISTENCIA</td>
-                        <td class='tb2'>Aceitou a proposta, mas desistiu antes da admissão</td>
+                        <td class='tb2'>APROVADO DIRETORIA</td>
+                        <td class='tb2'>Diretoria aprovou recrutamento irá seguir</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>EM ANDAMENTO</td>
-                        <td class='tb2'>Em andamento admissão</td>
-                    </tr>
-                    <tr>
-                        <td class='tb2'>EM CONTRATO</td>
-                        <td class='tb2'>Em contrato, admissão concluída, pendente os envios de contrato</td>
-                    </tr>
-                    <tr class='tb2'>
                         <td class='tb2'>EM VALIDAÇÃO</td>
-                        <td class='tb2'>Dados da proposta estão em validação antes do envio</td>
+                        <td class='tb2'>Proposta em elaboração pelo time de recrutamento</td>
                     </tr>
                     <tr>
+                        <td class='tb2'>NEGOCIAÇÃO</td>
+                        <td class='tb2'>Profissional solicitou contra proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>PROPOSTA ENVIADA</td>
+                        <td class='tb2'>Recrutamento enviou a proposta e está aguardando retorno</td>
+                    </tr>
+                    <tr>
+                        <td class='tb2'>E-MAIL: PROPOSTA ACEITA</td>
+                        <td class='tb2'>Profissional aceitou a proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E-MAIL: EM ANDAMENTO</td>
+                        <td class='tb2'>DP aprovou a proposta e seguirá a admissão</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E-MAIL: PROPOSTA INVÁLIDA</td>
+                        <td class='tb2'>DP reprovou recrutamento revisar a proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>EM CONTRATO</td>
+                        <td class='tb2'>Admissão concluída - envio dos alerta de vencimento de contrato</td>
+                    </tr>
+                    <tr class='tb2'>
                         <td class='tb2'>RETORNO DOCS</td>
-                        <td class='tb2'>Aguardando documentos de admissão assinados pelo funcionário</td>
+                        <td class='tb2'>Admissão concluída - aguardando documentos fisícos admissão assinados</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>CONTATO REALIZADO</td>
-                        <td class='tb2'>Time Contratações realizou contato com o canditado para verificar se o profissional irá aceitar a proposta</td>
+                        <td class='tb2'>E-MAIL: DESISTENCIA</td>
+                        <td class='tb2'>Profissional desistiu da admissão após aceite</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>RETORNO PENDENTE</td>
-                        <td class='tb2'>Aguardando retorno do profissional do aceite da proposta</td>
-                    </tr>
-                    <tr class='tb2'>
-                        <td class='tb2'>RECUSADO</td>
-                        <td class='tb2'>Profissional recusou a proposta contratação</td>
+                        <td class='tb2'>E-MAIL RECUSADO</td>
+                        <td class='tb2'>Profissional recusou a proposta</td>
                     </tr>
                 </table>
                 <table class='legendas-sedes'>

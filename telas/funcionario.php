@@ -19,17 +19,17 @@ if($r==0){ echo 'Refres:0('."'page.php?r=1'".');"'; }
 
 //$count =  mysqli_num_rows($conn,"SELECT COUNT(*) FROM propostas_contratacoes WHERE ID_USUARIO = '$id'");
 $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(PROPOSTA_RECEBIDA,'%d/%m/%Y') as PROPOSTA_RECEBIDA , DATE_FORMAT(DE_ACORDO_DIRECAO,'%d/%m/%Y') as DE_ACORDO_DIRECAO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
-DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS, PROJETO from propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS");
 $count = mysqli_num_rows($resultado);
 
 if($count == 1){
     $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(PROPOSTA_RECEBIDA,'%d/%m/%Y') as PROPOSTA_RECEBIDA , DATE_FORMAT(DE_ACORDO_DIRECAO,'%d/%m/%Y') as DE_ACORDO_DIRECAO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
-    DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS, PROJETO from propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+    DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS");
 }else{
     mysqli_query($conn,"INSERT INTO `propostas_contratacoes` (`PROPOSTA_ID`, `ID_USUARIO`, `PROPOSTA_RECEBIDA`, `DE_ACORDO_DIRECAO`, `ENQUADRAMENTO`, `ENVIO_PROPOSTA`, `COMUNICAR_PROPOSTA_ENVIADA`, `ACEITE_RECUSA_CANDIDATO`, `COMENTARIO`, `COMUNICAR_STATUS`) VALUES (NULL, '$id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)");
 
     $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(PROPOSTA_RECEBIDA,'%d/%m/%Y') as PROPOSTA_RECEBIDA , DATE_FORMAT(DE_ACORDO_DIRECAO,'%d/%m/%Y') as DE_ACORDO_DIRECAO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
-    DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS, PROJETO from propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+    DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS");
 }
 
 $status = buscaFuncionarios($conn, $id);
@@ -82,12 +82,12 @@ $translado = buscasuporte($conn, $id);
             <a class="dropbtn nav">Emails <span class='caret'></span></a>
             <div class="dropdown-content">
                   <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id?>'>5. Documentos Admissão POA</a>
-                  <a href='../emails/body-email/admissãoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>
-                  <a href='../emails/body-email/admissãoPF.php?id=<?php echo $id?>'>5.2 Documentos de Admissão PF</a>
-                  <a href='../emails/body-email/admissãoERE.php?id=<?php echo $id?>'>5.3 Documentos de Admissão ERE</a>
-                  <a href='../emails/body-email/admissãoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>
-                  <a href='../emails/body-email/admissãoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>
-                  <a href='../emails/body-email/admissãoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>
+                  <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>
+                  <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id?>'>5.2 Documentos de Admissão PF</a>
+                  <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id?>'>5.3 Documentos de Admissão ERE</a>
+                  <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>
+                  <a href='../emails/body-email/admissaoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>
+                  <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>
                   <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>
                   <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>
                   <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id?>'>8. Novo Acesso</a>
@@ -175,17 +175,14 @@ $translado = buscasuporte($conn, $id);
                 <thead>
                     <tr>
                         <th>Status</th>
-                        <th>Proposta Recebida</th>
-                        <th>De acordo Direção</th>
+                        <th>Enquadramento remuneração envio</th>
+                        <th>Enquadramento remuneração retorno</th>
                         <th width = '220px'>Enquadramento<br/>(Validação Ex Funcionário)</th>
                         <th>Envio da Proposta</th>
                         <th>Comunicar proposta enviada Solicitante</th>
                         <th>Aceite/recusa candidato</th>
                         <th width = '300px'>Comentário</th>
                         <th>Comunicar Status da Proposta ao Solicitante</th>
-                        <th width='200px'>Projeto</th>
-                        <th width='100px'></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -200,7 +197,6 @@ $translado = buscasuporte($conn, $id);
 							<td id="data6"><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
                             <td><?php echo $rows_dados['COMENTARIO']; ?></td>
 							<td id="data8"><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
-                            <td><?php echo $rows_dados['PROJETO']; ?></td>
                             <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="disabled btn btn-default" href="gestao.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
@@ -230,7 +226,6 @@ $translado = buscasuporte($conn, $id);
                             <td><input type="date" id="campo6" class='intable' name="ACEITA_RECUSA_CANDIDATO" value="<?=$candidato['ACEITE_RECUSA_CANDIDATO']?>"></td>
                             <td><input type="text" id="campo7"class='intable' name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>
                             <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
-                            <td><input type="text" id="campo9" class='intable' name="PROJETO" value="<?=$funcionarios['PROJETO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>
                         </form>
@@ -238,60 +233,65 @@ $translado = buscasuporte($conn, $id);
                 </tbody>
             </table>
         </section>
-            <section class="legendas estruct">
-                <h2>Legendas</h2>
+        <section class="container estruct">
+                <h2 class="titulo" align='center'>Legendas</h2>
                 <table id='table-legendas'>
                     <tr class='tb2'>
-                        <th class='tb2'>STATUS</th>
-                        <th class='tb2'>TIPO</th>
+                        <th scope="col" class='tb2'>STATUS</th>
+                        <th scope="col" class='tb2'>TIPO</th>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>AGUARDAR ACEITE</td>
-                        <td class='tb2'>Aguardando o Aceite após o envio da proposta</td>
+                        <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
+                        <td class='tb2'>Gestor solicitou a proposta de contratação</td>
+                        <td align='center'><input type='button' value='Aprovação' onclick =  ??? ></td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>FINALIZADO</td>
-                        <td class='tb2'>Admissao concluída</td>
+                        <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
+                        <td class='tb2'>Gestor submeteu a proposta de contratação para aprovação da diretoria</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>DESISTENCIA</td>
-                        <td class='tb2'>Aceitou a proposta, mas desistiu antes da admissão</td>
+                        <td class='tb2'>APROVADO DIRETORIA</td>
+                        <td class='tb2'>Diretoria aprovou recrutamento irá seguir</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>EM ANDAMENTO</td>
-                        <td class='tb2'>Em andamento admissão</td>
-                    </tr>
-                    <tr>
-                        <td class='tb2'>EM CONTRATO</td>
-                        <td class='tb2'>Em contrato, admissão concluída, pendente os envios de contrato</td>
-                    </tr>
-                    <tr class='tb2'>
                         <td class='tb2'>EM VALIDAÇÃO</td>
-                        <td class='tb2'>Dados da proposta estão em validação antes do envio</td>
+                        <td class='tb2'>Proposta em elaboração pelo time de recrutamento</td>
                     </tr>
                     <tr>
-                        <td class='tb2'>RETORNO DOCS</td>
-                        <td class='tb2'>Aguardando documentos de admissão assinados pelo funcionário</td>
-                    </tr>
-                    <tr class='tb2'>
                         <td class='tb2'>NEGOCIAÇÃO</td>
-                        <td class='tb2'>Quando o candato faz uma contraproposta e estamos negociando com o Gestor</td>
+                        <td class='tb2'>Profissional solicitou contra proposta</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>REALIZAR CONTATO</td>
-                        <td class='tb2'>Time Contratações ainda não entrou em contato com o canditado para verificar se o profissional irá aceitar a proposta</td>
+                        <td class='tb2'>PROPOSTA ENVIADA</td>
+                        <td class='tb2'>Recrutamento enviou a proposta e está aguardando retorno</td>
+                    </tr>
+                    <tr>
+                        <td class='tb2'>E-MAIL: PROPOSTA ACEITA</td>
+                        <td class='tb2'>Profissional aceitou a proposta</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>CONTATO REALIZADO</td>
-                        <td class='tb2'>Time Contratações realizou contato com o canditado para verificar se o profissional irá aceitar a proposta</td>
+                        <td class='tb2'>E-MAIL: EM ANDAMENTO</td>
+                        <td class='tb2'>DP aprovou a proposta e seguirá a admissão</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>RETORNO PENDENTE</td>
-                        <td class='tb2'>Aguardando retorno do profissional do aceite da proposta</td>
+                        <td class='tb2'>E-MAIL: PROPOSTA INVÁLIDA</td>
+                        <td class='tb2'>DP reprovou recrutamento revisar a proposta</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>RECUSADO</td>
-                        <td class='tb2'>Profissional recusou a proposta contratação</td>
+                        <td class='tb2'>EM CONTRATO</td>
+                        <td class='tb2'>Admissão concluída - envio dos alerta de vencimento de contrato</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>RETORNO DOCS</td>
+                        <td class='tb2'>Admissão concluída - aguardando documentos fisícos admissão assinados</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E-MAIL: DESISTENCIA</td>
+                        <td class='tb2'>Profissional desistiu da admissão após aceite</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E-MAIL RECUSADO</td>
+                        <td class='tb2'>Profissional recusou a proposta</td>
                     </tr>
                 </table>
                 </table>

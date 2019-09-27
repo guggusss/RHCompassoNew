@@ -22,14 +22,14 @@ if(isset($_POST["export"]))
                         <th width="200px">Nome</th>
                         <th width="85px">Fone</th>
                         <th width="100px">Cargo</th>
-                        <th width="110px">Controle Data Admissão</th>
+                        <th width="110px">Log Registro Dia RH Envia DP</th>
                         <th width="100px">Remuneração Base</th>
                         <th width="100px">Gratificação</th>
                         <th width="100px">Remuneração Total</th>
                         <th width="200px">Solicitante</th>
                         <th width= "150px">Cliente</th>
                         <th width="150px">Projeto</th>
-                        <th width="250px">Email</th>
+                        <th width="250px">Email Pessoal</th>
                         <th width="110px">Data Admissão</th>
                         <th width="200px">Posição(Comentários)</th>
                         <th width="200px">Administrativo + Flyback - Hotel</th>
@@ -54,7 +54,7 @@ if(isset($_POST["export"]))
             <td>'.$row["NOME"].'</td>
             <td>'.$row["FONE_CONTATO"].'</td>
             <td>'.$row["CARGO"].'</td>
-            <td>'.$row["CONTROLE_DATA_ADMISSAO"].'</td>
+            <td>'.$row["LOG_REGISTRO_DIA_RH_ENVIA_DP"].'</td>
             <td>'.number_format($row["REMUNERACAO_BASE"], 2, ',','.').'</td>
             <td>'.number_format($row["GRATIFICACAO"], 2, ',','.').'</td>
             <td>'.number_format(($row["GRATIFICACAO"]+$row["REMUNERACAO_BASE"]), 2, ',', '.').'</td>
