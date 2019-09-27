@@ -14,26 +14,6 @@ $listar = listar($conn);
 $id = $_GET['id'];
 $_SESSION['id'] = $id;
 
-/*
- $existe = ExisteUsuario($usuario);
-
-            if(!$existe){
-                $cmd = "INSERT INTO `users`(`usuario`) VALUES('$usuario')";
-                $result = mysql_query($cmd);
-                if(!$result){
-                    echo "<script>alert('Já exite um usuário registrado com os mesmo dados! Faça login...');</script>";
-                }
-
-                else{
-                    echo "<script>alert('Usuario registrado! Faça login agora!');</script>";
-                }
-            }
-
-            else if($existe){
-                echo "<script>alert('Já exite um usuário registrado com os mesmo dados! Faça login...');</script>";
-            } 
-            */
-
 $suporte = buscasuporte($conn, $id);
 $testeGrupoEmail = $suporte['EQUIPE'];
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -214,6 +194,7 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['EQUIPE']; ?></td>
                             <td><?php ?></td>
+                            
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
@@ -230,8 +211,10 @@ $emailsoli = buscavias($conn, $id);
                             <td><input type="text" class='intable' name="EQUIPAMENTO"  value="<?=$equipamento['EQUIPAMENTO']?>"></td>
                             <td><input type="text" class='intable' id="campo" name="TRANSLADO"  value="<?=$translado['TRANSLADO']?>"></td>
                             <td><select multiple"" onclick="anexaGrupo()" class="intable" id="books" name="EQUIPE[]" value="<?=$anexar_equipe['EQUIPE']?>"></select></td>
+
                             <td><input type="text" class='intable' name ="USUARIO_ATV"  value="<?=$usuario['USUARIO_ATV']?>"></td>
                             <td><input type="text" class='intable' name ="USUARIO_ATV"  value="<?=$usuario['USUARIO_ATV']?>"></td>
+
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
                 </tbody>
