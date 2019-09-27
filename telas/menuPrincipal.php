@@ -583,7 +583,7 @@ if (isset($_POST['botaoVolta'])) {
                             <input type="checkbox" name="email_boas_check" value="NULL"/>Vazio
                         </div>
                         <div>
-                            <label for="acessos">Acessos</label>
+                            <label for="acessos">DATA</label>
                             <input type="date" id='acessos' name="acessos" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Acessos"/>
                             <input type="checkbox" name="acessos_check" value="NULL"/>Vazio
