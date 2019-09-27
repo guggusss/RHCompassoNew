@@ -550,7 +550,7 @@ $result = mysqli_query($connect, $sql);
                         <th>Envio</th>
                         <th>Recebido</th>
                         <th>Anexar comprovante na Domínio</th>
-                        <th>Planilha de Contas</th>
+                        <th>Cadstro Intranet</th>
                         <th>Formuário + comprovante bancário</th>
                         <th width='150px'>Projeto</th>
 
