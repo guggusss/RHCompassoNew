@@ -3,30 +3,29 @@ require_once("db/conexao.php");
 include("update.php");
 include("emails/defineNomeDoGrupoDeEmail.php");
 
-
 		
-		$id_captacao = $_POST["captacao"];
-		$id_status = $_POST["STATUS_"];
 		$id_sede = $_POST["sede"];
 		$id_tipo = $_POST["tipo"];
-		$sexo = $_POST["sexo"];		
+		$id_captacao = $_POST["captacao"];
 		$carga_horaria = $_POST["carga_horaria"];
 		$horario = $_POST["horario"];
-		$nome = $_POST["nome"];		
-		$fone_contato = $_POST["fone_contato"];		
-		$cargo = $_POST["cargo"];		
+		$nome = $_POST["nome"];
+		$sexo = $_POST["sexo"];
+		$fone_contato = $_POST["fone_contato"];
+		$data_admissao = $_POST["data_admissao"];
+		$cargo = $_POST["cargo"];
+		$solicitante = $_POST["solicitante"];
 		$controle_data_admissao = $_POST["controle_data_admissao"];
 		$remuneracao_base = $_POST["remuneracao_base"];
-		$gratificacao = $_POST["gratificacao"];		
-		$solicitante = $_POST["solicitante"];
+		$gratificacao = $_POST["gratificacao"];
+
+
+		//$remuneracao_total = soma dos campos remuneração base e gratificação;
+		$cliente = $_POST["cliente"];
 		$projeto = $_POST["projeto"];
-		$cliente = $_POST["cliente"];		
 		$email = $_POST["email"];
-		$data_admissao = $_POST["data_admissao"];
-		//$remuneracao_total = soma dos campos remuneração base e gratificação;		
 		$posicao_comentario = $_POST["posicao_comentario"];
 		$administrativo = $_POST["administrativo"];
-		$comentarios = $_POST["comentarios"];
 
 
 
