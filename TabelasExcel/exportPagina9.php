@@ -6,7 +6,7 @@ if(isset($_POST["export"]))
 {
  $query = "SELECT ID_USUARIO, EMAIL_SUP,
             USUARIO, SENHA, EQUIPE,
-            EQUIPAMENTO, TRANSLADO,
+            EQUIPAMENTO, TRANSLADO,USUARIO_ATV;
             STATUS, PROJETO, NOME
             from suporte_interno as p
             LEFT JOIN admissao_dominio as a
@@ -44,6 +44,8 @@ $result = mysqli_query($connect, $query);
             <td>'.$row['TRANSLADO'].'</td>
             <td>'.$row['EQUIPE'].'</td>
             <td>'.$row["PROJETO"].'</td>
+            <td>'.$row["USUARIO_ATV"].'</td>
+
         </tr>
         ';
   }

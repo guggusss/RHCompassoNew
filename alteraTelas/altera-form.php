@@ -74,7 +74,9 @@
                     <th width='110px'>Posição(Data)</th>
                     <th width='200px'>Posição(Comentários)</th>
                     <th width='200px'>Administrativo + Flyback - Hotel</th>
-                    <th width='150px'></th>
+                    <th scope="col" width='200px'>Comentários</th>
+                    <th scope="col" width='150px'></th>
+                    
                 </tr>
             </thead>
 
@@ -148,6 +150,7 @@
                             <td id='add-posicao_data'><input class='intable' type="date" name="POSICAO_DATA" value = "<?=$funcionarios['POSICAO_DATA']; ?>"></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="POSICAO_COMENTARIO" value = "<?=$funcionarios['POSICAO_COMENTARIO']; ?>"></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="ADMINISTRATIVO" value = "<?=$funcionarios['ADMINISTRATIVO']; ?>"></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="Comentario" required></td>
                     <td><button class="btn btn-default" type="submit">Alterar</button></td>
                 </form>
             
