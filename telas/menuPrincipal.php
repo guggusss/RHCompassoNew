@@ -753,7 +753,22 @@ if (isset($_POST['botaoVolta'])) {
 
                 <tr>
                         <form id='form-add' method="POST" action="../salva.php">
-                            <td>Nova Admissão</td>
+                            <td><select id="status" name="STATUS" class="intable">
+                                <option value="" selected="selected"></option>
+                                <option value="1">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="2">AGUARDANDO APROVAÇÃO</option>
+                                <option value="3">APROVADO DIRETORIA</option>
+                                <option value="4">EM VALIDAÇÃO</option>
+                                <option value="5">NEGOCIAÇÃO</option>
+                                <option value="6">PROPOSTA ENVIADA</option>
+                                <option value="7">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="8">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="9">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="10">EM CONTRATO</option>
+                                <option value="11">RETORNO DOCS</option>
+                                <option value="12">E-MAIL: DESISTENCIA</option>
+                                <option value="13">E-MAIL RECUSADO</option>
+                            </select></td>
                             <td><select id="add-sede" name='sede' class="selectadd intable" required>
                                 <option value="" selected="selected"></option>
                                 <?php foreach ($listar as $linha):?>
