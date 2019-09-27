@@ -788,7 +788,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-solicitante'><input  class='intable' type="text" name="solicitante" required></td>
                             <td id='add-cliente'><input class='intable' type="text" name="cliente" required></td>
                             <td id='add-projeto'><input class='intable' type="text" name="projeto" required></td>
-                            <td id='add-email'><input class='intable' type="email" name="email" required></td>
+                            <td id='add-email'><input class='intable' type="email" name="EMAIL" required></td>
                             <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
