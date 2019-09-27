@@ -812,7 +812,7 @@ if (isset($_POST['botaoVolta'])) {
                     <tr class='tb2'>
                         <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
                         <td class='tb2'>Gestor solicitou a proposta de contratação</td>
-                        <td align='center'><input type='button' value='Aprovação' onclick =  ??? ></td>
+                        <td align='center'><input type='button' value='Aprovação' onclick =  ??? ></td> 
                     </tr>
                     <tr class='tb2'>
                         <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
@@ -822,11 +822,11 @@ if (isset($_POST['botaoVolta'])) {
                         <td class='tb2'>APROVADO DIRETORIA</td>
                         <td class='tb2'>Diretoria aprovou recrutamento irá seguir</td>
                     </tr>
-                    <tr>
+                    <tr class='tb2'>
                         <td class='tb2'>EM VALIDAÇÃO</td>
                         <td class='tb2'>Proposta em elaboração pelo time de recrutamento</td>
                     </tr>
-                    <tr>
+                    <tr class='tb2'>
                         <td class='tb2'>NEGOCIAÇÃO</td>
                         <td class='tb2'>Profissional solicitou contra proposta</td>
                     </tr>
@@ -834,16 +834,16 @@ if (isset($_POST['botaoVolta'])) {
                         <td class='tb2'>PROPOSTA ENVIADA</td>
                         <td class='tb2'>Recrutamento enviou a proposta e está aguardando retorno</td>
                     </tr>
-                    <tr>
-                        <td class='tb2'>E-MAIL: PROPOSTA ACEITA</td>
-                        <td class='tb2'>Profissional aceitou a proposta</td>
+                    <tr class='tb2'>
+                        <td class='tb2'>E:MAIL: PROPOSTA ACEITA</td>
+                        <td class='tb2'>Profissional aceitou proposta</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: EM ANDAMENTO</td>
+                        <td class='tb2'>E:MAIL: EM ANDAMENTO</td>
                         <td class='tb2'>DP aprovou a proposta e seguirá a admissão</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: PROPOSTA INVÁLIDA</td>
+                        <td class='tb2'>E:MAIL: PROPOSTA INVÁLIDA</td>
                         <td class='tb2'>DP reprovou recrutamento revisar a proposta</td>
                     </tr>
                     <tr class='tb2'>
@@ -855,7 +855,7 @@ if (isset($_POST['botaoVolta'])) {
                         <td class='tb2'>Admissão concluída - aguardando documentos fisícos admissão assinados</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: DESISTENCIA</td>
+                        <td class='tb2'>E-MAIL DESISTENCIA</td>
                         <td class='tb2'>Profissional desistiu da admissão após aceite</td>
                     </tr>
                     <tr class='tb2'>
@@ -863,6 +863,7 @@ if (isset($_POST['botaoVolta'])) {
                         <td class='tb2'>Profissional recusou a proposta</td>
                     </tr>
                 </table>
+
                 <table class='legendas-sedes'>
                 <tr>
                     <th scope="col" class='tb2'>SEDE</th>
