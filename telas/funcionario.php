@@ -209,19 +209,22 @@ $translado = buscasuporte($conn, $id);
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="/RHCompasso/alteraTelas/altera-proposta.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
-                            <td><select class='intable' name="STATUS" ><option value='<?=$status['STATUS']?>' selected= "selected"><?=$status['STATUS']?></option>
-                            <option value = "AGUARDAR ACEITE">AGUARDAR ACEITE</option>
-                            <option value="FINALIZADO">FINALIZADO</option>
-                            <option value = "DESISTENCIA">DESISTENCIA</option>
-                            <option value="EM ANDAMENTO">EM ANDAMENTO</option>
-                            <option value = "EM CONTRATO">EM CONTRATO</option>
-                            <option value = "EM VALIDAÇÃO">EM VALIDAÇÃO</option>
-                            <option value= "RETORNO DOCS">RETORNO DOCS</option>
-                            <option value= "REALIZAR CONTATO">REALIZAR CONTATO</option>
-                            <option value= "CONTATO REALIZADO">CONTATO REALIZADO</option>
-                            <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
-                            <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
-                            <option value="RECUSADO">RECUSADO</option></select></td>
+                            <td><select name="status" class="intable" value="<?=$rows_dados['STATUS']?>" required>
+                                <option value="" selected="selected"></option>
+                                <option>SOLICITAÇÃO DE PROPOSTA</option>
+                                <option>AGUARDANDO APROVAÇÃO</option>
+                                <option>APROVADO DIRETORIA</option>
+                                <option>EM VALIDAÇÃO</option>
+                                <option>NEGOCIAÇÃO</option>
+                                <option>PROPOSTA ENVIADA</option>
+                                <option>E-MAIL: PROPOSTA ACEITA</option>
+                                <option>E-MAIL: EM ANDAMENTO</option>                                
+                                <option>E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option>EM CONTRATO</option>
+                                <option>RETORNO DOCS</option>
+                                <option>E-MAIL: DESISTENCIA</option>
+                                <option>E-MAIL RECUSADO</option>
+                            </select></td>
                             <td><input type='date' id="campo" class='intable' name="PROPOSTA_RECEBIDA" value="<?=$recebida['PROPOSTA_RECEBIDA']?>"></td>
                             <td><input type="date" id="campo2" class='intable' name ="DE_ACORDO_DIRECAO" value="<?=$deacordo['DE_ACORDO_DIRECAO']?>"></td>
                             <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
