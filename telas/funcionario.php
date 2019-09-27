@@ -18,17 +18,17 @@ if($r==0){ echo 'Refres:0('."'page.php?r=1'".');"'; }
 
 
 //$count =  mysqli_num_rows($conn,"SELECT COUNT(*) FROM propostas_contratacoes WHERE ID_USUARIO = '$id'");
-$resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(PROPOSTA_RECEBIDA,'%d/%m/%Y') as PROPOSTA_RECEBIDA , DATE_FORMAT(DE_ACORDO_DIRECAO,'%d/%m/%Y') as DE_ACORDO_DIRECAO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
+$resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(ENQUADRAMENTO_REMUNERACAO_ENVIO,'%d/%m/%Y') as ENQUADRAMENTO_REMUNERACAO_ENVIO , DATE_FORMAT(ENQUADRAMENTO_REMUNERACAO_RETORNO,'%d/%m/%Y') as ENQUADRAMENTO_REMUNERACAO_RETORNO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
 DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS, PROJETO from propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 
 if($count == 1){
-    $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(PROPOSTA_RECEBIDA,'%d/%m/%Y') as PROPOSTA_RECEBIDA , DATE_FORMAT(DE_ACORDO_DIRECAO,'%d/%m/%Y') as DE_ACORDO_DIRECAO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
+    $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(ENQUADRAMENTO_REMUNERACAO_ENVIO,'%d/%m/%Y') as ENQUADRAMENTO_REMUNERACAO_ENVIO , DATE_FORMAT(ENQUADRAMENTO_REMUNERACAO_RETORNO,'%d/%m/%Y') as ENQUADRAMENTO_REMUNERACAO_RETORNO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
     DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS, PROJETO from propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }else{
-    mysqli_query($conn,"INSERT INTO `propostas_contratacoes` (`PROPOSTA_ID`, `ID_USUARIO`, `PROPOSTA_RECEBIDA`, `DE_ACORDO_DIRECAO`, `ENQUADRAMENTO`, `ENVIO_PROPOSTA`, `COMUNICAR_PROPOSTA_ENVIADA`, `ACEITE_RECUSA_CANDIDATO`, `COMENTARIO`, `COMUNICAR_STATUS`) VALUES (NULL, '$id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)");
+    mysqli_query($conn,"INSERT INTO `propostas_contratacoes` (`PROPOSTA_ID`, `ID_USUARIO`, `ENQUADRAMENTO_REMUNERACAO_ENVIO`, `ENQUADRAMENTO_REMUNERACAO_RETORNO`, `ENQUADRAMENTO`, `ENVIO_PROPOSTA`, `COMUNICAR_PROPOSTA_ENVIADA`, `ACEITE_RECUSA_CANDIDATO`, `COMENTARIO`, `COMUNICAR_STATUS`) VALUES (NULL, '$id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)");
 
-    $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(PROPOSTA_RECEBIDA,'%d/%m/%Y') as PROPOSTA_RECEBIDA , DATE_FORMAT(DE_ACORDO_DIRECAO,'%d/%m/%Y') as DE_ACORDO_DIRECAO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
+    $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(ENQUADRAMENTO_REMUNERACAO_ENVIO,'%d/%m/%Y') as ENQUADRAMENTO_REMUNERACAO_ENVIO , DATE_FORMAT(ENQUADRAMENTO_REMUNERACAO_RETORNO,'%d/%m/%Y') as ENQUADRAMENTO_REMUNERACAO_RETORNO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
     DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS, PROJETO from propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
@@ -192,8 +192,8 @@ $translado = buscasuporte($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?php echo $rows_dados['STATUS']; ?></td>
-                            <td id="data"><?php echo $rows_dados['PROPOSTA_RECEBIDA']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['DE_ACORDO_DIRECAO']; ?></td>
+                            <td id="data"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
                             <td id="data3"><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>
 							<td id="data4"><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>
 							<td id="data5"><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
@@ -222,8 +222,8 @@ $translado = buscasuporte($conn, $id);
                             <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
                             <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
                             <option value="RECUSADO">RECUSADO</option></select></td>
-                            <td><input type='date' id="campo" class='intable' name="PROPOSTA_RECEBIDA" value="<?=$recebida['PROPOSTA_RECEBIDA']?>"></td>
-                            <td><input type="date" id="campo2" class='intable' name ="DE_ACORDO_DIRECAO" value="<?=$deacordo['DE_ACORDO_DIRECAO']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value="<?=$recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="ENQUADRAMENTO_REMUNERACAO_RETORNO" value="<?=$deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO']?>"></td>
                             <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
                             <td><input type="date" id="campo4" class='intable' name="ENVIO_PROPOSTA" value="<?=$envioprop['ENVIO_PROPOSTA']?>"></td>
                             <td><input type="date" id="campo5" class='intable' name="COMUNICAR_PROPOSTA_ENVIADA" value="<?=$comunicarprop['COMUNICAR_PROPOSTA_ENVIADA']?>"></td>
