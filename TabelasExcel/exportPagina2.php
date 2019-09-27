@@ -7,8 +7,8 @@ if(isset($_POST["export"]))
  $query = "SELECT NOME,
                   EMAIL,
                   STATUS,
-                  PROPOSTA_RECEBIDA,
-                  DE_ACORDO_DIRECAO,
+                  ENQUADRAMENTO_REMUNERACAO_ENVIO,
+                  ENQUADRAMENTO_REMUNERACAO_RETORNO,
                   ENQUADRAMENTO,
                   ENVIO_PROPOSTA,
                   COMUNICAR_PROPOSTA_ENVIADA,
@@ -47,8 +47,8 @@ $result = mysqli_query($connect, $query);
             <td>'.$row["NOME"].'</td>
             <td>'.$row["EMAIL"].'</td>
             <td>'.$row["STATUS"].'</td>
-            <td>'.$row["PROPOSTA_RECEBIDA"].'</td>
-            <td>'.$row["DE_ACORDO_DIRECAO"].'</td>
+            <td>'.$row["ENQUADRAMENTO_REMUNERACAO_ENVIO"].'</td>
+            <td>'.$row["ENQUADRAMENTO_REMUNERACAO_RETORNO"].'</td>
             <td>'.$row['ENQUADRAMENTO'].'</td>
             <td>'.$row["ENVIO_PROPOSTA"].'</td>
             <td>'.$row['COMUNICAR_PROPOSTA_ENVIADA'].'</td>
