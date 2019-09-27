@@ -53,6 +53,7 @@
             <h2 id='titulo-table'></h2>
             <thead>
                 <tr>
+                    <th width='200px'>Status</th>
                     <th width='60px'>Sede</th>
                     <th width='60px'>Tipo</th>
                     <th width='100px'>Captação</th>
@@ -81,6 +82,23 @@
             
                 <form  id='altera-func' method='POST' action='altera-funcionario.php'>
                     <input type='hidden' name="USUARIO_ID" value='<?php echo $funcionarios['USUARIO_ID']?>' />
+
+                    <td><select name="status" class="intable" value="<?=$rows_dados['STATUS']?>">
+                                <option value="" selected="selected"></option>
+                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
+                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
+                                <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
+                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="RETORNO DOCS">RETORNO DOCS</option>
+                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
+                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
+                            </select></td>
 
                     <td><select name="ID_SEDE" class="selectadd intable" id="recipient-funcao">
                         <option>Escolha...</option>

@@ -17093,7 +17093,7 @@ uporteInterno.js[m
 [32m+[m[32m                            <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\)[\s][0-9]{1}[0-9]{4}-[0-9]{4}" name="fone_contato" id="telefone" maxlength="15" required></td>[m[41m
 [m
                              <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>[m
-                             <td id='add-contole-data'><input class='intable' type="date" name="LOG_REGISTRO_DIA_RH_ENVIA_DP" required></td>[m
+                             <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao" required></td>[m
                              <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" required></td>[m
 [36m@@ -587,13 +740,13 @@[m [mif (isset($_POST['botaoVolta'])) {[m
                              <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>[m
@@ -18241,13 +18241,13 @@ uporteInterno.js[m
          $resultado = mysqli_query($conn, "SELECT `ID_VENCIMENTO`, `ID_USUARIO`, DATE_FORMAT(ENVIO_SOLICITANTE_PRI,'%d/%m/%Y') as ENVIO_SOLICITANTE_PRI, DATE_FORMAT(DATA_VENCIMENTO_PRI,'%d/%m/%Y') as DATA_VENCIMENTO_PRI, `RENOVACAO`, DATE_FORMAT(ENVIO_SOLICITANTE_SEG,'%d/%m/%Y') as ENVIO_SOLICITANTE_SEG, DATE_FORMAT(DATA_VENCIMENTO_SEG,'%d/%m/%Y') as DATA_VENCIMENTO_SEG, `EFETIVACAO` FROM `vencimentos` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");[m
      }else{[m
 [31m-        mysqli_query($conn,"INSERT INTO `vencimentos`(`ID_VENCIMENTO`, `ID_USUARIO`, `ENVIO_SOLICITANTE_PRI`, `DATA_VENCIMENTO_PRI`, `RENOVACAO`, `ENVIO_SOLICITANTE_SEG`, `DATA_VENCIMENTO_SEG`, `EFETIVACAO`) VALUES (NULL,$id,NULL,NULL,NULL,NULL,NULL,NULL)");[m
-[32m+[m[32m        $controleDataAdmissao = date_create($status['LOG_REGISTRO_DIA_RH_ENVIA_DP']);[m
+[32m+[m[32m        $controleDataAdmissao = date_create($status['CONTROLE_DATA_ADMISSAO']);[m
 [32m+[m[32m        date_modify( $controleDataAdmissao, '+ 44 day');[m
 [32m+[m[32m        $vencimentoPri = date_format($controleDataAdmissao, 'Y-m-d');[m
 [32m+[m[32m        $vencimentoPriAux = date_create($vencimentoPri);[m
 [32m+[m[32m        date_modify($vencimentoPriAux, '- 15 day');[m
 [32m+[m[32m        $envioSolicitante1 = date_format($vencimentoPriAux, 'Y-m-d');[m
-[32m+[m[32m        $controleDataAdmissao2 = date_create($status['LOG_REGISTRO_DIA_RH_ENVIA_DP']);[m
+[32m+[m[32m        $controleDataAdmissao2 = date_create($status['CONTROLE_DATA_ADMISSAO']);[m
 [32m+[m[32m        date_modify( $controleDataAdmissao2, '+ 89 day');[m
 [32m+[m[32m        $vencimentoSec =  date_format($controleDataAdmissao2, 'Y-m-d');[m
 [32m+[m[32m        $vencimentoSecAux = date_create($vencimentoSec);;[m

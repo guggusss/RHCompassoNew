@@ -619,6 +619,7 @@ $result = mysqli_query($connect, $sql);
                         <th>Equipamento</th>
                         <th>Necessidade de translado</th>
                         <th>Grupos de Email</th>
+                        <th>Usuário Ativo</th>
                         <th width='150px'>Projeto</th>
 
      <?php
