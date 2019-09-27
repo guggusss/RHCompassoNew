@@ -130,8 +130,8 @@ if(isset($_POST["export"]))
                             <th width="150px">Projeto</th>
                             <th width="250px">Email</th>
                             <th width="110px">Data Admissão</th>
-                            <th>Proposta Recebida</th>
-                            <th>De acordo Direção</th>
+                            <th>Enquadramento remuneração envio</th>
+                            <th>Enquadramento remuneração retorno</th>
                             <th>Enquadramento(Validação Ex Funcionário)</th>
                             <th>Envio da Proposta</th>
                             <th>Comunicar proposta enviada Solicitante</th>
@@ -175,6 +175,7 @@ if(isset($_POST["export"]))
                             <th>Usuário</th>
                             <th>Senha de acesso</th>
                             <th>Equipamento</th>
+                            <th>Usuário Ativo</th>
                             <th>Necessidade de translado</th>
                             <th>Cadastro Usuário</th>
                             <th>Senha</th>
@@ -196,7 +197,6 @@ if(isset($_POST["export"]))
                             <th>integração agendada</th>
                             <th>integração realizada</th>
                             <th>sala</th>
-                            <th>acompanhamento mensal</th>
                             <th>Layot Boas vindas Mensal</th>
                         </tr>
         ';
@@ -288,7 +288,6 @@ if(isset($_POST["export"]))
          <td>'.$row["BOAS_VINDAS_INGR_AGENDADA"].'</td>
          <td>'.$row["BOAS_VINDAS_INGR_REALIZADA"].'</td>
          <td>'.$row["BOAS_VINDAS_SALA"].'</td>
-         <td>'.$row["BOAS_VINDA_ACOMPANHAMENTO_MENSAL"].'</td>
          <td>'.$row["LAYOUT_BOAS_VINDAS_MENSAL"].'</td>
        </tr>
         ';
