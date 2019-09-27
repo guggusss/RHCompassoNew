@@ -26,13 +26,13 @@ CREATE TABLE if not EXISTS `tipo` (
 
 INSERT INTO `tipo`(`TIPO_ID`, `NOME_TIPO`) VALUES ('1', 'CLT'), ('2', 'CC'), ('3', 'HO'), ('4', 'TEMP'), ('5', 'APDZ');
 
-CREATE TABLE if not EXISTS `parametros_captacao` (
- `USUARIO_ATV` int(11),
+CREATE TABLE if not EXISTS `usuario_atv` (
+ `USUARIO_ATIVO` int(11),
  `USUARIO_ATV` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
  PRIMARY KEY (`CAPTACAO_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `usuario_atv`(`USUARIO_ATV`, `USUARIO_ATV`) VALUES ('1' ,'Ex-Funcionario'), ('2', 'Ex-Bolsista'), ('3', 'Ex-Estagiario'), ('4', 'NOVO');
+INSERT INTO `usuario_atv`(`USUARIO_ATIVO`, `USUARIO_ATV`) VALUES ('1' ,'Ex-Funcionario'), ('2', 'Ex-Bolsista'), ('3', 'Ex-Estagiario'), ('4', 'NOVO');
 
 CREATE TABLE If not EXISTS`admissao_dominio` (
   `USUARIO_ID` int(11) NOT NULL AUTO_INCREMENT,
