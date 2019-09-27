@@ -232,7 +232,7 @@ $usuario_atv = buscasuporte($conn, $id);
                             <td><input type="text" class='intable' id="campo" name="TRANSLADO"  value="<?=$translado['TRANSLADO']?>"></td>
                             <td><select multiple"" onclick="anexaGrupo()" class="intable" id="books" name="EQUIPE[]" value="<?=$anexar_equipe['EQUIPE']?>"></select></td>
                             <td><input type="text" class='intable' name ="USUARIO_ATV"  value="<?=$usuario_atv['USUARIO_ATV']?>"></td>
-                            <td><input type="text" class='intable' name ="USUARIO_ATV"  value="<?=$usuario['USUARIO_ATV']?>"></td>
+                            <td><input type="text" class='intable' name ="NULL"  value="<?=$usuario['NULL']?>"></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
                 </tbody>
