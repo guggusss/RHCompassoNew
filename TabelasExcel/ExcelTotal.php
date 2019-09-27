@@ -166,7 +166,7 @@ if(isset($_POST["export"]))
                             <th>Envio</th>
                             <th>Recebido</th>
                             <th>Anexar comprovante na Domínio</th>
-                            <th>Cadastro Intranet</th>
+                            <th>Planilha de Contas</th>
                             <th>Formuário + comprovante bancário</th>
                             <th>Agência</th>
                             <th>Conta</th>
