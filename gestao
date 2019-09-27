@@ -183,8 +183,8 @@ Binary files a/Atividades.xlsx and /dev/null differ
  [m
  [m
 [36m@@ -122,27 +122,27 @@[m [m$connect = mysqli_connect("localhost", "root", "", "bancorh");[m
- $sql = "SELECT ID_USUARIO, PROPOSTA_RECEBIDA,[m
-         DE_ACORDO_DIRECAO,ENQUADRAMENTO,[m
+ $sql = "SELECT ID_USUARIO, ENQUADRAMENTO_REMUNERACAO_ENVIO,[m
+         ENQUADRAMENTO_REMUNERACAO_RETORNO,ENQUADRAMENTO,[m
          ENVIO_PROPOSTA,COMUNICAR_PROPOSTA_ENVIADA,[m
 [31m-        ACEITE_RECUSA_CANDIDATO,COMENTARIO, [m
 [31m-        COMUNICAR_STATUS, STATUS, PROJETO, NOME [m
@@ -261,13 +261,13 @@ Binary files a/Atividades.xlsx and /dev/null differ
 [m
         <tr>[m
 [31m-        <td>'.$row["NOME"].'</td>  [m
-[31m-         <td>'.$row["PROPOSTA_RECEBIDA"].'</td>  [m
-[31m-         <td>'.$row["DE_ACORDO_DIRECAO"].'</td>  [m
+[31m-         <td>'.$row["ENQUADRAMENTO_REMUNERACAO_ENVIO"].'</td>  [m
+[31m-         <td>'.$row["ENQUADRAMENTO_REMUNERACAO_RETORNO"].'</td>  [m
 [32m+[m[32m        <td>'.$row["NOME"].'</td>[m[41m
 [m
-[32m+[m[32m         <td>'.$row["PROPOSTA_RECEBIDA"].'</td>[m[41m
+[32m+[m[32m         <td>'.$row["ENQUADRAMENTO_REMUNERACAO_ENVIO"].'</td>[m[41m
 [m
-[32m+[m[32m         <td>'.$row["DE_ACORDO_DIRECAO"].'</td>[m[41m
+[32m+[m[32m         <td>'.$row["ENQUADRAMENTO_REMUNERACAO_RETORNO"].'</td>[m[41m
 [m
           <td>'.$row['ENQUADRAMENTO'].'</td>[m
 [31m-         <td>'.$row["ENVIO_PROPOSTA"].'</td>  [m
@@ -15582,15 +15582,15 @@ uporteInterno.js[m
                  <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
                          <tr>[m
                              <td><?php echo $rows_dados['STATUS']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['PROPOSTA_RECEBIDA']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['DE_ACORDO_DIRECAO']; ?></td>[m
+[31m-                            <td><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>[m
+[31m-                            <td><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>[m
 [31m-                            <td><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>[m
 [31m-							<td><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>[m
 [31m-							<td><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>[m
 [31m-							<td><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>[m
-[32m+[m[32m                            <td id="data"><?php echo $rows_dados['PROPOSTA_RECEBIDA']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data2"><?php echo $rows_dados['DE_ACORDO_DIRECAO']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data2"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>[m[41m
 [m
 [32m+[m[32m                            <td id="data3"><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>[m[41m
 [m
@@ -15623,8 +15623,8 @@ uporteInterno.js[m
                              <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>[m
                              <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>[m
                              <option value="RECUSADO">RECUSADO</option></select></td>[m
-[31m-                            <td><input type='date' class='intable' required name="PROPOSTA_RECEBIDA" value="<?=$recebida['PROPOSTA_RECEBIDA']?>"></td>[m
-[31m-                            <td><input type="date" class='intable' required name ="DE_ACORDO_DIRECAO" value="<?=$deacordo['DE_ACORDO_DIRECAO']?>"></td>[m
+[31m-                            <td><input type='date' class='intable' required name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value="<?=$recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO']?>"></td>[m
+[31m-                            <td><input type="date" class='intable' required name ="ENQUADRAMENTO_REMUNERACAO_RETORNO" value="<?=$deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO']?>"></td>[m
 [31m-                            <td><input type="date" class='intable' required name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>[m
 [31m-                            <td><input type="date" class='intable' required name="ENVIO_PROPOSTA" value="<?=$envioprop['ENVIO_PROPOSTA']?>"></td>[m
 [31m-                            <td><input type="date" class='intable' required name="COMUNICAR_PROPOSTA_ENVIADA" value="<?=$comunicarprop['COMUNICAR_PROPOSTA_ENVIADA']?>"></td>[m
@@ -15632,9 +15632,9 @@ uporteInterno.js[m
 [31m-                            <td><input type="text" class='intable' required name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>[m
 [31m-                            <td><input type="date" class='intable' required name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>[m
 [31m-                            <td><input type="text" class='intable' required name="PROJETO" value="<?=$funcionarios['PROJETO']?>"></td>[m
-[32m+[m[32m                            <td><input type='date' id="campo" class='intable' name="PROPOSTA_RECEBIDA" value="<?=$recebida['PROPOSTA_RECEBIDA']?>"></td>[m[41m
+[32m+[m[32m                            <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value="<?=$recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO']?>"></td>[m[41m
 [m
-[32m+[m[32m                            <td><input type="date" id="campo2" class='intable' name ="DE_ACORDO_DIRECAO" value="<?=$deacordo['DE_ACORDO_DIRECAO']?>"></td>[m[41m
+[32m+[m[32m                            <td><input type="date" id="campo2" class='intable' name ="ENQUADRAMENTO_REMUNERACAO_RETORNO" value="<?=$deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO']?>"></td>[m[41m
 [m
 [32m+[m[32m                            <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>[m[41m
 [m
@@ -17419,7 +17419,7 @@ uporteInterno.js[m
      <script>[m
      window.onload = function verifica() { [m
 [31m-[m
-[31m-        let variavel = "<?=$deacordo['DE_ACORDO_DIRECAO']?>";[m
+[31m-        let variavel = "<?=$deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO']?>";[m
 [31m-        if (!variavel == "") {[m
 [31m-        $("#botao3").removeClass("disabled").attr("disabled", false);[m
 [31m-[m
@@ -17475,7 +17475,7 @@ uporteInterno.js[m
 [31m-              }[m
 [31m-              }[m
 [31m-              }[m
-[32m+[m[32m    let variavel = "<?=$deacordo['DE_ACORDO_DIRECAO']?>";[m[41m
+[32m+[m[32m    let variavel = "<?=$deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO']?>";[m[41m
 [m
 [32m+[m[32m    if (!variavel == "") {[m[41m
 [m
