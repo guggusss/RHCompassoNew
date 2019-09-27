@@ -373,18 +373,19 @@ if (isset($_POST['botaoVolta'])) {
                             <label for="status">Status</label>
                             <select id="status" name="STATUS" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
-                                <option value="AGUARDAR ACEITE">AGUARDAR ACEITE</option>
-                                <option value="FINALIZADO">FINALIZADO</option>
-                                <option value="DESISTENCIA">DESISTENCIA</option>
-                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
-                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
-                                <option value="EM CONTRATO">EM CONTRATO</option>
-                                <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
-                                <option value="RETORNO DOCS">RETORNO DOCS</option>
-                                <option value="REALIZAR CONTATO">REALIZAR CONTATO</option>
-                                <option value="CONTATO REALIZADO">CONTATO REALIZADO</option>
-                                <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
-                                <option value="RECUSADO">RECUSADO</option>
+                                <option value="1">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="2">AGUARDANDO APROVAÇÃO</option>
+                                <option value="3">APROVADO DIRETORIA</option>
+                                <option value="4">EM VALIDAÇÃO</option>
+                                <option value="5">NEGOCIAÇÃO</option>
+                                <option value="6">PROPOSTA ENVIADA</option>
+                                <option value="7">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="8">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="9">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="10">EM CONTRATO</option>
+                                <option value="11">RETORNO DOCS</option>
+                                <option value="12">E-MAIL: DESISTENCIA</option>
+                                <option value="13">E-MAIL RECUSADO</option>
                             </select>
                         </div>
                         <div>
