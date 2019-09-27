@@ -21,13 +21,13 @@ $status = buscaFuncionarios($conn, $id);
     if($count == 1){
         $resultado = mysqli_query($conn, "SELECT `ID_VENCIMENTO`, `ID_USUARIO`, DATE_FORMAT(ENVIO_SOLICITANTE_PRI,'%d/%m/%Y') as ENVIO_SOLICITANTE_PRI, DATE_FORMAT(DATA_VENCIMENTO_PRI,'%d/%m/%Y') as DATA_VENCIMENTO_PRI, `RENOVACAO`, DATE_FORMAT(ENVIO_SOLICITANTE_SEG,'%d/%m/%Y') as ENVIO_SOLICITANTE_SEG, DATE_FORMAT(DATA_VENCIMENTO_SEG,'%d/%m/%Y') as DATA_VENCIMENTO_SEG, `EFETIVACAO` FROM `vencimentos` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
     }else{
-        $controleDataAdmissao = date_create($status['CONTROLE_DATA_ADMISSAO']);
+        $controleDataAdmissao = date_create($status['LOG_REGISTRO_DIA_RH_ENVIA_DP']);
         date_modify( $controleDataAdmissao, '+ 44 day');
         $vencimentoPri = date_format($controleDataAdmissao, 'Y-m-d');
         $vencimentoPriAux = date_create($vencimentoPri);
         date_modify($vencimentoPriAux, '- 15 day');
         $envioSolicitante1 = date_format($vencimentoPriAux, 'Y-m-d');
-        $controleDataAdmissao2 = date_create($status['CONTROLE_DATA_ADMISSAO']);
+        $controleDataAdmissao2 = date_create($status['LOG_REGISTRO_DIA_RH_ENVIA_DP']);
         date_modify( $controleDataAdmissao2, '+ 89 day');
         $vencimentoSec =  date_format($controleDataAdmissao2, 'Y-m-d');
         $vencimentoSecAux = date_create($vencimentoSec);;

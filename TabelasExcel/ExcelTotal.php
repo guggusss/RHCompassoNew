@@ -215,7 +215,7 @@ if(isset($_POST["export"]))
          <td>'.$row["NOME"].'</td>
          <td>'.$row["FONE_CONTATO"].'</td>
          <td>'.$row["CARGO"].'</td>
-         <td>'.$row["CONTROLE_DATA_ADMISSAO"].'</td>
+         <td>'.$row["LOG_REGISTRO_DIA_RH_ENVIA_DP"].'</td>
          <td>'.$row["REMUNERACAO_BASE"].'</td>
          <td>'.$row["GRATIFICACAO"].'</td>
          <td>'.$row["SOLICITANTE"].'</td>

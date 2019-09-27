@@ -1619,7 +1619,6 @@ Binary files a/Atividades.xlsx and /dev/null differ
 [36m@@ -28,23 +28,23 @@[m [m$result = mysqli_query($connect, $query);[m
              <th width= "150px">Necessidade de translado</th>[m
              <th width= "150px">Grupos de Email</th>[m
-                <th width= "150px">Usuário Ativo</th>[m
              <th width= "150px">Projeto</th>[m
 [31m-        </tr>            [m
 [32m+[m[32m        </tr>[m[41m
@@ -17723,7 +17722,7 @@ uporteInterno.js[m
 [31m-                        <th>Equipamento</th>[m
 [31m-                        <th>Necessidade de Translado</th>[m
 [31m-                        <th>Grupos de E-mail</th>[m
-[31m-                        <th>Usuário Ativo</th>[m
+[31m-                        <th></th>[m
 [31m-                        <th></th>[m
 [31m-                    </tr>[m
 [31m-                </thead>[m
@@ -18060,7 +18059,7 @@ uporteInterno.js[m
 [32m+[m[32m                        <th>Equipamento</th>[m
 [32m+[m[32m                        <th>Necessidade de Translado</th>[m
 [32m+[m[32m                        <th>Grupos de E-mail</th>[m
-[32m+[m[32m                        <th>Usuário Ativo</th>[m
+[32m+[m[32m                        <th></th>[m
 [32m+[m[32m                        <th></th>[m
 [32m+[m[32m                    </tr>[m
 [32m+[m[32m                </thead>[m
