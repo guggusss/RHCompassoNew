@@ -374,8 +374,7 @@ if (isset($_POST['botaoVolta'])) {
                                 <option value="11">RETORNO DOCS</option>
                                 <option value="12">E-MAIL: DESISTENCIA</option>
                                 <option value="13">E-MAIL RECUSADO</option>
-                                
-                                
+
                             </select>
                         </div>
                         <div>
@@ -745,7 +744,9 @@ if (isset($_POST['botaoVolta'])) {
 
                 <tr>
                         <form id='form-add' method="POST" action="../salva.php">
+
                             <td><select id="add-STATUS" name="STATUS" class="selectadd intable" required>
+
                                 <option value="" selected="selected"></option>
                                 <option value="1">SOLICITAÇÃO DE PROPOSTA</option>
                                 <option value="2">AGUARDANDO APROVAÇÃO</option>
