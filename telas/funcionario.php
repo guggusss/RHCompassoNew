@@ -183,7 +183,7 @@ $translado = buscasuporte($conn, $id);
                         <th>Aceite/recusa candidato</th>
                         <th width = '300px'>Comentário</th>
                         <th>Comunicar Status da Proposta ao Solicitante</th>
-                        <th width='200px'>Projeto</th>
+                        
                         <th width='100px'></th>
                         <th></th>
                     </tr>
@@ -200,7 +200,7 @@ $translado = buscasuporte($conn, $id);
 							<td id="data6"><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
                             <td><?php echo $rows_dados['COMENTARIO']; ?></td>
 							<td id="data8"><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
-                            <td><?php echo $rows_dados['PROJETO']; ?></td>
+                            
                             <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="disabled btn btn-default" href="gestao.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
