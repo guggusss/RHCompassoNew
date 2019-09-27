@@ -85,21 +85,21 @@
                 <form  id='altera-func' method='POST' action='altera-funcionario.php'>
                     <input type='hidden' name="USUARIO_ID" value='<?php echo $funcionarios['USUARIO_ID']?>' />
 
-                    <td><select name="status" class="intable" value="<?=$rows_dados['STATUS']?>">
+                    <td><select name="status" class="intable" value="<?=$rows_dados['STATUS']?>" required>
                                 <option value="" selected="selected"></option>
-                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
-                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
-                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
-                                <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
-                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
-                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
-                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
-                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>                                
-                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
-                                <option value="EM CONTRATO">EM CONTRATO</option>
-                                <option value="RETORNO DOCS">RETORNO DOCS</option>
-                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
-                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
+                                <option>SOLICITAÇÃO DE PROPOSTA</option>
+                                <option>AGUARDANDO APROVAÇÃO</option>
+                                <option>APROVADO DIRETORIA</option>
+                                <option>EM VALIDAÇÃO</option>
+                                <option>NEGOCIAÇÃO</option>
+                                <option>PROPOSTA ENVIADA</option>
+                                <option>E-MAIL: PROPOSTA ACEITA</option>
+                                <option>E-MAIL: EM ANDAMENTO</option>                                
+                                <option>E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option>EM CONTRATO</option>
+                                <option>RETORNO DOCS</option>
+                                <option>E-MAIL: DESISTENCIA</option>
+                                <option>E-MAIL RECUSADO</option>
                             </select></td>
 
                     <td><select name="ID_SEDE" class="selectadd intable" id="recipient-funcao">
