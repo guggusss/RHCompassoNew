@@ -12,17 +12,17 @@ $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMIS
 $conn1 = mysqli_num_rows($resultado1);
 
 
-$resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA, DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA, DATE_FORMAT(BOAS_VINDA_ACOMPANHAMENTO_MENSAL,'%d/%m/%Y') as BOAS_VINDA_ACOMPANHAMENTO_MENSAL,
+$resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA, DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA,
   DATE_FORMAT(LAYOUT_BOAS_VINDAS_MENSAL,'%d/%m/%Y') as LAYOUT_BOAS_VINDAS_MENSAL FROM `boas_vindas` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 
 if($count == 1){
-    $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA, DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA, DATE_FORMAT(BOAS_VINDA_ACOMPANHAMENTO_MENSAL,'%d/%m/%Y') as BOAS_VINDA_ACOMPANHAMENTO_MENSAL,
+    $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA, DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA,
     DATE_FORMAT(LAYOUT_BOAS_VINDAS_MENSAL,'%d/%m/%Y') as LAYOUT_BOAS_VINDAS_MENSAL FROM `boas_vindas` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }else{
-    mysqli_query($conn, "INSERT INTO `boas_vindas`(`ID_USUARIO`, `BOAS_VINDAS_INGR_AGENDADA`,`BOAS_VINDAS_INGR_REALIZADA`, `BOAS_VINDAS_SALA`,  `BOAS_VINDA_ACOMPANHAMENTO_MENSAL`,  `LAYOUT_BOAS_VINDAS_MENSAL`) VALUES ($id,NULL,NULL, NULL,NULL,NULL)");
+    mysqli_query($conn, "INSERT INTO `boas_vindas`(`ID_USUARIO`, `BOAS_VINDAS_INGR_AGENDADA`,`BOAS_VINDAS_INGR_REALIZADA`, `BOAS_VINDAS_SALA`,  `LAYOUT_BOAS_VINDAS_MENSAL`) VALUES ($id,NULL,NULL, NULL,NULL,NULL)");
 
-    $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA,DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA, DATE_FORMAT(BOAS_VINDA_ACOMPANHAMENTO_MENSAL,'%d/%m/%Y') as BOAS_VINDA_ACOMPANHAMENTO_MENSAL,
+    $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA,DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA,
     DATE_FORMAT(LAYOUT_BOAS_VINDAS_MENSAL,'%d/%m/%Y') as LAYOUT_BOAS_VINDAS_MENSAL FROM `boas_vindas` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
@@ -164,18 +164,13 @@ $deacordo = buscaProposta($conn, $id);
                     <tr>
                         <th width='200px'>Status</th>
                         <th colspan='5'>Boas Vindas Compasso</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                     <tr>
                         <th width='200px'></th>
                         <th>Integração Agendada</th>
                         <th>Integração Realizada</th>
                         <th>Sala</th>
-                        <th>Acompanhamento Mensal</th>
                         <th>Layout Boas Vindas Mensal</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -185,7 +180,6 @@ $deacordo = buscaProposta($conn, $id);
                             <td id="data"><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
                             <td id="data2"><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
                             <td><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>
                             <td id="data4"><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                             <td><form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class="btn btn-default"></form></td>
@@ -199,7 +193,6 @@ $deacordo = buscaProposta($conn, $id);
                             <td><input class='intable' id="campo" type='date' name='BOAS_VINDAS_INGR_AGENDADA'  value="<?=$boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA']?>"></td>
                             <td><input class='intable' id="campo2" type='date' name='BOAS_VINDAS_INGR_REALIZADA'  value="<?=$boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA']?>"></td>
                             <td><input class='intable' type='text' name='BOAS_VINDAS_SALA'  value="<?=$boasVindasSala['BOAS_VINDAS_SALA']?>"></td>
-                            <td><input class='intable' id="campo3" type='date' name='BOAS_VINDA_ACOMPANHAMENTO_MENSAL'  value="<?=$boasVindasAcomp['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']?>"></td>
                             <td><input class='intable' id="campo4" type='date' name='LAYOUT_BOAS_VINDAS_MENSAL'  value="<?=$layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>

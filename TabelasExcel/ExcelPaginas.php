@@ -121,7 +121,7 @@ $sql = "SELECT ID_USUARIO, PROPOSTA_RECEBIDA,
         DE_ACORDO_DIRECAO,ENQUADRAMENTO,
         ENVIO_PROPOSTA,COMUNICAR_PROPOSTA_ENVIADA,
         ACEITE_RECUSA_CANDIDATO,COMENTARIO,
-        COMUNICAR_STATUS, STATUS, PROJETO, NOME
+        COMUNICAR_STATUS, STATUS, NOME
         from propostas_contratacoes as p
         LEFT JOIN admissao_dominio as a
         on p.ID_USUARIO = a.USUARIO_ID
@@ -152,7 +152,6 @@ $result = mysqli_query($connect, $sql);
                         <th>Aceite/recusa candidato</th>
                         <th>Comentário</th>
                         <th>Comunicar Status da Proposta ao Solicitante</th>
-                        <th width='150px'>Projeto</th>
 
      <?php
      while($row = mysqli_fetch_array($result))
@@ -168,7 +167,6 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["ACEITE_RECUSA_CANDIDATO"].'</td>
          <td>'.$row["COMENTARIO"].'</td>
          <td>'.$row["COMUNICAR_STATUS"].'</td>
-         <td>'.$row["PROJETO"].'</td>
        </tr>
         ';
      }
@@ -815,7 +813,7 @@ $result = mysqli_query($connect, $sql);
 <?PHP
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, BOAS_VINDAS_INGR_AGENDADA, BOAS_VINDAS_INGR_REALIZADA,
-        BOAS_VINDAS_SALA, BOAS_VINDA_ACOMPANHAMENTO_MENSAL, LAYOUT_BOAS_VINDAS_MENSAL,
+        BOAS_VINDAS_SALA, LAYOUT_BOAS_VINDAS_MENSAL,
         STATUS, PROJETO, NOME
         from boas_vindas as p
         LEFT JOIN admissao_dominio as a
@@ -850,7 +848,6 @@ $result = mysqli_query($connect, $sql);
                         <th>integração agendada</th>
                         <th>integração realizada</th>
                         <th>sala</th>
-                        <th>acompanhamento mensal</th>
                         <th>Layot Boas vindas Mensal</th>
                         <th width='150px'>Projeto</th>
                       </tr>
@@ -865,7 +862,6 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["BOAS_VINDAS_INGR_AGENDADA"].'</td>
          <td>'.$row["BOAS_VINDAS_INGR_REALIZADA"].'</td>
          <td>'.$row["BOAS_VINDAS_SALA"].'</td>
-         <td>'.$row["BOAS_VINDA_ACOMPANHAMENTO_MENSAL"].'</td>
          <td>'.$row["LAYOUT_BOAS_VINDAS_MENSAL"].'</td>
          <td>'.$row["PROJETO"].'</td>
        </tr>
