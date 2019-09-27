@@ -130,8 +130,8 @@ if(isset($_POST["export"]))
                             <th width="150px">Projeto</th>
                             <th width="250px">Email</th>
                             <th width="110px">Data Admissão</th>
-                            <th>Proposta Recebida</th>
-                            <th>De acordo Direção</th>
+                            <th>Enquadramento remuneração envio</th>
+                            <th>Enquadramento remuneração retorno</th>
                             <th>Enquadramento(Validação Ex Funcionário)</th>
                             <th>Envio da Proposta</th>
                             <th>Comunicar proposta enviada Solicitante</th>
