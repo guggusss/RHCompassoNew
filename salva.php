@@ -24,14 +24,13 @@ include("emails/defineNomeDoGrupoDeEmail.php");
 		$cliente = $_POST["cliente"];
 		$projeto = $_POST["projeto"];
 		$email = $_POST["email"];
-		$posicao_data = $_POST["posicao_data"];
 		$posicao_comentario = $_POST["posicao_comentario"];
 		$administrativo = $_POST["administrativo"];
 
 
 
-		$sql = "INSERT INTO `admissao_dominio` ( `STATUS`,`ID_SEDE`,`ID_TIPO`,`ID_CAPTACAO`,`CARGA_HORARIA`, `HORARIO`,`NOME`,`SEXO`, `FONE_CONTATO`, `DATA_ADMISSAO`,  `CARGO`, `SOLICITANTE`, `CONTROLE_DATA_ADMISSAO`, `REMUNERACAO_BASE`, `GRATIFICACAO`, `CLIENTE` , `PROJETO`, `EMAIL`, `POSICAO_DATA`, `POSICAO_COMENTARIO`, `ADMINISTRATIVO`)
-		VALUES ('EM VALIDAÇÃO','$id_sede','$id_tipo','$id_captacao','$carga_horaria','$horario','$nome', '$sexo', '$fone_contato', '$data_admissao', '$cargo',  '$solicitante', '$controle_data_admissao', '$remuneracao_base', '$gratificacao', '$cliente', '$projeto', '$email', '$posicao_data', '$posicao_comentario', '$administrativo')";
+		$sql = "INSERT INTO `admissao_dominio` ( `STATUS`,`ID_SEDE`,`ID_TIPO`,`ID_CAPTACAO`,`CARGA_HORARIA`, `HORARIO`,`NOME`,`SEXO`, `FONE_CONTATO`, `DATA_ADMISSAO`,  `CARGO`, `SOLICITANTE`, `CONTROLE_DATA_ADMISSAO`, `REMUNERACAO_BASE`, `GRATIFICACAO`, `CLIENTE` , `PROJETO`, `EMAIL`, `POSICAO_COMENTARIO`, `ADMINISTRATIVO`)
+		VALUES ('EM VALIDAÇÃO','$id_sede','$id_tipo','$id_captacao','$carga_horaria','$horario','$nome', '$sexo', '$fone_contato', '$data_admissao', '$cargo',  '$solicitante', '$controle_data_admissao', '$remuneracao_base', '$gratificacao', '$cliente', '$projeto', '$email', '$posicao_comentario', '$administrativo')";
 
 
 		$execQuery = mysqli_query($conn,$sql);
