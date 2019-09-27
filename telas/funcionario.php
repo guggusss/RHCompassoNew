@@ -175,8 +175,8 @@ $translado = buscasuporte($conn, $id);
                 <thead>
                     <tr>
                         <th>Status</th>
-                        <th>Proposta Recebida</th>
-                        <th>De acordo Direção</th>
+                        <th>Enquadramento remuneração envio</th>
+                        <th>Enquadramento remuneração retorno</th>
                         <th width = '220px'>Enquadramento<br/>(Validação Ex Funcionário)</th>
                         <th>Envio da Proposta</th>
                         <th>Comunicar proposta enviada Solicitante</th>

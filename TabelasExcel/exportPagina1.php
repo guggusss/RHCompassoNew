@@ -54,7 +54,7 @@ if(isset($_POST["export"]))
             <td>'.$row["NOME"].'</td>
             <td>'.$row["FONE_CONTATO"].'</td>
             <td>'.$row["CARGO"].'</td>
-            <td>'.$row["CONTROLE_DATA_ADMISSAO"].'</td>
+            <td>'.$row["LOG_REGISTRO_DIA_RH_ENVIA_DP"].'</td>
             <td>'.number_format($row["REMUNERACAO_BASE"], 2, ',','.').'</td>
             <td>'.number_format($row["GRATIFICACAO"], 2, ',','.').'</td>
             <td>'.number_format(($row["GRATIFICACAO"]+$row["REMUNERACAO_BASE"]), 2, ',', '.').'</td>

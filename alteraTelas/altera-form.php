@@ -74,7 +74,9 @@
                     <th width='110px'>Posição(Data)</th>
                     <th width='200px'>Posição(Comentários)</th>
                     <th width='200px'>Administrativo + Flyback - Hotel</th>
-                    <th width='150px'></th>
+                    <th scope="col" width='200px'>Comentários</th>
+                    <th scope="col" width='150px'></th>
+                    
                 </tr>
             </thead>
 
@@ -137,7 +139,7 @@
                             </select></td>
                             <td id='add-fone'><input class='intable' type="tel" name="FONE_CONTATO" value = "<?=$funcionarios['FONE_CONTATO']; ?>"></td>
                             <td id='add-cargo'><input class='intable' type="text" name="CARGO" value = "<?=$funcionarios['CARGO']; ?>"></td>
-                            <td id='add-contole-data'><input class='intable' type="date" name="CONTROLE_DATA_ADMISSAO" value = "<?=$funcionarios['CONTROLE_DATA_ADMISSAO']; ?>"></td>
+                            <td id='add-log-registro-dia-rh-envia-dp'><input class='intable' type="date" name="LOG_REGISTRO_DIA_RH_ENVIA_DP" value = "<?=$funcionarios['LOG_REGISTRO_DIA_RH_ENVIA_DP']; ?>"></td>
                             <td id='add-remuneracao'><input class='intable' type="text" name="REMUNERACAO_BASE" value = "<?=$REMUNERACAO_BASE?>"></td>
                             <td id='add-gratificacao'><input class='intable' type="text" name="GRATIFICACAO" value = "<?=$GRATIFICACAO?>"></td>
                             <td id='add-solicitante'><input  class='intable' type="text" name="SOLICITANTE" value = "<?=$funcionarios['SOLICITANTE']; ?>"></td>
@@ -148,6 +150,7 @@
                             <td id='add-posicao_data'><input class='intable' type="date" name="POSICAO_DATA" value = "<?=$funcionarios['POSICAO_DATA']; ?>"></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="POSICAO_COMENTARIO" value = "<?=$funcionarios['POSICAO_COMENTARIO']; ?>"></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="ADMINISTRATIVO" value = "<?=$funcionarios['ADMINISTRATIVO']; ?>"></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="Comentario" required></td>
                     <td><button class="btn btn-default" type="submit">Alterar</button></td>
                 </form>
             
