@@ -15571,8 +15571,8 @@ uporteInterno.js[m
                  <thead>[m
 [36m@@ -176,7 +177,7 @@[m [m$translado = buscasuporte($conn, $id);[m
                          <th>Status</th>[m
-                         <th>Proposta Recebida</th>[m
-                         <th>De acordo Direção</th>[m
+                         <th>Enquadramento remuneração envio</th>[m
+                         <th>Enquadramento remuneração retorno</th>[m
 [31m-                        <th width = '220px'>Enquadramento(Validação Ex Funcionário)</th>[m
 [32m+[m[32m                        <th width = '220px'>Enquadramento<br/>(Validação Ex Funcionário)</th>[m[41m
 [m
