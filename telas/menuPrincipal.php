@@ -725,7 +725,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td><?php echo $rows_dados['SEXO']; ?></td>
                             <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
 							<td><?php echo $rows_dados['CARGO']; ?></td>
-                            <td ><?php echo formatDateApresentation($rows_dados['CONTROLE_DATA_ADMISSAO']);?></td>
+                            <td ><?php echo formatDateApresentation($rows_dados['LOG_REGISTRO_DIA_RH_ENVIA_DP']);?></td>
 							<td><?php echo 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
                             <td><?php echo 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
                             <td><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
@@ -781,7 +781,7 @@ if (isset($_POST['botaoVolta'])) {
                             </select></td>
                             <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\)[\s][0-9]{1}[0-9]{4}-[0-9]{4}" name="fone_contato" id="telefone" maxlength="15" required></td>
                             <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
-                            <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao"></td> 
+                            <td id='add-log-registro-dia-rh-envia-dp'><input class='intable' type="date" name="LOG_REGISTRO_DIA_RH_ENVIA_DP"></td> 
                             <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" min="0" required></td>
                             <td id='add-gratificacao'><input class='intable' type="number" step=".01" name="gratificacao" min="0" required></td>
                             <td></td>
