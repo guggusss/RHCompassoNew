@@ -273,7 +273,7 @@ if (isset($_POST['botaoVolta'])) {
             $assinados = $_POST['assinados'];
             $where[] = " `DOCUMENTOS_RECEBIDOS_ASSINADOS` = '{$assinados}'"; 
         }
-        $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA
+        $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO
         FROM admissao_dominio as a
         LEFT JOIN parametros_captacao as p
         on a.ID_CAPTACAO = p.CAPTACAO_ID
