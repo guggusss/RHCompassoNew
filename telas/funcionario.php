@@ -210,18 +210,20 @@ $translado = buscasuporte($conn, $id);
                         <form method="POST" action="/RHCompasso/alteraTelas/altera-proposta.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><select class='intable' name="STATUS" ><option value='<?=$status['STATUS']?>' selected= "selected"><?=$status['STATUS']?></option>
-                            <option value = "AGUARDAR ACEITE">AGUARDAR ACEITE</option>
-                            <option value="FINALIZADO">FINALIZADO</option>
-                            <option value = "DESISTENCIA">DESISTENCIA</option>
-                            <option value="EM ANDAMENTO">EM ANDAMENTO</option>
-                            <option value = "EM CONTRATO">EM CONTRATO</option>
-                            <option value = "EM VALIDAÇÃO">EM VALIDAÇÃO</option>
-                            <option value= "RETORNO DOCS">RETORNO DOCS</option>
-                            <option value= "REALIZAR CONTATO">REALIZAR CONTATO</option>
-                            <option value= "CONTATO REALIZADO">CONTATO REALIZADO</option>
-                            <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
-                            <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
-                            <option value="RECUSADO">RECUSADO</option></select></td>
+                            <option value="" selected="selected"></option>
+                                <option>SOLICITAÇÃO DE PROPOSTA</option>
+                                <option>AGUARDANDO APROVAÇÃO</option>
+                                <option>APROVADO DIRETORIA</option>
+                                <option>EM VALIDAÇÃO</option>
+                                <option>NEGOCIAÇÃO</option>
+                                <option>PROPOSTA ENVIADA</option>
+                                <option>E-MAIL: PROPOSTA ACEITA</option>
+                                <option>E-MAIL: EM ANDAMENTO</option>                                
+                                <option>E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option>EM CONTRATO</option>
+                                <option>RETORNO DOCS</option>
+                                <option>E-MAIL: DESISTENCIA</option>
+                                <option>E-MAIL RECUSADO</option></select></td>
                             <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value="<?=$recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO']?>"></td>
                             <td><input type="date" id="campo2" class='intable' name ="ENQUADRAMENTO_REMUNERACAO_RETORNO" value="<?=$deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO']?>"></td>
                             <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
@@ -230,7 +232,6 @@ $translado = buscasuporte($conn, $id);
                             <td><input type="date" id="campo6" class='intable' name="ACEITA_RECUSA_CANDIDATO" value="<?=$candidato['ACEITE_RECUSA_CANDIDATO']?>"></td>
                             <td><input type="text" id="campo7"class='intable' name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>
                             <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
-                            <td><input type="text" id="campo9" class='intable' name="PROJETO" value="<?=$funcionarios['PROJETO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>
                         </form>
