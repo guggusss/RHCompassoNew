@@ -26,15 +26,16 @@ include("emails/defineNomeDoGrupoDeEmail.php");
 		//$remuneracao_total = soma dos campos remuneração base e gratificação;
 		$cliente = $_POST["cliente"];
 		$projeto = $_POST["projeto"];
-		$email = $_POST["email"];
+		$email = $_POST["EMAIL"];
 		$posicao_comentario = $_POST["posicao_comentario"];
 		$comentarios = $_POST["comentarios"];
 		$administrativo = $_POST["administrativo"];
+		$comentarios = $_POST["comentarios"];
 
 
 
 
-		$sql = "INSERT INTO `admissao_dominio` ( `STATUS`,`ID_SEDE`,`ID_TIPO`,`ID_CAPTACAO`,`CARGA_HORARIA`, `HORARIO`,`NOME`,`SEXO`, `FONE_CONTATO`, `DATA_ADMISSAO`,  `CARGO`, `SOLICITANTE`, `LOG_REGISTRO_DIA_RH_ENVIA_DP`, `REMUNERACAO_BASE`, `GRATIFICACAO`, `CLIENTE` , `PROJETO`, `COMENTARIOS`, `EMAIL`, `POSICAO_COMENTARIO`, `ADMINISTRATIVO`)
+		$sql = "INSERT INTO `admissao_dominio` ( `STATUS`,`ID_SEDE`,`ID_TIPO`,`ID_CAPTACAO`,`CARGA_HORARIA`, `HORARIO`,`NOME`,`SEXO`, `FONE_CONTATO`, `DATA_ADMISSAO`,  `CARGO`, `SOLICITANTE`, `LOG_REGISTRO_DIA_RH_ENVIA_DP`, `REMUNERACAO_BASE`, `GRATIFICACAO`, `CLIENTE` , `PROJETO`, `EMAIL`, `POSICAO_COMENTARIO`, `ADMINISTRATIVO`, `COMENTARIOS`)
 		VALUES ('$status','$id_sede','$id_tipo','$id_captacao','$carga_horaria','$horario','$nome', '$sexo', '$fone_contato', '$data_admissao', '$cargo',  '$solicitante', '$log_registro_dia_rh_envia_dp', '$remuneracao_base', '$gratificacao', '$cliente', '$projeto', '$email', '$posicao_comentario', '$administrativo', '$comentarios')";
 
 
