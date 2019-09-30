@@ -118,8 +118,8 @@ $result = mysqli_query($connect, $sql);
 
 <?PHP
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
-$sql = "SELECT ID_USUARIO, PROPOSTA_RECEBIDA,
-        DE_ACORDO_DIRECAO,ENQUADRAMENTO,
+$sql = "SELECT ID_USUARIO, ENQUADRAMENTO_REMUNERACAO_ENVIO,
+        ENQUADRAMENTO_REMUNERACAO_RETORNO,ENQUADRAMENTO,
         ENVIO_PROPOSTA,COMUNICAR_PROPOSTA_ENVIADA,
         ACEITE_RECUSA_CANDIDATO,COMENTARIO,
         COMUNICAR_STATUS, STATUS, NOME
@@ -159,9 +159,9 @@ $result = mysqli_query($connect, $sql);
      {
         echo '
        <tr>
-         <td>'.$row["NOME"].'</td>
-         <td>'.$row["PROPOSTA_RECEBIDA"].'</td>
-         <td>'.$row["DE_ACORDO_DIRECAO"].'</td>
+        <td>'.$row["NOME"].'</td>
+         <td>'.$row["ENQUADRAMENTO_REMUNERACAO_ENVIO"].'</td>
+         <td>'.$row["ENQUADRAMENTO_REMUNERACAO_RETORNO"].'</td>
          <td>'.$row['ENQUADRAMENTO'].'</td>
          <td>'.$row["ENVIO_PROPOSTA"].'</td>
          <td>'.$row['COMUNICAR_PROPOSTA_ENVIADA'].'</td>
