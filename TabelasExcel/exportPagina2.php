@@ -13,7 +13,7 @@ if(isset($_POST["export"]))
                   ENVIO_PROPOSTA,
                   COMUNICAR_PROPOSTA_ENVIADA,
                   ACEITE_RECUSA_CANDIDATO,
-                  COMENTARIO,
+                  COMENTARIOS,
                   COMUNICAR_STATUS,
                   FROM admissao_dominio AS a
                   LEFT JOIN propostas_contratacoes AS p
@@ -53,7 +53,7 @@ $result = mysqli_query($connect, $query);
             <td>'.$row["ENVIO_PROPOSTA"].'</td>
             <td>'.$row['COMUNICAR_PROPOSTA_ENVIADA'].'</td>
             <td>'.$row["ACEITE_RECUSA_CANDIDATO"].'</td>
-            <td>'.$row["COMENTARIO"].'</td>
+            <td>'.$row["COMENTARIOS"].'</td>
             <td>'.$row["COMUNICAR_STATUS"].'</td>
             </tr>
             ';
