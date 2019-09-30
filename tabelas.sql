@@ -88,8 +88,8 @@ CREATE TABLE if not exists `propostas_contratacoes` (
 
 
 
-CREATE TABLE IF NOT EXISTS `bancorh`.`gestao`
- ( `ID_GESTOR` INT auto_increment,
+CREATE TABLE IF NOT EXISTS `bancorh`.`gestao`( 
+`ID_GESTOR` INT auto_increment,
 `ID_USUARIO` INT NOT NULL,
 `GESTOR` VARCHAR(45) DEFAULT NULL,
 `GESTOR_SABE` VARCHAR(4) DEFAULT NULL,
