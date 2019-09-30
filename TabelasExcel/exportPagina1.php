@@ -65,6 +65,7 @@ if(isset($_POST["export"]))
             <td>'.$row["DATA_ADMISSAO"].'</td>
             <td>'.$row["POSICAO_COMENTARIO"].'</td>
             <td>'.$row["ADMINISTRATIVO"].'</td>
+            <td>'.$row["COMENTARIOS"].'</td>
         </tr>  
         ';  
   }
