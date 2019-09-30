@@ -7,8 +7,7 @@ on a.ID_CAPTACAO = p.CAPTACAO_ID
 JOIN sede as s
 on a.ID_SEDE = s.SEDE_ID
 JOIN tipo as t
-on a.ID_TIPO = t.TIPO_ID
-";
+on a.ID_TIPO = t.TIPO_ID";
 $result = mysqli_query($connect, $sql);
 ?>
 <html>
@@ -73,6 +72,7 @@ $result = mysqli_query($connect, $sql);
                         <th width='110px'>Data Admissão</th>
                         <th width='200px'>Posição(Comentários)</th>
                         <th width='200px'>Administrativo + Flyback - Hotel</th>
+                        <th width='200px'>Comentários</th>
 
      <?php
      while($row = mysqli_fetch_array($result))
@@ -99,6 +99,7 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["DATA_ADMISSAO"].'</td>
          <td>'.$row["POSICAO_COMENTARIO"].'</td>
          <td>'.$row["ADMINISTRATIVO"].'</td>
+         <td>'.$row["COMENTARIOS"].'</td>
        </tr>
         ';
      }
@@ -158,7 +159,7 @@ $result = mysqli_query($connect, $sql);
      {
         echo '
        <tr>
-        <td>'.$row["NOME"].'</td>
+         <td>'.$row["NOME"].'</td>
          <td>'.$row["PROPOSTA_RECEBIDA"].'</td>
          <td>'.$row["DE_ACORDO_DIRECAO"].'</td>
          <td>'.$row['ENQUADRAMENTO'].'</td>
