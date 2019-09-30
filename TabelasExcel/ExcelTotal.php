@@ -215,7 +215,7 @@ if(isset($_POST["export"]))
          <td>'.$row["NOME"].'</td>
          <td>'.$row["FONE_CONTATO"].'</td>
          <td>'.$row["CARGO"].'</td>
-         <td>'.$row["CONTROLE_DATA_ADMISSAO"].'</td>
+         <td>'.$row["LOG_REGISTRO_DIA_RH_ENVIA_DP"].'</td>
          <td>'.$row["REMUNERACAO_BASE"].'</td>
          <td>'.$row["GRATIFICACAO"].'</td>
          <td>'.$row["SOLICITANTE"].'</td>
@@ -223,8 +223,8 @@ if(isset($_POST["export"]))
          <td>'.$row["CLIENTE"].'</td>
          <td>'.$row["EMAIL"].'</td>
          <td>'.$row["DATA_ADMISSAO"].'</td>
-         <td>'.$row["PROPOSTA_RECEBIDA"].'</td>
-         <td>'.$row["DE_ACORDO_DIRECAO"].'</td>
+         <td>'.$row["ENQUADRAMENTO_REMUNERACAO_ENVIO"].'</td>
+         <td>'.$row["ENQUADRAMENTO_REMUNERACAO_RETORNO"].'</td>
          <td>'.$row['ENQUADRAMENTO'].'</td>
          <td>'.$row["ENVIO_PROPOSTA"].'</td>
          <td>'.$row['COMUNICAR_PROPOSTA_ENVIADA'].'</td>

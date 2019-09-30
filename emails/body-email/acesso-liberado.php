@@ -33,7 +33,7 @@
         <p>Já estão disponíveis os acessos do novo(a) colaborador(a) <strong class ='sublinhe'><?=$nome['NOME']?></strong> que iniciará as suas atividades, na Compasso, em <strong class='sublinhe'><?= $dataAdmissao ?></strong></p>
         <div>
           <h2>KAIROS</h2>
-          <p>Login: <strong class='sublinhe'><?=$dados['KAIROS_CADASTRO_USUARIO']?></strong></p>
+          <p>Login: <strong class='sublinhe'><?=$dados['KAIROS_CADASTRO_USUARIO']?></strong></p> 
           <p>Senha: <strong class='sublinhe'><?=$dados['KAIROS_CADASTRO_SENHA']?></strong></p>
         </div>
         <div>

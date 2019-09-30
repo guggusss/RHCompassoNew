@@ -4,6 +4,7 @@ include("update.php");
 include("emails/defineNomeDoGrupoDeEmail.php");
 
 		
+		$status = $_POST['status'];
 		$id_sede = $_POST["sede"];
 		$id_tipo = $_POST["tipo"];
 		$id_captacao = $_POST["captacao"];
@@ -32,10 +33,8 @@ include("emails/defineNomeDoGrupoDeEmail.php");
 
 
 
-
-		$sql = "INSERT INTO `admissao_dominio` ( `STATUS`,`ID_SEDE`,`ID_TIPO`,`ID_CAPTACAO`,`CARGA_HORARIA`, `HORARIO`,`NOME`,`SEXO`, `FONE_CONTATO`, `DATA_ADMISSAO`,  `CARGO`, `SOLICITANTE`, `LOG_REGISTRO_DIA_RH_ENVIA_DP`, `REMUNERACAO_BASE`, `GRATIFICACAO`, `CLIENTE` , `PROJETO`, `EMAIL`, `POSICAO_DATA`, `POSICAO_COMENTARIO`, `ADMINISTRATIVO`)
-		VALUES ('EM VALIDAÇÃO','$id_sede','$id_tipo','$id_captacao','$carga_horaria','$horario','$nome', '$sexo', '$fone_contato', '$data_admissao', '$cargo',  '$solicitante', '$log_registro_dia_rh_envia_dp', '$remuneracao_base', '$gratificacao', '$cliente', '$projeto', '$email', '$posicao_data', '$posicao_comentario', '$administrativo')";
-
+		$sql = "INSERT INTO `admissao_dominio` ( `STATUS`,`ID_SEDE`,`ID_TIPO`,`ID_CAPTACAO`,`CARGA_HORARIA`, `HORARIO`,`NOME`,`SEXO`, `FONE_CONTATO`, `DATA_ADMISSAO`,  `CARGO`, `SOLICITANTE`, `LOG_REGISTRO_DIA_RH_ENVIA_DP`, `REMUNERACAO_BASE`, `GRATIFICACAO`, `CLIENTE` , `PROJETO`, `EMAIL`, `POSICAO_COMENTARIO`, `ADMINISTRATIVO`)
+		VALUES ('$status','$id_sede','$id_tipo','$id_captacao','$carga_horaria','$horario','$nome', '$sexo', '$fone_contato', '$data_admissao', '$cargo',  '$solicitante', '$log_registro_dia_rh_envia_dp', '$remuneracao_base', '$gratificacao', '$cliente', '$projeto', '$email', '$posicao_comentario', '$administrativo')";
 
 
 

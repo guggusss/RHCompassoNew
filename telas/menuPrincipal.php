@@ -359,22 +359,21 @@ if (isset($_POST['botaoVolta'])) {
                     <div>
                         <div>
                             <label for="status">Status</label>
-                            <select id="status" name="STATUS" class="form-control campo-filter">
+                            <select name="status" class="intable" value="<?=$rows_dados['STATUS']?>" required>
                                 <option value="" selected="selected"></option>
-                                <option value="1">SOLICITAÇÃO DE PROPOSTA</option>
-                                <option value="2">AGUARDANDO APROVAÇÃO</option>
-                                <option value="3">APROVADO DIRETORIA</option>
-                                <option value="4">EM VALIDAÇÃO</option>
-                                <option value="5">NEGOCIAÇÃO</option>
-                                <option value="6">PROPOSTA ENVIADA</option>
-                                <option value="7">E-MAIL: PROPOSTA ACEITA</option>
-                                <option value="8">E-MAIL: EM ANDAMENTO</option>                                
-                                <option value="9">E-MAIL: PROPOSTA INVÁLIDA</option>
-                                <option value="10">EM CONTRATO</option>
-                                <option value="11">RETORNO DOCS</option>
-                                <option value="12">E-MAIL: DESISTENCIA</option>
-                                <option value="13">E-MAIL RECUSADO</option>
-
+                                <option>SOLICITAÇÃO DE PROPOSTA</option>
+                                <option>AGUARDANDO APROVAÇÃO</option>
+                                <option>APROVADO DIRETORIA</option>
+                                <option>EM VALIDAÇÃO</option>
+                                <option>NEGOCIAÇÃO</option>
+                                <option>PROPOSTA ENVIADA</option>
+                                <option>E-MAIL: PROPOSTA ACEITA</option>
+                                <option>E-MAIL: EM ANDAMENTO</option>                                
+                                <option>E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option>EM CONTRATO</option>
+                                <option>RETORNO DOCS</option>
+                                <option>E-MAIL: DESISTENCIA</option>
+                                <option>E-MAIL RECUSADO</option>
                             </select>
                         </div>
                         <div>
@@ -744,23 +743,21 @@ if (isset($_POST['botaoVolta'])) {
 
                 <tr>
                         <form id='form-add' method="POST" action="../salva.php">
-
-                            <td><select id="add-STATUS" name="STATUS" class="selectadd intable" required>
-
+                            <td><select name="status" class="intable" value="<?=$rows_dados['STATUS']?>" required>
                                 <option value="" selected="selected"></option>
-                                <option value="1">SOLICITAÇÃO DE PROPOSTA</option>
-                                <option value="2">AGUARDANDO APROVAÇÃO</option>
-                                <option value="3">APROVADO DIRETORIA</option>
-                                <option value="4">EM VALIDAÇÃO</option>
-                                <option value="5">NEGOCIAÇÃO</option>
-                                <option value="6">PROPOSTA ENVIADA</option>
-                                <option value="7">E-MAIL: PROPOSTA ACEITA</option>
-                                <option value="8">E-MAIL: EM ANDAMENTO</option>                                
-                                <option value="9">E-MAIL: PROPOSTA INVÁLIDA</option>
-                                <option value="10">EM CONTRATO</option>
-                                <option value="11">RETORNO DOCS</option>
-                                <option value="12">E-MAIL: DESISTENCIA</option>
-                                <option value="13">E-MAIL RECUSADO</option>
+                                <option>SOLICITAÇÃO DE PROPOSTA</option>
+                                <option>AGUARDANDO APROVAÇÃO</option>
+                                <option>APROVADO DIRETORIA</option>
+                                <option>EM VALIDAÇÃO</option>
+                                <option>NEGOCIAÇÃO</option>
+                                <option>PROPOSTA ENVIADA</option>
+                                <option>E-MAIL: PROPOSTA ACEITA</option>
+                                <option>E-MAIL: EM ANDAMENTO</option>                                
+                                <option>E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option>EM CONTRATO</option>
+                                <option>RETORNO DOCS</option>
+                                <option>E-MAIL: DESISTENCIA</option>
+                                <option>E-MAIL RECUSADO</option>
                             </select></td>
                             <td><select id="add-sede" name='sede' class="selectadd intable" required>
                                 <option value="" selected="selected"></option>
@@ -789,7 +786,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-solicitante'><input  class='intable' type="text" name="solicitante" required></td>
                             <td id='add-cliente'><input class='intable' type="text" name="cliente" required></td>
                             <td id='add-projeto'><input class='intable' type="text" name="projeto" required></td>
-                            <td id='add-email'><input class='intable' type="email" name="email" required></td>
+                            <td id='add-email'><input class='intable' type="email" name="EMAIL" required></td>
                             <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
@@ -815,7 +812,7 @@ if (isset($_POST['botaoVolta'])) {
                     <tr class='tb2'>
                         <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
                         <td class='tb2'>Gestor solicitou a proposta de contratação</td>
-                        <td align='center'><input type='button' value='Aprovação' onclick =  ??? ></td>
+                        <td align='center'><input type='button' value='Aprovação' onclick =  ??? ></td> 
                     </tr>
                     <tr class='tb2'>
                         <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
@@ -825,11 +822,11 @@ if (isset($_POST['botaoVolta'])) {
                         <td class='tb2'>APROVADO DIRETORIA</td>
                         <td class='tb2'>Diretoria aprovou recrutamento irá seguir</td>
                     </tr>
-                    <tr>
+                    <tr class='tb2'>
                         <td class='tb2'>EM VALIDAÇÃO</td>
                         <td class='tb2'>Proposta em elaboração pelo time de recrutamento</td>
                     </tr>
-                    <tr>
+                    <tr class='tb2'>
                         <td class='tb2'>NEGOCIAÇÃO</td>
                         <td class='tb2'>Profissional solicitou contra proposta</td>
                     </tr>
@@ -837,16 +834,16 @@ if (isset($_POST['botaoVolta'])) {
                         <td class='tb2'>PROPOSTA ENVIADA</td>
                         <td class='tb2'>Recrutamento enviou a proposta e está aguardando retorno</td>
                     </tr>
-                    <tr>
-                        <td class='tb2'>E-MAIL: PROPOSTA ACEITA</td>
-                        <td class='tb2'>Profissional aceitou a proposta</td>
+                    <tr class='tb2'>
+                        <td class='tb2'>E:MAIL: PROPOSTA ACEITA</td>
+                        <td class='tb2'>Profissional aceitou proposta</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: EM ANDAMENTO</td>
+                        <td class='tb2'>E:MAIL: EM ANDAMENTO</td>
                         <td class='tb2'>DP aprovou a proposta e seguirá a admissão</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: PROPOSTA INVÁLIDA</td>
+                        <td class='tb2'>E:MAIL: PROPOSTA INVÁLIDA</td>
                         <td class='tb2'>DP reprovou recrutamento revisar a proposta</td>
                     </tr>
                     <tr class='tb2'>
@@ -858,7 +855,7 @@ if (isset($_POST['botaoVolta'])) {
                         <td class='tb2'>Admissão concluída - aguardando documentos fisícos admissão assinados</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>E-MAIL: DESISTENCIA</td>
+                        <td class='tb2'>E-MAIL DESISTENCIA</td>
                         <td class='tb2'>Profissional desistiu da admissão após aceite</td>
                     </tr>
                     <tr class='tb2'>
@@ -866,6 +863,7 @@ if (isset($_POST['botaoVolta'])) {
                         <td class='tb2'>Profissional recusou a proposta</td>
                     </tr>
                 </table>
+
                 <table class='legendas-sedes'>
                 <tr>
                     <th scope="col" class='tb2'>SEDE</th>

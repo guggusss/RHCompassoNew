@@ -308,7 +308,7 @@ $deacordo = buscaProposta($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
     window.onload = function verifica() { 
-    let variavel = "<?=$deacordo['DE_ACORDO_DIRECAO']?>";
+    let variavel = "<?=$deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO']?>";
     if (!variavel == "") {
     $("#botao3, #botao4, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);
     }

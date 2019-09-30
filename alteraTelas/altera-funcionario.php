@@ -6,6 +6,7 @@
 
 
 
+$STATUS = $_POST['status'];
 $USUARIO_ID = $_POST['USUARIO_ID'];
 $ID_SEDE = $_POST['ID_SEDE'];
 $ID_TIPO = $_POST['ID_TIPO'];
