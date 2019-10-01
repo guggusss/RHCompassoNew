@@ -194,8 +194,16 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['EQUIPE']; ?></td>
+<<<<<<< Updated upstream
                             <td><?php ?></td>
                             
+=======
+                            <td><?php if($rows_dados['USUARIO'] != NULL){
+                                $usuario_atv = "( X )";
+                            }else{
+                                $usuario_atv = "(   )";
+                            }?> <input type="text" class='intable' name ="USUARIO_ATV"  value="<?=$usuario_atv?>"> </td>                   
+>>>>>>> Stashed changes
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
