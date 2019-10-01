@@ -359,7 +359,7 @@ if (isset($_POST['botaoVolta'])) {
                     <div>
                         <div>
                             <label for="status">Status</label>
-                            <select name="status" class="intable" value="<?=$rows_dados['STATUS']?>" required>
+                            <select name="status" class="form-control campo-filter" value="<?=$rows_dados['STATUS']?>">
                                 <option value="" selected="selected"></option>
                                 <option>SOLICITAÇÃO DE PROPOSTA</option>
                                 <option>AGUARDANDO APROVAÇÃO</option>
