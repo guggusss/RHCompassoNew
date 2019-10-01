@@ -7,6 +7,7 @@
   $funcionario = buscaFuncionarios($conn, $id);
   $dados = buscainterno($conn, $id);
   $email = buscasuporte($conn, $id);
+  $usuario= buscasuporte($conn, $id);
   
   $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
 ?>
@@ -34,12 +35,12 @@
         <p>Já estão disponíveis os acessos do novo(a) colaborador(a) <strong class ='sublinhe'><?=$nome['NOME']?></strong> que iniciará as suas atividades, na Compasso, em <strong class='sublinhe'><?= $dataAdmissao ?></strong></p>
         <div>
           <h2>KAIROS</h2>
-          <p>Login: <strong class='sublinhe'><?=$dados['KAIROS_CADASTRO_USUARIO']?></strong></p> 
+          <p>Login: <strong class='sublinhe'><?=$email['EMAIL_SUP']?></strong></p> 
           <p>Senha: <strong class='sublinhe'><?=$dados['KAIROS_CADASTRO_SENHA']?></strong></p>
         </div>
         <div>
           <h2>INTRANET</h2>
-          <p>Login: <strong class='sublinhe'><?=$dados['INTRANET_CADASTRO_USUARIO']?></strong></p>
+          <p>Login: <strong class='sublinhe'><?=$usuario['USUARIO']?></strong></p>
           <p>Senha: <strong class='sublinhe'><?=$dados['INTRANET_CADASTRO_SENHA']?></strong></p>
         </div>
         <div>
