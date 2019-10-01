@@ -26,8 +26,7 @@ if($count == 1){
 }else{
     $sede = buscaSedeFuncionario($conn, $status['ID_SEDE']);
     $cargo = buscaCargoFuncionario($conn, $id, $id);
-    $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
-    //$nome = defineUser($conn, $status['NOME'], $id);
+    $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);   
     $nome = defineUser($link, $status['NOME'], $id);
     mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE`) VALUES (NULL,$id,'$nome@compasso.com.br','$nome',NULL,NULL,NULL,'$grupDeEmail')");
     $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -211,8 +210,8 @@ $emailsoli = buscavias($conn, $id);
                             <td><input type="text" class='intable' name="EQUIPAMENTO"  value="<?=$equipamento['EQUIPAMENTO']?>"></td>
                             <td><input type="text" class='intable' id="campo" name="TRANSLADO"  value="<?=$translado['TRANSLADO']?>"></td>
                             <td><select multiple"" onclick="anexaGrupo()" class="intable" id="books" name="EQUIPE[]" value="<?=$anexar_equipe['EQUIPE']?>"></select></td>
-                            <td></td>
-                            <td></td>
+                            
+                            <td><input type="text" class='intable' name ="NULL"  value="<?=$usuario['NULL']?>"></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
                 </tbody>
@@ -340,11 +339,11 @@ $emailsoli = buscavias($conn, $id);
             
         }
             //função para ver se tem usuarios iguais
-        function ExisteUsuario($u){
+        function ExisteUsuario($usuario){
 
             $cmd = "SELECT * FROM `suporte_interno` WHERE `USUARIO`='$u'";
             $result = mysql_query($cmd);
-            $rows = mysql_num_rows($result);
+            $rows = mysql_num_rows($result,$u);
 
         if(1 == $rows){
             return true;
