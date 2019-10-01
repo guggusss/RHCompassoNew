@@ -42,7 +42,7 @@ if(suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRAN
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     </head>
-    <p class="text-danger">Não foi alterado: <?= $msg ?></p>
+    <h1 class="text-danger">Não foi alterado: <?= $msg ?></h1>
 <?php
     }
     header("Refresh:1; url=../telas/suporteinterno.php?id=$ID_USUARIO");
