@@ -192,8 +192,11 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['EQUIPE']; ?></td>
-                            <td><button title="USUARIO_ATV" type="radio" value="ativo" class="btn btn-success"><?php ?>ATIVO</button></td>
-                            
+                            <td><?php if($rows_dados['USUARIO'] != NULL){
+                                $usuario_atv = "( X )";
+                            }else{
+                                $usuario_atv = "(   )";
+                            }?> <input type="text" class='intable' name ="USUARIO_ATV"  value="<?=$usuario_atv?>"> </td>                   
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
