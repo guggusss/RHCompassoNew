@@ -193,9 +193,9 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['EQUIPE']; ?></td>
                             <td><?php if($rows_dados['USUARIO'] != NULL){
-                                $usuario_atv = "( X )";
+                                $usuario_atv = "ATIVO";
                             }else{
-                                $usuario_atv = "(   )";
+                                $usuario_atv = "DESATIVADO";
                             }?> <input type="text" disabled="disabled" class='intable' name ="USUARIO_ATV"  value="<?=$usuario_atv?>"> </td>                   
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
