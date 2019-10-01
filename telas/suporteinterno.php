@@ -44,7 +44,7 @@ $anexar = buscaexame($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
-/*$usuario_atv = buscasuporte($conn, $id); */
+$usuario_atv = buscasuporte($conn, $id); 
 /*$usuarios = mysql_fetch_assoc($resultado); */
 
 
@@ -192,7 +192,7 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['EQUIPE']; ?></td>
-                            <td><?php if($rows_dados['USUARIO'] != NULL){
+                            <td><?php if($rows_dados ['USUARIO'] != NULL){
                                 $usuario_atv = "ATIVO";
                             }else{
                                 $usuario_atv = " ";
