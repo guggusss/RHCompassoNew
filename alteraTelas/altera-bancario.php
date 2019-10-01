@@ -18,12 +18,12 @@ $TIPO_CONTA = $_POST['TIPO_CONTA'];
 
 
 if(bancario($conn, $ID_USUARIO, $ENVIO, $RECEBIDO, $ANEXAR_COMPR_DOMIN, $PLANILHA_CONTAS, $FORM_COMPR_BANCARIO, $AGENCIA, $NUMERO_CONTA, $TIPO_CONTA)){
-//if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-  //  $STATUS = 'EM CONTRATO';
-   // status($conn, $ID_USUARIO, $STATUS);
-//}else{
-  //  status($conn, $ID_USUARIO, $STATUS);
-//}
+/*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
+$STATUS = 'EM CONTRATO';
+        status($conn, $ID_USUARIO, $STATUS);
+}else{
+        status($conn, $ID_USUARIO, $STATUS);
+/*/}
 ?>
         <head>
     <meta charset="UTF-8">

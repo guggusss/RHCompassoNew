@@ -16,12 +16,12 @@ $EFETIVACAO = $_POST['EFETIVACAO'];
 
 
 if(vencimentos($conn, $ID_USUARIO, $ENVIO_SOLICITANTE_PRI, $DATA_VENCIMENTO_PRI, $RENOVACAO, $ENVIO_SOLICITANTE_SEG, $EFETIVACAO, $DATA_VENCIMENTO_SEG)){
-//if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-  //  $STATUS = 'EM CONTRATO';
-   // status($conn, $ID_USUARIO, $STATUS);
-//}else{
-  //  status($conn, $ID_USUARIO, $STATUS);
-//}
+/*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
+$STATUS = 'EM CONTRATO';
+        status($conn, $ID_USUARIO, $STATUS);
+}else{
+        status($conn, $ID_USUARIO, $STATUS);
+/*/}
 ?>
     <head>
     <meta charset="UTF-8">

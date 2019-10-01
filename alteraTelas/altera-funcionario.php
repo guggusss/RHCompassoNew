@@ -50,12 +50,12 @@ if(funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HORA
 
 
 <?php
-//if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-//  $STATUS = 'EM CONTRATO';
-// status($conn, $ID_USUARIO, $STATUS);
-//}else{
-//  status($conn, $ID_USUARIO, $STATUS);
-//}
+/*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
+$STATUS = 'EM CONTRATO';
+        status($conn, $ID_USUARIO, $STATUS);
+}else{
+        status($conn, $ID_USUARIO, $STATUS);
+/*/}
 ?>
 
 <?php } else {

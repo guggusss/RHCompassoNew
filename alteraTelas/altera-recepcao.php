@@ -13,12 +13,12 @@ $LAYOUT_BOAS_VINDAS_MENSAL = $_POST['LAYOUT_BOAS_VINDAS_MENSAL'];
 
 if(recepcao ($conn, $ID_USUARIO, $BOAS_VINDAS_INGR_AGENDADA, $BOAS_VINDAS_INGR_REALIZADA, $BOAS_VINDAS_SALA, $LAYOUT_BOAS_VINDAS_MENSAL)){?>
 <?php
-//if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-  //  $STATUS = 'EM CONTRATO';
-   // status($conn, $ID_USUARIO, $STATUS);
+/*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
+    $STATUS = 'EM CONTRATO';
+        status($conn, $ID_USUARIO, $STATUS);
 //}else{
-  //  status($conn, $ID_USUARIO, $STATUS);
-//}
+        status($conn, $ID_USUARIO, $STATUS);
+/*/}
     ?>
     <head>
     <meta charset="UTF-8">

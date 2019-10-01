@@ -116,8 +116,8 @@ olho.mousedown(function() {
 olho.mouseup(function() {
   senha.attr("type", "password");
 });
-// para evitar o problema de arrastar a imagem e a senha continuar exposta,
-//citada pelo nosso amigo nos comentários
+/*/ para evitar o problema de arrastar a imagem e a senha continuar exposta,
+citada pelo nosso amigo nos comentários/*/
 $( "#olho" ).mouseout(function() {
   $("#senha").attr("type", "password");
 });</script>

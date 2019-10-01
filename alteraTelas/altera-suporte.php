@@ -14,12 +14,12 @@ $EQUIPE = (isset($_POST['EQUIPE'])) ? $_POST['EQUIPE'] : array();
 
 if(suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $EQUIPE)){?>
 <?php
-//if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-  //  $STATUS = 'EM CONTRATO';
-   // status($conn, $ID_USUARIO, $STATUS);
-//}else{
-  //  status($conn, $ID_USUARIO, $STATUS);
-//}
+/*i/f($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
+    $STATUS = 'EM CONTRATO';
+    status($conn, $ID_USUARIO, $STATUS);
+}else{
+    status($conn, $ID_USUARIO, $STATUS);
+/*/}
     ?>
     <head>
     <meta charset="UTF-8">

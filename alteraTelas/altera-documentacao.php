@@ -16,12 +16,12 @@ $COD_RASTREIO = $_POST['COD_RASTREIO'];
 if(Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDOS, $DOCUMENTOS_FISICOS, $CTPS_RECEBIDA, $COD_RASTREIO)) { ?>
     <?php
 
-    //if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-      //  $STATUS = 'EM CONTRATO';
-       // status($conn, $ID_USUARIO, $STATUS);
+    /*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
+    $STATUS = 'EM CONTRATO';
+            status($conn, $ID_USUARIO, $STATUS);
     //}else{
-      //  status($conn, $ID_USUARIO, $STATUS);
-    //}
+            status($conn, $ID_USUARIO, $STATUS);
+    /*/}
 
 ?>
         <head>
