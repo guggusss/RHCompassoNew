@@ -6,7 +6,9 @@ include("../update.php");
 
 $listar = listar($conn);
 $id = $_GET['id'];
-$_SESSION['id'] = $id;
+if (!isset ($id)){
+    $id = $_SESSION['id'];
+   }
 
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
