@@ -26,8 +26,7 @@ if($count == 1){
 }else{
     $sede = buscaSedeFuncionario($conn, $status['ID_SEDE']);
     $cargo = buscaCargoFuncionario($conn, $id, $id);
-    $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
-    //$nome = defineUser($conn, $status['NOME'], $id);
+    $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);   
     $nome = defineUser($link, $status['NOME'], $id);
     mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE`) VALUES (NULL,$id,'$nome@compasso.com.br','$nome',NULL,NULL,NULL,'$grupDeEmail')");
     $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -193,7 +192,11 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['EQUIPE']; ?></td>
-                            <td><input type="radio" name="USUARIO_ATV" value="ID_USUARIO"><br>
+                            <td><?php if($rows_dados['USUARIO'] != NULL){
+                                $usuario_atv = "ATIVO";
+                            }else{
+                                $usuario_atv = " ";
+                            }?> <input type="text" disabled="disabled" class='intable' name ="USUARIO_ATV"  value="<?=$usuario_atv?>"> </td>                   
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
@@ -339,11 +342,11 @@ $emailsoli = buscavias($conn, $id);
             
         }
             //função para ver se tem usuarios iguais
-        function ExisteUsuario($u){
+        function ExisteUsuario($usuario){
 
-            $cmd = "SELECT * FROM `suporte_interno` WHERE `USUARIO`='$u'";
+            $cmd = "SELECT * FROM `suporte_interno` WHERE `USUARIO`='$usuario'";
             $result = mysql_query($cmd);
-            $rows = mysql_num_rows($result);
+            $rows = mysql_num_rows($result,$u);
 
         if(1 == $rows){
             return true;
