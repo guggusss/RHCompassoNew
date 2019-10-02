@@ -6,7 +6,7 @@ if(isset($_POST["export"]))
 {
  $query = "SELECT ID_USUARIO, EMAIL_SUP,
             USUARIO, SENHA, EQUIPE,
-            EQUIPAMENTO, TRANSLADO,USUARIO_ATV;
+            EQUIPAMENTO, TRANSLADO
             STATUS, PROJETO, NOME
             from suporte_interno as p
             LEFT JOIN admissao_dominio as a

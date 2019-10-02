@@ -4,27 +4,20 @@ $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $output = '';
 if(isset($_POST["export"]))
 {
- $query = "SELECT NOME,
-                  EMAIL,
-                  STATUS,
-                  ENQUADRAMENTO_REMUNERACAO_ENVIO,
-                  ENQUADRAMENTO_REMUNERACAO_RETORNO,
-                  ENQUADRAMENTO,
-                  ENVIO_PROPOSTA,
-                  COMUNICAR_PROPOSTA_ENVIADA,
-                  ACEITE_RECUSA_CANDIDATO,
-                  COMENTARIO,
-                  COMUNICAR_STATUS,
-                  FROM admissao_dominio AS a
-                  LEFT JOIN propostas_contratacoes AS p
-                  on ID_USUARIO = USUARIO_ID
-                  WHERE ID_USUARIO = USUARIO_ID";
+    $query = "SELECT *
+    FROM propostas_contratacoes as p
+    LEFT JOIN admissao_dominio as a
+    ON p.ID_USUARIO = a.USUARIO_ID
+    WHERE ID_USUARIO = USUARIO_ID";
 
-$result = mysqli_query($connect, $query);
- if(mysqli_num_rows($result) >,,,,,, 0)
- {
-  $output .= '
-   <table class="table" bordered="1">
+    $result = mysqli_query($connect, $query);
+
+    
+    if(mysqli_num_rows($result) > 0)
+    {
+     $output .= '
+                  
+    <table class="table" bordered="1">
                   <tr>
                   <th width= "150px">Nome</th>
                   <th width= "150px">Email</th>
