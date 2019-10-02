@@ -703,7 +703,6 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
                         <th scope="col" width='200px'>Comentários</th>
-                        <th scope="col" width='150px'></th>
                         <th scope="col" width='100px'></th>
                     </tr>
                 </thead>
