@@ -14,21 +14,12 @@ $ANEXAR_ASO = $_POST['ANEXAR_ASO'];
 
 
 if(exame($conn, $ID_USUARIO, $AGENDAMENTO_EXAM_ADM, $ENVIO_FUNC_EXAME, $EMAIL_RECEBIDO_EXAM, $ANEXAR_ASO)){
-<<<<<<< Updated upstream
 //if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
   //  $STATUS = 'EM CONTRATO';
    // status($conn, $ID_USUARIO, $STATUS);
 //}else{
   //  status($conn, $ID_USUARIO, $STATUS);
 //}
-=======
-/*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-$STATUS = 'EM CONTRATO';
-    status($conn, $ID_USUARIO, $STATUS);
-}else{
-    status($conn, $ID_USUARIO, $STATUS);
-/*/}
->>>>>>> Stashed changes
 ?>
     <head>
     <meta charset="UTF-8">
