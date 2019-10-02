@@ -342,7 +342,7 @@ $emailsoli = buscavias($conn, $id);
             
         }
             //função para ver se tem usuarios iguais
-        function ExisteUsuario($usuario){
+        function ExisteUsuario($u){
 
             $cmd = "SELECT * FROM `suporte_interno` WHERE `USUARIO`='$usuario'";
             $result = mysql_query($cmd);
