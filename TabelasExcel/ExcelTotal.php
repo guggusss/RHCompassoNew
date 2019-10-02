@@ -130,6 +130,7 @@ if(isset($_POST["export"]))
                             <th width="150px">Projeto</th>
                             <th width="250px">Email</th>
                             <th width="110px">Data Admissão</th>
+                            <th width="110px">Comentarios</th>
                             <th>Enquadramento remuneração envio</th>
                             <th>Enquadramento remuneração retorno</th>
                             <th>Enquadramento(Validação Ex Funcionário)</th>
@@ -223,6 +224,7 @@ if(isset($_POST["export"]))
          <td>'.$row["CLIENTE"].'</td>
          <td>'.$row["EMAIL"].'</td>
          <td>'.$row["DATA_ADMISSAO"].'</td>
+         <td>'.$row["COMENTARIOS"].'</td>
          <td>'.$row["ENQUADRAMENTO_REMUNERACAO_ENVIO"].'</td>
          <td>'.$row["ENQUADRAMENTO_REMUNERACAO_RETORNO"].'</td>
          <td>'.$row['ENQUADRAMENTO'].'</td>
