@@ -243,7 +243,7 @@ $efetivacao = buscavencimentos($conn, $id);
                     <tr class='tb2'>
                         <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
                         <td class='tb2'>Gestor solicitou a proposta de contratação</td>
-                        <td align='center'><input type='button' value='Aprovação' onclick =  ??? ></td>
+                        
                     </tr>
                     <tr class='tb2'>
                         <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
