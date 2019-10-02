@@ -17,12 +17,12 @@ $RECEPTOR_PESSOA = $_POST['RECEPTOR_PESSOA'];
 
 
 if(gestao($conn, $ID_USUARIO, $GESTOR, $GESTOR_SABE, $GESTOR_LOCAL, $GESTOR_LOCAL_sABE, $RECEPTOR_PESSOA)){
-/*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-$STATUS = 'EM CONTRATO';
-        status($conn, $ID_USUARIO, $STATUS);
-}else{
-        status($conn, $ID_USUARIO, $STATUS);
-/*/}
+//if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
+  //  $STATUS = 'EM CONTRATO';
+   // status($conn, $ID_USUARIO, $STATUS);
+//}else{
+  //  status($conn, $ID_USUARIO, $STATUS);
+//}
 ?>
     <head>
     <meta charset="UTF-8">
