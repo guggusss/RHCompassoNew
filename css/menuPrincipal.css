@@ -131,7 +131,7 @@ a.disabled {
 .nav{
     font-size: 18px;
     font-family: "Raleway",sans-serif;
-    color: #fff;
+    color: #324272;
     font-weight: 500;
     text-decoration: none;
     outline: none;
@@ -157,12 +157,12 @@ img {
 
 
 .site-header {
-    background-color: rgb(50, 66, 114);
+    background-color:#FFF;
     box-shadow: 0 0 .5em black;
     background-image: linear-gradient(to left, #fff, white 100% );
     background-size: 75% 100%;
     background-repeat: no-repeat;
-    border-bottom: .2em solid rgb(50, 66, 114);;
+    border-bottom: .2em solid rgb(255, 255, 255);;
 }
 .site-header {
     display: block;

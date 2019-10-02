@@ -1912,7 +1912,7 @@ Binary files a/Atividades.xlsx and /dev/null differ
 [32m+[m[32m    padding: 5px;[m
 [32m+[m[32m    border-radius: 30px;[m
 [32m+[m[32m    border-bottom: #FFF;[m
-[32m+[m[32m    margin-left: 55em;[m
+[32m+[m[32m    margin-left: auto;[m
 [32m+[m[32m}[m
 [32m+[m[32m#senhaUsuario:focus{[m
 [32m+[m[32m    outline: thin dotted;[m

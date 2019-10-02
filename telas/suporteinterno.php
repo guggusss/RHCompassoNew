@@ -214,7 +214,7 @@ $emailsoli = buscavias($conn, $id);
                             <td><input type="text" class='intable' id="campo" name="TRANSLADO"  value="<?=$translado['TRANSLADO']?>"></td>
                             <td><select multiple"" onclick="anexaGrupo()" class="intable" id="books" name="EQUIPE[]" value="<?=$anexar_equipe['EQUIPE']?>"></select></td>
                             <td></td>
-                            <td></td>
+                            <td><input type="button" name="botao-ok" value="Gerar senha" onclick = "funcao()"id="senhaUsuario"></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
                 </tbody>
