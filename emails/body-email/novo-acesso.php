@@ -8,6 +8,7 @@
   $dados = buscainterno($conn, $id);
   $email = buscasuporte($conn, $id);
   $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
+  $usuario= buscasuporte($conn, $id);
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +40,7 @@
               </tr>
                 <tr id='table01'>
                   <td><Strong class='sublinhe'><?=$nome['NOME']?></Strong></td>
-                  <td><strong class='sublinhe'><?=$dados['INTRANET_CADASTRO_USUARIO']?></strong></td>
+                  <td><strong class='sublinhe'><?=$usuario['USUARIO']?></strong></td>
                   <td>Desenvolvimento, Equipe CLT, Interno, Equipe SP<strong>(RH ajusta manual)</strong></td>
                   <td><strong class='sublinhe'><?= $dataAdmissao ?></strong></td>
                   <td><strong class='sublinhe'><?=$email['EMAIL_SUP']?></strong></td>
