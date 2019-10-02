@@ -22,7 +22,8 @@ $STATUS = 'EM CONTRATO';
         status($conn, $ID_USUARIO, $STATUS);
 }else{
         status($conn, $ID_USUARIO, $STATUS);
-/*/}
+}
+        /*/
 ?>
     <head>
     <meta charset="UTF-8">

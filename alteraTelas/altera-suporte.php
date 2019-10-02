@@ -19,7 +19,8 @@ if(suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRAN
     status($conn, $ID_USUARIO, $STATUS);
 }else{
     status($conn, $ID_USUARIO, $STATUS);
-/*/}
+}
+    /*/
     ?>
     <head>
     <meta charset="UTF-8">

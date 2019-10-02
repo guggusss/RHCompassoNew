@@ -23,7 +23,8 @@ if(admissao($conn, $ID_USUARIO, $QUALIFIC_CADASTRAL_CEP, $CAD_ADM_PLATAFORMA_ADM
       status($conn, $ID_USUARIO, $STATUS);
   }else{
       status($conn, $ID_USUARIO, $STATUS);
-/*/}
+  }
+      /*/
 
     ?>
     <head>

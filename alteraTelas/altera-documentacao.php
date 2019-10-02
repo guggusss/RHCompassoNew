@@ -21,7 +21,8 @@ if(Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDO
             status($conn, $ID_USUARIO, $STATUS);
     //}else{
             status($conn, $ID_USUARIO, $STATUS);
-    /*/}
+    }
+            /*/
 
 ?>
         <head>

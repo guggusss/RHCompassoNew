@@ -18,7 +18,8 @@ if(recepcao ($conn, $ID_USUARIO, $BOAS_VINDAS_INGR_AGENDADA, $BOAS_VINDAS_INGR_R
         status($conn, $ID_USUARIO, $STATUS);
 //}else{
         status($conn, $ID_USUARIO, $STATUS);
-/*/}
+}
+        /*/
     ?>
     <head>
     <meta charset="UTF-8">
