@@ -219,7 +219,7 @@ $emailsoli = buscavias($conn, $id);
                     </form>
                 </tbody>
             </table>
-			<input type="button" name="botao-ok" value="Gerar uma senha" onclick = "funcao()" id="senhaUsuario">
+			
         </section>
                  
         <section class="container estruct">
