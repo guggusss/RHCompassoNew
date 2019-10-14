@@ -12,8 +12,8 @@
   $dataF = date_create($dataN);
   date_modify( $dataF, '+ 90 day');
   $NewDate =  date_format($dataF, 'd/m/Y');
-  $DataG = date_create();
-  date_modify($DataG, '+ 2 day');
+  $DataG = date_create($dataN);
+  date_modify($DataG, '+ 89 day');
   $DataFim = date_format($DataG, 'd/m/Y');
   $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
 ?>
