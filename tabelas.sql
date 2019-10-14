@@ -32,8 +32,6 @@ CREATE TABLE if not EXISTS `usuario_atv` (
  PRIMARY KEY (`USUARIO_ATIVO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `usuario_atv`(`USUARIO_ATIVO`, `USUARIO_ATV`) VALUES ('1' ,'Ex-Funcionario'), ('2', 'Ex-Bolsista'), ('3', 'Ex-Estagiario'), ('4', 'NOVO');
-
 CREATE TABLE If not EXISTS`admissao_dominio` (
 `USUARIO_ID` int(11) NOT NULL AUTO_INCREMENT,
 `ID_CAPTACAO` int DEFAULT NULL,
