@@ -704,6 +704,7 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
                         <th scope="col" width='200px'>Comentários</th>
                         <th scope="col" width='150px'></th>
+                        <th scope="col" width='150px'></th>
                         <th scope="col" width='100px'></th>
                     </tr>
                 </thead>
@@ -737,6 +738,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
                             <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
                             <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default">Editar</span></a></td>
+                            <td><a href="../deleta.php?id=<?=$rows_dados['EMAIL']?>" type="button" class="btn btn-default">Excluir</a></td>
                         </td>
                     <?php
                 }} ?>
@@ -791,6 +793,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
                             <td id='add-comentarios'><input class='intable' type="text" name="comentarios"></td>
                             <td><button title= "Salvar" type="submit" value="salva" class="btn btn-default" action="#">Salvar</button></td>
+                            <td></td>
                             <td></td>
                         </form>
                     </tr>
