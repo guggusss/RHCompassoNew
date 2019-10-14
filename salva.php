@@ -36,14 +36,14 @@ include("emails/defineNomeDoGrupoDeEmail.php");
 
 
 		$sql = "INSERT INTO `admissao_dominio` ( `STATUS`,`ID_SEDE`,`ID_TIPO`,`ID_CAPTACAO`,`CARGA_HORARIA`, `HORARIO`,`NOME`,`SEXO`, `FONE_CONTATO`, `DATA_ADMISSAO`,  `CARGO`, `SOLICITANTE`, `LOG_REGISTRO_DIA_RH_ENVIA_DP`, `REMUNERACAO_BASE`, `GRATIFICACAO`, `CLIENTE` , `PROJETO`, `EMAIL`, `POSICAO_COMENTARIO`, `ADMINISTRATIVO`, `COMENTARIOS`)
-		VALUES ('$status','$id_sede','$id_tipo','$id_captacao','$carga_horaria','$horario','$nome', '$sexo', '$fone_contato', '$data_admissao', '$cargo',  '$solicitante', '$log_registro_dia_rh_envia_dp', '$remuneracao_base', '$gratificacao', '$cliente', '$projeto', '$email', '$posicao_comentario', '$administrativo', '$comentarios')";
+		VALUES ('$status','$id_sede','$id_tipo','$id_captacao','$carga_horaria','$horario','$nome', '$sexo', '$fone_contato', '$data_admissao', '$cargo',  '$solicitante', '$LOG_REGISTRO_DIA_RH_ENVIA_DP', '$remuneracao_base', '$gratificacao', '$cliente', '$projeto', '$email', '$posicao_comentario', '$administrativo', '$comentarios')";
 
 
 
 		$execQuery = mysqli_query($conn,$sql);
 
 		if($execQuery == ""){
-			echo("Ocorreu um erro durante a inserção na tabela!!");
+			echo("Ocorreu um erro durante a inserção na tabela! Verifique se há algum espaço em branco e/ou se o E-Mail digitado é Unico");
 		}else{
 			//echo("Dados inseridos com sucesso");
 			header("Location: http://localhost/RHCompasso/telas/menuPrincipal.php");

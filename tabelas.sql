@@ -67,6 +67,8 @@ CREATE TABLE If not EXISTS`admissao_dominio` (
   REFERENCES `tipo` (`TIPO_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `admissao_dominio` ADD UNIQUE(`EMAIL`);
+
 CREATE TABLE if not exists `propostas_contratacoes` (
   `PROPOSTA_ID` int(10) not null auto_increment,
   `ID_USUARIO` int(11) not null,
