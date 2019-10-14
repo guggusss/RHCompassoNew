@@ -43,7 +43,7 @@ include("emails/defineNomeDoGrupoDeEmail.php");
 		$execQuery = mysqli_query($conn,$sql);
 
 		if($execQuery == ""){
-			echo("Ocorreu um erro durante a inserção na tabela! Verifique se há algum espaço em branco e/ou se o E-Mail digitado é Unico");
+			echo("<h1>Ocorreu um erro durante a inserção na tabela! Verifique se há algum espaço em branco e/ou se o E-Mail digitado é Unico</h1>");
 		}else{
 			//echo("Dados inseridos com sucesso");
 			header("Location: http://localhost/RHCompasso/telas/menuPrincipal.php");
