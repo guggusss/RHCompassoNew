@@ -1,6 +1,6 @@
 <?php
 
-include_once("db/conexao.php");
+include_once("../db/conexao.php");
 
 $id = $_GET['id'];
 $query = "DELETE FROM admissao_dominio WHERE EMAIL = '{$_GET['id']}'";
