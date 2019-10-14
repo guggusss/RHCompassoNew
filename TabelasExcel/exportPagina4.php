@@ -21,8 +21,8 @@ $result = mysqli_query($connect, $query);
             <tr>
                 <th></th>
                 <th></th>
-                <th colspan="3">1° Alerta Vencimento 45 dias</th>
-                <th colspan="3">1° Alerta Vencimento 90 dias</th>
+                <th colspan="3">1° Alerta Vencimento 45 dias <p>10DD</th>
+                <th colspan="3">1° Alerta Vencimento 90 dias <p>20DD</th>
                 <th></th>
             </tr>
             <tr>
@@ -30,10 +30,10 @@ $result = mysqli_query($connect, $query);
                 <th width= "150px">NOME</th>
                 <th width= "150px">Envio Solicitante</th>
                 <th width= "150px">Data vencimento</th>
-                <th width= "150px">Renovação</th>
+                <th width= "150px">Renovação<p>S = Sim N = Não</th>
                 <th width= "150px">Envio Solicitante</th>
                 <th width= "150px">Data Vencimento</th>
-                <th width= "150px">Efetivação</th>
+                <th width= "150px">Efetivação<p>S = Sim N = Não</th>
                 <th width= "150px">Projeto</th>
             </tr>
                     

@@ -25,13 +25,13 @@ $status = buscaFuncionarios($conn, $id);
         date_modify( $controleDataAdmissao, '+ 44 day');
         $vencimentoPri = date_format($controleDataAdmissao, 'Y-m-d');
         $vencimentoPriAux = date_create($vencimentoPri);
-        date_modify($vencimentoPriAux, '- 15 day');
+        date_modify($vencimentoPriAux, '- 10 day');
         $envioSolicitante1 = date_format($vencimentoPriAux, 'Y-m-d');
         $controleDataAdmissao2 = date_create($status['LOG_REGISTRO_DIA_RH_ENVIA_DP']);
         date_modify( $controleDataAdmissao2, '+ 89 day');
         $vencimentoSec =  date_format($controleDataAdmissao2, 'Y-m-d');
         $vencimentoSecAux = date_create($vencimentoSec);;
-        date_modify($vencimentoSecAux, '- 15 day');
+        date_modify($vencimentoSecAux, '- 10 day');
         $envioSolicitante2 = date_format($vencimentoSecAux, 'Y-m-d');
 
         mysqli_query($conn,"INSERT INTO `vencimentos`(`ID_VENCIMENTO`, `ID_USUARIO`, `ENVIO_SOLICITANTE_PRI`, `DATA_VENCIMENTO_PRI`, `RENOVACAO`, `ENVIO_SOLICITANTE_SEG`, `DATA_VENCIMENTO_SEG`, `EFETIVACAO`) VALUES (NULL,$id,'$envioSolicitante1','$vencimentoPri',NULL,'$envioSolicitante2','$vencimentoSec',NULL)");
@@ -169,8 +169,8 @@ $translado = buscasuporte($conn, $id);
                 <thead>
                     <tr>
                         <th></th>
-                        <th colspan = '3'>1°Alerta Vencimento 45 dias</th>
-                        <th colspan = '3'>2°Alerta Vencimetno 90 dias</th>
+                        <th colspan = '3'>1°Alerta Vencimento 45 dias <p>10DD</th>
+                        <th colspan = '3'>2°Alerta Vencimetno 90 dias <p>20DD</th>
                         <th></th>
                         <th></th>
 
@@ -179,10 +179,10 @@ $translado = buscasuporte($conn, $id);
                         <th>Status</th>
                         <th>Envio Solicitante</th>
                         <th>Data do Vencimento</th>
-                        <th>Renovação</th>
+                        <th>Renovação <p>S = Sim N = Não</th>
                         <th>Envio Solicitante</th>
                         <th>Data do Vencimento</th>
-                        <th>Efetivção</th>
+                        <th>Efetivção <p>S = Sim N = Não</th>
                         <th></th>
                         <th></th>
                     </tr>
