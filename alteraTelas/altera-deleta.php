@@ -5,7 +5,7 @@ session_start();
 
 
     if (!isset ($id)){
-     $id = $_SESSION['id'];
+     $id =  $_GET['id'];
     }
 
 ?>
