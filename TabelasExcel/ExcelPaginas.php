@@ -461,7 +461,6 @@ $result = mysqli_query($connect, $sql);
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, AGENDAMENTO_EXAM_ADM,
         ENVIO_FUNC_EXAME, EMAIL_RECEBIDO_EXAM,
-        ANEXAR_ASO,
         STATUS, PROJETO, NOME
         from exame_admissional as p
         LEFT JOIN admissao_dominio as a
@@ -522,8 +521,7 @@ $result = mysqli_query($connect, $sql);
 <?php
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, ENVIO,
-        RECEBIDO, ANEXAR_COMPR_DOMIN,
-        PLANILHA_CONTAS, FORM_COMPR_BANCARIO,
+        RECEBIDO, PLANILHA_CONTAS, FORM_COMPR_BANCARIO,
         STATUS, PROJETO, NOME
         from bancarios as p
         LEFT JOIN admissao_dominio as a
@@ -550,7 +548,6 @@ $result = mysqli_query($connect, $sql);
                         <th>Nome</th>
                         <th>Envio</th>
                         <th>Recebido</th>
-                        <th>Anexar comprovante na Domínio</th>
                         <th>Cadastro Intranet</th>
                         <th>Formuário + comprovante bancário</th>
                         <th width='150px'>Projeto</th>
@@ -564,7 +561,6 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["NOME"].'</td>
          <td>'.$row["ENVIO"].'</td>
          <td>'.$row['RECEBIDO'].'</td>
-         <td>'.$row["ANEXAR_COMPR_DOMIN"].'</td>
          <td>'.$row['PLANILHA_CONTAS'].'</td>
          <td>'.$row['FORM_COMPR_BANCARIO'].'</td>
          <td>'.$row["PROJETO"].'</td>

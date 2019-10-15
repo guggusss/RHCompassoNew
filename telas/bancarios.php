@@ -14,17 +14,17 @@ $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMIS
 $conn1 = mysqli_num_rows($resultado1);
 
 
-$resultado = mysqli_query($conn, "SELECT `ID_DADOS_BANCARIOS`, `ID_USUARIO`, DATE_FORMAT(ENVIO,'%d/%m/%Y') as ENVIO, DATE_FORMAT(RECEBIDO,'%d/%m/%Y') as RECEBIDO, DATE_FORMAT(ANEXAR_COMPR_DOMIN,'%d/%m/%Y') as ANEXAR_COMPR_DOMIN, DATE_FORMAT(PLANILHA_CONTAS,'%d/%m/%Y') as PLANILHA_CONTAS, DATE_FORMAT(FORM_COMPR_BANCARIO,'%d/%m/%Y') as FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA
+$resultado = mysqli_query($conn, "SELECT `ID_DADOS_BANCARIOS`, `ID_USUARIO`, DATE_FORMAT(ENVIO,'%d/%m/%Y') as ENVIO, DATE_FORMAT(RECEBIDO,'%d/%m/%Y') as RECEBIDO, DATE_FORMAT(PLANILHA_CONTAS,'%d/%m/%Y') as PLANILHA_CONTAS, DATE_FORMAT(FORM_COMPR_BANCARIO,'%d/%m/%Y') as FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA
 FROM `bancarios` as b LEFT JOIN admissao_dominio as a on b.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 
 if($count == 1){
-    $resultado = mysqli_query($conn, "SELECT `ID_DADOS_BANCARIOS`, `ID_USUARIO`, DATE_FORMAT(ENVIO,'%d/%m/%Y') as ENVIO, DATE_FORMAT(RECEBIDO,'%d/%m/%Y') as RECEBIDO, DATE_FORMAT(ANEXAR_COMPR_DOMIN,'%d/%m/%Y') as ANEXAR_COMPR_DOMIN, DATE_FORMAT(PLANILHA_CONTAS,'%d/%m/%Y') as PLANILHA_CONTAS, DATE_FORMAT(FORM_COMPR_BANCARIO,'%d/%m/%Y') as FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA
+    $resultado = mysqli_query($conn, "SELECT `ID_DADOS_BANCARIOS`, `ID_USUARIO`, DATE_FORMAT(ENVIO,'%d/%m/%Y') as ENVIO, DATE_FORMAT(RECEBIDO,'%d/%m/%Y') as RECEBIDO, DATE_FORMAT(PLANILHA_CONTAS,'%d/%m/%Y') as PLANILHA_CONTAS, DATE_FORMAT(FORM_COMPR_BANCARIO,'%d/%m/%Y') as FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA
     FROM `bancarios` as b LEFT JOIN admissao_dominio as a on b.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }else{
-    mysqli_query($conn,"INSERT INTO `bancarios`(`ID_DADOS_BANCARIOS`, `ID_USUARIO`, `ENVIO`, `RECEBIDO`, `ANEXAR_COMPR_DOMIN`, `PLANILHA_CONTAS`, `FORM_COMPR_BANCARIO`, `AGENCIA`, `NUMERO_CONTA`, `TIPO_CONTA`) VALUES (NULL,$id,NULL,NULL,NULL,NULL,NULL, NULL, NULL, NULL)");
+    mysqli_query($conn,"INSERT INTO `bancarios`(`ID_DADOS_BANCARIOS`, `ID_USUARIO`, `ENVIO`, `RECEBIDO`, `PLANILHA_CONTAS`, `FORM_COMPR_BANCARIO`, `AGENCIA`, `NUMERO_CONTA`, `TIPO_CONTA`) VALUES (NULL,$id,NULL,NULL,NULL,NULL, NULL, NULL, NULL)");
 
-    $resultado = mysqli_query($conn, "SELECT `ID_DADOS_BANCARIOS`, `ID_USUARIO`, DATE_FORMAT(ENVIO,'%d/%m/%Y') as ENVIO, DATE_FORMAT(RECEBIDO,'%d/%m/%Y') as RECEBIDO, DATE_FORMAT(ANEXAR_COMPR_DOMIN,'%d/%m/%Y') as ANEXAR_COMPR_DOMIN, DATE_FORMAT(PLANILHA_CONTAS,'%d/%m/%Y') as PLANILHA_CONTAS, DATE_FORMAT(FORM_COMPR_BANCARIO,'%d/%m/%Y') as FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA
+    $resultado = mysqli_query($conn, "SELECT `ID_DADOS_BANCARIOS`, `ID_USUARIO`, DATE_FORMAT(ENVIO,'%d/%m/%Y') as ENVIO, DATE_FORMAT(RECEBIDO,'%d/%m/%Y') as RECEBIDO, DATE_FORMAT(PLANILHA_CONTAS,'%d/%m/%Y') as PLANILHA_CONTAS, DATE_FORMAT(FORM_COMPR_BANCARIO,'%d/%m/%Y') as FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA
     FROM `bancarios` as b LEFT JOIN admissao_dominio as a on b.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
@@ -164,7 +164,6 @@ $translado = buscasuporte($conn, $id);
                         <th width='200px'>Status</th>
                         <th>Envio</th>
                         <th>Recebido</th>
-                        <th>Anexar comprovante<br/> no Domínio</th>
                         <th>Cadastro Intranet</th>
                         <th>Formulário + Comprovante Bancário</th>
                         <th>Agência (Bancária)</th>
@@ -180,7 +179,6 @@ $translado = buscasuporte($conn, $id);
                             <td><?=$status['STATUS']?></td>
                             <td id="data"><?php echo $rows_dados['ENVIO']; ?></td>
                             <td id="data2"><?php echo $rows_dados['RECEBIDO']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['ANEXAR_COMPR_DOMIN']; ?></td>
                             <td id="data4"><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
                             <td id="data5"><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
                             <td><?php echo $rows_dados['AGENCIA'];?></td>
@@ -196,7 +194,6 @@ $translado = buscasuporte($conn, $id);
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='date' id="campo" class='intable' name="ENVIO"  value="<?=$envio['ENVIO']?>"></td>
                             <td><input type="date" id="campo2" class='intable' name ="RECEBIDO"  value="<?=$recebido['RECEBIDO']?>"></td>
-                            <td><input type="date" id="campo3" class='intable' name="ANEXAR_COMPR_DOMIN"  value="<?=$recebido['ANEXAR_COMPR_DOMIN']?>"></td>
                             <td><input type="date" id="campo4" class='intable' name="PLANILHA_CONTAS"  value="<?=$planilha['PLANILHA_CONTAS']?>"></td>
                             <td><input type="date" id="campo5" class='intable' name="FORM_COMPR_BANCARIO"  value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
                             <td><input type="text" class='intable' name="AGENCIA" value="<?=$agencia['AGENCIA']?>" maxlength="4"></td>
