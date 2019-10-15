@@ -163,10 +163,8 @@ if(isset($_POST["export"]))
                             <th>Agendamento</th>
                             <th>Envio para Funcionário</th>
                             <th>Recebido por e-mail ASO assinado</th>
-                            <th>Anexar ASO na domínio</th>
                             <th>Envio</th>
                             <th>Recebido</th>
-                            <th>Anexar comprovante na Domínio</th>
                             <th>Cadastro Intranet</th>
                             <th>Formuário + comprovante bancário</th>
                             <th>Agência</th>
@@ -257,10 +255,8 @@ if(isset($_POST["export"]))
          <td>'.$row["AGENDAMENTO_EXAM_ADM"].'</td>
          <td>'.$row['ENVIO_FUNC_EXAME'].'</td>
          <td>'.$row["EMAIL_RECEBIDO_EXAM"].'</td>
-         <td>'.$row['ANEXAR_ASO'].'</td>
          <td>'.$row["ENVIO"].'</td>
          <td>'.$row['RECEBIDO'].'</td>
-         <td>'.$row["ANEXAR_COMPR_DOMIN"].'</td>
          <td>'.$row['PLANILHA_CONTAS'].'</td>
          <td>'.$row['FORM_COMPR_BANCARIO'].'</td>
          <td>'.$row['AGENCIA'].'</td>

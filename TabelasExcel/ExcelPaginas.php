@@ -488,7 +488,6 @@ $result = mysqli_query($connect, $sql);
                         <th>Agendamento</th>
                         <th>Envio para Funcionário</th>
                         <th>Recebido por e-mail ASO assinado</th>
-                        <th>Anexar ASO na domínio</th>
                         <th width='150px'>Projeto</th>
 
      <?php
@@ -501,7 +500,6 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["AGENDAMENTO_EXAM_ADM"].'</td>
          <td>'.$row['ENVIO_FUNC_EXAME'].'</td>
          <td>'.$row["EMAIL_RECEBIDO_EXAM"].'</td>
-         <td>'.$row['ANEXAR_ASO'].'</td>
          <td>'.$row["PROJETO"].'</td>
        </tr>
         ';

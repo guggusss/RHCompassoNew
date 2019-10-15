@@ -6,7 +6,7 @@ $output = '';
 if(isset($_POST["export"]))
 {
  $query = "SELECT ID_USUARIO, ENVIO,
-            RECEBIDO, ANEXAR_COMPR_DOMIN,
+            RECEBIDO,
             PLANILHA_CONTAS, FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA,
             STATUS, PROJETO, NOME
             from bancarios as p
@@ -24,7 +24,6 @@ $result = mysqli_query($connect, $query);
             <th width= "150px">Nome</th>
             <th width= "150px">Envio</th>
             <th width= "150px">Recebido</th>
-            <th width= "150px">Anexar comprovante na Domínio</th>
             <th width= "150px">Cadstro Intranet</th>
             <th width= "150px">Formuário + comprovante bancário</th>
             <th width= "150px">Agência</th>
@@ -41,7 +40,6 @@ $result = mysqli_query($connect, $query);
             <td>'.$row['NOME'].'</td>
             <td>'.$row['ENVIO'].'</td>
             <td>'.$row['RECEBIDO'].'</td>
-            <td>'.$row['ANEXAR_COMPR_DOMIN'].'</td>
             <td>'.$row['PLANILHA_CONTAS'].'</td>
             <td>'.$row['FORM_COMPR_BANCARIO'].'</td>
             <td>'.$row['AGENCIA'].'</td>
