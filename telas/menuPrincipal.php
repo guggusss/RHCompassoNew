@@ -57,6 +57,16 @@ if (isset($_POST['botaoVolta'])) {
             $vencimentos = $_POST['vencimentos'];
             $where[] = " `DATA_VENCIMENTO_SEG` = '{$vencimentos}'";
         }
+
+        if(!empty($_POST['envio_solicitante45'])){ 
+            $envio_solicitante45 = $_POST['envio_solicitante45'];
+            $where[] = " `ENVIO_SOLICITANTE_PRI` = '{$envio_solicitante45}'";
+        }
+
+        if(!empty($_POST['envio_solicitante90'])){ 
+            $envio_solicitante90 = $_POST['envio_solicitante90'];
+            $where[] = " `ENVIO_SOLICITANTE_SEG` = '{$envio_solicitante90}'";
+        }
         
         if(isset($_POST['formularios_enviados_check'])){
             $where[] = " `formularios_enviados` IS NULL";
@@ -437,6 +447,19 @@ if (isset($_POST['botaoVolta'])) {
                             <input type="date" id='vencimentos' name="vencimentos" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data Vencimentos"  />
                         </div>
+
+                        <div>
+                            <label for="envio_solicitante45">Envio Solicitante 45 dias</label>
+                            <input type="date" id='envio_solicitante45' name="envio_solicitante45" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Envio Solicitante"  />
+                        </div>
+
+                        <div>
+                            <label for="envio_solicitante90">Envio Solicitante 90 dias</label>
+                            <input type="date" id='envio_solicitante90' name="envio_solicitante90" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Envio Solicitantes"  />
+                        </div>
+
                         <h2>Tela 5 - Documentação</h2>
                         <div>
                             <label for="formularios_enviados">Formulários Enviados</label>
@@ -738,7 +761,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
                             <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
                             <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default">Editar</span></a></td>
-                            <td><a href="../alteraTelas/altera-deleta.php?id=<?=$rows_dados['EMAIL']?>" type="button" class="btn btn-default">Excluir</a></td>
+                            <td><a href="../deleta.php?id=<?=$rows_dados['EMAIL']?>" type="button" class="btn btn-default">Excluir</a></td>
                         </td>
                     <?php
                 }} ?>
