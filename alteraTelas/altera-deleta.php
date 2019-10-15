@@ -25,7 +25,7 @@ if(deleteAD($conn, $ID_USUARIO, $STATUS)){
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     </head>
-    <h1 class="text-success">Alterado com sucesso!</h1>
+    <h1 class="text-success">Excluido com sucesso!</h1>
     <?php
      } else {
         $msg = mysqli_error($conn);
