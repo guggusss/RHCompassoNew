@@ -189,7 +189,8 @@ if(isset($_POST["export"]))
                             <th>E-mail = Solicitado</th>
                             <th>E-mail = Recebido</th>
                             <th>Malote (Caderno) + CTPS (Controle RH)</th>
-                            <th>Recebido após assinatura Escanear Docs e Salvar na Pasta</th>
+                            <th>Recebido após assinatura Escanear Docs</th> 
+                            <th>Salvar na Pasta</th>
                             <th>Data do pedido do crachá</th>
                             <th>controle</th>
                             <th>protocolo</th>
@@ -280,6 +281,7 @@ if(isset($_POST["export"]))
          <td>'.$row["EMAIL_CADERNO_COMPASSO_RECEBIDO"].'</td>
          <td>'.$row['MALOTE_CADERNO_COMPASSO_CTPS'].'</td>
          <td>'.$row["DOCUMENTOS_RECEBIDOS_ASSINADOS"].'</td>
+         <td>'.$row["SALVAR_PASTA"].'</td>
          <td>'.$row['CRACHA_DATA_PEDIDO'].'</td>
          <td>'.$row["CRACHA_CONTROLE"].'</td>
          <td>'.$row['CRACHA_PROTOCOLO'].'</td>

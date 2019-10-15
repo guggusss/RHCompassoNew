@@ -729,7 +729,7 @@ $result = mysqli_query($connect, $sql);
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, EMAIL_CADERNO_COMPASSO_SOLICITADO,
         EMAIL_CADERNO_COMPASSO_RECEBIDO, MALOTE_CADERNO_COMPASSO_CTPS,
-        DOCUMENTOS_RECEBIDOS_ASSINADOS,CRACHA_DATA_PEDIDO, CRACHA_CONTROLE, CRACHA_PROTOCOLO ,
+        DOCUMENTOS_RECEBIDOS_ASSINADOS, SALVAR_PASTA, CRACHA_DATA_PEDIDO, CRACHA_CONTROLE, CRACHA_PROTOCOLO ,
         STATUS, PROJETO, NOME
         from vias_documentos_funcionarios  as p
         LEFT JOIN admissao_dominio as a
@@ -760,6 +760,7 @@ $result = mysqli_query($connect, $sql);
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
                       </tr>
                       <tr>
                         <th>STATUS</th>
@@ -770,7 +771,8 @@ $result = mysqli_query($connect, $sql);
                         <th>E-mail = Solicitado</th>
                         <th>E-mail = Recebido</th>
                         <th>Malote (Caderno) + CTPS (Controle RH)</th>
-                        <th>Recebido após assinatura Escanear Docs e Salvar na Pasta</th>
+                        <th>Recebido após assinatura Escanear Docs</th>
+                        <th>Salvar na Pasta</th>
                         <th width='150px'>Projeto</th>
                       </tr>
 
@@ -788,6 +790,7 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["EMAIL_CADERNO_COMPASSO_RECEBIDO"].'</td>
          <td>'.$row['MALOTE_CADERNO_COMPASSO_CTPS'].'</td>
          <td>'.$row["DOCUMENTOS_RECEBIDOS_ASSINADOS"].'</td>
+         <td>'.$row["SALVAR_PASTA"].'</td>
          <td>'.$row["PROJETO"].'</td>
        </tr>
         ';
