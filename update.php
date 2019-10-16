@@ -129,99 +129,6 @@
 		return mysqli_query($conn, $query);
 	}
 
-	function deleteAD($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM admissao_dominio where USUARIO_ID = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deletePC($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deletePC($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM propostas_contratacoes where ID_USUARIO = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deleteG($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deleteG($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM gestao where ID_USUARIO = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deleteVC($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deleteVC($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM vencimentos where ID_USUARIO = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deleteD($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deleteD($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM documentacao where ID_USUARIO = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deleteA($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deleteA($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM admissao where ID_USUARIO = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deleteEA($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deleteEA($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM exame_admissional where ID_USUARIO = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deleteDB($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deleteDB($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM bancarios where ID_USUARIO = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deleteSI($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deleteSI($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM suporte_interno where ID_USUARIO = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deleteI($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deleteI($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM interno where ID_USUARIO = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deleteVD($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deleteVD($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM vias_documentos_funcionarios where ID_USUARIO = '$USUARIO_ID'";
-		if($STATUS == "EXCLUIDO"){
-			deleteBV($conn, $USUARIO_ID, $STATUS);
-		}
-		return mysqli_query($conn, $query);
-	}
-
-	function deleteBV($conn, $USUARIO_ID, $STATUS){
-		$query = "DELETE FROM boas_vindas where ID_USUARIO = '$USUARIO_ID'";
-		return mysqli_query($conn, $query);
-	}
-
 	function buscaFuncionarios($conn, $id) {
 		$query = "SELECT * from admissao_dominio where USUARIO_ID = '{$id}'";
 		$buscafuncionarios = mysqli_query($conn, $query);
@@ -381,5 +288,101 @@
 		$query = "UPDATE `vencimentos` SET `ENVIO_SOLICITANTE_PRI` = '{$ENVIO_SOLICITANTE_PRI}', `DATA_VENCIMENTO_PRI` = '{$DATA_VENCIMENTO_PRI}', `RENOVACAO` = '{$RENOVACAO}', `ENVIO_SOLICITANTE_SEG`= '{$ENVIO_SOLICITANTE_SEG}', `DATA_VENCIMENTO_SEG`= '{$DATA_VENCIMENTO_SEG}', `EFETIVACAO`= '{$EFETIVACAO}'  where `ID_USUARIO`= '{$ID_USUARIO}'";
 		return mysqli_query($conn, $query);
 	}
+
+	
+		// ################# Funções para Deletar ###########################
+
+		function deleteAD($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM admissao_dominio where USUARIO_ID = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deletePC($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deletePC($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM propostas_contratacoes where ID_USUARIO = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deleteG($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deleteG($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM gestao where ID_USUARIO = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deleteVC($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deleteVC($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM vencimentos where ID_USUARIO = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deleteD($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deleteD($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM documentacao where ID_USUARIO = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deleteA($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deleteA($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM admissao where ID_USUARIO = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deleteEA($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deleteEA($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM exame_admissional where ID_USUARIO = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deleteDB($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deleteDB($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM bancarios where ID_USUARIO = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deleteSI($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deleteSI($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM suporte_interno where ID_USUARIO = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deleteI($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deleteI($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM interno where ID_USUARIO = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deleteVD($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deleteVD($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM vias_documentos_funcionarios where ID_USUARIO = '$USUARIO_ID'";
+			if($STATUS == "EXCLUIDO"){
+				deleteBV($conn, $USUARIO_ID, $STATUS);
+			}
+			return mysqli_query($conn, $query);
+		}
+	
+		function deleteBV($conn, $USUARIO_ID, $STATUS){
+			$query = "DELETE FROM boas_vindas where ID_USUARIO = '$USUARIO_ID'";
+			return mysqli_query($conn, $query);
+		}
 
 ?>

@@ -38,7 +38,7 @@ if(deleteAD($conn, $ID_USUARIO, $STATUS)){
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     </head>
-        <p class="text-danger">Não foi alterado: <?= $msg ?></p>
+        <p class="text-danger">Ocorreu um erro ao Excluir <?= $msg ?></p>
             <?php
         }
     ?>
