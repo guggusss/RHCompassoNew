@@ -52,6 +52,6 @@ include("emails/defineNomeDoGrupoDeEmail.php");
 		?>
 		<?php 
 			
-		header("Refresh:1; url= http://localhost/RHCompasso/telas/menuPrincipal.php");
+		header("Refresh:3; url= http://localhost/RHCompasso/telas/menuPrincipal.php");
 		
 		?>
