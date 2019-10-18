@@ -43,7 +43,17 @@ include("emails/defineNomeDoGrupoDeEmail.php");
 		$execQuery = mysqli_query($conn,$sql);
 
 		if($execQuery == ""){
-			echo("<h2>Ocorreu um erro durante a inserção na tabela! Verifique se há algum espaço em branco e/ou se o E-Mail digitado é Unico</h2>");
+			?>
+			<head>
+			<meta charset="UTF-8">
+			<title>RH Contratações</title>
+			<link rel="stylesheet" href="../css/reset.css">
+			   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+			<link rel="stylesheet" href="../css/bootstrap.min.css">
+			<link rel="stylesheet" href="../css/arquivo.css">
+			</head>
+			<h1 class="text-danger">Ocorreu um erro ao salvar. Verifique se as informações estão corretas e se o E-mail é Único.</h1>
+			<?php
 		}else{
 						header("Location: http://localhost/RHCompasso/telas/menuPrincipal.php");
 		}
