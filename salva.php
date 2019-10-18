@@ -45,10 +45,13 @@ include("emails/defineNomeDoGrupoDeEmail.php");
 		if($execQuery == ""){
 			echo("<h2>Ocorreu um erro durante a inserção na tabela! Verifique se há algum espaço em branco e/ou se o E-Mail digitado é Unico</h2>");
 		}else{
-			//echo("Dados inseridos com sucesso");
-			header("Location: http://localhost/RHCompasso/telas/menuPrincipal.php");
+						header("Location: http://localhost/RHCompasso/telas/menuPrincipal.php");
 		}
 
 
-
-?>
+		?>
+		<?php 
+			
+		header("Refresh:1; url= http://localhost/RHCompasso/telas/menuPrincipal.php");
+		
+		?>
