@@ -47,10 +47,10 @@ include("emails/defineNomeDoGrupoDeEmail.php");
 			<head>
 			<meta charset="UTF-8">
 			<title>RH Contratações</title>
-			<link rel="stylesheet" href="../css/reset.css">
-			   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-			<link rel="stylesheet" href="../css/bootstrap.min.css">
-			<link rel="stylesheet" href="../css/arquivo.css">
+			<link rel="stylesheet" href="css/reset.css">
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+			<link rel="stylesheet" href="css/bootstrap.min.css">
+			<link rel="stylesheet" href="css/arquivo.css">
 			</head>
 			<h1 class="text-danger">Ocorreu um erro ao salvar. Verifique se as informações estão corretas e se o E-mail é Único.</h1>
 			<?php
