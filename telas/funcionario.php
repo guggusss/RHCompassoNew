@@ -347,7 +347,7 @@ $translado = buscasuporte($conn, $id);
     <script>
     window.onload = function verifica() {
         let grupo = "<?= $grupo;?>";
-        console.log(grupo);
+        /*/console.log(grupo);/*/
         let isDepartamentoRH = false;
         if(grupo =="Departamento de Recursos Humanos"){
             desbilitaStepWizard(3,4,5,6,7,8,9,10,11,12);
