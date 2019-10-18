@@ -55,10 +55,8 @@ include("emails/defineNomeDoGrupoDeEmail.php");
 			<h1 class="text-danger">Ocorreu um erro ao salvar. Verifique se as informações estão corretas e se o E-mail é Único.</h1>
 			<?php
 		}else{
-						header("Location: http://localhost/RHCompasso/telas/menuPrincipal.php");
+			header("Location: http://localhost/RHCompasso/telas/menuPrincipal.php");
 		}
-
-
 		?>
 		<?php 
 			
