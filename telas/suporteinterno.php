@@ -331,7 +331,7 @@ $emailsoli = buscavias($conn, $id);
     <script src='../js/desabilitaStepWizard.js'></script>
     <script>
         let grupo = "<?=$grupo?>";
-        console.log(grupo);
+        /*/console.log(grupo);/*/
             window.onload = () => {
             if(grupo == "Suporte Interno"){
                 desbilitaStepWizard(2,3,4,5,6,7,8,10,11,12);
