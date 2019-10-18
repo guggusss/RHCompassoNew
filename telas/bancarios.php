@@ -324,9 +324,9 @@ $translado = buscasuporte($conn, $id);
         if(document.getElementById("campo2").value == ""){
             $("#data2").addClass("dataVazia");
         }
-        /*/if(document.getElementById("campo3").value == ""){
+        if(document.getElementById("campo3").value == ""){
             $("#data3").addClass("dataVazia");
-        }/*/
+        }
         if(document.getElementById("campo4").value == ""){
             $("#data4").addClass("dataVazia");
         }
