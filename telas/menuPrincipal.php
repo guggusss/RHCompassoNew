@@ -713,11 +713,11 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='200px'>Nome</th>
                         <th scope="col" width='200px'>Sexo</th>
                         <th scope="col" width='150px'>Fone</th>
-                        <th scope="col" width='200px'>Cargo</th>
+                        <th scope="col" width='200px'id="ocultaCargo">Cargo</th>
                         <th scope="col" width='110px'>Log Registro Dia RH Envia DP</th>
-                        <th scope="col" width='120px'>Remuneração Base</th>
-                        <th scope="col" width='100px'>Gratificação</th>
-                        <th scope="col" width='120px'>Remuneração Total</th>
+                        <th scope="col" width='120px'id="ocultaBase">Remuneração Base</th>
+                        <th scope="col" width='100px'id="ocultaGrat">Gratificação</th>
+                        <th scope="col" width='120px'id="ocultaRem">Remuneração Total</th>
                         <th scope="col" width='200px'>Solicitante</th>
                         <th scope="col" width='150px'>Cliente</th>
                         <th scope="col" width='150px'>Projeto</th>
@@ -746,11 +746,11 @@ if (isset($_POST['botaoVolta'])) {
                             <td><?php echo $rows_dados['NOME']; ?></td>
                             <td><?php echo $rows_dados['SEXO']; ?></td>
                             <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
-							<td><?php echo $rows_dados['CARGO']; ?></td>
+							<td id="ocultaCargo"><?php echo $rows_dados['CARGO']; ?></td>
                             <td ><?php echo formatDateApresentation($rows_dados['LOG_REGISTRO_DIA_RH_ENVIA_DP']);?></td>
-							<td><?php echo 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
-                            <td><?php echo 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
-                            <td><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
+							<td id="ocultaBase"><?php echo 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
+                            <td id="ocultaGrat"><?php echo 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
+                            <td id="ocultaRem"><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
                             <td><?php echo $rows_dados['SOLICITANTE']; ?></td>
 							<td><?php echo $rows_dados['CLIENTE']; ?></td>
 							<td><?php echo $rows_dados['PROJETO']; ?></td>
@@ -802,11 +802,11 @@ if (isset($_POST['botaoVolta'])) {
                                 <option>Não definido</option>
                             </select></td>
                             <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\)[\s][0-9]{1}[0-9]{4}-[0-9]{4}" name="fone_contato" id="telefone" maxlength="15" required></td>
-                            <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
+                            <td id="ocultaCargo"><input class='intable' type="text" name="cargo" required></td>
                             <td id='add-log-registro-dia-rh-envia-dp'><input class='intable' type="date" name="LOG_REGISTRO_DIA_RH_ENVIA_DP"></td> 
-                            <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" min="0" required></td>
-                            <td id='add-gratificacao'><input class='intable' type="number" step=".01" name="gratificacao" min="0" required></td>
-                            <td></td>
+                            <td id="ocultaBase"><input class='intable' type="number" step=".01" name="remuneracao_base" min="0" required></td>
+                            <td id="ocultaGrat"><input class='intable'  type="number" step=".01" name="gratificacao" min="0" required></td>
+                            <td id="ocultaRem"></td>
                             <td id='add-solicitante'><input  class='intable' type="text" name="solicitante" required></td>
                             <td id='add-cliente'><input class='intable' type="text" name="cliente" required></td>
                             <td id='add-projeto'><input class='intable' type="text" name="projeto" required></td>
@@ -954,6 +954,8 @@ if (isset($_POST['botaoVolta'])) {
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src="../js/validaCargo.js"></script>
+    <script src="../js/valida/suporteInterno.js"></script>
+    <script src='../js/desabilitaStepWizard.js'></script>
     <?php
         include('../validacoes/login/permissoes.php');
     ?>
@@ -995,6 +997,24 @@ if (isset($_POST['botaoVolta'])) {
     }
    
     </script>
+
+    <script>
+        let grupo = "<?=$grupo?>";
+            window.onload = () => {
+            if(grupo == "Suporte Interno"){
+                desbilitaStepWizard(2,4,5,6,7,8,9,10,11);
+                $("#proximo").prop("disabled", true);
+                $("#proximo").attr("disabled", true);
+                $("#proximo").attr("href", "#");
+                document.getElementById("ocultaCargo").style.display = 'none';
+                document.getElementById("ocultaBase").style.display = 'none';
+                document.getElementById("ocultaRem").style.display = 'none';
+                document.getElementById("ocultaGrat").style.display = 'none';
+            }
+            
+        }
+    </script>
+
 </body>
 
 </html>
