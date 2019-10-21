@@ -746,11 +746,21 @@ if (isset($_POST['botaoVolta'])) {
                             <td><?php echo $rows_dados['NOME']; ?></td>
                             <td><?php echo $rows_dados['SEXO']; ?></td>
                             <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
-							<td id="ocultaCargo1"><?php echo $rows_dados['CARGO']; ?></td>
+                            <script>if(grupo != "Suporte Interno"){
+                                <td id="ocultaCargo1"><?php echo $rows_dados['CARGO']; ?></td>
+                            }else{
+                                <td id="ocultaCargo1" style="display: none;"><?php echo $rows_dados['CARGO']; ?></td>
+                            }</script>
                             <td ><?php echo formatDateApresentation($rows_dados['LOG_REGISTRO_DIA_RH_ENVIA_DP']);?></td>
-							<td id="ocultaBase1"><?php echo 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
-                            <td id="ocultaGrat1"><?php echo 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
-                            <td id="ocultaRem1"><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
+                            <script>if(grupo == "Suporte Interno"){
+                                <td id="ocultaBase1" style="display: none;"><?php echo 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
+                                <td id="ocultaGrat1" style="display: none;"><?php echo 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
+                                <td id="ocultaRem1" style="display: none;"><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
+                            }else{
+                                <td id="ocultaBase1"><?php echo 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
+                                <td id="ocultaGrat1"><?php echo 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
+                                <td id="ocultaRem1"><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
+                            }</script>
                             <td><?php echo $rows_dados['SOLICITANTE']; ?></td>
 							<td><?php echo $rows_dados['CLIENTE']; ?></td>
 							<td><?php echo $rows_dados['PROJETO']; ?></td>
@@ -954,7 +964,6 @@ if (isset($_POST['botaoVolta'])) {
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src="../js/validaCargo.js"></script>
-    <script src="../js/valida/suporteInterno.js"></script>
     <script src='../js/desabilitaStepWizard.js'></script>
     <?php
         include('../validacoes/login/permissoes.php');
@@ -1013,11 +1022,7 @@ if (isset($_POST['botaoVolta'])) {
                 document.getElementById("ocultaCargo2").style.display = 'none';
                 document.getElementById("ocultaBase2").style.display = 'none';
                 document.getElementById("ocultaRem2").style.display = 'none';
-                document.getElementById("ocultaGrat2").style.display = 'none';
-                document.getElementById("ocultaCargo1").style.display = 'none';
-                document.getElementById("ocultaBase1").style.display = 'none';
-                document.getElementById("ocultaRem1").style.display = 'none';
-                document.getElementById("ocultaGrat1").style.display = 'none';              
+                document.getElementById("ocultaGrat2").style.display = 'none';          
             }
             
         }
