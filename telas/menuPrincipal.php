@@ -746,10 +746,11 @@ if (isset($_POST['botaoVolta'])) {
                             <td><?php echo $rows_dados['NOME']; ?></td>
                             <td><?php echo $rows_dados['SEXO']; ?></td>
                             <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
-                            <script>if(grupo != "Suporte Interno"){
-                                <td id="ocultaCargo1"><?php echo $rows_dados['CARGO']; ?></td>
-                            }else{
+                            <script>if(grupo == "Suporte Interno"){
                                 <td id="ocultaCargo1" style="display: none;"><?php echo $rows_dados['CARGO']; ?></td>
+                            }else{
+                                <td id="ocultaCargo1"><?php echo $rows_dados['CARGO']; ?></td>
+                                
                             }</script>
                             <td ><?php echo formatDateApresentation($rows_dados['LOG_REGISTRO_DIA_RH_ENVIA_DP']);?></td>
                             <script>if(grupo == "Suporte Interno"){
