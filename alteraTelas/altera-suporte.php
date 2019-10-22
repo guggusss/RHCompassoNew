@@ -1,6 +1,8 @@
 <?php
     include("../db/conexao.php");
     include("../update.php");
+    session_start();
+    $id = $_SESSION['id'];
 ?>
 
 <?php
@@ -46,5 +48,5 @@ if(suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRAN
     <h1 class="text-danger">Não foi alterado: <?= $msg ?></h1>
 <?php
     }
-    header("Refresh:1; url=../telas/suporteinterno.php?id=$ID_USUARIO");
+    header("Refresh:1; url=../telas/suporteinterno.php?id=$id");
 ?>
