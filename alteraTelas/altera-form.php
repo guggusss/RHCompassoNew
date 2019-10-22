@@ -63,10 +63,10 @@
                     <th width='200px'>Nome</th>
                     <th width='200px'>Sexo</th>
                     <th width='150px'>Fone</th>
-                    <th width='200px' id="ocultaCargo">Cargo</th>
+                    <th width='200px' <?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>>Cargo</th>
                     <th width='110px'>Log Registro Dia RH Envia DP</th>
-                    <th width='100px' id="ocultaBase">Remuneração Base</th>
-                    <th width='100px' id="ocultaGrat">Gratificação</th>
+                    <th width='100px' <?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>>Remuneração Base</th>
+                    <th width='100px' <?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>>Gratificação</th>
                     <th width='200px'>Solicitante</th>
                     <th width='150px'>Cliente</th>
                     <th width='150px'>Projeto</th>
@@ -140,10 +140,10 @@
                                 <option>Não definido</option>
                             </select></td>
                             <td id='add-fone'><input class='intable' type="tel" name="FONE_CONTATO" value = "<?=$funcionarios['FONE_CONTATO']; ?>"></td>
-                            <td id="ocultaCargo2"><input class='intable' type="text" name="CARGO" value = "<?=$funcionarios['CARGO']; ?>"></td>
+                            <td id="add-cargo" <?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>><input class='intable' type="text" name="CARGO" value = "<?=$funcionarios['CARGO']; ?>"></td>
                             <td id='add-log-registro-dia-rh-envia-dp'><input class='intable' type="date" name="LOG_REGISTRO_DIA_RH_ENVIA_DP" value = "<?=$funcionarios['LOG_REGISTRO_DIA_RH_ENVIA_DP']; ?>"></td>
-                            <td id="ocultaBase2"><input class='intable' type="text" name="REMUNERACAO_BASE" value = "<?=$REMUNERACAO_BASE?>"></td>
-                            <td id="ocultaGrat2"><input class='intable' type="text" name="GRATIFICACAO" value = "<?=$GRATIFICACAO?>"></td>
+                            <td id="add-remuneracao" <?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>><input class='intable' type="text" name="REMUNERACAO_BASE" value = "<?=$REMUNERACAO_BASE?>"></td>
+                            <td id="add-gratificacao" <?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>><input class='intable' type="text" name="GRATIFICACAO" value = "<?=$GRATIFICACAO?>"></td>
                             <td id='add-solicitante'><input  class='intable' type="text" name="SOLICITANTE" value = "<?=$funcionarios['SOLICITANTE']; ?>"></td>
                             <td id='add-cliente'><input class='intable' type="text" name="CLIENTE" value = "<?=$funcionarios['CLIENTE']; ?>"></td>
                             <td id='add-projeto'><input class='intable' type="text" name="PROJETO" value = "<?=$funcionarios['PROJETO']; ?>"></td>
@@ -287,21 +287,5 @@
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src='../js/desabilitaStepWizard.js'></script>
-    <script>let grupo = "<?=$grupo?>";
-            window.onload = () => {
-            if(grupo == "Suporte Interno"){
-                desbilitaStepWizard(2,4,5,6,7,8,9,10,11);
-                $("#proximo").prop("disabled", true);
-                $("#proximo").attr("disabled", true);
-                $("#proximo").attr("href", "#");
-                document.getElementById("ocultaCargo").style.display = 'none';
-                document.getElementById("ocultaBase").style.display = 'none';
-                document.getElementById("ocultaGrat").style.display = 'none';
-                document.getElementById("ocultaCargo2").style.display = 'none';
-                document.getElementById("ocultaBase2").style.display = 'none';
-                document.getElementById("ocultaGrat2").style.display = 'none';          
-            }
-            
-        }</script>
 
 </body>
