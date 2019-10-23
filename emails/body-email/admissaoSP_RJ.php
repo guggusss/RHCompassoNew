@@ -72,29 +72,11 @@
           <p align="center" style="font-size:11pt;font-family:Calibri,sans-serif;text-align:center;margin-right:0;margin-left:0;">
           <span style="font-size:10pt;">&nbsp;</span></p>
           </td>
-          </tr>
+         
           <tr style="height:10.4pt;">
           <td nowrap="" style="width:248.75pt;height:10.4pt;padding:0 3.5pt;border-width:1pt;border-style:none solid solid solid;border-color:gray;">
           <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
-          <b><span style="font-size:10pt;">Formulário 2. Informações de Qualificação</span></b></p>
-          </td>
-          <td nowrap="" style="background-color:#FFE599;width:95.2pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
-          <p align="center" style="font-size:11pt;font-family:Calibri,sans-serif;text-align:center;margin-right:0;margin-left:0;">
-          <span style="font-size:10pt;">.pdf</span></p>
-          </td>
-          <td nowrap="" style="width:80.55pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
-          <p align="center" style="font-size:11pt;font-family:Calibri,sans-serif;text-align:center;margin-right:0;margin-left:0;">
-          <span style="font-size:10pt;">NÃO</span></p>
-          </td>
-          <td valign="bottom" nowrap="" style="width:619.55pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
-          <p align="center" style="font-size:11pt;font-family:Calibri,sans-serif;text-align:center;margin-right:0;margin-left:0;">
-          <span style="font-size:10pt;">&nbsp;</span></p>
-          </td>
-          </tr>
-          <tr style="height:10.4pt;">
-          <td nowrap="" style="width:248.75pt;height:10.4pt;padding:0 3.5pt;border-width:1pt;border-style:none solid solid solid;border-color:gray;">
-          <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
-          <b><span style="font-size:10pt;">Formulário 3. Declaração funcionários Oracle</span></b></p>
+          <b><span style="font-size:10pt;">Formulário 2. Declaração funcionários Oracle</span></b></p>
           </td>
           <td nowrap="" style="background-color:#FFE599;width:95.2pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
           <p align="center" style="font-size:11pt;font-family:Calibri,sans-serif;text-align:center;margin-right:0;margin-left:0;">
@@ -112,7 +94,7 @@
           <tr style="height:10.4pt;">
           <td nowrap="" style="width:248.75pt;height:10.4pt;padding:0 3.5pt;border-width:1pt;border-style:none solid solid solid;border-color:gray;">
           <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
-          <b><span style="font-size:10pt;">Formulário 4. Adesão benefícios</span></b></p>
+          <b><span style="font-size:10pt;">Formulário 3. Adesão benefícios</span></b></p>
           </td>
           <td nowrap="" style="background-color:#FFE599;width:95.2pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
           <p align="center" style="font-size:11pt;font-family:Calibri,sans-serif;text-align:center;margin-right:0;margin-left:0;">
@@ -133,7 +115,7 @@
           </tr>
           <tr style="height:117.6pt;">
           <td nowrap="" style="width:248.75pt;height:117.6pt;padding:0 3.5pt;border-width:1pt;border-style:none solid solid solid;border-color:gray;">
-          <p><b><span style="font-size:10pt;">Formulário 5. Cadastro de funcionários</span></b></p>
+          <p><b><span style="font-size:10pt;">Formulário 4. Cadastro de funcionários</span></b></p>
           </td>
           <td nowrap="" style="background-color:#FFE599;width:95.2pt;height:117.6pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
           <p align="center" style="font-size:11pt;font-family:Calibri,sans-serif;text-align:center;margin-right:0;margin-left:0;">
@@ -163,7 +145,7 @@
           <tr style="height:10.4pt;">
           <td nowrap="" style="width:248.75pt;height:10.4pt;padding:0 3.5pt;border-width:1pt;border-style:none solid solid solid;border-color:gray;">
           <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
-          <b><span style="font-size:10pt;">Formulário 6. Termo Opção Contribuição Sindical</span></b></p>
+          <b><span style="font-size:10pt;">Formulário 5. Termo Opção Contribuição Sindical</span></b></p>
           </td>
           <td nowrap="" style="background-color:#FFE599;width:95.2pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
           <p align="center" style="font-size:11pt;font-family:Calibri,sans-serif;text-align:center;margin-right:0;margin-left:0;">
@@ -181,7 +163,7 @@
           <tr style="height:10.4pt;">
           <td nowrap="" style="width:248.75pt;height:10.4pt;padding:0 3.5pt;border-width:1pt;border-style:none solid solid solid;border-color:gray;">
           <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
-          <b><span style="font-size:10pt;">Formulário 7. Declaração de Dependentes IR</span></b></p>
+          <b><span style="font-size:10pt;">Formulário 6. Declaração de Dependentes IR</span></b></p>
           </td>
           <td nowrap="" style="background-color:#FFE599;width:95.2pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
           <p align="center" style="font-size:11pt;font-family:Calibri,sans-serif;text-align:center;margin-right:0;margin-left:0;">
@@ -318,7 +300,7 @@
           </td>
           <td valign="bottom" nowrap="" style="width:619.55pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
           <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
-          <span style="font-size:10pt;">&nbsp;</span></p>
+          <span style="font-size:10pt;"> - Para homens</span></p>
           </td>
           </tr>
           <tr style="height:10.4pt;">
@@ -421,12 +403,12 @@
           <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
           <span style="font-size:10pt;">&nbsp;</span></p>
           <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
-          <span style="font-size:10pt;">Caso <u>NÃO</u> possua conta no Banco Itaú iremos encaminhar a Carta para Abertura da Conta. </span></p>
+          <span style="font-size:10pt; background-color:yellow">Caso <u>NÃO</u> possua conta no Banco Itaú iremos encaminhar a Carta para Abertura da Conta. </span></p>
           </td>
           </tr>
         </tbody>
       </table>
-      <p id='title'>Entregar as vias impressas da documentação acima destacada <strong class='sublinhe'><font color='red'> até xxxxxxx (RH preenche manual) às 12h, RH preenche manualmente o local para entrega </font></strong></p>
+      <p id='title'> Enviar por Sedex as vias impressas da documentação acima destacada até <strong class='sublinhe'><font color='red'> até xxxxxxx às 12h</font></strong>, aos cuidados de Tiana Huppes  – Av. Júlio de Castilhos, 132 Sala 802 – Bairro: Centro Histórico – CEP: 90030-130 - Porto Alegre/RS.</p>
       <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
       <span style="background-color:yellow;">Caso a documentação e a Carteira de Trabalho não sejam entregues na data acima destacada, será necessário a alteração da data de admissão.</span> </p>
       <p id='title'>	Assim que tivermos a data para seu exame admissional lhe informaremos.</p>
