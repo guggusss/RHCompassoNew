@@ -337,6 +337,9 @@ $docreceb = buscavias($conn, $id);
         if(document.getElementById("campo7").value == ""){
             $("#data7").addClass("dataVazia");
         }
+        if(document.getElementById("campo8").value == ""){
+            $("#data8").addClass("dataVazia");
+        }
     }               
     </script>    
 
