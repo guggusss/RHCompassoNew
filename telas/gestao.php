@@ -40,6 +40,7 @@ $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $efetivacao = buscavencimentos($conn, $id);
+$campoV = 'class="txtVazio" ';
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -174,11 +175,11 @@ $efetivacao = buscavencimentos($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?=$status['STATUS']; ?></td>
-                            <td><?php echo $rows_dados['GESTOR']; ?></td>
-                            <td><?php echo $rows_dados['GESTOR_SABE']; ?></td>
-                            <td><?php echo $rows_dados['GESTOR_LOCAL']; ?></td>
-							<td><?php echo $rows_dados['GESTOR_LOCAL_sABE']; ?></td>
-							<td><?php echo $rows_dados['RECEPTOR_PESSOA']; ?></td>
+                            <td <?php if($rows_dados['GESTOR'] == ""){echo($campoV);} ?>><?php echo $rows_dados['GESTOR']; ?></td>
+                            <td <?php if($rows_dados['GESTOR_SABE'] == ""){echo($campoV);} ?>><?php echo $rows_dados['GESTOR_SABE']; ?></td>
+                            <td <?php if($rows_dados['GESTOR_LOCAL'] == ""){echo($campoV);} ?>><?php echo $rows_dados['GESTOR_LOCAL']; ?></td>
+							<td <?php if($rows_dados['GESTOR_LOCAL_sABE'] == ""){echo($campoV);} ?>><?php echo $rows_dados['GESTOR_LOCAL_sABE']; ?></td>
+							<td <?php if($rows_dados['RECEPTOR_PESSOA'] == ""){echo($campoV);} ?>><?php echo $rows_dados['RECEPTOR_PESSOA']; ?></td>
                             <?php unset($_GET['id']); ?>
                             <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
@@ -226,7 +227,7 @@ $efetivacao = buscavencimentos($conn, $id);
                                   }
                                ?>
                             </select></td>
-                            <td><input type="text" id='campo' class='intable' name="RECEPTOR_PESSOA"  value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
+                            <td><input type="text" class='intable' name="RECEPTOR_PESSOA"  value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -351,9 +352,6 @@ $efetivacao = buscavencimentos($conn, $id);
             }
             
         }
-    </script>
-    <script>
-        
     </script>
 </body>
 </html>

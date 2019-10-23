@@ -13,6 +13,7 @@
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 $status = buscaFuncionarios($conn, $id);
+$campoV = 'class="txtVazio" ';
 
     //$count =  mysqli_num_rows($conn,"SELECT COUNT(*) FROM propostas_contratacoes WHERE ID_USUARIO = '$id'");
     $resultado = mysqli_query($conn, "SELECT `ID_VENCIMENTO`, `ID_USUARIO`, DATE_FORMAT(ENVIO_SOLICITANTE_PRI,'%d/%m/%Y') as ENVIO_SOLICITANTE_PRI, DATE_FORMAT(DATA_VENCIMENTO_PRI,'%d/%m/%Y') as DATA_VENCIMENTO_PRI, `RENOVACAO`, DATE_FORMAT(ENVIO_SOLICITANTE_SEG,'%d/%m/%Y') as ENVIO_SOLICITANTE_SEG, DATE_FORMAT(DATA_VENCIMENTO_SEG,'%d/%m/%Y') as DATA_VENCIMENTO_SEG, `EFETIVACAO` FROM `vencimentos` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -194,10 +195,10 @@ $translado = buscasuporte($conn, $id);
                             <td><?=$status['STATUS']?></td>
                             <td id="data"><?php echo $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>
                             <td id="data2"><?php echo $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>
-                            <td><?php echo $rows_dados['RENOVACAO']; ?></td>
+                            <td <?php if($rows_dados['RENOVACAO'] == ""){echo($campoV);} ?>><?php echo $rows_dados['RENOVACAO']; ?></td>
                             <td id="data3"><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
                             <td id="data4"><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
-                            <td><?php echo $rows_dados['EFETIVACAO']; ?></td>
+                            <td <?php if($rows_dados['EFETIVACAO'] == ""){echo($campoV);} ?>><?php echo $rows_dados['EFETIVACAO']; ?></td>
                             <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 

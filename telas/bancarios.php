@@ -44,6 +44,7 @@ $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
+$campoV = 'class="txtVazio" ';
 ?>
 
 
@@ -182,9 +183,9 @@ $translado = buscasuporte($conn, $id);
                             <td id="data2"><?php echo $rows_dados['RECEBIDO']; ?></td>
                             <td id="data4"><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
                             <td id="data5"><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
-                            <td><?php echo $rows_dados['AGENCIA'];?></td>
-                            <td><?php echo $rows_dados['NUMERO_CONTA'];?></td>
-                            <td><?php echo $rows_dados['TIPO_CONTA'];?></td>
+                            <td <?php if($rows_dados['AGENCIA'] == ""){echo($campoV);} ?>><?php echo $rows_dados['AGENCIA'];?></td>
+                            <td <?php if($rows_dados['NUMERO_CONTA'] == ""){echo($campoV);} ?>><?php echo $rows_dados['NUMERO_CONTA'];?></td>
+                            <td <?php if($rows_dados['TIPO_CONTA'] == ""){echo($campoV);} ?>><?php echo $rows_dados['TIPO_CONTA'];?></td>
                             <td><a title="Suporte Interno" id="proximo" class="  btn btn-default" href="suporteinterno.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>

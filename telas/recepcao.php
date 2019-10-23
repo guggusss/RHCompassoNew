@@ -47,6 +47,7 @@ $inclui = buscaadmissao($conn, $id);
 $receptor = buscagestao($conn, $id);
 $translado = buscasuporte($conn, $id);
 $deacordo = buscaProposta($conn, $id);
+$campoV = 'class="txtVazio" ';
 ?>
 
 
@@ -182,10 +183,10 @@ $deacordo = buscaProposta($conn, $id);
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                             <tr>
                             <td><?=$status['STATUS']?></td>
-                            <td id="data"><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
-                            <td><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
-                            <td id="data4"><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
+                            <td <?php if($rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == ""){echo($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
+                            <td <?php if($rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == ""){echo($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
+                            <td <?php if($rows_dados['BOAS_VINDAS_SALA'] == ""){echo($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
+                            <td <?php if($rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == ""){echo($campoV);} ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                             <td><form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class="btn btn-default"></form></td>
                         </tr>

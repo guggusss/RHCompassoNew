@@ -203,7 +203,7 @@ $translado = buscasuporte($conn, $id);
 							<td id="data8"><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
                             
                             <?php unset($_GET['id']); ?>
-                            <td><a title="Gestão" id="proximo" class="disabled btn btn-default" href="gestao.php?id=<?=$id?>"> Próximo </td>
+                            <td><a title="Gestão" id="proximo" class="btn btn-default" href="gestao.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
@@ -224,14 +224,14 @@ $translado = buscasuporte($conn, $id);
                                 <option>RETORNO DOCS</option>
                                 <option>E-MAIL: DESISTENCIA</option>
                                 <option>E-MAIL RECUSADO</option></select></td>
-                            <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" required value="<?=$recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO']?>"></td>
-                            <td><input type="date" id="campo2" class='intable' name ="ENQUADRAMENTO_REMUNERACAO_RETORNO" required value="<?=$deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO']?>"></td>
-                            <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" required value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
-                            <td><input type="date" id="campo4" class='intable' name="ENVIO_PROPOSTA" required value="<?=$envioprop['ENVIO_PROPOSTA']?>"></td>
-                            <td><input type="date" id="campo5" class='intable' name="COMUNICAR_PROPOSTA_ENVIADA" required value="<?=$comunicarprop['COMUNICAR_PROPOSTA_ENVIADA']?>"></td>
-                            <td><input type="date" id="campo6" class='intable' name="ACEITA_RECUSA_CANDIDATO" required value="<?=$candidato['ACEITE_RECUSA_CANDIDATO']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value="<?=$recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="ENQUADRAMENTO_REMUNERACAO_RETORNO" value="<?=$deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' name="ENVIO_PROPOSTA" value="<?=$envioprop['ENVIO_PROPOSTA']?>"></td>
+                            <td><input type="date" id="campo5" class='intable' name="COMUNICAR_PROPOSTA_ENVIADA" value="<?=$comunicarprop['COMUNICAR_PROPOSTA_ENVIADA']?>"></td>
+                            <td><input type="date" id="campo6" class='intable' name="ACEITA_RECUSA_CANDIDATO" value="<?=$candidato['ACEITE_RECUSA_CANDIDATO']?>"></td>
                             <td><input type="text" id="campo7"class='intable' name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>
-                            <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" required value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
+                            <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>
                         </form>

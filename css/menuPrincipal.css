@@ -218,6 +218,11 @@ body{
     background-color: #d608082e;
 }
 
+.txtVazio {
+    border: 3px solid #d60808c9 !important;
+    background-color: #d608082e;
+}
+
 .botao{
     background-color: rgb(50, 66, 114);
     background-size: 100% 120%;
