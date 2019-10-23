@@ -52,5 +52,5 @@ $STATUS = 'EM CONTRATO';
 ?>
 <?php
 
-header("Refresh:1; url=../telas/gestao.php?id=".$id);
+header("Refresh:1; url=../telas/gestao.php?id=$id");
 ?>

@@ -1,6 +1,8 @@
 <?php
     include("../db/conexao.php");
     include("../update.php");
+    session_start();
+    $id = $_SESSION['id'];
 ?>
 
 <?php
@@ -52,5 +54,5 @@ $STATUS = 'EM CONTRATO';
 ?>
 <?php
 
-header("Refresh:1; url=../telas/bancarios.php?id=$ID_USUARIO");
+header("Refresh:1; url=../telas/bancarios.php?id=$id");
 ?>

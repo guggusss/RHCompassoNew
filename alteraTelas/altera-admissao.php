@@ -1,6 +1,8 @@
 <?php
   include("../db/conexao.php");
   include_once("../update.php");
+  session_start();
+  $id = $_SESSION['id'];
 
 ?>
 
@@ -51,5 +53,5 @@ if(admissao($conn, $ID_USUARIO, $QUALIFIC_CADASTRAL_CEP, $CAD_ADM_PLATAFORMA_ADM
     <p class="text-danger margem">Não foi alterado: <?= $msg ?></p>
 <?php
     }
-    header("Refresh:1; url= ../telas/admissao.php?id=$ID_USUARIO");
+    header("Refresh:1; url= ../telas/admissao.php?id=$id");
 ?>

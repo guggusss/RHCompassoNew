@@ -1,6 +1,8 @@
 <?php
     include("../db/conexao.php");
     include("../update.php");
+    session_start();
+    $id = $_SESSION['id'];
 ?>
 
 <?php
@@ -47,5 +49,5 @@ if(Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDO
     <p class="text-danger">Não foi alterado: <?= $msg ?></p>
 <?php
 }
-header("Refresh:1; url= ../telas/documentacao.php?id=$ID_USUARIO");
+header("Refresh:1; url= ../telas/documentacao.php?id=$id");
 ?>

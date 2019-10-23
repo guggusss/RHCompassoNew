@@ -3,6 +3,8 @@
     include("../update.php");
     $DATA = date_create();
     $DATA_HOJE = date_format($DATA, 'y-m-d');
+    session_start();
+    $id = $_SESSION['id'];
 ?>
 
 <?php
@@ -60,7 +62,7 @@ if(Proposta($conn, $ID_USUARIO, $ENQUADRAMENTO_REMUNERACAO_ENVIO, $ENQUADRAMENTO
 ?>
 <?php
 
-header("Refresh:1; url= ../telas/funcionario.php?id=$ID_USUARIO");
+header("Refresh:1; url= ../telas/funcionario.php?id=$id");
 
 ?>
 

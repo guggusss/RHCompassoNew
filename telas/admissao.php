@@ -179,7 +179,7 @@ $translado = buscasuporte($conn, $id);
                             <td id="data3"><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
                             <td id="data4"><?php echo $rows_dados['TERMO_PSI']; ?></td>
                             <td id="data5"><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
-                            <td><a title="Exame Admissional" id="proximo" class="btn btn-default" href="exame.php"> Próximo </td>
+                            <td><a title="Exame Admissional" id="proximo" class="btn btn-default" href="exame.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
                         </tr>

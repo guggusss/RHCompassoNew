@@ -1,6 +1,8 @@
 <?php
     include("../db/conexao.php");
     include("../update.php");
+    session_start();
+    $id = $_SESSION['id'];
 ?>
 
 <?php
@@ -59,5 +61,5 @@ if(viasDocs($conn, $ID_USUARIO, $CRACHA_DATA_PEDIDO, $CRACHA_CONTROLE, $CRACHA_P
 ?>
 <?php
 
-header("Refresh:1; url=../telas/viasdocumentos.php?id=$ID_USUARIO");
+header("Refresh:1; url=../telas/viasdocumentos.php?id=$id");
 ?>

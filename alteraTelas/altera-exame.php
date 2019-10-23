@@ -1,6 +1,8 @@
 <?php
     include("../db/conexao.php");
     include("../update.php");
+    session_start();
+    $id = $_SESSION['id'];
 ?>
 
 <?php
@@ -48,5 +50,5 @@ status($conn, $ID_USUARIO, $STATUS);
 ?>
 <?php
 
-header("Refresh:1; url=../telas/exame.php?id=$ID_USUARIO");
+header("Refresh:1; url=../telas/exame.php?id=$id");
 ?>

@@ -197,7 +197,7 @@ $emailsoli = buscavias($conn, $id);
                             }else{
                                 $usuario_atv = " ";
                             }?> <input type="text" disabled="disabled" class='intable' name ="USUARIO_ATV"  value="<?=$usuario_atv?>"> </td>                   
-                            <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
+                            <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
                         </tr>

@@ -1,6 +1,8 @@
 <?php
     include("../db/conexao.php");
     include("../update.php");
+    session_start();
+    $id = $_SESSION['id'];
 ?>
 
 <?php
@@ -51,5 +53,5 @@ $STATUS = 'EM CONTRATO';
     <p class="text-danger">Não foi alterado: <?= $msg ?></p>
 <?php
     }
-    header("Refresh:1; url= ../telas/interno.php?id=$ID_USUARIO");
+    header("Refresh:1; url= ../telas/interno.php?id=$id");
 ?>

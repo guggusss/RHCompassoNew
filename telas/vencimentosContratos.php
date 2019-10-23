@@ -197,7 +197,7 @@ $translado = buscasuporte($conn, $id);
                             <td id="data3"><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
                             <td id="data4"><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
                             <td><?php echo $rows_dados['EFETIVACAO']; ?></td>
-                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php"> Próximo </td>
+                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
 

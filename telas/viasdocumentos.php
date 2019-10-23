@@ -186,7 +186,7 @@ $docreceb = buscavias($conn, $id);
                             <td id="data6"><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
                             <td id="data7"><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
                             <td id="data8"><?php echo $rows_dados['SALVAR_PASTA']; ?></td>
-                            <td><a title="Boas Vindas" href='recepcao.php' class="btn btn-default">Próximo</td>
+                            <td><a title="Boas Vindas" href='recepcao.php?id=<?=$id?>' class="btn btn-default">Próximo</td>
                             <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>

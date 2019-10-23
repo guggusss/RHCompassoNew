@@ -170,7 +170,7 @@ $emailsoli = buscavias($conn, $id);
                             <td id="data"><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
                             <td id="data2"><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
                             <td id="data3"><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
-                            <td><a title= "Dados Bancáriso" id="proximo" class="  btn btn-default" href="bancarios.php"> Próximo </td>
+                            <td><a title= "Dados Bancáriso" id="proximo" class="  btn btn-default" href="bancarios.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>

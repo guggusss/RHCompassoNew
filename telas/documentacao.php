@@ -187,7 +187,7 @@ $translado = buscasuporte($conn, $id);
                         <td id="data2"><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
                         <td id="data3"><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
                         <td id="data4"><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
-                        <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="btn btn-default" href="admissao.php"> Próximo </td>
+                        <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="btn btn-default" href="admissao.php?id=<?=$id?>"> Próximo </td>
                         <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>

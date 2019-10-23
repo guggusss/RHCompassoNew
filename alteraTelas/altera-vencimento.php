@@ -1,6 +1,8 @@
 <?php
     include("../db/conexao.php");
     include("../update.php");
+    session_start();
+    $id = $_SESSION['id'];
 ?>
 
 <?php
@@ -51,5 +53,5 @@ $STATUS = 'EM CONTRATO';
 ?>
 <?php
 
-header("Refresh:1; url=../telas/vencimentosContratos.php");
+header("Refresh:1; url=../telas/vencimentosContratos.php?id=$id");
 ?>

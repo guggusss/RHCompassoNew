@@ -1,6 +1,8 @@
 <?php
     include("../db/conexao.php");
     include("../update.php");
+    session_start();
+    $id = $_SESSION['id'];
 ?>
 
 <?php
@@ -45,5 +47,5 @@ if(recepcao ($conn, $ID_USUARIO, $BOAS_VINDAS_INGR_AGENDADA, $BOAS_VINDAS_INGR_R
     <p class="text-danger">Não foi alterado: <?= $msg ?></p>
 <?php
     }
-    header("Refresh: 1; ../telas/recepcao.php?id=$ID_USUARIO");
+    header("Refresh: 1; ../telas/recepcao.php?id=$id");
 ?>

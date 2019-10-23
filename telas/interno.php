@@ -189,7 +189,7 @@ $acessos = buscainterno($conn, $id);
                         <td id="data4"><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
                         <td id="data5"><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
                         <td id="data6"><?php echo $rows_dados['ACESSOS']; ?></td>
-                        <td><a title="Vias Documentos Funcionários" id="proximo" class="  btn btn-default" href="viasdocumentos.php"> Próximo </td>
+                        <td><a title="Vias Documentos Funcionários" id="proximo" class="  btn btn-default" href="viasdocumentos.php?id=<?=$id?>"> Próximo </td>
                         <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>

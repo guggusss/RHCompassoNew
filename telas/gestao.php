@@ -179,7 +179,7 @@ $efetivacao = buscavencimentos($conn, $id);
 							<td><?php echo $rows_dados['GESTOR_LOCAL_sABE']; ?></td>
 							<td><?php echo $rows_dados['RECEPTOR_PESSOA']; ?></td>
                             <?php unset($_GET['id']); ?>
-                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php"> Próximo </td>
+                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
