@@ -53,12 +53,14 @@ $result = mysqli_query($connect, $sql);
     <table class="table table-bordered">
 
                         <th width='150px'>Status</th>
+                        <th width='200px'>Nome</th>
+                        <th width='110px'>Data Admissão</th>
                         <th width='60px'>Sede</th>
                         <th width='60px'>Tipo</th>
                         <th width='100px'>Captação</th>
                         <th width='100px'>Carga Horária</th>
                         <th width='100px'>Horário</th>
-                        <th width='200px'>Nome</th>
+                        
                         <th width='200px'>Sexo</th>
                         <th width='85px'>Fone</th>
                         <th width='100px'>Cargo</th>
@@ -69,7 +71,7 @@ $result = mysqli_query($connect, $sql);
                         <th width= "150px">Cliente</th>
                         <th width='150px'>Projeto</th>
                         <th width='250px'>Email Pessoal</th>
-                        <th width='110px'>Data Admissão</th>
+                        
                         <th width='200px'>Posição(Comentários)</th>
                         <th width='200px'>Administrativo + Flyback - Hotel</th>
                         <th width='200px'>Comentários</th>
@@ -80,12 +82,14 @@ $result = mysqli_query($connect, $sql);
         echo '
        <tr>
          <td>'.$row["STATUS"].'</td>
+         <td>'.$row["NOME"].'</td>
+         <td>'.$row["DATA_ADMISSAO"].'</td>
          <td>'.$row["NOME_SEDE"].'</td>
          <td>'.$row["NOME_TIPO"].'</td>
          <td>'.$row['NOME_PARAMETRO'].'</td>
          <td>'.$row["CARGA_HORARIA"].'</td>
          <td>'.$row['HORARIO'].'</td>
-         <td>'.$row["NOME"].'</td>
+         
          <td>'.$row["SEXO"].'</td>
          <td>'.$row["FONE_CONTATO"].'</td>
          <td>'.$row["CARGO"].'</td>
@@ -96,7 +100,7 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["PROJETO"].'</td>
          <td>'.$row["CLIENTE"].'</td>
          <td>'.$row["EMAIL"].'</td>
-         <td>'.$row["DATA_ADMISSAO"].'</td>
+         
          <td>'.$row["POSICAO_COMENTARIO"].'</td>
          <td>'.$row["ADMINISTRATIVO"].'</td>
          <td>'.$row["COMENTARIOS"].'</td>

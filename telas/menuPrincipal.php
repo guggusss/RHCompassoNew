@@ -705,12 +705,14 @@ if (isset($_POST['botaoVolta'])) {
                 <thead>
                     <tr>
                         <th scope="col" width='200px'>Status</th>
+                        <th scope="col" width='200px'>Nome</th>
+                        <th scope="col" width='110px'>Data Admissão</th>
                         <th scope="col" width='60px'>Sede</th>
                         <th scope="col" width='60px'>Tipo</th>
                         <th scope="col" width='150px'>Captação</th>
                         <th scope="col" width='150px'>Carga Horária<br/>(em horas)</th>
                         <th scope="col" width='150px'>Horário</th>
-                        <th scope="col" width='200px'>Nome</th>
+                        
                         <th scope="col" width='200px'>Sexo</th>
                         <th scope="col" width='150px'>Fone</th>
                         <th scope="col" width='200px'<?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>>Cargo</th>
@@ -722,7 +724,7 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='150px'>Cliente</th>
                         <th scope="col" width='150px'>Projeto</th>
                         <th scope="col" width='330px'>Email Pessoal</th>
-                        <th scope="col" width='110px'>Data Admissão</th>
+                        
                         <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
                         <th scope="col" width='200px'>Comentários</th>
@@ -738,12 +740,14 @@ if (isset($_POST['botaoVolta'])) {
                     <?php $SOMA = $rows_dados['REMUNERACAO_BASE'] + $rows_dados['GRATIFICACAO'];?>
                         <tr style="vertical-align: right !important;">
                             <td><?php echo $rows_dados['STATUS'];?></td>
+                            <td><?php echo $rows_dados['NOME']; ?></td>
+                            <td ><?php echo $rows_dados['DATA_ADMISSAO']; ?></td>
                             <td><?php echo $rows_dados['NOME_SEDE']; ?></td>
                             <td><?php echo $rows_dados['NOME_TIPO']; ?></td>
                             <td><?php echo $rows_dados['NOME_PARAMETRO']; ?></td>
                             <td><?php echo $rows_dados['CARGA_HORARIA']; ?></td>
                             <td><?php echo $rows_dados['HORARIO']; ?></td>
-                            <td><?php echo $rows_dados['NOME']; ?></td>
+                            
                             <td><?php echo $rows_dados['SEXO']; ?></td>
                             <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
                             <td <?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>><?php echo $rows_dados['CARGO']; ?></td>
@@ -755,7 +759,7 @@ if (isset($_POST['botaoVolta'])) {
 							<td><?php echo $rows_dados['CLIENTE']; ?></td>
 							<td><?php echo $rows_dados['PROJETO']; ?></td>
                             <td><?php echo $rows_dados['EMAIL']; ?></td>
-                            <td ><?php echo $rows_dados['DATA_ADMISSAO']; ?></td>
+                            
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
@@ -783,6 +787,8 @@ if (isset($_POST['botaoVolta'])) {
                                 <option>E-MAIL: DESISTENCIA</option>
                                 <option>E-MAIL RECUSADO</option>
                             </select></td>
+                            <td id='add-nome'><input class='intable' type="text" name="nome" required></td>
+                            <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
                             <td><select id="add-sede" name='sede' class="selectadd intable" required>
                                 <option value="" selected="selected"></option>
                                 <?php foreach ($listar as $linha):?>
@@ -793,7 +799,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td><select id="add-captacao" name='captacao' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">Ex-Funcionario</option><option value="2">Ex-Bolsista</option><option value="3">Ex-Estagiario</option><option value="4">Novo</option></select></td>
                             <td id='add-carga_horaria'><input id="campo-carga_horaria" class='intable' type="number" min="80" max="220" name="carga_horaria" required></td>
                             <td id='add-horario'><input class='intable' type="text" name="horario" required maxlength="13" pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}[\s]-[\s][0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" onkeypress="valida_horas(this)"></td>
-                            <td id='add-nome'><input class='intable' type="text" name="nome" required></td>
+                           
                             <td><select name="sexo" class="intable" value="<?=$rows_dados['SEXO']?>" required>
                                 <option value="" selected="selected"></option>
                                 <option>Não informou</option>
@@ -811,7 +817,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-cliente'><input class='intable' type="text" name="cliente" required></td>
                             <td id='add-projeto'><input class='intable' type="text" name="projeto" required></td>
                             <td id='add-email'><input class='intable' type="email" name="EMAIL" unique required></td>
-                            <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
+                            
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
                             <td id='add-comentarios'><input class='intable' type="text" name="comentarios"></td>

@@ -55,12 +55,14 @@
             <thead>
                 <tr>
                     <th width='200px'>Status</th>
+                    <th width='200px'>Nome</th>
+                    <th width='110px'>Data Admissão</th>
                     <th width='60px'>Sede</th>
                     <th width='60px'>Tipo</th>
                     <th width='100px'>Captação</th>
                     <th width='100px'>Carga Horária</th> 
                     <th width='150px'>Horário</th> 
-                    <th width='200px'>Nome</th>
+                    
                     <th width='200px'>Sexo</th>
                     <th width='150px'>Fone</th>
                     <th width='200px' <?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>>Cargo</th>
@@ -71,7 +73,7 @@
                     <th width='150px'>Cliente</th>
                     <th width='150px'>Projeto</th>
                     <th width='330px'>Email Pessoal</th>
-                    <th width='110px'>Data Admissão</th>
+                    
                     
                     <th width='200px'>Posição(Comentários)</th>
                     <th width='200px'>Administrativo + Flyback - Hotel</th>
@@ -104,6 +106,8 @@
                                 <option>E-MAIL RECUSADO</option>
                             </select></td>
 
+                            <td id='add-nome'><input class='intable' type="text" name="NOME" value = "<?=$funcionarios['NOME']; ?>"></td>
+                            <td id='add-admissao'><input class='intable' type="date" name="DATA_ADMISSAO" value = "<?=$funcionarios['DATA_ADMISSAO']; ?>"></td>
                     <td><select name="ID_SEDE" class="selectadd intable" id="recipient-funcao">
                         <option>Escolha...</option>
                         <?php while($rows_funcoes = mysqli_fetch_assoc($return_sede)){ ?>
@@ -131,7 +135,7 @@
 
                             <td id='add-carga_horaria'><input class='intable' type="text" name="CARGA_HORARIA" value = "<?=$funcionarios['CARGA_HORARIA']; ?>"></td>
                             <td id='add-horario'><input class='intable' type="text" name="HORARIO" value = "<?=$funcionarios['HORARIO']; ?>"></td>
-                            <td id='add-nome'><input class='intable' type="text" name="NOME" value = "<?=$funcionarios['NOME']; ?>"></td>
+                            
                             <td><select name="sexo" class="intable" value="<?=$rows_dados['SEXO']?>">
                                 <option value="" selected="selected"></option>
                                 <option>Não informou</option>
@@ -148,7 +152,7 @@
                             <td id='add-cliente'><input class='intable' type="text" name="CLIENTE" value = "<?=$funcionarios['CLIENTE']; ?>"></td>
                             <td id='add-projeto'><input class='intable' type="text" name="PROJETO" value = "<?=$funcionarios['PROJETO']; ?>"></td>
                             <td id='add-email'><input class='intable' type="email" name="EMAIL" value = "<?=$funcionarios['EMAIL']; ?>"></td>
-                            <td id='add-admissao'><input class='intable' type="date" name="DATA_ADMISSAO" value = "<?=$funcionarios['DATA_ADMISSAO']; ?>"></td>
+                            
                             
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="POSICAO_COMENTARIO" value = "<?=$funcionarios['POSICAO_COMENTARIO']; ?>"></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="ADMINISTRATIVO" value = "<?=$funcionarios['ADMINISTRATIVO']; ?>"></td>
