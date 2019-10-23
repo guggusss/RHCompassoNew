@@ -20,6 +20,7 @@ $conn1 = mysqli_num_rows($resultado1);
 $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 $status = buscaFuncionarios($conn, $id);
+$campoV = 'class="txtVazio" ';
 
 if($count == 1){
     $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -186,13 +187,13 @@ $emailsoli = buscavias($conn, $id);
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                             <tr>
                             <td><?=$status['STATUS']?></td>
-                            <td><?php echo $rows_dados['EMAIL_SUP']; ?></td>
-                            <td><?php echo $rows_dados['USUARIO']; ?></td>
-                            <td><?php echo $rows_dados['SENHA']; ?></td>
-                            <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
-                            <td><?php echo $rows_dados['TRANSLADO']; ?></td>
-                            <td><?php echo $rows_dados['EQUIPE']; ?></td>
-                            <td><?php if($rows_dados['USUARIO'] != NULL){
+                            <td <?php if($rows_dados['EMAIL_SUP'] == ""){echo($campoV);} ?>><?php echo $rows_dados['EMAIL_SUP']; ?></td>
+                            <td <?php if($rows_dados['USUARIO'] == ""){echo($campoV);} ?>><?php echo $rows_dados['USUARIO']; ?></td>
+                            <td <?php if($rows_dados['SENHA'] == ""){echo($campoV);} ?>><?php echo $rows_dados['SENHA']; ?></td>
+                            <td <?php if($rows_dados['EQUIPAMENTO'] == ""){echo($campoV);} ?>><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
+                            <td <?php if($rows_dados['TRANSLADO'] == ""){echo($campoV);} ?>><?php echo $rows_dados['TRANSLADO']; ?></td>
+                            <td <?php if($rows_dados['EQUIPE'] == ""){echo($campoV);} ?>><?php echo $rows_dados['EQUIPE']; ?></td>
+                            <td <?php if($rows_dados['USUARIO'] == ""){echo($campoV);} ?>><?php if($rows_dados['USUARIO'] != NULL){
                                 $usuario_atv = "ATIVO";
                             }else{
                                 $usuario_atv = " ";

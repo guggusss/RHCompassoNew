@@ -36,6 +36,7 @@ $emailges = buscainterno($conn, $id);
 $emailboas = buscainterno($conn, $id);
 $emailinic = buscainterno($conn, $id);
 $acessos = buscainterno($conn, $id);
+$campoV = 'class="txtVazio" ';
 /* $usuarios = mysql_fetch_assoc($resultado); */
 
 ?>
@@ -182,9 +183,9 @@ $acessos = buscainterno($conn, $id);
                     <tr>
                         <td><?=$status['STATUS']?></td>
                         <td id="data"><?php echo $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>
-                        <td><?php echo $rows_dados['INTRANET_CADASTRO_SENHA']; ?></td>
+                        <td <?php if($rows_dados['INTRANET_CADASTRO_SENHA'] == ""){echo($campoV);} ?>><?php echo $rows_dados['INTRANET_CADASTRO_SENHA']; ?></td>
                         <td id="data2"><?php echo $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>
-                        <td><?php echo $rows_dados['KAIROS_CADASTRO_SENHA']; ?></td>
+                        <td <?php if($rows_dados['KAIROS_CADASTRO_SENHA'] == ""){echo($campoV);} ?>><?php echo $rows_dados['KAIROS_CADASTRO_SENHA']; ?></td>
                         <td id="data3"><?php echo $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>
                         <td id="data4"><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
                         <td id="data5"><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
