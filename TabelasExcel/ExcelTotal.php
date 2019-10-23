@@ -114,12 +114,14 @@ if(isset($_POST["export"]))
                        </tr>
                         <tr>
                             <th width="150px">Status</th>
+                            <th width="200px">Nome</th>
+                            <th width="110px">Data Admissão</th>
                             <th width="60px">Sede</th>
                             <th width="60px">Tipo</th>
                             <th width="100px">Captação</th>
                             <th width="100px">Carga Horária</th>
                             <th width="100px">Horário</th>
-                            <th width="200px">Nome</th>
+                            
                             <th width="85px">Fone</th>
                             <th width="100px">Cargo</th>
                             <th width="110px">Controle Data Admissão</th>
@@ -129,7 +131,7 @@ if(isset($_POST["export"]))
                             <th width="150px">Cliente</th>
                             <th width="150px">Projeto</th>
                             <th width="250px">Email</th>
-                            <th width="110px">Data Admissão</th>
+                            
                             <th width="110px">Comentarios</th>
                             <th>Enquadramento remuneração envio</th>
                             <th>Enquadramento remuneração retorno</th>
@@ -207,12 +209,14 @@ if(isset($_POST["export"]))
         $output .= '
        <tr>
          <td>'.$row["STATUS"].'</td>
+         <td>'.$row["NOME"].'</td>
+         <td>'.$row["DATA_ADMISSAO"].'</td>
          <td>'.$row["NOME_SEDE"].'</td>
          <td>'.$row["NOME_TIPO"].'</td>
          <td>'.$row['NOME_PARAMETRO'].'</td>
          <td>'.$row["CARGA_HORARIA"].'</td>
          <td>'.$row['HORARIO'].'</td>
-         <td>'.$row["NOME"].'</td>
+         
          <td>'.$row["FONE_CONTATO"].'</td>
          <td>'.$row["CARGO"].'</td>
          <td>'.$row["LOG_REGISTRO_DIA_RH_ENVIA_DP"].'</td>
@@ -222,7 +226,7 @@ if(isset($_POST["export"]))
          <td>'.$row["PROJETO"].'</td>
          <td>'.$row["CLIENTE"].'</td>
          <td>'.$row["EMAIL"].'</td>
-         <td>'.$row["DATA_ADMISSAO"].'</td>
+         
          <td>'.$row["COMENTARIOS"].'</td>
          <td>'.$row["ENQUADRAMENTO_REMUNERACAO_ENVIO"].'</td>
          <td>'.$row["ENQUADRAMENTO_REMUNERACAO_RETORNO"].'</td>
