@@ -318,7 +318,7 @@
           </td>
           <td valign="bottom" nowrap="" style="width:619.55pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
           <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
-          <span style="font-size:10pt;">&nbsp;</span></p>
+          <span style="font-size:10pt;">- Para homens</span></p>
           </td>
           </tr>
           <tr style="height:10.4pt;">
