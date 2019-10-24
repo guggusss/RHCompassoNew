@@ -712,7 +712,6 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='150px'>Captação</th>
                         <th scope="col" width='150px'>Carga Horária<br/>(em horas)</th>
                         <th scope="col" width='150px'>Horário</th>
-                        
                         <th scope="col" width='200px'>Sexo</th>
                         <th scope="col" width='150px'>Fone</th>
                         <th scope="col" width='200px'<?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>>Cargo</th>
@@ -724,7 +723,6 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='150px'>Cliente</th>
                         <th scope="col" width='150px'>Projeto</th>
                         <th scope="col" width='330px'>Email Pessoal</th>
-                        
                         <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
                         <th scope="col" width='200px'>Comentários</th>
@@ -747,7 +745,6 @@ if (isset($_POST['botaoVolta'])) {
                             <td><?php echo $rows_dados['NOME_PARAMETRO']; ?></td>
                             <td><?php echo $rows_dados['CARGA_HORARIA']; ?></td>
                             <td><?php echo $rows_dados['HORARIO']; ?></td>
-                            
                             <td><?php echo $rows_dados['SEXO']; ?></td>
                             <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
                             <td <?php if($grupo == "Suporte Interno"){ echo 'style="display: none;"'; }?>><?php echo $rows_dados['CARGO']; ?></td>
@@ -759,7 +756,6 @@ if (isset($_POST['botaoVolta'])) {
 							<td><?php echo $rows_dados['CLIENTE']; ?></td>
 							<td><?php echo $rows_dados['PROJETO']; ?></td>
                             <td><?php echo $rows_dados['EMAIL']; ?></td>
-                            
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
                             <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
@@ -799,7 +795,6 @@ if (isset($_POST['botaoVolta'])) {
                             <td><select id="add-captacao" name='captacao' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">Ex-Funcionario</option><option value="2">Ex-Bolsista</option><option value="3">Ex-Estagiario</option><option value="4">Novo</option></select></td>
                             <td id='add-carga_horaria'><input id="campo-carga_horaria" class='intable' type="number" min="80" max="220" name="carga_horaria" required></td>
                             <td id='add-horario'><input class='intable' type="text" name="horario" required maxlength="13" pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}[\s]-[\s][0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" onkeypress="valida_horas(this)"></td>
-                           
                             <td><select name="sexo" class="intable" value="<?=$rows_dados['SEXO']?>" required>
                                 <option value="" selected="selected"></option>
                                 <option>Não informou</option>
@@ -817,7 +812,6 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-cliente'><input class='intable' type="text" name="cliente" required></td>
                             <td id='add-projeto'><input class='intable' type="text" name="projeto" required></td>
                             <td id='add-email'><input class='intable' type="email" name="EMAIL" unique required></td>
-                            
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
                             <td id='add-comentarios'><input class='intable' type="text" name="comentarios"></td>
@@ -833,22 +827,134 @@ if (isset($_POST['botaoVolta'])) {
             </section>
 
         </section>
-            
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+            <section class="container estruct">
+                <h2 class="titulo" align='center'>Legendas</h2>
+                <table id='table-legendas'>
+                    <tr class='tb2'>
+                        <th scope="col" class='tb2'>STATUS</th>
+                        <th scope="col" class='tb2'>TIPO</th>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
+                        <td class='tb2'>Gestor solicitou a proposta de contratação</td>
+                        
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
+                        <td class='tb2'>Gestor submeteu a proposta de contratação para aprovação da diretoria</td>
+                    </tr>
+                    <tr>
+                        <td class='tb2'>APROVADO DIRETORIA</td>
+                        <td class='tb2'>Diretoria aprovou recrutamento irá seguir</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>EM VALIDAÇÃO</td>
+                        <td class='tb2'>Proposta em elaboração pelo time de recrutamento</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>NEGOCIAÇÃO</td>
+                        <td class='tb2'>Profissional solicitou contra proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>PROPOSTA ENVIADA</td>
+                        <td class='tb2'>Recrutamento enviou a proposta e está aguardando retorno</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E:MAIL: PROPOSTA ACEITA</td>
+                        <td class='tb2'>Profissional aceitou proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E:MAIL: EM ANDAMENTO</td>
+                        <td class='tb2'>DP aprovou a proposta e seguirá a admissão</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E:MAIL: PROPOSTA INVÁLIDA</td>
+                        <td class='tb2'>DP reprovou recrutamento revisar a proposta</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>EM CONTRATO</td>
+                        <td class='tb2'>Admissão concluída - envio dos alerta de vencimento de contrato</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>RETORNO DOCS</td>
+                        <td class='tb2'>Admissão concluída - aguardando documentos fisícos admissão assinados</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E-MAIL DESISTENCIA</td>
+                        <td class='tb2'>Profissional desistiu da admissão após aceite</td>
+                    </tr>
+                    <tr class='tb2'>
+                        <td class='tb2'>E-MAIL RECUSADO</td>
+                        <td class='tb2'>Profissional recusou a proposta</td>
+                    </tr>
+                </table>
 
-        </main>
-        <footer>
+                <table class='legendas-sedes'>
+                <tr>
+                    <th scope="col" class='tb2'>SEDE</th>
+                </tr>
+                <?php foreach ($listar as $linha):?>
+                <tr><td class='tb2'><?php echo $linha['NOME_SEDE']?></td></tr>
+                <?php endforeach ?>
+                </table>
+                <table class='legendas-tipos'>
+                    <tr>
+                        <th scope="col" class='tb2'>TIPO</th>
+                        <th scope="col" class='tb2'>COMENTÁRIOS</th>
+                    </tr>
+                    <tr>
+                        <td class='tb2'>CLT</td>
+                        <td class='tb2'>Colaborador CLT</td>
+                    </tr>
+                    <tr>
+                        <td class='tb2'>CC</td>
+                        <td class='tb2'>Cargo de Confiança</td>
+                    </tr>
+                    <tr>
+                        <td class='tb2'>HO</td>
+                        <td class='tb2'>Home Office - Teletrabalho</td>
+                    </tr>
+                    <tr>
+                        <td class='tb2'>TEMP</td>
+                        <td class='tb2'>Contrato por tempo determinado</td>
+                    </tr>
+                    <tr>
+                        <td class='tb2'>APDZ</td>
+                        <td class='tb2'>Aprendiz</td>
+                    </tr>
+                </table>
+                <table class='legendas-sedes'>
+                    <tr>
+                        <th scope="col" class='tb2'>Captação</th>
+                    </tr>
+                    <tr>
+                        <td class='tb2'>Novo</td>
+
+                    </tr>
+                    <tr>
+                        <td class='tb2'>Ex-Estagiário</td>
+
+                    </tr>
+                    <tr>
+                        <td class='tb2'>Ex-Funcionário</td>
+
+                    </tr>
+                    <tr>
+                        <td class='tb2'>Ex-Bolsista</td>
+                    </tr>
+                </table>
+            </section>
+    </main>
+    <footer>
         <h2></h2>
-        </footer>
-        
-        <script src="../js/jquery.js"></script>
-        <script src="../js/jquery.mask.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="../js/funcionamento.js"></script>
-        <script src="../js/filter.js"></script>
-        <script src="../js/validaCargo.js"></script>
-        <script src='../js/desabilitaStepWizard.js'></script>
-
+    </footer>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.mask.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/funcionamento.js"></script>
+    <script src="../js/filter.js"></script>
+    <script src="../js/validaCargo.js"></script>
+    <script src='../js/desabilitaStepWizard.js'></script>
     <?php
         include('../validacoes/login/permissoes.php');
     ?>
