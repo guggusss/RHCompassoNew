@@ -165,20 +165,7 @@ $translado = buscasuporte($conn, $id);
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="/RHCompasso/alteraTelas/altera-proposta.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
-                            <td><select class='intable' name="STATUS" ><option value='<?=$status['STATUS']?>' selected= "selected" ><?=$status['STATUS']?></option>
-                                <option>SOLICITAÇÃO DE PROPOSTA</option>
-                                <option>AGUARDANDO APROVAÇÃO</option>
-                                <option>APROVADO DIRETORIA</option>
-                                <option>EM VALIDAÇÃO</option>
-                                <option>NEGOCIAÇÃO</option>
-                                <option>PROPOSTA ENVIADA</option>
-                                <option>E-MAIL: PROPOSTA ACEITA</option>
-                                <option>E-MAIL: EM ANDAMENTO</option>                                
-                                <option>E-MAIL: PROPOSTA INVÁLIDA</option>
-                                <option>EM CONTRATO</option>
-                                <option>RETORNO DOCS</option>
-                                <option>E-MAIL: DESISTENCIA</option>
-                                <option>E-MAIL RECUSADO</option></select></td>
+                            <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value="<?=$recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO']?>"></td>
                             <td><input type="date" id="campo2" class='intable' name ="ENQUADRAMENTO_REMUNERACAO_RETORNO" value="<?=$deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO']?>"></td>
                             <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
