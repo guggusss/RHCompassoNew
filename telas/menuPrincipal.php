@@ -17,8 +17,8 @@ if (isset($_POST['botaoVolta'])) {
             
         $where = Array();
         
-        if( !empty($_POST['STATUS']) ){ 
-            $status = $_POST['STATUS'];
+        if( !empty($_POST['status']) ){ 
+            $status = $_POST['status'];
             $where[] = " `STATUS` = '{$status}'"; 
         }
         if(!empty($_POST['sede'])){
@@ -369,21 +369,21 @@ if (isset($_POST['botaoVolta'])) {
                     <div>
                         <div>
                             <label for="status">Status</label>
-                            <select name="status" class="form-control campo-filter" value="<?=$rows_dados['STATUS']?>">
-                                <option value="" selected="selected"></option>
-                                <option>SOLICITAÇÃO DE PROPOSTA</option>
-                                <option>AGUARDANDO APROVAÇÃO</option>
-                                <option>APROVADO DIRETORIA</option>
-                                <option>EM VALIDAÇÃO</option>
-                                <option>NEGOCIAÇÃO</option>
-                                <option>PROPOSTA ENVIADA</option>
-                                <option>E-MAIL: PROPOSTA ACEITA</option>
-                                <option>E-MAIL: EM ANDAMENTO</option>                                
-                                <option>E-MAIL: PROPOSTA INVÁLIDA</option>
-                                <option>EM CONTRATO</option>
-                                <option>RETORNO DOCS</option>
-                                <option>E-MAIL: DESISTENCIA</option>
-                                <option>E-MAIL RECUSADO</option>
+                            <select  name="status" class="form-control campo-filter" value="<?=$rows_dados['STATUS']?>">
+                            <option value="" selected="selected"></option>
+                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
+                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
+                                <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
+                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
+                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>                                
+                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="RETORNO DOCS">RETORNO DOCS</option>
+                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
+                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
                             </select>
                         </div>
                         <div>
