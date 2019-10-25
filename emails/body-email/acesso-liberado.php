@@ -97,7 +97,6 @@
   */
   </script>
 </body>
-<script type="text/javascript" src="../js/enviarEmail.js"></script>
 <script type="text/javascript">
   $("#enviar").on("click", function() {
     let divBody = document.getElementById("bodyEmail");

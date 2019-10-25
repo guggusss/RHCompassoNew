@@ -19,7 +19,6 @@
     <meta charset="utf-8">
     <script src="../../js/jquery.js"></script>
     <script src="../../js/seleciona.js"></script>
-    <script src="../../js/pegaBody.js"></script>
     <link rel = "stylesheet" href = "../css/site.css">
     <link rel="stylesheet" href="../css/admissao.css">
     <link rel="stylesheet" href="../css/rodape.css">
@@ -436,7 +435,6 @@
     </div>
   </div>
 </body>
-<script type="text/javascript" src="../js/enviarEmail.js"></script>
 <script type="text/javascript">
   $("#enviar").on("click", function() {
     let divBody = document.getElementById("bodyEmail");
