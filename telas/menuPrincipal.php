@@ -384,6 +384,7 @@ if (isset($_POST['botaoVolta'])) {
                                 <option value="RETORNO DOCS">RETORNO DOCS</option>
                                 <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
                                 <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
+                                <option value="FINALIZADO">FINALIZADO</option>
                             </select>
                         </div>
                         <div>
