@@ -1,8 +1,8 @@
 <?php
-    include("../db/conexao.php");
-    include("../update.php");
-    session_start();
-    $id = $_SESSION['id'];
+include("../db/conexao.php");
+include("../update.php");
+session_start();
+$id = $_SESSION['id'];
 ?>
 
 <?php
@@ -18,39 +18,41 @@ $TIPO_CONTA = $_POST['TIPO_CONTA'];
 
 
 
-if(bancario($conn, $ID_USUARIO, $ENVIO, $RECEBIDO, $PLANILHA_CONTAS, $FORM_COMPR_BANCARIO, $AGENCIA, $NUMERO_CONTA, $TIPO_CONTA)){
-/*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
+if (bancario($conn, $ID_USUARIO, $ENVIO, $RECEBIDO, $PLANILHA_CONTAS, $FORM_COMPR_BANCARIO, $AGENCIA, $NUMERO_CONTA, $TIPO_CONTA)) {
+    /*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
 $STATUS = 'EM CONTRATO';
         status($conn, $ID_USUARIO, $STATUS);
 }else{
         status($conn, $ID_USUARIO, $STATUS);
 }
 /*/
-?>
-        <head>
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
+    ?>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>RH Contratações</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/arquivo.css">
     </head>
     <h1 class="text-success margem">Alterado com sucesso!</h1>
 <?php
- } else {
+} else {
     $msg = mysqli_error($conn);
     ?>
-        <head>
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>RH Contratações</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/arquivo.css">
     </head>
     <p class="text-danger margem">Não foi alterado: <?= $msg ?></p>
-        <?php
-    }
+<?php
+}
 ?>
 <?php
 

@@ -147,5 +147,4 @@ function isApoioSede($saida){
 
 $_SESSION['usuario'] = $usuario;
 $_SESSION['senha'] = $senha;
-
 ?>

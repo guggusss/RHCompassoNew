@@ -58,5 +58,4 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $d
   }
 }
 enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha, $como);
-
 ?>

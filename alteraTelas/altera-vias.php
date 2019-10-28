@@ -1,8 +1,8 @@
 <?php
-    include("../db/conexao.php");
-    include("../update.php");
-    session_start();
-    $id = $_SESSION['id'];
+include("../db/conexao.php");
+include("../update.php");
+session_start();
+$id = $_SESSION['id'];
 ?>
 
 <?php
@@ -20,44 +20,46 @@ $SALVAR_PASTA = $_POST['SALVAR_PASTA'];
 
 
 
-if(viasDocs($conn, $ID_USUARIO, $CRACHA_DATA_PEDIDO, $CRACHA_CONTROLE, $CRACHA_PROTOCOLO, $EMAIL_CADERNO_COMPASSO_SOLICITADO, $EMAIL_CADERNO_COMPASSO_RECEBIDO, $MALOTE_CADERNO_COMPASSO_CTPS, $DOCUMENTOS_RECEBIDOS_ASSINADOS, $SALVAR_PASTA)){
+if (viasDocs($conn, $ID_USUARIO, $CRACHA_DATA_PEDIDO, $CRACHA_CONTROLE, $CRACHA_PROTOCOLO, $EMAIL_CADERNO_COMPASSO_SOLICITADO, $EMAIL_CADERNO_COMPASSO_RECEBIDO, $MALOTE_CADERNO_COMPASSO_CTPS, $DOCUMENTOS_RECEBIDOS_ASSINADOS, $SALVAR_PASTA)) {
 
-    if($STATUS != null && $MALOTE_CADERNO_COMPASSO_CTPS != null){
+    if ($STATUS != null && $MALOTE_CADERNO_COMPASSO_CTPS != null) {
         $STATUS = 'RETORNO DOCS';
         status($conn, $ID_USUARIO, $STATUS);
     }
-    if($STATUS == 'RETORNO DOCS' && $DOCUMENTOS_RECEBIDOS_ASSINADOS !=null){
+    if ($STATUS == 'RETORNO DOCS' && $DOCUMENTOS_RECEBIDOS_ASSINADOS != null) {
         $STATUS = 'EM CONTRATO';
         status($conn, $ID_USUARIO, $STATUS);
-    }elseif($STATUS == null){
+    } elseif ($STATUS == null) {
         $STATUS = 'EM ANDAMENTO';
         status($conn, $ID_USUARIO, $STATUS);
     }
-?>
+    ?>
+
     <head>
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
+        <meta charset="UTF-8">
+        <title>RH Contratações</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/arquivo.css">
     </head>
     <h1 class="text-success">Alterado com sucesso!</h1>
 <?php
- } else {
+} else {
     $msg = mysqli_error($conn);
     ?>
+
     <head>
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
+        <meta charset="UTF-8">
+        <title>RH Contratações</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/arquivo.css">
     </head>
     <p class="text-danger">Não foi alterado: <?= $msg ?></p>
-        <?php
-    }
+<?php
+}
 ?>
 <?php
 

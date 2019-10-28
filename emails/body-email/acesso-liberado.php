@@ -1,19 +1,19 @@
 <?php
-  require_once('../../validacoes/email/email.php');
-  include('../../db/conexao.php');
-  include('../../update.php');
-  $id=$_GET['id'];
-  $nome = buscaFuncionarios($conn, $id);
-  $funcionario = buscaFuncionarios($conn, $id);
-  $dados = buscainterno($conn, $id);
-  $email = buscasuporte($conn, $id);
-  $usuario= buscasuporte($conn, $id);
-  
-  $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
+require_once('../../validacoes/email/email.php');
+include('../../db/conexao.php');
+include('../../update.php');
+$id = $_GET['id'];
+$nome = buscaFuncionarios($conn, $id);
+$funcionario = buscaFuncionarios($conn, $id);
+$dados = buscainterno($conn, $id);
+$email = buscasuporte($conn, $id);
+$usuario = buscasuporte($conn, $id);
+
+$dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
 ?>
 <!DOCTYPE html>
 
-<html >
+<html>
 
 <head>
   <button id="foo">Copy</button>
@@ -26,27 +26,27 @@
   <link rel="stylesheet" href="../css/rodape.css">
 </head>
 
-<body >
-  <?php include("../headerEmail/header.php")?>
+<body>
+  <?php include("../headerEmail/header.php") ?>
   <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
     <div id="selecionaPagina">
       <main>
-        <h1 class='h1-principal'>Boa tarde, <strong class='sublinhe'><?=$funcionario['SOLICITANTE']?></strong></h1>
-        <p>Já estão disponíveis os acessos do novo(a) colaborador(a) <strong class ='sublinhe'><?=$nome['NOME']?></strong> que iniciará as suas atividades, na Compasso, em <strong class='sublinhe'><?= $dataAdmissao ?></strong></p>
+        <h1 class='h1-principal'>Boa tarde, <strong class='sublinhe'><?= $funcionario['SOLICITANTE'] ?></strong></h1>
+        <p>Já estão disponíveis os acessos do novo(a) colaborador(a) <strong class='sublinhe'><?= $nome['NOME'] ?></strong> que iniciará as suas atividades, na Compasso, em <strong class='sublinhe'><?= $dataAdmissao ?></strong></p>
         <div>
           <h2>KAIROS</h2>
-          <p>Login: <strong class='sublinhe'><?=$email['EMAIL_SUP']?></strong></p> 
-          <p>Senha: <strong class='sublinhe'><?=$dados['KAIROS_CADASTRO_SENHA']?></strong></p>
+          <p>Login: <strong class='sublinhe'><?= $email['EMAIL_SUP'] ?></strong></p>
+          <p>Senha: <strong class='sublinhe'><?= $dados['KAIROS_CADASTRO_SENHA'] ?></strong></p>
         </div>
         <div>
           <h2>INTRANET</h2>
-          <p>Login: <strong class='sublinhe'><?=$usuario['USUARIO']?></strong></p>
-          <p>Senha: <strong class='sublinhe'><?=$dados['INTRANET_CADASTRO_SENHA']?></strong></p>
+          <p>Login: <strong class='sublinhe'><?= $usuario['USUARIO'] ?></strong></p>
+          <p>Senha: <strong class='sublinhe'><?= $dados['INTRANET_CADASTRO_SENHA'] ?></strong></p>
         </div>
         <div>
           <h2>E-MAIL</h2>
-          <p>Login: <strong class='sublinhe'><?=$email['EMAIL_SUP']?></strong></p>
-          <p>Senha: <strong class='sublinhe'><?=$email['SENHA']?></strong></p>
+          <p>Login: <strong class='sublinhe'><?= $email['EMAIL_SUP'] ?></strong></p>
+          <p>Senha: <strong class='sublinhe'><?= $email['SENHA'] ?></strong></p>
         </div>
         <div class='container'>
           <p>Recomendamos, que no primeiro acesso, sejam realizadas as trocas das senhas</p>
@@ -54,9 +54,9 @@
       </main>
     </div>
   </div>
-  
+
   <script>
-  /*
+    /*
   function html2clipboard(html, el) {
       var tmpEl;
       if (typeof el !== "undefined") {
@@ -102,22 +102,24 @@
     let divBody = document.getElementById("bodyEmail");
     let divInput = $("#inputBody");
     divInput.val(divBody.innerHTML);
-});
+  });
 </script>
 <script>
-var senha = $('#senha');
-var olho= $("#olho");
+  var senha = $('#senha');
+  var olho = $("#olho");
 
-olho.mousedown(function() {
-  senha.attr("type", "text");
-});
+  olho.mousedown(function() {
+    senha.attr("type", "text");
+  });
 
-olho.mouseup(function() {
-  senha.attr("type", "password");
-});
-/*/ para evitar o problema de arrastar a imagem e a senha continuar exposta,
-citada pelo nosso amigo nos comentários/*/
-$( "#olho" ).mouseout(function() {
-  $("#senha").attr("type", "password");
-});</script>
+  olho.mouseup(function() {
+    senha.attr("type", "password");
+  });
+  /*/ para evitar o problema de arrastar a imagem e a senha continuar exposta,
+  citada pelo nosso amigo nos comentários/*/
+  $("#olho").mouseout(function() {
+    $("#senha").attr("type", "password");
+  });
+</script>
+
 </html>

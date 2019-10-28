@@ -6,5 +6,4 @@ if (!isset($_SESSION['InfoUser'])) {
 }
 
 $InfoUser = $_SESSION['InfoUser'];
-
 ?>

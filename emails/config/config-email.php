@@ -16,6 +16,4 @@
   // define('PASSWORD', '');
   // define('SET_FROM_EMAIL', 'tecnouri@bol.com.br');
   // define('SET_FROM_NAME', 'COMPASSO');
-
-
- ?>
+?>

@@ -384,5 +384,4 @@
 			$query = "DELETE FROM boas_vindas where ID_USUARIO = '$USUARIO_ID'";
 			return mysqli_query($conn, $query);
 		}
-
 ?>

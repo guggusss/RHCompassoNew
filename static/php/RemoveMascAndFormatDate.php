@@ -16,5 +16,4 @@ function formatDateApresentation($formatDate)
 
   return $day.'/'.$mouth.'/'.$year;
 }
-
 ?>

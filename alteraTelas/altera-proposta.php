@@ -1,10 +1,10 @@
 <?php
-    include("../db/conexao.php");
-    include("../update.php");
-    $DATA = date_create();
-    $DATA_HOJE = date_format($DATA, 'y-m-d');
-    session_start();
-    $id = $_SESSION['id'];
+include("../db/conexao.php");
+include("../update.php");
+$DATA = date_create();
+$DATA_HOJE = date_format($DATA, 'y-m-d');
+session_start();
+$id = $_SESSION['id'];
 ?>
 
 <?php
@@ -20,7 +20,7 @@ $COMENTARIO = $_POST['COMENTARIO'];
 $COMUNICAR_STATUS = $_POST['COMUNICAR_STATUS'];
 $id = $ID_USUARIO;
 
-if(Proposta($conn, $ID_USUARIO, $ENQUADRAMENTO_REMUNERACAO_ENVIO, $ENQUADRAMENTO_REMUNERACAO_RETORNO, $ENQUADRAMENTO, $ENVIO_PROPOSTA, $COMUNICAR_PROPOSTA_ENVIADA,$ACEITA_RECUSA_CANDIDATO, $COMENTARIO, $COMUNICAR_STATUS) && status($conn, $ID_USUARIO, $STATUS)){
+if (Proposta($conn, $ID_USUARIO, $ENQUADRAMENTO_REMUNERACAO_ENVIO, $ENQUADRAMENTO_REMUNERACAO_RETORNO, $ENQUADRAMENTO, $ENVIO_PROPOSTA, $COMUNICAR_PROPOSTA_ENVIADA, $ACEITA_RECUSA_CANDIDATO, $COMENTARIO, $COMUNICAR_STATUS) && status($conn, $ID_USUARIO, $STATUS)) {
     /*/if($STATUS == 'EM VALIDAÇÃO' && $ENVIO_PROPOSTA != NULL){
         $STATUS = 'AGUARDAR ACEITE';
         status($conn, $ID_USUARIO, $STATUS);
@@ -33,27 +33,29 @@ if(Proposta($conn, $ID_USUARIO, $ENQUADRAMENTO_REMUNERACAO_ENVIO, $ENQUADRAMENTO
     }else{
         status($conn, $ID_USUARIO, $STATUS);
     }/*/
-?>
+    ?>
+
     <head>
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
+        <meta charset="UTF-8">
+        <title>RH Contratações</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/arquivo.css">
     </head>
     <h1 class="text-success">Alterado com sucesso!</h1>
 <?php
- } else {
+} else {
     $msg = mysqli_error($conn);
-?>
+    ?>
+
     <head>
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
+        <meta charset="UTF-8">
+        <title>RH Contratações</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/arquivo.css">
     </head>
     <p class="text-danger">Não foi alterado: <?= $msg ?></p>
 <?php
@@ -65,6 +67,3 @@ if(Proposta($conn, $ID_USUARIO, $ENQUADRAMENTO_REMUNERACAO_ENVIO, $ENQUADRAMENTO
 header("Refresh:1; url= ../telas/funcionario.php?id=$id");
 
 ?>
-
-
-
