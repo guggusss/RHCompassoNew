@@ -206,9 +206,7 @@ $emailsoli = buscavias($conn, $id);
                             <td <?php if ($rows_dados['EQUIPE'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['EQUIPE']; ?></td>
-                            <td <?php if ($rows_dados['USUARIO'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php if ($rows_dados['USUARIO'] != NULL) {
+                            <td><?php if ($rows_dados['USUARIO'] != NULL) {
                                                                                                     $usuario_atv = "ATIVO";
                                                                                                 } else {
                                                                                                     $usuario_atv = " ";
