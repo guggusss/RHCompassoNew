@@ -108,7 +108,7 @@ $emailsoli = buscavias($conn, $id);
                 <table>
 
                     <thead>
-                        <tr id='titulo-table1' margin-top='0'>
+                        <tr id='titulo-table1s'>
                             <th width='170px'>Status</th>
                             <th width='170px'>Nome</th>
                             <th width='170px'>Data de Admissao</th>
