@@ -28,7 +28,7 @@ if (suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRA
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/salvaErro.php");
+    include("../telas/naoSalvo.php");
 }
 header("Refresh:1; url=../telas/suporteinterno.php?id=$id");
 ?>

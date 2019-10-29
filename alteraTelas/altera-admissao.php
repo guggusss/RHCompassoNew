@@ -33,7 +33,7 @@ include("../telas/salvoSucesso.php");
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/salvaErro.php");
+    include("../telas/naoSalvo.php");
 
 }
 header("Refresh:1; url= ../telas/admissao.php?id=$id");

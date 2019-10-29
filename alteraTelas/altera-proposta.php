@@ -39,7 +39,7 @@ if (Proposta($conn, $ID_USUARIO, $ENQUADRAMENTO_REMUNERACAO_ENVIO, $ENQUADRAMENT
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/salvaErro.php");
+    include("../telas/naoSalvo.php");
 }
 header("Refresh:1; url= ../telas/funcionario.php?id=$id");
 

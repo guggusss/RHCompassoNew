@@ -38,7 +38,7 @@ if (viasDocs($conn, $ID_USUARIO, $CRACHA_DATA_PEDIDO, $CRACHA_CONTROLE, $CRACHA_
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/salvaErro.php");
+    include("../telas/naoSalvo.php");
 }
     header("Refresh:1; url=../telas/viasdocumentos.php?id=$id");
 ?>

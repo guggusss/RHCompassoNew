@@ -31,7 +31,7 @@ if (Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBID
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/salvaErro.php");
+    include("../telas/naoSalvo.php");
 }
 header("Refresh:1; url= ../telas/documentacao.php?id=$id");
 ?>

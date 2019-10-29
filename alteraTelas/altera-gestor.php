@@ -29,7 +29,7 @@ $STATUS = 'EM CONTRATO';
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/salvaErro.php");
+    include("../telas/naoSalvo.php");
 }
 
 header("Refresh:1; url=../telas/gestao.php?id=$id");
