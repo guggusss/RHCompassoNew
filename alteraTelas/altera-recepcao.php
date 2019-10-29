@@ -22,10 +22,7 @@ if (recepcao($conn, $ID_USUARIO, $BOAS_VINDAS_INGR_AGENDADA, $BOAS_VINDAS_INGR_R
         status($conn, $ID_USUARIO, $STATUS);
 }
         /*/
-        ?>
-
-<?php
-        include("../telas/salvoSucesso.php");
+    include("../telas/salvoSucesso.php");
 } 
 else 
 {

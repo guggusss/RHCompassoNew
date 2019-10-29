@@ -23,10 +23,7 @@ if (suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRA
     status($conn, $ID_USUARIO, $STATUS);
 }
     /*/
-    ?>
-
-<?php
-        include("../telas/salvoSucesso.php");
+    include("../telas/salvoSucesso.php");
 } 
 else 
 {

@@ -56,9 +56,7 @@ if (funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HOR
         //}else{
         //  status($conn, $ID_USUARIO, $STATUS);
         //}
-        ?>
-
-<?php } else {
+} else {
     $msg = mysqli_error($conn);
     ?>
 

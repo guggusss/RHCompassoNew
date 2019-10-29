@@ -22,10 +22,8 @@ status($conn, $ID_USUARIO, $STATUS);
 status($conn, $ID_USUARIO, $STATUS);
 }
 /*/
-    ?>
-
-<?php
-        include("../telas/salvoSucesso.php");
+ 
+    include("../telas/salvoSucesso.php");
 } 
 else 
 {

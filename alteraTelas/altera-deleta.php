@@ -8,18 +8,15 @@ if (!isset($id)) {
     $id =  $_GET['id'];
 }
 
-?>
-<?php
+
 
 $ID_USUARIO = $id;
 $STATUS = 'EXCLUIDO';
 
 
 if (deleteAD($conn, $ID_USUARIO, $STATUS)) {
-    ?>
-
-<?php
-        include("../telas/salvoSucesso.php");
+    
+    include("../telas/salvoSucesso.php");
 } 
 else 
 {

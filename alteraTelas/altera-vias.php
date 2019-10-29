@@ -33,10 +33,7 @@ if (viasDocs($conn, $ID_USUARIO, $CRACHA_DATA_PEDIDO, $CRACHA_CONTROLE, $CRACHA_
         $STATUS = 'EM ANDAMENTO';
         status($conn, $ID_USUARIO, $STATUS);
     }
-    ?>
-    
-<?php
-        include("../telas/salvoSucesso.php");
+    include("../telas/salvoSucesso.php");
 } 
 else 
 {

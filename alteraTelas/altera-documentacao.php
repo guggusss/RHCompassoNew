@@ -25,10 +25,8 @@ if (Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBID
     }
             /*/
 
-        ?>
-
-<?php
-        include("../telas/salvoSucesso.php");
+    
+    include("../telas/salvoSucesso.php");
 } 
 else 
 {

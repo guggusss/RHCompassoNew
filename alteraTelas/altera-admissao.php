@@ -28,10 +28,7 @@ if (admissao($conn, $ID_USUARIO, $QUALIFIC_CADASTRAL_CEP, $CAD_ADM_PLATAFORMA_AD
   }
       /*/
 
-        ?>
-
-<?php
-        include("../telas/salvoSucesso.php");
+include("../telas/salvoSucesso.php");
 } 
 else 
 {

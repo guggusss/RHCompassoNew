@@ -33,10 +33,8 @@ if (Proposta($conn, $ID_USUARIO, $ENQUADRAMENTO_REMUNERACAO_ENVIO, $ENQUADRAMENT
     }else{
         status($conn, $ID_USUARIO, $STATUS);
     }/*/
-    ?>
-
-<?php
-        include("../telas/salvoSucesso.php");
+   
+    include("../telas/salvoSucesso.php");
 } 
 else 
 {
