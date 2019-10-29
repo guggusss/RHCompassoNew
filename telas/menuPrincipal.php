@@ -729,7 +729,9 @@ if (isset($_POST['botao'])) {
                         } ?>
 
                             <tr>
-                                <form id='form-add' method="POST" action="../salva.php">
+                                
+                            <form id='form-add' method="POST" action="../salva.php">
+                            <?/*/ verifica se salvou ou nao /*/?>
                                     <td><select name="status" class="intable" value="<?= $rows_dados['STATUS'] ?>" required>
                                             <option>SOLICITAÇÃO DE PROPOSTA</option>
                                             <option>AGUARDANDO APROVAÇÃO</option>
