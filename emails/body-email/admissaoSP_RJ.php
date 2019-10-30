@@ -42,21 +42,21 @@ $NewDate =  date_format($dataF, 'd/m/Y');
         <tbody>
           <tr style="height:35.25pt;">
             <td style="background-color:#1F3864;width:248.75pt;height:35.25pt;padding:0 3.5pt;border:1pt solid gray;">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span style="color:white;font-size:10pt;">DOCUMENTO</span></b><span style="color:white;"></span></p>
             </td>
             <td nowrap="" style="background-color:#1F3864;width:95.2pt;height:35.25pt;padding:0 3.5pt;border-width:1pt;border-style:solid solid solid none;border-color:gray;">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span style="color:white;font-size:10pt;">ENVIAR POR E-MAIL</span></b><span style="color:white;"></span></p>
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span style="color:white;font-size:7pt;">DOCUMENTOS OBRIGATÓRIOS</span></b><span style="color:white;"></span></p>
             </td>
             <td style="background-color:#1F3864;width:80.55pt;height:35.25pt;padding:0 3.5pt;border-width:1pt;border-style:solid solid solid none;border-color:gray;">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span style="color:white;font-size:10pt;">ENVIAR VIAS IMPRESSAS</span></b><span style="color:white;"></span></p>
             </td>
             <td style="background-color:#1F3864;width:619.55pt;height:35.25pt;padding:0 3.5pt;border-width:1pt;border-style:solid solid solid none;border-color:gray;">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span style="color:white;font-size:10pt;">ORIENTAÇÕES ADICIONAIS</span></b><span style="color:white;"></span></p>
             </td>
           </tr>
@@ -65,14 +65,14 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Formulário 1. COMPASSO - Ficha cadastro funcionários</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">Excel</span></p>
             </td>
             <td nowrap="" style="width:80.55pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
-              <p align="center" style="text-align:center;"><span class="spanText">NÃO</span></p>
+              <p  style="text-align:center;"><span class="spanText">NÃO</span></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">&nbsp;</span></p>
             </td>
 
@@ -81,11 +81,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Formulário 2. Declaração funcionários Oracle</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -97,11 +97,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Formulário 3. Adesão benefícios</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -115,11 +115,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p><b><span class="spanText">Formulário 4. Cadastro de funcionários</span></b></p>
             </td>
             <td nowrap="" style="background-color:#FFE599;width:95.2pt;height:117.6pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">Excel</span></p>
             </td>
             <td nowrap="" style="width:80.55pt;height:117.6pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">NÃO</span></p>
             </td>
             <td valign="bottom" nowrap="" style="width:619.55pt;height:117.6pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
@@ -138,11 +138,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Formulário 5. Termo Opção Contribuição Sindical</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -154,11 +154,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Formulário 6. Declaração de Dependentes IR</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -174,11 +174,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">CTPS – Carteira de Trabalho e Previdência Social</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -194,11 +194,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Certidão de Casamentos/União Estável</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -211,11 +211,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">(salário até R$ 1.319,18)</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -229,11 +229,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Comprovante de residência</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" style="width:80.55pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
-              <p align="center" style="text-align:center;"><b><span class="spanText">SIM</span></b></p>
+              <p  style="text-align:center;"><b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
               <p class="ptext"> <span class="spanText">&nbsp;</span></p>
@@ -244,11 +244,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">CPF</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -260,11 +260,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Dispensa Militar</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" style="text-align:center;"><b><span class="spanText">SIM</span></b></p>
+              <p  style="text-align:center;"><b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
               <p class="ptext"> <span class="spanText"> - Para homens</span></p>
@@ -275,11 +275,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Foto 3x4</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -293,11 +293,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">PIS</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -309,11 +309,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">RG</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -325,11 +325,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Título de Eleitor</span></b></p>
             </td>
             <td nowrap="" class="tdStyle2">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" class="p3text">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -341,11 +341,11 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <b><span class="spanText">Conta no Banco Itaú</span></b></p>
             </td>
             <td nowrap="" style="background-color:#FFE599;width:95.2pt;height:42.95pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
             <td nowrap="" style="width:80.55pt;height:42.95pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
-              <p align="center" class="p2text">
+              <p  class="p2text">
                 <span class="spanText">NÃO</span></p>
             </td>
             <td valign="bottom" nowrap="" style="width:619.55pt;height:42.95pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
