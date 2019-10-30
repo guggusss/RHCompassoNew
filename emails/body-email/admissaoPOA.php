@@ -60,7 +60,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
                 <b><span style="color:white;font-size:10pt;">ORIENTAÇÕES ADICIONAIS</span></b><span style="color:white;"></span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Formulário 1. COMPASSO - Ficha cadastro funcionários</span></b></p>
             </td>
@@ -76,7 +76,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
                 <span class="spanText">&nbsp;</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Formulário 2. Informações de Qualificação</span></b></p>
             </td>
@@ -93,7 +93,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
                 <span class="spanText">&nbsp;</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Formulário 3. Declaração funcionários Oracle</span></b></p>
             </td>
@@ -109,7 +109,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">O documento deverá ser imprimido e assinado (Assinatura a mão).</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Formulário 4. Adesão benefícios</span></b></p>
             </td>
@@ -150,7 +150,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p><span class="spanText">É necessário enviar também um comprovante dos dados bancários (pode ser um print da tela do banco no qual conste a Agência e Conta ou foto do cartão). Sinalizar qual a modalidade de sua conta: Salário ou C/C.</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Formulário 6. Termo Opção Contribuição Sindical</span></b></p>
             </td>
@@ -166,7 +166,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">O documento deverá ser imprimido e assinado (Assinatura a mão).</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Formulário 7. Declaração de Dependentes IR</span></b></p>
             </td>
@@ -186,7 +186,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">- Cópia RG e CPF a partir de&nbsp; 8 anos</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">CTPS – Carteira de Trabalho e Previdência Social</span></b></p>
             </td>
@@ -206,7 +206,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
                 </span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Certidão de Casamentos/União Estável</span></b></p>
             </td>
@@ -222,7 +222,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">&nbsp;</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p><b><span class="spanText">Dependentes Salário Família</span></b></p>
               <p class="ptext"> <b><span class="spanText">(salário até R$ 1.319,18)</span></b></p>
@@ -241,7 +241,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">- Cópia Cartão de vacinação dos filhos até 06 anos</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Comprovante de residência</span></b></p>
             </td>
@@ -256,7 +256,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">&nbsp;</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">CPF</span></b></p>
             </td>
@@ -272,7 +272,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">&nbsp;</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Dispensa Militar</span></b></p>
             </td>
@@ -287,7 +287,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">- Para homens</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Foto 3x4</span></b></p>
             </td>
@@ -305,7 +305,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">Nós apresentamos os novos colegas em uma comunicação interna. Se você preferir, pode enviar uma foto, por e-mail, diferente da que será usada no crachá!</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">PIS</span></b></p>
             </td>
@@ -321,7 +321,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">&nbsp;</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">RG</span></b></p>
             </td>
@@ -337,7 +337,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p class="ptext"> <span class="spanText">&nbsp;</span></p>
             </td>
           </tr>
-          <tr style="height:10.4pt;">
+          <tr class="trStyle">
             <td nowrap="" class="tdStyle">
               <p class="ptext"> <b><span class="spanText">Título de Eleitor</span></b></p>
             </td>
