@@ -115,3 +115,13 @@ border-bottom-color:gray;
 #trStyle{
 height:10.4pt;
 }
+#tdStyle4{
+  width:80.55pt;
+  height:10.4pt;
+  padding:0 3.5pt;
+  border-style:none solid solid none;
+  border-right-width:1pt;
+  border-bottom-width:1pt;
+  border-right-color:gray;
+  border-bottom-color:gray;
+}

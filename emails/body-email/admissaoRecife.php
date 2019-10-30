@@ -69,7 +69,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p  class="p2text">
                 <span class="spanText">Excel</span></p>
             </td>
-            <td nowrap="" style="width:80.55pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
+            <td nowrap="" class="tdStyle4">
               <p  style="text-align:center;"><span class="spanText">NÃO</span></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
@@ -85,7 +85,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
-            <td nowrap="" style="width:80.55pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
+            <td nowrap="" class="tdStyle4">
               <p  class="p2text">
                 <span class="spanText">NÃO</span></p>
             </td>
@@ -250,7 +250,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
               <p  class="p2text">
                 <span class="spanText">.pdf</span></p>
             </td>
-            <td nowrap="" style="width:80.55pt;height:10.4pt;padding:0 3.5pt;border-style:none solid solid none;border-right-width:1pt;border-bottom-width:1pt;border-right-color:gray;border-bottom-color:gray;">
+            <td nowrap="" class="tdStyle4">
               <p  style="text-align:center;"><b><span class="spanText">SIM</span></b></p>
             </td>
             <td valign="bottom" nowrap="" class="tdStyle3">
