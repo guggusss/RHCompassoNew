@@ -629,7 +629,7 @@ if (isset($_POST['botao'])) {
                 <thead>
                     <tr>
                         <th scope="col" width='200px'>Status</th>
-                        <th scope="col" width='200px'>Nome</th>
+                        <th scope="col" width='300px'>Nome</th>
                         <th scope="col" width='110px'>Data Admissão</th>
                         <th scope="col" width='60px'>Sede</th>
                         <th scope="col" width='60px'>Tipo</th>
