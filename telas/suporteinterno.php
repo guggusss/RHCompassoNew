@@ -178,7 +178,7 @@ $emailsoli = buscavias($conn, $id);
                         <th width='150px'>Senha Acesso</th>
                         <th width='150px'>Equipamento</th>
                         <th width='150px'>Necessidade de Translado</th>
-                        <th width='50%'>Grupos de E-mail</th>
+                        <th width='278px = 100%'>Grupos de E-mail</th>
                         <th width='150px'>Usuário Ativo</th>
                         <th width='150px'></th>
                         <th width='150px'></th>
@@ -225,8 +225,8 @@ $emailsoli = buscavias($conn, $id);
                             <td><input type="text" class='intable' name="USUARIO" value="<?= $usuario['USUARIO'] ?>"></td>
                             <td><input type="text" class='intable' name="SENHA" id="jogaSenha" value="<?= $senha['SENHA'] ?>"></td>
                             <td><input type="text" class='intable' name="EQUIPAMENTO" value="<?= $equipamento['EQUIPAMENTO'] ?>"></td>
-                            <td><input type="text" class='intable' id="campo" name="TRANSLADO" value="<?= $translado['TRANSLADO'] ?>"></td>
-                            <td><select multiple"" onclick="anexaGrupo()" class="intable" id="books" name="EQUIPE[]" value="<?= $anexar_equipe['EQUIPE'] ?>"></select></td>
+                            <td><input type="text" class='intable' name="TRANSLADO" id="campo"  value="<?= $translado['TRANSLADO'] ?>"></td>
+                            <td><select multiple"" onclick="anexaGrupo()" class="intable" name="EQUIPE[]" id="books"  value="<?= $anexar_equipe['EQUIPE'] ?>"></select></td>
                             <td></td>
                             <td><input type="button" name="botao-ok" value="Gerar senha" onclick="funcao()" id="senhaUsuario"></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
