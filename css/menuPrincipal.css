@@ -19,6 +19,7 @@
     font-size: 25px;
     margin: 0px;
 }
+
 #titulo-table{
     font-size: 3em;
     margin-left: 0.5em;
@@ -185,6 +186,19 @@ img {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.fixado{
+    top: 10;
+    left: 10;
+    position: absolute;
+}
+
+.fixado2{
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
 
 
 .display{

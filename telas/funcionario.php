@@ -70,14 +70,14 @@ $translado = buscasuporte($conn, $id);
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>
-                <table>
+                <table class='fixado2'>
                     <thead>
                         <tr id='titulo-table1s'>
                             <th width='170px'>Status</th>
                             <th width='170px'>Nome</th>
                             <th width='170px'>Data de Admissao</th>
                         </tr>
-                        <thead>
+                    </thead>
                         <tbody>
                             <tr>
                                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
@@ -89,7 +89,7 @@ $translado = buscasuporte($conn, $id);
                         </tbody>
                 </table>
             </div>
-            <div style="height: 25px;"></div>
+            <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
                     <div class="passos stepwizard-row1 setup-panel">

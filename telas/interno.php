@@ -53,7 +53,7 @@ $campoV = 'class="txtVazio" ';
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>
-                <table>
+                <table class="fixado">
                     <thead>
                         <tr id='titulo-table1s'>
                             <th width='170px'>Status</th>
@@ -72,7 +72,7 @@ $campoV = 'class="txtVazio" ';
                         </tbody>
                 </table>
             </div>
-            <div style="height: 25px;"></div>
+            <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
                     <div class="passos stepwizard-row1 setup-panel">
