@@ -174,14 +174,14 @@ $emailsoli = buscavias($conn, $id);
                     <tr>
                         <th width='200px'>Status</th>
                         <th width='330px'>E-mail</th>
-                        <th>Usuário</th>
-                        <th>Senha Acesso</th>
-                        <th>Equipamento</th>
-                        <th>Necessidade de Translado</th>
-                        <th width='278px'>Grupos de E-mail</th>
-                        <th>Usuário Ativo</th>
-                        <th></th>
-                        <th></th>
+                        <th width='330px'>Usuário</th>
+                        <th width='150px'>Senha Acesso</th>
+                        <th width='150px'>Equipamento</th>
+                        <th width='150px'>Necessidade de Translado</th>
+                        <th width='50%'>Grupos de E-mail</th>
+                        <th width='150px'>Usuário Ativo</th>
+                        <th width='150px'></th>
+                        <th width='150px'></th>
                     </tr>
                 </thead>
                 <tbody>
