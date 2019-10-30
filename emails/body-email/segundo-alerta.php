@@ -10,10 +10,10 @@ $sede = buscaSedeFuncionario($conn, $funcionario["ID_SEDE"]);
 
 $dataN = $data['DATA_ADMISSAO'];
 $dataF = date_create($dataN);
-date_modify($dataF, '+ 90 day');
+date_modify($dataF, '+ 89 day');
 $NewDate =  date_format($dataF, 'd/m/Y');
 $DataG = date_create($dataN);
-date_modify($DataG, '+ 89 day');
+date_modify($DataG, '+ 88 day');
 $DataFim = date_format($DataG, 'd/m/Y');
 $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
 ?>
