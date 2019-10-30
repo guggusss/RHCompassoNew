@@ -64,7 +64,7 @@ $translado = buscasuporte($conn, $id);
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>
-                <table class='fixado2'>
+                <table class='fixado'>
                     <thead>
                         <tr id='titulo-table1s'>
                             <th width='170px'>Status</th>

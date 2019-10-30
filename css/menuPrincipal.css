@@ -188,18 +188,8 @@ img {
 }
 
 .fixado{
-    top: 10;
-    left: 10;
     position: absolute;
 }
-
-.fixado2{
-    top: 0;
-    left: 0;
-    position: absolute;
-}
-
-
 
 .display{
     display: none;
