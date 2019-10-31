@@ -8,7 +8,7 @@ if(isset($_POST["export"]))
             CAD_ADM_PLATAFORMA_ADM_DIMIN, DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,
             TERMO_PSI, INCLUI_ADM_PROV,
             ADMINISTRATIVO,
-            STATUS, PROJETO, NOME
+            STATUS, PROJETO, NOME, COMENTARIO
             from admissao as p
             LEFT JOIN admissao_dominio as a
             on p.ID_USUARIO = a.USUARIO_ID
@@ -27,6 +27,7 @@ $result = mysqli_query($connect, $query);
             <th width= "150px">Documentos recebidos plataforma domínio + validação CBO</th>
             <th width= "150px">Termo PSI</th>
             <th width= "150px">Inclui admissão na provisória</th>
+            <th width= "150px">Comentarios</th>
             <th width= "150px">Projeto</th>
         </tr>
   ';
@@ -41,6 +42,7 @@ $result = mysqli_query($connect, $query);
                 <td>'.$row["DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO"].'</td>
                 <td>'.$row['TERMO_PSI'].'</td>
                 <td>'.$row["INCLUI_ADM_PROV"].'</td>
+                <td>'.$row["COMENTARIO"].'</td>
                 <td>'.$row["PROJETO"].'</td>
             </tr>
             ';

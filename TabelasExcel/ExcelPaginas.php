@@ -411,7 +411,7 @@ $sql = "SELECT ID_USUARIO, QUALIFIC_CADASTRAL_CEP,
         CAD_ADM_PLATAFORMA_ADM_DIMIN, DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,
         TERMO_PSI, INCLUI_ADM_PROV,
         ADMINISTRATIVO,
-        STATUS, PROJETO, NOME
+        STATUS, PROJETO, NOME, COMENTARIO
         from admissao as p
         LEFT JOIN admissao_dominio as a
         on p.ID_USUARIO = a.USUARIO_ID
@@ -442,6 +442,7 @@ $result = mysqli_query($connect, $sql);
         <th>Documentos recebidos plataforma domínio + validação CBO</th>
         <th>Termo PSI</th>
         <th>Inclui admissão na provisória</th>
+        <th>Comentários</th>
         <th width='150px'>Projeto</th>
 
         <?php
@@ -455,6 +456,7 @@ $result = mysqli_query($connect, $sql);
          <td>' . $row["DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO"] . '</td>
          <td>' . $row['TERMO_PSI'] . '</td>
          <td>' . $row["INCLUI_ADM_PROV"] . '</td>
+         <td>' . $row["COMENTARIO"] . '</td>
          <td>' . $row["PROJETO"] . '</td>
        </tr>
         ';
@@ -476,7 +478,7 @@ $result = mysqli_query($connect, $sql);
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, AGENDAMENTO_EXAM_ADM,
         ENVIO_FUNC_EXAME, EMAIL_RECEBIDO_EXAM,
-        STATUS, PROJETO, NOME
+        STATUS, PROJETO, NOME, COMENTARIO
         from exame_admissional as p
         LEFT JOIN admissao_dominio as a
         on p.ID_USUARIO = a.USUARIO_ID
@@ -505,6 +507,7 @@ $result = mysqli_query($connect, $sql);
         <th>Agendamento</th>
         <th>Envio para Funcionário</th>
         <th>Recebido por e-mail ASO assinado</th>
+        <th>Comentários</th>
         <th width='150px'>Projeto</th>
 
         <?php
@@ -516,6 +519,7 @@ $result = mysqli_query($connect, $sql);
          <td>' . $row["AGENDAMENTO_EXAM_ADM"] . '</td>
          <td>' . $row['ENVIO_FUNC_EXAME'] . '</td>
          <td>' . $row["EMAIL_RECEBIDO_EXAM"] . '</td>
+         <td>' . $row["COMENTARIO"] . '</td>
          <td>' . $row["PROJETO"] . '</td>
        </tr>
         ';

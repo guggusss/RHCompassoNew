@@ -161,10 +161,12 @@ if(isset($_POST["export"]))
                             <th>Documentos recebidos plataforma domínio + validação CBO</th>
                             <th>Termo PSI</th>
                             <th>Inclui admissão na provisória</th>
+                            <th>Comentários</th>
                             <th>Administrativo + Thays Flyback - Hotel</th>
                             <th>Agendamento</th>
                             <th>Envio para Funcionário</th>
                             <th>Recebido por e-mail ASO assinado</th>
+                            <th>Comentários</th>
                             <th>Envio</th>
                             <th>Recebido</th>
                             <th>Cadastro Intranet</th>

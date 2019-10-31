@@ -22,7 +22,26 @@ $count = mysqli_num_rows($resultado);
 if ($count == 1) {
     $resultado = mysqli_query($conn, "SELECT `ID_VENCIMENTO`, `ID_USUARIO`, DATE_FORMAT(ENVIO_SOLICITANTE_PRI,'%d/%m/%Y') as ENVIO_SOLICITANTE_PRI, DATE_FORMAT(DATA_VENCIMENTO_PRI,'%d/%m/%Y') as DATA_VENCIMENTO_PRI, `RENOVACAO`, DATE_FORMAT(ENVIO_SOLICITANTE_SEG,'%d/%m/%Y') as ENVIO_SOLICITANTE_SEG, DATE_FORMAT(DATA_VENCIMENTO_SEG,'%d/%m/%Y') as DATA_VENCIMENTO_SEG, `EFETIVACAO` FROM `vencimentos` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 } else {
-    calculo($conn, $status, $id);
+    $controleDataAdmissao = date_create($status['DATA_ADMISSAO']);
+    date_modify($controleDataAdmissao, '+ 44 day');
+    $vencimentoPri = date_format($controleDataAdmissao, 'Y-m-d');
+    $vencimentoPriAux = date_create($vencimentoPri);
+    date_modify($vencimentoPriAux, '- 10 day');
+    $envioSolicitante1 = date_format($vencimentoPriAux, 'Y-m-d');
+    $controleDataAdmissao2 = date_create($status['DATA_ADMISSAO']);
+    date_modify($controleDataAdmissao2, '+ 89 day');
+    $vencimentoSec =  date_format($controleDataAdmissao2, 'Y-m-d');
+    $vencimentoSecAux = date_create($vencimentoSec);;
+    date_modify($vencimentoSecAux, '- 10 day');
+    $envioSolicitante2 = date_format($vencimentoSecAux, 'Y-m-d');
+
+   
+
+
+
+    mysqli_query($conn, "INSERT INTO `vencimentos`(`ID_VENCIMENTO`, `ID_USUARIO`, `ENVIO_SOLICITANTE_PRI`, `DATA_VENCIMENTO_PRI`, `RENOVACAO`, `ENVIO_SOLICITANTE_SEG`, `DATA_VENCIMENTO_SEG`, `EFETIVACAO`) VALUES (NULL,$id,'$envioSolicitante1','$vencimentoPri',NULL,'$envioSolicitante2','$vencimentoSec',NULL)");
+
+    $resultado = mysqli_query($conn, "SELECT `ID_VENCIMENTO`, `ID_USUARIO`, DATE_FORMAT(ENVIO_SOLICITANTE_PRI,'%d/%m/%Y') as ENVIO_SOLICITANTE_PRI, DATE_FORMAT(DATA_VENCIMENTO_PRI,'%d/%m/%Y') as DATA_VENCIMENTO_PRI, `RENOVACAO`, DATE_FORMAT(ENVIO_SOLICITANTE_SEG,'%d/%m/%Y') as ENVIO_SOLICITANTE_SEG, DATE_FORMAT(DATA_VENCIMENTO_SEG,'%d/%m/%Y') as DATA_VENCIMENTO_SEG, `EFETIVACAO` FROM `vencimentos` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
 $funcionario = buscavencimentos($conn, $id);
