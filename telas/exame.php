@@ -60,6 +60,7 @@ $emailsoli = buscavias($conn, $id);
                             <th width='170px'>Status</th>
                             <th width='170px'>Nome</th>
                             <th width='170px'>Data de Admissao</th>
+                            <th width='170px'>Sede</th>
                         </tr>
                         <thead>
                         <tbody>

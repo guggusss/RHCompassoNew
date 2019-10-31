@@ -101,6 +101,7 @@ $translado = buscasuporte($conn, $id);
                             <th width='170px'>Status</th>
                             <th width='170px'>Nome</th>
                             <th width='170px'>Data de Admissao</th>
+                            <th width='170px'>Sede</th>
                         </tr>
                         <thead>
                         <tbody>
@@ -246,7 +247,7 @@ $translado = buscasuporte($conn, $id);
                                     }
                                     ?>
                                 </select></td>
-                            <td><button title="Refresh" type="button" class="btn btn-default">Calcular Vencimentos</td>
+                            <td><button title="Refresh" type="submit" class="btn btn-default">Calcular Vencimentos</td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
 
 
