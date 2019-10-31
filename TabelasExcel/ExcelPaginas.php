@@ -337,7 +337,7 @@ $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, FORMULARIOS_ENVIADOS,
         FORMULARIOS_RECEBIDOS, DOCUMENTOS_FISICOS,
         CTPS_RECEBIDA,
-        STATUS, PROJETO, NOME
+        STATUS, PROJETO, NOME, COMENTARIO
         from documentacao as p
         LEFT JOIN admissao_dominio as a
         on p.ID_USUARIO = a.USUARIO_ID
@@ -376,6 +376,7 @@ $result = mysqli_query($connect, $sql);
           <th>Formulários Recebidos</th>
           <th>Cópia RG/CPF/PIS/Titulo Eleitor/Declaração Oracle/Foto 3x4/Comprovante endereço</th>
           <th>CTPS Recebida</th>
+          <th>Comentários</th>
           <th width='150px'>Projeto</th>
         </tr>
 
@@ -389,6 +390,7 @@ $result = mysqli_query($connect, $sql);
          <td>' . $row["FORMULARIOS_RECEBIDOS"] . '</td>
          <td>' . $row['DOCUMENTOS_FISICOS'] . '</td>
          <td>' . $row["CTPS_RECEBIDA"] . '</td>
+         <td>' . $row["COMENTARIO"] . '</td>
          <td>' . $row["PROJETO"] . '</td>
        </tr>
         ';

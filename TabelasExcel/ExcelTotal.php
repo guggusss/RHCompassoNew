@@ -156,6 +156,7 @@ if(isset($_POST["export"]))
                             <th>Formulários Recebidos</th>
                             <th>Cópia RG/CPF/PIS/Titulo  Eleitor/Declaração Oracle/Foto 3x4/Comprovante endereço</th>
                             <th>CTPS Recebida</th>
+                            <th>Comentarios</th>
                             <th>Qualificação Cadastral e CEP</th>
                             <th>Cadastrada Admissão Plataforma Domínio</th>
                             <th>Documentos recebidos plataforma domínio + validação CBO</th>
@@ -253,15 +254,18 @@ if(isset($_POST["export"]))
          <td>'.$row["FORMULARIOS_RECEBIDOS"].'</td>
          <td>'.$row['DOCUMENTOS_FISICOS'].'</td>
          <td>'.$row["CTPS_RECEBIDA"].'</td>
+         <td>'.$row["COMENTARIO"].'</td>
          <td>'.$row["QUALIFIC_CADASTRAL_CEP"].'</td>
          <td>'.$row['CAD_ADM_PLATAFORMA_ADM_DIMIN'].'</td>
          <td>'.$row["DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO"].'</td>
          <td>'.$row['TERMO_PSI'].'</td>
          <td>'.$row["INCLUI_ADM_PROV"].'</td>
+         <td>'.$row["COMENTARIO"].'</td>
          <td>'.$row["ADMINISTRATIVO"].'</td>
          <td>'.$row["AGENDAMENTO_EXAM_ADM"].'</td>
          <td>'.$row['ENVIO_FUNC_EXAME'].'</td>
          <td>'.$row["EMAIL_RECEBIDO_EXAM"].'</td>
+         <td>'.$row["COMENTARIO"].'</td>
          <td>'.$row["ENVIO"].'</td>
          <td>'.$row['RECEBIDO'].'</td>
          <td>'.$row['PLANILHA_CONTAS'].'</td>

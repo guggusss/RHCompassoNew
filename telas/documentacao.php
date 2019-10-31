@@ -15,17 +15,17 @@ $conn1 = mysqli_num_rows($resultado1);
 
 
 //$count =  mysqli_num_rows($conn,"SELECT COUNT(*) FROM propostas_contratacoes WHERE ID_USUARIO = '$id'");
-$resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, DATE_FORMAT(FORMULARIOS_ENVIADOS,'%d/%m/%Y') as FORMULARIOS_ENVIADOS, DATE_FORMAT(FORMULARIOS_RECEBIDOS,'%d/%m/%Y') as FORMULARIOS_RECEBIDOS , DATE_FORMAT(DOCUMENTOS_FISICOS,'%d/%m/%Y') as DOCUMENTOS_FISICOS, DATE_FORMAT(CTPS_RECEBIDA,'%d/%m/%Y') as CTPS_RECEBIDA
+$resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, DATE_FORMAT(FORMULARIOS_ENVIADOS,'%d/%m/%Y') as FORMULARIOS_ENVIADOS, DATE_FORMAT(FORMULARIOS_RECEBIDOS,'%d/%m/%Y') as FORMULARIOS_RECEBIDOS , DATE_FORMAT(DOCUMENTOS_FISICOS,'%d/%m/%Y') as DOCUMENTOS_FISICOS, DATE_FORMAT(CTPS_RECEBIDA,'%d/%m/%Y') as CTPS_RECEBIDA, COMENTARIO
                                   FROM `documentacao` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 
 if ($count == 1) {
-    $resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, DATE_FORMAT(FORMULARIOS_ENVIADOS,'%d/%m/%Y') as FORMULARIOS_ENVIADOS, DATE_FORMAT(FORMULARIOS_RECEBIDOS,'%d/%m/%Y') as FORMULARIOS_RECEBIDOS , DATE_FORMAT(DOCUMENTOS_FISICOS,'%d/%m/%Y') as DOCUMENTOS_FISICOS, DATE_FORMAT(CTPS_RECEBIDA,'%d/%m/%Y') as CTPS_RECEBIDA
+    $resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, DATE_FORMAT(FORMULARIOS_ENVIADOS,'%d/%m/%Y') as FORMULARIOS_ENVIADOS, DATE_FORMAT(FORMULARIOS_RECEBIDOS,'%d/%m/%Y') as FORMULARIOS_RECEBIDOS , DATE_FORMAT(DOCUMENTOS_FISICOS,'%d/%m/%Y') as DOCUMENTOS_FISICOS, DATE_FORMAT(CTPS_RECEBIDA,'%d/%m/%Y') as CTPS_RECEBIDA, COMENTARIO
                                       FROM `documentacao` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 } else {
-    mysqli_query($conn, "INSERT INTO `documentacao`(`DOCUMENTACAO_ID`, `ID_USUARIO`, `FORMULARIOS_ENVIADOS`, `FORMULARIOS_RECEBIDOS`, `DOCUMENTOS_FISICOS`, `CTPS_RECEBIDA`) VALUES (NULL,$id,NULL,NULL,NULL,NULL)");
+    mysqli_query($conn, "INSERT INTO `documentacao`(`DOCUMENTACAO_ID`, `ID_USUARIO`, `FORMULARIOS_ENVIADOS`, `FORMULARIOS_RECEBIDOS`, `DOCUMENTOS_FISICOS`, `CTPS_RECEBIDA`, `COMENTARIO`) VALUES (NULL,$id,NULL,NULL,NULL,NULL,NULL)");
 
-    $resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, DATE_FORMAT(FORMULARIOS_ENVIADOS,'%d/%m/%Y') as FORMULARIOS_ENVIADOS, DATE_FORMAT(FORMULARIOS_RECEBIDOS,'%d/%m/%Y') as FORMULARIOS_RECEBIDOS , DATE_FORMAT(DOCUMENTOS_FISICOS,'%d/%m/%Y') as DOCUMENTOS_FISICOS, DATE_FORMAT(CTPS_RECEBIDA,'%d/%m/%Y') as CTPS_RECEBIDA
+    $resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, DATE_FORMAT(FORMULARIOS_ENVIADOS,'%d/%m/%Y') as FORMULARIOS_ENVIADOS, DATE_FORMAT(FORMULARIOS_RECEBIDOS,'%d/%m/%Y') as FORMULARIOS_RECEBIDOS , DATE_FORMAT(DOCUMENTOS_FISICOS,'%d/%m/%Y') as DOCUMENTOS_FISICOS, DATE_FORMAT(CTPS_RECEBIDA,'%d/%m/%Y') as CTPS_RECEBIDA, COMENTARIO
                                       FROM `documentacao` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
@@ -73,6 +73,7 @@ $translado = buscasuporte($conn, $id);
                                     <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
                                     <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
                                     <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
+                                    <th width='100px'><?php echo $rows_dados['SEDE']; ?></th>
                                 <?php  } ?>
                             </tr>
                         </tbody>
@@ -130,7 +131,7 @@ $translado = buscasuporte($conn, $id);
                         <th colspan="2">E-mail formulários Admissão</th>
                         <th>Documentos físicos</th>
                         <th>CTPS</th>
-                        <th scope="col" width='200px'>Comentários</th>
+                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -140,7 +141,7 @@ $translado = buscasuporte($conn, $id);
                         <th>Formulários Recebidos</th>
                         <th>Cópia RG/CPF/PIS/Titulo Eleitor/<br />Declaração Oracle/Foto 3x4/<br />Comprovante endereço</th>
                         <th>CTPS Recebida</th>
-                        
+                        <th>Comentários</th>                        
                         <th></th>
                         <th></th>
                     </tr>
@@ -154,7 +155,7 @@ $translado = buscasuporte($conn, $id);
                             <td id="data2"><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
                             <td id="data3"><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
                             <td id="data4"><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
-                            <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
+                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>
                             <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="btn btn-default" href="admissao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
@@ -167,6 +168,7 @@ $translado = buscasuporte($conn, $id);
                             <td><input type="date" id="campo2" class='intable' name="FORMULARIOS_RECEBIDOS" value="<?= $formRec['FORMULARIOS_RECEBIDOS'] ?>"></td>
                             <td><input type="date" id="campo3" class='intable' name="DOCUMENTOS_FISICOS" value="<?= $docfis['DOCUMENTOS_FISICOS'] ?>"></td>
                             <td><input type="date" id="campo4" class='intable' name="CTPS_RECEBIDA" value="<?= $ctps['CTPS_RECEBIDA'] ?>"></td>
+                            <td><input type="text" class='intable' name="COMENTARIO" value="<?= $ctps['COMENTARIO'] ?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
