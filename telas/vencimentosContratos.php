@@ -219,8 +219,8 @@ $translado = buscasuporte($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-vencimento.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?= $envio_Pri['ENVIO_SOLICITANTE_PRI'] ?>"disabled></td>
-                            <td><input type='date' id="campo2" class='intable' name="DATA_VENCIMENTO_PRI" value="<?= $envio_Pri['DATA_VENCIMENTO_PRI'] ?>"disabled></td>
+                            <td><input style="display: none" type='date' id="campo" class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?= $envio_Pri['ENVIO_SOLICITANTE_PRI'] ?>"></td>
+                            <td><input style="display: none" type='date' id="campo2" class='intable' name="DATA_VENCIMENTO_PRI" value="<?= $envio_Pri['DATA_VENCIMENTO_PRI'] ?>"></td>
                             <td><select class="intable" name="RENOVACAO">
                                     <?php
                                     if ($renovacao['RENOVACAO'] == NULL) { ?>
@@ -239,8 +239,8 @@ $translado = buscasuporte($conn, $id);
                                     }
                                     ?>
                                 </select></td>
-                            <td><input type='date' id="campo3" class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?= $envio_seg['ENVIO_SOLICITANTE_SEG'] ?>"disabled></td>
-                            <td><input type='date' id='campo4' class='intable' name="DATA_VENCIMENTO_SEG" value="<?= $data_venc_seg['DATA_VENCIMENTO_SEG'] ?>"disabled></td>
+                            <td><input style="display: none" type='date' id="campo3" class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?= $envio_seg['ENVIO_SOLICITANTE_SEG'] ?>"></td>
+                            <td><input style="display: none" type='date' id='campo4' class='intable' name="DATA_VENCIMENTO_SEG" value="<?= $data_venc_seg['DATA_VENCIMENTO_SEG'] ?>"></td>
                             <td><select class="intable" name="EFETIVACAO">
                                     <?php
                                     if ($efetivacao['EFETIVACAO'] == NULL) { ?>
@@ -259,6 +259,7 @@ $translado = buscasuporte($conn, $id);
                                     }
                                     ?>
                                 </select></td>
+                                <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
 
 
