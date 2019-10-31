@@ -3,7 +3,7 @@ function validaCargo(){
     var campoHoras = $("#campo-carga_horaria");
 
     if(selecionaCargo.val() == '2' || selecionaCargo.val() == 3){
-        campoHoras.attr("disabled",true);
+        campoHoras.attr("disabled",false);
     }else{
         campoHoras.attr("disabled",false);
     }
