@@ -175,7 +175,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                         <td id='add-posicao_comentario'><input class='intable' type="text" name="POSICAO_COMENTARIO" value="<?= $funcionarios['POSICAO_COMENTARIO']; ?>"></td>
                         <td id='add-administrativo'><input class='intable' type="text" name="ADMINISTRATIVO" value="<?= $funcionarios['ADMINISTRATIVO']; ?>"></td>
                         <td id='add-comentario'><input class='intable' type="text" name="COMENTARIOS" value="<?= $funcionarios['COMENTARIOS']; ?>"></td>
-                        <td><button class="btn btn-default" type="submit">Alterar</button></td>
+                        <td><button class="btn btn-default" type="submit" onClick="history.go(0)" >Alterar</button></td>
                     </form>
 
                 </tbody>

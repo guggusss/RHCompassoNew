@@ -198,6 +198,7 @@ $translado = buscasuporte($conn, $id);
                                     } ?>><?php echo $rows_dados['EFETIVACAO']; ?></td>
                             <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
+                            <p>Se o campo Data Admissão foi alterado favor recarregar a página</p>
 
 
                         </tr>
@@ -247,7 +248,7 @@ $translado = buscasuporte($conn, $id);
                                     }
                                     ?>
                                 </select></td>
-                            <td><button title="Refresh" type="submit" class="btn btn-default">Calcular Vencimentos</td>
+                                <input type="button" value="Recarregar" onClick="history.go(0)"> 
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
 
 
