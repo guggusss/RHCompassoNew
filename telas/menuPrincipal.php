@@ -339,13 +339,13 @@ if (isset($_POST['botao'])) {
                                 <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
                                 <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
                                 <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
-                                <option value="E-MAIL: PROPOSTA ACEITA">E-MAIL: PROPOSTA ACEITA</option>
-                                <option value="E-MAIL: EM ANDAMENTO">E-MAIL: EM ANDAMENTO</option>
-                                <option value="E-MAIL: PROPOSTA INVÁLIDA">E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option value="E-MAIL: PROPOSTA ACEITA">PROPOSTA ACEITA</option>
+                                <option value="E-MAIL: EM ANDAMENTO">EM ANDAMENTO</option>
+                                <option value="E-MAIL: PROPOSTA INVÁLIDA">PROPOSTA INVÁLIDA</option>
                                 <option value="EM CONTRATO">EM CONTRATO</option>
                                 <option value="RETORNO DOCS">RETORNO DOCS</option>
-                                <option value="E-MAIL: DESISTENCIA">E-MAIL: DESISTENCIA</option>
-                                <option value="E-MAIL RECUSADO">E-MAIL RECUSADO</option>
+                                <option value="E-MAIL: DESISTENCIA">DESISTENCIA</option>
+                                <option value="E-MAIL RECUSADO">RECUSADO</option>
                                 <option value="FINALIZADO">FINALIZADO</option>
                             </select>
                         </div>
@@ -730,13 +730,13 @@ if (isset($_POST['botao'])) {
                                             <option>EM VALIDAÇÃO</option>
                                             <option>NEGOCIAÇÃO</option>
                                             <option>PROPOSTA ENVIADA</option>
-                                            <option>E-MAIL: PROPOSTA ACEITA</option>
-                                            <option>E-MAIL: EM ANDAMENTO</option>
-                                            <option>E-MAIL: PROPOSTA INVÁLIDA</option>
+                                            <option>PROPOSTA ACEITA</option>
+                                            <option>EM ANDAMENTO</option>
+                                            <option>PROPOSTA INVÁLIDA</option>
                                             <option>EM CONTRATO</option>
                                             <option>RETORNO DOCS</option>
-                                            <option>E-MAIL: DESISTENCIA</option>
-                                            <option>E-MAIL RECUSADO</option>
+                                            <option>DESISTENCIA</option>
+                                            <option>RECUSADO</option>
                                         </select></td>
                                     <td id='add-nome'><input class='intable' type="text" name="nome" required></td>
                                     <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
