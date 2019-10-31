@@ -289,6 +289,25 @@
 		return mysqli_query($conn, $query);
 	}
 
+	function calculo($conn, $status, $id) {
+
+		$controleDataAdmissao = date_create($status['DATA_ADMISSAO']);
+		date_modify($controleDataAdmissao, '+ 44 day');
+		$vencimentoPri = date_format($controleDataAdmissao, 'Y-m-d');
+		$vencimentoPriAux = date_create($vencimentoPri);
+		date_modify($vencimentoPriAux, '- 10 day');
+		$envioSolicitante1 = date_format($vencimentoPriAux, 'Y-m-d');
+		$controleDataAdmissao2 = date_create($status['DATA_ADMISSAO']);
+		date_modify($controleDataAdmissao2, '+ 89 day');
+		$vencimentoSec =  date_format($controleDataAdmissao2, 'Y-m-d');
+		$vencimentoSecAux = date_create($vencimentoSec);;
+		date_modify($vencimentoSecAux, '- 10 day');
+		$envioSolicitante2 = date_format($vencimentoSecAux, 'Y-m-d');
+	
+		$resultado = mysqli_query($conn, "UPDATE `vencimentos` SET `ENVIO_SOLICITANTE_PRI` = '{$envioSolicitante1}', `DATA_VENCIMENTO_PRI` = '{$vencimentoPri}', `ENVIO_SOLICITANTE_SEG`= '{$envioSolicitante2}', `DATA_VENCIMENTO_SEG`= '{$vencimentoSec}'  where `ID_USUARIO`= '{$id}'");
+	
+		return $resultado;
+	}
 	
 		// ################# Funções para Deletar ###########################
 

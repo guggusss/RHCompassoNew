@@ -53,7 +53,7 @@ if ($execQuery == "") {
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/arquivo.css">
 	</head>
-	<h1 class="text-danger">Ocorreu um erro ao salvar. Verifique se as informações estão corretas e se o E-mail é Único.</h1>
+	<h1 class="text-danger">Ocorreu um erro ao salvar. Usuario já existe.</h1>
 <?php
 } else {
 	header("Location: http://localhost/RHCompasso/telas/menuPrincipal.php");
