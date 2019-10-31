@@ -126,7 +126,7 @@ $translado = buscasuporte($conn, $id);
         <section class='menu-inicial'>
             <h2 id='nome'>Vencimentos Contratos</h2>
         </section>
-        <h3>Se o campo Data Admissão foi alterado, clique aqui:
+        <h3>Se o campo Data Admissão foi alterado, clique para aplicar as modificações:
         <td><input type="button" class="btn btn-default" value="Recarregar" onClick="history.go(0)"></td>
         </h3>
         <section class='container estruct'>
