@@ -61,7 +61,18 @@ $translado = buscasuporte($conn, $id);
 <!DOCTYPE html>
 <html lang="pt">
 
-<?php echo file_get_contents("telasHeader.html"); ?>
+<head>
+    <meta charset="UTF-8">
+    <title>RH Contratações</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/arquivo.css">
+    <link rel="stylesheet" href="../css/menuPrincipal.css">
+
+
+
+</head>
 
 <body>
     <header class="site-header">

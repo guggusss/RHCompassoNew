@@ -53,10 +53,18 @@ $emailsoli = buscavias($conn, $id);
 ?>
 
 
-<?php echo file_get_contents("telasHeader.html"); ?>
+
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
+    <meta charset="UTF-8">
+    <title>RH Contratações</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/arquivo.css">
+    <link rel="stylesheet" href="../css/menuPrincipal.css">
     <link rel="stylesheet" href="../css/geraSenha.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
