@@ -82,6 +82,8 @@ border-bottom-color:gray;
 }
 #spanText{
   font-size:10pt;
+  text-align:center;
+
 }
 #tdStyle{
   width:248.75pt;
