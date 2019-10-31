@@ -227,7 +227,7 @@ $translado = buscasuporte($conn, $id);
                                     }
                                     ?>
                                 </select></td>
-                            <td><button title="Refresh" type="button" class="btn btn-default">Calcular Vencimentos</td>
+                            <td><button title="Refresh" type="submit" class="btn btn-default">Calcular Vencimentos</td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
 
 
