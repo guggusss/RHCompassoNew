@@ -10,7 +10,7 @@ if (!isset($id)) {
     $id = $_SESSION['id'];
 }
 
-$resultado1 = mysqli_query($conn, "SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+$resultado1 = mysqli_query($conn, "SELECT ID_USUARIO, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 
 
@@ -69,6 +69,15 @@ $emailsoli = buscavias($conn, $id);
                                     <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
                                     <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
                                     <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
+                                    <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
+                                                            if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
+                                                            if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
+                                                            if($rows_dados['ID_SEDE'] == "4"){echo "POA";}
+                                                            if($rows_dados['ID_SEDE'] == "5"){echo "RG";}
+                                                            if($rows_dados['ID_SEDE'] == "6"){echo "SP";}
+                                                            if($rows_dados['ID_SEDE'] == "7"){echo "FLN";}
+                                                            if($rows_dados['ID_SEDE'] == "8"){echo "XAP";}
+                                                            if($rows_dados['ID_SEDE'] == "9"){echo "REC";}?></th>
                                 <?php  } ?>
                             </tr>
                         </tbody>
