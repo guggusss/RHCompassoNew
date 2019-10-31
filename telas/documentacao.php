@@ -64,6 +64,7 @@ $translado = buscasuporte($conn, $id);
                             <th width='170px'>Status</th>
                             <th width='170px'>Nome</th>
                             <th width='170px'>Data de Admissao</th>
+                            <th width='170px'>Sede</th>
                         </tr>
                         <thead>
                         <tbody>
@@ -129,6 +130,7 @@ $translado = buscasuporte($conn, $id);
                         <th colspan="2">E-mail formulários Admissão</th>
                         <th>Documentos físicos</th>
                         <th>CTPS</th>
+                        <th scope="col" width='200px'>Comentários</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -138,6 +140,7 @@ $translado = buscasuporte($conn, $id);
                         <th>Formulários Recebidos</th>
                         <th>Cópia RG/CPF/PIS/Titulo Eleitor/<br />Declaração Oracle/Foto 3x4/<br />Comprovante endereço</th>
                         <th>CTPS Recebida</th>
+                        
                         <th></th>
                         <th></th>
                     </tr>
@@ -151,6 +154,7 @@ $translado = buscasuporte($conn, $id);
                             <td id="data2"><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
                             <td id="data3"><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
                             <td id="data4"><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
+                            <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
                             <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="btn btn-default" href="admissao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
