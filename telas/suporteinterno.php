@@ -236,7 +236,7 @@ $emailsoli = buscavias($conn, $id);
                                                                                                 } 
                                                                                                 
                                                                                                 if(buscasuporteExiste($conn, $rows_dados['USUARIO']) > 1) {
-                                                                                                    $usuario_atv = "USUÁRIO JÁ EXISTE";
+                                                                                                    $usuario_atv = "USUÁRIO E/OU E-MAIL JÁ EXISTE";
                                                                                                     echo ($campoV);                                                                                                    
                                                                                                 } ?>> <?php echo $usuario_atv ?> </td>
                             <td <?php if ($rows_dados['EMAIL_SUP'] == "") {
@@ -282,7 +282,9 @@ $emailsoli = buscavias($conn, $id);
             </table>
 
         </section>
-
+        <?php if($usuario_atv == "INVÁLIDO"){ ?>
+        <h3>Usuário, E-mail e Senha Acesso precisam ser preenchidos!</h3>
+        <?php } ?>
         <?php echo file_get_contents("telasLegendas.html"); ?>
         
     </main>
