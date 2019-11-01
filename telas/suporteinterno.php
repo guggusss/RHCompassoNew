@@ -213,13 +213,13 @@ $emailsoli = buscavias($conn, $id);
                 <thead>
                     <tr>
                         <th width='200px'>Status</th>
+                        <th width='150px'>Usuário Ativo</th>
                         <th width='330px'>E-mail</th>
                         <th width='330px'>Usuário</th>
                         <th width='150px'>Senha Acesso</th>
                         <th width='150px'>Equipamento</th>
                         <th width='150px'>Necessidade de Translado</th>
                         <th width='278px = 100%'>Grupos de E-mail</th>
-                        <th width='150px'>Usuário Ativo</th>
                         <th width='150px'></th>
                         <th width='150px'></th>
                     </tr>
@@ -228,6 +228,17 @@ $emailsoli = buscavias($conn, $id);
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
+                            <td <?php if ($rows_dados['USUARIO'] and $rows_dados['SENHA'] and $rows_dados['EMAIL_SUP'] != NULL) {
+                                                                                                    $usuario_atv = "ATIVO";
+                                                                                                }else{
+                                                                                                    $usuario_atv = "INVÁLIDO";
+                                                                                                    echo ($campoV);
+                                                                                                } 
+                                                                                                
+                                                                                                if(buscasuporteExiste($conn, $rows_dados['USUARIO']) > 1) {
+                                                                                                    $usuario_atv = "USUÁRIO JÁ EXISTE";
+                                                                                                    echo ($campoV);                                                                                                    
+                                                                                                } ?>> <?php echo $usuario_atv ?> </td>
                             <td <?php if ($rows_dados['EMAIL_SUP'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['EMAIL_SUP']; ?></td>
@@ -246,17 +257,6 @@ $emailsoli = buscavias($conn, $id);
                             <td <?php if ($rows_dados['EQUIPE'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['EQUIPE']; ?></td>
-                            <td <?php if ($rows_dados['USUARIO'] and $rows_dados['SENHA'] and $rows_dados['EMAIL_SUP'] != NULL) {
-                                                                                                    $usuario_atv = "ATIVO";
-                                                                                                }else{
-                                                                                                    $usuario_atv = "INVÁLIDO";
-                                                                                                    echo ($campoV);
-                                                                                                } 
-                                                                                                
-                                                                                                if(buscasuporteExiste($conn, $rows_dados['USUARIO']) > 1) {
-                                                                                                    $usuario_atv = "USUÁRIO JÁ EXISTE";
-                                                                                                    echo ($campoV);                                                                                                    
-                                                                                                } ?>> <?php echo $usuario_atv ?> </td>
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
@@ -267,13 +267,14 @@ $emailsoli = buscavias($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-suporte.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
+                            <td></td>
                             <td><input type='email' class='intable' name="EMAIL_SUP" value="<?= $mail['EMAIL_SUP'] ?>"></td>
                             <td><input type="text" class='intable' name="USUARIO" value="<?= $usuario['USUARIO'] ?>"></td>
                             <td><input type="text" class='intable' name="SENHA" id="jogaSenha" value="<?= $senha['SENHA'] ?>"></td>
                             <td><input type="text" class='intable' name="EQUIPAMENTO" value="<?= $equipamento['EQUIPAMENTO'] ?>"></td>
                             <td><input type="text" class='intable' name="TRANSLADO" id="campo"  value="<?= $translado['TRANSLADO'] ?>"></td>
                             <td><select multiple"" onclick="anexaGrupo()" class="intable" name="EQUIPE[]" id="books"  value="<?= $anexar_equipe['EQUIPE'] ?>"></select></td>
-                            <td></td>
+
                             <td><input type="button" name="botao-ok" value="Gerar senha" onclick="funcao()" id="senhaUsuario"></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
