@@ -209,11 +209,19 @@ $emailsoli = buscavias($conn, $id);
                             <td <?php if ($rows_dados['EQUIPE'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['EQUIPE']; ?></td>
-                            <td><?php if ($rows_dados['USUARIO'] and $rows_dados['SENHA'] and $rows_dados['EMAIL_SUP'] != NULL) {
+                            <td <?php if ($rows_dados['USUARIO'] and $rows_dados['SENHA'] and $rows_dados['EMAIL_SUP'] != NULL) {
                                                                                                     $usuario_atv = "ATIVO";
-                                                                                                } else {
-                                                                                                    $usuario_atv = " ";
-                                                                                                } ?> <input type="text" disabled="disabled" class='intable' name="USUARIO_ATV" value="<?= $usuario_atv ?>"> </td>
+                                                                                                }else{
+                                                                                                    $usuario_atv = "INVÁLIDO";
+                                                                                                    echo ($campoV);
+                                                                                                } 
+                                                                                                
+                                                                                                if(count(buscasuporteExiste($conn, $rows_dados['USUARIO'])) > 1) {
+                                                                                                    $usuario_atv = "USUÁRIO EXISTENTE";
+                                                                                                    echo ($campoV);
+                                                                                                    $testecount = count(buscasuporteExiste($conn, $rows_dados['USUARIO']));
+                                                                                                    echo $testecount;
+                                                                                                } ?>> <?php echo $usuario_atv ?> </td>
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
@@ -238,6 +246,8 @@ $emailsoli = buscavias($conn, $id);
             </table>
 
         </section>
+
+        <?php echo file_get_contents("telasLegendas.html"); ?>
 
         <head>
     <meta charset="UTF-8">

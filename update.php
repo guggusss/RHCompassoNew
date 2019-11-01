@@ -212,6 +212,12 @@
 		return mysqli_fetch_assoc($suporte);
 	}
 
+	function buscasuporteExiste ($conn, $usuario) {
+		$query = "SELECT USUARIO FROM suporte_interno WHERE USUARIO = '{$usuario}'";
+		$suporte = mysqli_query($conn, $query);
+		return mysqli_fetch_assoc($suporte);
+	}
+
 	function suporte ($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $EQUIPE){
 		// Converte de Array para String:
 		if ($EQUIPE != "") {
