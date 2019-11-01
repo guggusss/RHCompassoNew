@@ -32,7 +32,7 @@ if ($count == 1) {
     date_modify($controleDataAdmissao2, '+ 89 day');
     $vencimentoSec =  date_format($controleDataAdmissao2, 'Y-m-d');
     $vencimentoSecAux = date_create($vencimentoSec);;
-    date_modify($vencimentoSecAux, '- 10 day');
+    date_modify($vencimentoSecAux, '- 20 day');
     $envioSolicitante2 = date_format($vencimentoSecAux, 'Y-m-d');
 
    

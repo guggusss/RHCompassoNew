@@ -313,7 +313,7 @@
 		date_modify($controleDataAdmissao2, '+ 89 day');
 		$vencimentoSec =  date_format($controleDataAdmissao2, 'Y-m-d');
 		$vencimentoSecAux = date_create($vencimentoSec);;
-		date_modify($vencimentoSecAux, '- 10 day');
+		date_modify($vencimentoSecAux, '- 20 day');
 		$envioSolicitante2 = date_format($vencimentoSecAux, 'Y-m-d');
 	
 		$resultado = mysqli_query($conn, "UPDATE `vencimentos` SET `ENVIO_SOLICITANTE_PRI` = '{$envioSolicitante1}', `DATA_VENCIMENTO_PRI` = '{$vencimentoPri}', `ENVIO_SOLICITANTE_SEG`= '{$envioSolicitante2}', `DATA_VENCIMENTO_SEG`= '{$vencimentoSec}'  where `ID_USUARIO`= '{$id}'");
