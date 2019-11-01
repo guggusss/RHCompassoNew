@@ -103,12 +103,12 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                                 <option>EM VALIDAÇÃO</option>
                                 <option>NEGOCIAÇÃO</option>
                                 <option>PROPOSTA ENVIADA</option>
-                                <option>E-MAIL: PROPOSTA ACEITA</option>
-                                <option>E-MAIL: EM ANDAMENTO</option>
-                                <option>E-MAIL: PROPOSTA INVÁLIDA</option>
+                                <option> PROPOSTA ACEITA</option>
+                                <option> EM ANDAMENTO</option>
+                                <option> PROPOSTA INVÁLIDA</option>
                                 <option>EM CONTRATO</option>
                                 <option>RETORNO DOCS</option>
-                                <option>E-MAIL: DESISTENCIA</option>
+                                <option> DESISTENCIA</option>
                                 <option>E-MAIL RECUSADO</option>
                             </select></td>
 
@@ -192,7 +192,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                 <tr class='tb2'>
                     <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
                     <td class='tb2'>Gestor solicitou a proposta de contratação</td>
-                    <td align='center'><input type='button' value='Aprovação' onclick=???></td>
+                    
                 </tr>
                 <tr class='tb2'>
                     <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
@@ -215,15 +215,15 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                     <td class='tb2'>Recrutamento enviou a proposta e está aguardando retorno</td>
                 </tr>
                 <tr>
-                    <td class='tb2'>E-MAIL: PROPOSTA ACEITA</td>
+                    <td class='tb2'> PROPOSTA ACEITA</td>
                     <td class='tb2'>Profissional aceitou a proposta</td>
                 </tr>
                 <tr class='tb2'>
-                    <td class='tb2'>E-MAIL: EM ANDAMENTO</td>
+                    <td class='tb2'> EM ANDAMENTO</td>
                     <td class='tb2'>DP aprovou a proposta e seguirá a admissão</td>
                 </tr>
                 <tr class='tb2'>
-                    <td class='tb2'>E-MAIL: PROPOSTA INVÁLIDA</td>
+                    <td class='tb2'> PROPOSTA INVÁLIDA</td>
                     <td class='tb2'>DP reprovou recrutamento revisar a proposta</td>
                 </tr>
                 <tr class='tb2'>
@@ -235,7 +235,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                     <td class='tb2'>Admissão concluída - aguardando documentos fisícos admissão assinados</td>
                 </tr>
                 <tr class='tb2'>
-                    <td class='tb2'>E-MAIL: DESISTENCIA</td>
+                    <td class='tb2'> DESISTENCIA</td>
                     <td class='tb2'>Profissional desistiu da admissão após aceite</td>
                 </tr>
                 <tr class='tb2'>
