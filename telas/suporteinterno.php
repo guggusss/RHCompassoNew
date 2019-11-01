@@ -238,7 +238,7 @@ $emailsoli = buscavias($conn, $id);
                                                                                                 if(buscasuporteExiste($conn, $rows_dados['USUARIO']) > 1) {
                                                                                                     $usuario_atv = "USUÁRIO E/OU E-MAIL JÁ EXISTE";
                                                                                                     echo ($campoV);                                                                                                    
-                                                                                                } if(buscasuporteExiste($conn, $rows_dados['EMAIL_SUP']) > 1) {
+                                                                                                }elseif(buscasuporteExisteEmail($conn, $rows_dados['EMAIL_SUP']) > 1) {
                                                                                                     $usuario_atv = "USUÁRIO E/OU E-MAIL JÁ EXISTE";
                                                                                                     echo ($campoV);                                                                                                    
                                                                                                 } ?>> <?php echo $usuario_atv ?> </td>

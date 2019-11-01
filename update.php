@@ -218,6 +218,12 @@
 		return (int) $suporte["conta"];
 	}
 
+	function buscasuporteExisteEmail ($conn, $usuario) {
+		$query = $conn->query("SELECT COUNT(EMAIL_SUP) as conta FROM `suporte_interno` WHERE EMAIL_SUP = '{$usuario}'");
+		$suporte = $query->fetch_assoc();
+		return (int) $suporte["conta"];
+	}
+
 	function suporte ($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $EQUIPE){
 		// Converte de Array para String:
 		if ($EQUIPE != "") {
