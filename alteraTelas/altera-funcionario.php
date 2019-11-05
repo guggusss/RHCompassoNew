@@ -58,7 +58,18 @@ if (funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HOR
         //}
 } else {
     $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");
+    ?>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>RH Contratações</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/arquivo.css">
+    </head>
+    <p class="text-danger">Não foi alterado: <?= $msg ?></p>
+<?php
 }
 header("Refresh: 1; ../telas/menuPrincipal.php");
 ?>
