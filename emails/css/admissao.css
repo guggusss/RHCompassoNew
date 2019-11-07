@@ -54,28 +54,3 @@ color:rgb(0,32,96);
 #title{
   color:rgb(0,32,96);
 }
-#ptext{
-  font-size:11pt;
-  font-family:Calibri,sans-serif;
-  margin-right:0;
-  margin-left:0;
-}
-#p2text{
- 
-  font-size:11pt;
-  font-family:Calibri,sans-serif;
-  text-align:center;
-  margin-right:0;
-  margin-left:0;
-}
-#p3text{
-background-color:#FFE599;
-width:80.55pt;
-height:10.4pt;
-padding:0 3.5pt;
-border-style:none solid solid none;
-border-right-width:1pt;
-border-bottom-width:1pt;
-border-right-color:gray;
-border-bottom-color:gray;
-
