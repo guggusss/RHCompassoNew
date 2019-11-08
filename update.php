@@ -115,6 +115,26 @@
 				$email = $nome.".". $sobrenome;
 			}
 
+			$verifica4 = buscaUsuarioCompasso($link, $email);
+			if($verifica4 > 0){
+				$sobrenome = $meuNome[$conta-4];
+				$email = $nome.".". $sobrenome;
+			}
+
+			$verifica5 = buscaUsuarioCompasso($link, $email);
+			if($verifica5 > 0){
+				$sobrenome = $meuNome[$conta-5];
+				$email = $nome.".". $sobrenome;
+			}
+			
+			$verifica6 = buscaUsuarioCompasso($link, $email);
+			if($verifica6 > 0){
+				$sobrenome = $meuNome[$conta-6];
+				$email = $nome.".". $sobrenome;
+			}
+			
+			
+
 		return $email;
 		}
 

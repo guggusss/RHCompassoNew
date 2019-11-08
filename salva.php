@@ -44,7 +44,6 @@ $execQuery = mysqli_query($conn, $sql);
 
 if ($execQuery == "") {
 	?>
-
 	<head>
 		<meta charset="UTF-8">
 		<title>RH Contratações</title>
