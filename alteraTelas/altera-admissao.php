@@ -4,10 +4,6 @@ include_once("../update.php");
 session_start();
 $id = $_SESSION['id'];
 
-?>
-
-<?php
-
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $QUALIFIC_CADASTRAL_CEP = $_POST['QUALIFIC_CADASTRAL_CEP'];
 $CAD_ADM_PLATAFORMA_ADM_DIMIN = $_POST['CAD_ADM_PLATAFORMA_ADM_DIMIN'];
@@ -37,5 +33,5 @@ else
     include("../telas/naoSalvo.php");
 
 }
-header("Refresh:1; url= ../telas/admissao.php?id=$id");
+header("Refresh:1; url=../telas/admissao.php?id=$id");
 ?>

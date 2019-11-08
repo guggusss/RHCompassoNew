@@ -35,5 +35,5 @@ else
     $msg = mysqli_error($conn);
     include("../telas/naoSalvo.php");
 }
-header("Refresh:1; url= ../telas/interno.php?id=$id");
+header("Refresh:1; url=../telas/interno.php?id=$id");
 ?>

@@ -103,13 +103,13 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                                 <option>EM VALIDAÇÃO</option>
                                 <option>NEGOCIAÇÃO</option>
                                 <option>PROPOSTA ENVIADA</option>
-                                <option> PROPOSTA ACEITA</option>
-                                <option> EM ANDAMENTO</option>
-                                <option> PROPOSTA INVÁLIDA</option>
+                                <option>PROPOSTA ACEITA</option>
+                                <option>EM ANDAMENTO</option>
+                                <option>PROPOSTA INVÁLIDA</option>
                                 <option>EM CONTRATO</option>
                                 <option>RETORNO DOCS</option>
-                                <option> DESISTENCIA</option>
-                                <option>E-MAIL RECUSADO</option>
+                                <option>DESISTENCIA</option>
+                                <option>RECUSADO</option>
                             </select></td>
 
                         <td id='add-nome'><input class='intable' type="text" name="NOME" value="<?= $funcionarios['NOME']; ?>"></td>

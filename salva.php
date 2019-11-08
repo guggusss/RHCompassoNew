@@ -56,11 +56,8 @@ if ($execQuery == "") {
 	<h1 class="text-danger">Ocorreu um erro ao salvar. Usuario já existe.</h1>
 <?php
 } else {
-	header("Location: http://localhost/RHCompasso/telas/menuPrincipal.php");
+	header("Location: url=../telas/menuPrincipal.php");
 }
-?>
-<?php
-
-header("Refresh:3; url= http://localhost/RHCompasso/telas/menuPrincipal.php");
+header("Refresh:3; url=../telas/menuPrincipal.php");
 
 ?>

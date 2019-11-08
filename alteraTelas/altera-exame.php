@@ -3,9 +3,6 @@ include("../db/conexao.php");
 include("../update.php");
 session_start();
 $id = $_SESSION['id'];
-?>
-
-<?php
 
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $AGENDAMENTO_EXAM_ADM = $_POST['AGENDAMENTO_EXAM_ADM'];

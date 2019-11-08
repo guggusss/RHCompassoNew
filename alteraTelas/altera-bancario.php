@@ -2,11 +2,8 @@
 include("../db/conexao.php");
 include("../update.php");
 session_start();
-$id = $_SESSION['id'];
-?>
-
+$id = $_SESSION['id'];?>
 <?php
-
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $ENVIO = $_POST['ENVIO'];
 $RECEBIDO = $_POST['RECEBIDO'];

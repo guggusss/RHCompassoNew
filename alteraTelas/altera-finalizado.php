@@ -8,9 +8,6 @@ if (!isset($id)) {
     $id = $_SESSION['id'];
 }
 
-?>
-<?php
-
 $ID_USUARIO = $id;
 $STATUS = 'FINALIZADO';
 

@@ -5,9 +5,7 @@ $DATA = date_create();
 $DATA_HOJE = date_format($DATA, 'y-m-d');
 session_start();
 $id = $_SESSION['id'];
-?>
 
-<?php
 $STATUS = $_POST['STATUS'];
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $ENQUADRAMENTO_REMUNERACAO_ENVIO = $_POST['ENQUADRAMENTO_REMUNERACAO_ENVIO'];

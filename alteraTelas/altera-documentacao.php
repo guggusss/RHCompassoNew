@@ -3,9 +3,6 @@ include("../db/conexao.php");
 include("../update.php");
 session_start();
 $id = $_SESSION['id'];
-?>
-
-<?php
 
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $FORMULARIOS_ENVIADOS = $_POST['FORMULARIOS_ENVIADOS'];
@@ -34,5 +31,5 @@ else
     $msg = mysqli_error($conn);
     include("../telas/naoSalvo.php");
 }
-header("Refresh:1; url= ../telas/documentacao.php?id=$id");
+header("Refresh:1; url=../telas/documentacao.php?id=$id");
 ?>

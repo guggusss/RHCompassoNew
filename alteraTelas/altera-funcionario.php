@@ -1,10 +1,6 @@
 <?php
 include("../db/conexao.php");
 include_once("../update.php");
-?>
-<?php
-
-
 
 $STATUS = $_POST['status'];
 $USUARIO_ID = $_POST['USUARIO_ID'];
@@ -71,5 +67,5 @@ if (funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HOR
     <p class="text-danger">Não foi alterado: <?= $msg ?></p>
 <?php
 }
-header("Refresh: 1; ../telas/menuPrincipal.php");
+header("Refresh:1; url=../telas/menuPrincipal.php");
 ?>
