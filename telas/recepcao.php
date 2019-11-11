@@ -161,10 +161,10 @@ $campoV = 'class="txtVazio" ';
                             <a href="interno.php?id=<?= $id ?>" id="botao10" type="button" class="btn btn-default btn-circle">10</a>
                         </div>
                         <div title="Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php?id=<?= $id ?>" id="botao11" type="button" class="btn btn-default btn-circle">11</a>
+                            <a href="viasdocumentos.php?id=<?= $id ?>" id="botao11" type="button" class="btn btn-success btn-circle">11</a>
                         </div>
                         <div title="Boas Vindas" class="stepwizard-step col-md-auto">
-                            <a href="recepcao.php?id=<?= $id ?>" id="botao12" type="button" class="btn btn-success btn-circle">12</a>
+                            <a href="recepcao.php?id=<?= $id ?>" id="botao12" type="button" class="btn btn-default btn-circle">12</a>
                         </div>
                     </div>
                 </div>
