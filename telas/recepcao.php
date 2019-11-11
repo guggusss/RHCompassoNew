@@ -22,7 +22,7 @@ if ($count == 1) {
     $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA, DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA,SURVEY,
     DATE_FORMAT(LAYOUT_BOAS_VINDAS_MENSAL,'%d/%m/%Y') as LAYOUT_BOAS_VINDAS_MENSAL FROM `boas_vindas` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 } else {
-    mysqli_query($conn, "INSERT INTO `boas_vindas`(`ID_USUARIO`, `BOAS_VINDAS_INGR_AGENDADA`,`BOAS_VINDAS_INGR_REALIZADA`, `BOAS_VINDAS_SALA`,  `LAYOUT_BOAS_VINDAS_MENSAL`) VALUES ($id,NULL,NULL, NULL,NULL)");
+    mysqli_query($conn, "INSERT INTO `boas_vindas`(`ID_USUARIO`, `BOAS_VINDAS_INGR_AGENDADA`,`BOAS_VINDAS_INGR_REALIZADA`, `BOAS_VINDAS_SALA`, `LAYOUT_BOAS_VINDAS_MENSAL`, `SURVEY`) VALUES ($id,NULL,NULL,NULL,NULL,NULL)");
 
     $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA,DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA,SURVEY,
     DATE_FORMAT(LAYOUT_BOAS_VINDAS_MENSAL,'%d/%m/%Y') as LAYOUT_BOAS_VINDAS_MENSAL FROM `boas_vindas` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -213,7 +213,7 @@ $campoV = 'class="txtVazio" ';
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['SURVEY']; ?></td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?= $id ?>"> Próximo </td>s                            
+                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?= $id ?>"> Próximo </td>                            
                         </tr>
                     <?php } ?>
 

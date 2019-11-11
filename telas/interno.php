@@ -167,7 +167,7 @@ $campoV = 'class="txtVazio" ';
                         <th colspan='2'>Intranet</th>
                         <th colspan='2'>Kairos</th>
                         <th colspan='3'>E-mail</th>
-                        <th>Acessos</th>
+                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -180,7 +180,7 @@ $campoV = 'class="txtVazio" ';
                         <th>Gestor + Apoio Sede</th>
                         <th>E-mail Início<br /> das Atividades</th>
                         <th>E-mail Boas Vindas</th>
-                        <th></th>
+                        <th>Acessos</th>
                         <th></th>
                         <th></th>
                     </tr>
