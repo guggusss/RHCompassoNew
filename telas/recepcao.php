@@ -175,6 +175,7 @@ $campoV = 'class="txtVazio" ';
                     <tr>
                         <th width='200px'>Status</th>
                         <th colspan='6'>Boas Vindas Compasso</th>
+                        <th></th>
                     </tr>
                     <tr>
                         <th width='200px'></th>
