@@ -1,4 +1,8 @@
 document.querySelector("#foo").onclick = function() {
-    document.execCommand('selectAll',false,null);
-    document.execCommand("copy")
+    var divACopiar = document.querySelector("#selecionaPagina");
+
+    var range = document.createRange();
+    range.selectNode(divACopiar);
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
 };
