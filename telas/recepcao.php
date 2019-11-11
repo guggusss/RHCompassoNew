@@ -35,7 +35,7 @@ $layoutBoasVindas = buscaRecepcao($conn, $id);
 $boasVindasIntegrAgendada = buscaRecepcao($conn, $id);
 $boasVindasIntegrRealizada = buscaRecepcao($conn, $id);
 $boasVindasSala = buscaRecepcao($conn, $id);
-$survey=buscaRecepcao($conn,$id);
+$survey= buscaRecepcao($conn,$id);
 $funcionario = buscaRecepcao($conn, $id);
 $finalizado = buscaFuncionarios($conn, $id);
 $formRec = buscadocs($conn, $id);
@@ -174,7 +174,7 @@ $campoV = 'class="txtVazio" ';
                 <thead>
                     <tr>
                         <th width='200px'>Status</th>
-                        <th colspan='6'>Boas Vindas Compasso</th>
+                        <th colspan='7'>Boas Vindas Compasso</th>
                     </tr>
                     <tr>
                         <th width='200px'></th>
@@ -182,7 +182,7 @@ $campoV = 'class="txtVazio" ';
                         <th>Integração Realizada</th>
                         <th width='200px'>Sala</th>
                         <th>Layout Boas Vindas Mensal</th>
-                        <th>SURVEY</th>
+                        <th>Survey</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -210,7 +210,7 @@ $campoV = 'class="txtVazio" ';
                                                                                                                                     echo ($campoV);
                                                                                                                                 } ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
                             <td <?php if ($rows_dados['SURVEY'] == "") {
-                                        echo ($survey);
+                                        echo ($campoV);
                                     } ?>><?php echo $rows_dados['SURVEY']; ?></td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                             <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?= $id ?>"> Próximo </td>s                            
