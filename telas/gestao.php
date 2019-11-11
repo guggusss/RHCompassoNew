@@ -128,32 +128,32 @@ $campoV = 'class="txtVazio" ';
                         <div title="Gestão" class="stepwizard-step col-md-auto">
                             <a href="gestao.php?id=<?= $id ?>" type="button" id="botao3" class="btn btn-success btn-circle">3</a>
                         </div>
-                        <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                            <a href="vencimentosContratos.php?id=<?= $id ?>" id="botao4" type="button" class="btn btn-default btn-circle  ">4</a>
-                        </div>
                         <div title="Documentação" class="stepwizard-step col-md-auto">
-                            <a href="documentacao.php?id=<?= $id ?>" id="botao5" type="button" class="btn btn-default btn-circle  ">5</a>
+                            <a href="documentacao.php?id=<?= $id ?>" id="botao5" type="button" class="btn btn-default btn-circle  ">4</a>
                         </div>
                         <div title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                            <a href="admissao.php?id=<?= $id ?>" type="button" id="botao6" class="btn btn-default btn-circle  ">6</a>
+                            <a href="admissao.php?id=<?= $id ?>" type="button" id="botao6" class="btn btn-default btn-circle  ">5</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php?id=<?= $id ?>" type="button" id="botao7" class="btn btn-default btn-circle  ">7</a>
+                            <a href="exame.php?id=<?= $id ?>" type="button" id="botao7" class="btn btn-default btn-circle  ">6</a>
                         </div>
                         <div title="Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php?id=<?= $id ?>" type="button" id="botao8" class="btn btn-default btn-circle  ">8</a>
+                            <a href="bancarios.php?id=<?= $id ?>" type="button" id="botao8" class="btn btn-default btn-circle  ">7</a>
                         </div>
                         <div title="Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php?id=<?= $id ?>" type="button" id="botao9" class="btn btn-default btn-circle  ">9</a>
+                            <a href="suporteinterno.php?id=<?= $id ?>" type="button" id="botao9" class="btn btn-default btn-circle  ">8</a>
                         </div>
                         <div title="Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php?id=<?= $id ?>" type="button" id="botao10" class="btn btn-default btn-circle  ">10</a>
+                            <a href="interno.php?id=<?= $id ?>" type="button" id="botao10" class="btn btn-default btn-circle  ">9</a>
                         </div>
                         <div title="Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php?id=<?= $id ?>" type="button" id="botao11" class="btn btn-default btn-circle  ">11</a>
+                            <a href="viasdocumentos.php?id=<?= $id ?>" type="button" id="botao11" class="btn btn-default btn-circle  ">10</a>
                         </div>
                         <div title="Boas Vindas" class="stepwizard-step col-md-auto">
-                            <a href="recepcao.php?id=<?= $id ?>" type="button" id="botao12" class="btn btn-default btn-circle">12</a>
+                            <a href="recepcao.php?id=<?= $id ?>" type="button" id="botao12" class="btn btn-default btn-circle">11</a>
+                        </div>
+                        <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
+                            <a href="vencimentosContratos.php?id=<?= $id ?>" id="botao4" type="button" class="btn btn-default btn-circle  ">12</a>
                         </div>
                     </div>
                 </div>

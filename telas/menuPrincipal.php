@@ -627,33 +627,33 @@ if (isset($_POST['botao'])) {
                         <div title="Gestão" class="stepwizard-step col-md-auto">
                             <a href="gestao.php" type="button" class="btn btn-default btn-circle disabled" disabled>3</a>
                         </div>
-                        <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                            <a href="vencimentosContratos.php" type="button" class="btn btn-default btn-circle disabled" disabled>4</a>
-                        </div>
                         <div title="Documentação" class="stepwizard-step col-md-auto">
-                            <a href="documentacao.php" type="button" class="btn btn-default btn-circle disabled" disabled>5</a>
+                            <a href="documentacao.php" type="button" class="btn btn-default btn-circle disabled" disabled>4</a>
                         </div>
                         <div title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                            <a href="admissao.php" type="button" class="btn btn-default btn-circle disabled" disabled>6</a>
+                            <a href="admissao.php" type="button" class="btn btn-default btn-circle disabled" disabled>5</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" type="button" class="btn btn-default btn-circle disabled" disabled>7</a>
+                            <a href="exame.php" type="button" class="btn btn-default btn-circle disabled" disabled>6</a>
                         </div>
                         <div title="Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button" class="btn btn-default btn-circle disabled" disabled>8</a>
+                            <a href="bancarios.php" type="button" class="btn btn-default btn-circle disabled" disabled>7</a>
                         </div>
                         <div title="Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" type="button" class="btn btn-default btn-circle disabled" disabled>9</a>
+                            <a href="suporteinterno.php" type="button" class="btn btn-default btn-circle disabled" disabled>8</a>
                         </div>
                         <div title="Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" class="btn btn-default btn-circle disabled" disabled>10</a>
+                            <a href="interno.php" type="button" class="btn btn-default btn-circle disabled" disabled>9</a>
                         </div>
                         <div title="Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle disabled" disabled>11</a>
+                            <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle disabled" disabled>10</a>
                         </div>
                         <div title="Boas Vindas" class="stepwizard-step col-md-auto">
-                            <a href="recepcao.php" type="button" class="btn btn-default btn-circle disabled" disabled>12</a>
+                            <a href="recepcao.php" type="button" class="btn btn-default btn-circle disabled" disabled>11</a>
                         </div>
+                                <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
+                                    <a href="vencimentosContratos.php" type="button" class="btn btn-default btn-circle disabled" disabled>12</a>
+                                </div>
                     </div>
                 </div>
             </div>
