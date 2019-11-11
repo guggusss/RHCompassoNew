@@ -14,17 +14,17 @@ $resultado1 = mysqli_query($conn, "SELECT ID_USUARIO, NOME, ID_SEDE, DATE_FORMAT
 $conn1 = mysqli_num_rows($resultado1);
 
 
-$resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA, DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA,
+$resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA, DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA, SURVEY,
   DATE_FORMAT(LAYOUT_BOAS_VINDAS_MENSAL,'%d/%m/%Y') as LAYOUT_BOAS_VINDAS_MENSAL FROM `boas_vindas` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 
 if ($count == 1) {
-    $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA, DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA,
+    $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA, DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA,SURVEY,
     DATE_FORMAT(LAYOUT_BOAS_VINDAS_MENSAL,'%d/%m/%Y') as LAYOUT_BOAS_VINDAS_MENSAL FROM `boas_vindas` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 } else {
     mysqli_query($conn, "INSERT INTO `boas_vindas`(`ID_USUARIO`, `BOAS_VINDAS_INGR_AGENDADA`,`BOAS_VINDAS_INGR_REALIZADA`, `BOAS_VINDAS_SALA`,  `LAYOUT_BOAS_VINDAS_MENSAL`) VALUES ($id,NULL,NULL, NULL,NULL)");
 
-    $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA,DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA,
+    $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA,DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA,SURVEY,
     DATE_FORMAT(LAYOUT_BOAS_VINDAS_MENSAL,'%d/%m/%Y') as LAYOUT_BOAS_VINDAS_MENSAL FROM `boas_vindas` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
@@ -35,6 +35,7 @@ $layoutBoasVindas = buscaRecepcao($conn, $id);
 $boasVindasIntegrAgendada = buscaRecepcao($conn, $id);
 $boasVindasIntegrRealizada = buscaRecepcao($conn, $id);
 $boasVindasSala = buscaRecepcao($conn, $id);
+$survey=buscaRecepcao($conn,$id);
 $funcionario = buscaRecepcao($conn, $id);
 $finalizado = buscaFuncionarios($conn, $id);
 $formRec = buscadocs($conn, $id);
@@ -138,32 +139,32 @@ $campoV = 'class="txtVazio" ';
                         <div title="Gestão" class="stepwizard-step col-md-auto">
                             <a href="gestao.php?id=<?= $id ?>" id="botao3" type="button" class="btn btn-default btn-circle">3</a>
                         </div>
+                        <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
+                            <a href="vencimentosContratos.php?id=<?= $id ?>" id="botao4" type="button" class="btn btn-default btn-circle ">4</a>
+                        </div>
                         <div title="Documentação" class="stepwizard-step col-md-auto">
-                            <a href="documentacao.php?id=<?= $id ?>" type="button" id="botao5" class="btn btn-default btn-circle">4</a>
+                            <a href="documentacao.php?id=<?= $id ?>" type="button" id="botao5" class="btn btn-default btn-circle">5</a>
                         </div>
                         <div title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                            <a href="admissao.php?id=<?= $id ?>" type="button" id="botao6" class="btn btn-default btn-circle">5</a>
+                            <a href="admissao.php?id=<?= $id ?>" type="button" id="botao6" class="btn btn-default btn-circle">6</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php?id=<?= $id ?>" type="button" id="botao7" class="btn btn-default btn-circle">6</a>
+                            <a href="exame.php?id=<?= $id ?>" type="button" id="botao7" class="btn btn-default btn-circle">7</a>
                         </div>
                         <div title="Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php?id=<?= $id ?>" type="button" id="botao8" class="btn btn-default btn-circle">7</a>
+                            <a href="bancarios.php?id=<?= $id ?>" type="button" id="botao8" class="btn btn-default btn-circle">8</a>
                         </div>
                         <div title="Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php?id=<?= $id ?>" id="botao9" type="button" class="btn btn-default btn-circle">8</a>
+                            <a href="suporteinterno.php?id=<?= $id ?>" id="botao9" type="button" class="btn btn-default btn-circle">9</a>
                         </div>
                         <div title="Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php?id=<?= $id ?>" id="botao10" type="button" class="btn btn-default btn-circle">9</a>
+                            <a href="interno.php?id=<?= $id ?>" id="botao10" type="button" class="btn btn-default btn-circle">10</a>
                         </div>
                         <div title="Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php?id=<?= $id ?>" id="botao11" type="button" class="btn btn-default btn-circle">10</a>
+                            <a href="viasdocumentos.php?id=<?= $id ?>" id="botao11" type="button" class="btn btn-default btn-circle">11</a>
                         </div>
                         <div title="Boas Vindas" class="stepwizard-step col-md-auto">
-                            <a href="recepcao.php?id=<?= $id ?>" id="botao12" type="button" class="btn btn-success btn-circle">11</a>
-                        </div>
-                        <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                            <a href="vencimentosContratos.php?id=<?= $id ?>" id="botao4" type="button" class="btn btn-default btn-circle ">12</a>
+                            <a href="recepcao.php?id=<?= $id ?>" id="botao12" type="button" class="btn btn-success btn-circle">12</a>
                         </div>
                     </div>
                 </div>
@@ -179,8 +180,9 @@ $campoV = 'class="txtVazio" ';
                         <th width='200px'></th>
                         <th>Integração Agendada</th>
                         <th>Integração Realizada</th>
-                        <th>Sala</th>
+                        <th width='200px'>Sala</th>
                         <th>Layout Boas Vindas Mensal</th>
+                        <th>SURVEY</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -207,6 +209,9 @@ $campoV = 'class="txtVazio" ';
                                     } ?> <?php if ($rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") {
                                                                                                                                     echo ($campoV);
                                                                                                                                 } ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
+                            <td <?php if ($rows_dados['SURVEY'] == "") {
+                                        echo ($survey);
+                                    } ?>><?php echo $rows_dados['SURVEY']; ?></td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                             <td>
                                 <form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class="btn btn-default"></form>
@@ -222,6 +227,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input class='intable' id="campo2" type='date' name='BOAS_VINDAS_INGR_REALIZADA' value="<?= $boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA'] ?>"></td>
                             <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' value="<?= $boasVindasSala['BOAS_VINDAS_SALA'] ?>"></td>
                             <td><input class='intable' id="campo4" type='date' name='LAYOUT_BOAS_VINDAS_MENSAL' value="<?= $layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] ?>"></td>
+                            <td><input class='intable' type='text' name='SURVEY' value="<?= $survey['SURVEY'] ?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
