@@ -184,9 +184,7 @@ $translado = buscasuporte($conn, $id);
                         <th colspan='3'>1°Alerta Vencimento 45 dias <p>10DD</th>
                         <th colspan='3'>2°Alerta Vencimento 90 dias <p>20DD</th>
                         <th></th>
-                        <th></th>
-                        <th></th>
-
+                        <th></th>               
                     </tr>
                     <tr>
                         <th>Status</th>
@@ -197,8 +195,7 @@ $translado = buscasuporte($conn, $id);
                         <th>Data do Vencimento</th>
                         <th>Efetivção <p>S = Sim N = Não</th>
                         <th></th>
-                        <th></th>
-                        <th></th>
+                        <th></th>        
                     </tr>
                 </thead>
                 <tbody>
@@ -214,8 +211,7 @@ $translado = buscasuporte($conn, $id);
                             <td id="data4"><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
                             <td <?php if ($rows_dados['EFETIVACAO'] == "") {
                                         echo ($campoV);
-                                    } ?>><?php echo $rows_dados['EFETIVACAO']; ?></td>
-                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
+                                    } ?>><?php echo $rows_dados['EFETIVACAO']; ?></td>                            
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                             <td>
                                 <form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class="btn btn-default"></form>

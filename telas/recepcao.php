@@ -171,16 +171,16 @@ $campoV = 'class="txtVazio" ';
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
-                    <tr>
-                        <th width='200px'>Status</th>
-                        <th colspan='5'>Boas Vindas Compasso</th>
+                    <tr>                        
+                        <th colspan='7'>Boas Vindas Compasso</th>
                     </tr>
                     <tr>
-                        <th width='200px'></th>
+                        <th width='200px'>Status</th>
                         <th>Integração Agendada</th>
                         <th>Integração Realizada</th>
                         <th>Sala</th>
                         <th>Layout Boas Vindas Mensal</th>
+                        <th></th>
                         <th></th>
                         
                     </tr>
@@ -207,6 +207,7 @@ $campoV = 'class="txtVazio" ';
                                     } ?> <?php if ($rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") {
                                                                                                                                     echo ($campoV);
                                                                                                                                 } ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
+                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?= $id ?>"> Próximo </td>                                  
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                             
                         </tr>
