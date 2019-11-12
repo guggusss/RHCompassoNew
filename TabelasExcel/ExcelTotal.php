@@ -203,6 +203,7 @@ if(isset($_POST["export"]))
                             <th>integração realizada</th>
                             <th>sala</th>
                             <th>Layot Boas vindas Mensal</th>
+                            <th>Survey</th>
                         </tr>
         ';
 
@@ -299,6 +300,7 @@ if(isset($_POST["export"]))
          <td>'.$row["BOAS_VINDAS_INGR_REALIZADA"].'</td>
          <td>'.$row["BOAS_VINDAS_SALA"].'</td>
          <td>'.$row["LAYOUT_BOAS_VINDAS_MENSAL"].'</td>
+         <td>'.$row["SURVEY"].'</td>
        </tr>
         ';
 
