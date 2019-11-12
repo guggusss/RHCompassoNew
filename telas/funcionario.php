@@ -208,7 +208,7 @@ $translado = buscasuporte($conn, $id);
                         </tr>
                     <?php  } ?>
                     <tr class='funcionario atualiza'>
-                        <form method="POST" action="/RHCompasso/alteraTelas/altera-proposta.php">
+                        <form method="POST" action="../alteraTelas/altera-proposta.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value="<?= $recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO'] ?>"></td>
