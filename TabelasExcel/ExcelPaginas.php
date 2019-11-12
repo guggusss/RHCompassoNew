@@ -764,7 +764,7 @@ $result = mysqli_query($connect, $sql);
 <?PHP
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, BOAS_VINDAS_INGR_AGENDADA, BOAS_VINDAS_INGR_REALIZADA,
-        BOAS_VINDAS_SALA, LAYOUT_BOAS_VINDAS_MENSAL,
+        BOAS_VINDAS_SALA, LAYOUT_BOAS_VINDAS_MENSAL, SURVEY,
         STATUS, PROJETO, NOME
         from boas_vindas as p
         LEFT JOIN admissao_dominio as a
@@ -790,7 +790,7 @@ $result = mysqli_query($connect, $sql);
       <h1>Boas Vindas</h1>
       <table class="table table-bordered">
         <tr>
-          <th colspan='7'>Boas Vindas Compasso</th>
+          <th colspan='8'>Boas Vindas Compasso</th>
         </tr>
         <tr>
           <th>STATUS</th>
