@@ -268,6 +268,12 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                 <tr>
                     <td class='tb2'>FLN</td>
                 </tr>
+                <tr>
+                    <td class='tb2'>XAP</td>
+                </tr>
+                <tr>
+                    <td class='tb2'>REC</td>
+                </tr>
             </table>
             <table class='legendas-tipos'>
                 <tr>

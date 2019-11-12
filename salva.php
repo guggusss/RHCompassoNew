@@ -58,5 +58,4 @@ if ($execQuery == "") {
 	header("Location: telas/menuPrincipal.php");
 }
 header("Refresh:3; telas/menuPrincipal.php");
-
 ?>
