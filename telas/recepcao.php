@@ -173,11 +173,10 @@ $campoV = 'class="txtVazio" ';
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th width='200px'>Status</th>
-                        <th colspan='7'>Boas Vindas Compasso</th>
+                        <th colspan='8'>Boas Vindas Compasso</th>
                     </tr>
                     <tr>
-                        <th width='200px'></th>
+                        <th width='200px'>Status</th>
                         <th>Integração Agendada</th>
                         <th>Integração Realizada</th>
                         <th width='200px'>Sala</th>

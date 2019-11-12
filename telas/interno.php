@@ -163,7 +163,7 @@ $campoV = 'class="txtVazio" ';
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th width='200px'>Status</th>
+                        <th></th>
                         <th colspan='2'>Intranet</th>
                         <th colspan='2'>Kairos</th>
                         <th colspan='3'>E-mail</th>
@@ -172,7 +172,7 @@ $campoV = 'class="txtVazio" ';
                         <th></th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th width='200px'>Status</th>
                         <th>Cadastro Usuário</th>
                         <th>Senha</th>
                         <th>Cadastro Usuário</th>

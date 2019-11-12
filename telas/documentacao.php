@@ -169,7 +169,7 @@ $translado = buscasuporte($conn, $id);
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th width='200px'>Status</th>
+                        <th></th>
                         <th colspan="2">E-mail formulários Admissão</th>
                         <th>Documentos físicos</th>
                         <th>CTPS</th>
@@ -178,7 +178,7 @@ $translado = buscasuporte($conn, $id);
                         <th></th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th width='200px'>Status</th>
                         <th>Formulários Enviados</th>
                         <th>Formulários Recebidos</th>
                         <th>Cópia RG/CPF/PIS/Titulo Eleitor/<br />Declaração Oracle/Foto 3x4/<br />Comprovante endereço</th>

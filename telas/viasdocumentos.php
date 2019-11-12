@@ -183,7 +183,7 @@ $docreceb = buscavias($conn, $id);
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th>Status</th>
+                        <th></th>
                         <th colspan='3'>Crachá + Cordão + Roller</th>
                         <th colspan='2'>E-mail Adm Caderno Compasso </th>
                         <th></th>
@@ -193,7 +193,7 @@ $docreceb = buscavias($conn, $id);
                         <th></th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>Status</th>
                         <th>Pedido do crachá</th>
                         <th>Controle</th>
                         <th>Protocolo</th>
