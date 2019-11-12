@@ -8,8 +8,6 @@ if (!isset($id)) {
     $id =  $_GET['id'];
 }
 
-
-
 $ID_USUARIO = $id;
 $STATUS = 'EXCLUIDO';
 

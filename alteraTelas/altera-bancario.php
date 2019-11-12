@@ -2,8 +2,7 @@
 include("../db/conexao.php");
 include("../update.php");
 session_start();
-$id = $_SESSION['id'];?>
-<?php
+$id = $_SESSION['id'];
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $ENVIO = $_POST['ENVIO'];
 $RECEBIDO = $_POST['RECEBIDO'];
@@ -13,16 +12,7 @@ $AGENCIA = $_POST['AGENCIA'];
 $NUMERO_CONTA = $_POST['NUMERO_CONTA'];
 $TIPO_CONTA = $_POST['TIPO_CONTA'];
 
-
-
 if (bancario($conn, $ID_USUARIO, $ENVIO, $RECEBIDO, $PLANILHA_CONTAS, $FORM_COMPR_BANCARIO, $AGENCIA, $NUMERO_CONTA, $TIPO_CONTA)) {
-    /*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-$STATUS = 'EM CONTRATO';
-        status($conn, $ID_USUARIO, $STATUS);
-}else{
-        status($conn, $ID_USUARIO, $STATUS);
-}
-/*/
 
 include("../telas/salvoSucesso.php");
 } 

@@ -5,21 +5,15 @@ require_once('../validacoes/login/user.php');
 
 $id = $_GET['id'];
 $funcionarios = buscaFuncionarios($conn, $id);
-
 $get_dados = "SELECT * FROM admissao_dominio WHERE USUARIO_ID = '$id'";
 $return_dados_1 = mysqli_query($conn, $get_dados);
 $return_dados_2 = mysqli_query($conn, $get_dados);
-
-
 $get_sede = "SELECT DISTINCT ID_SEDE, NOME_SEDE, SEDE_ID FROM admissao_dominio as a RIGHT JOIN sede as s on s.SEDE_ID = a.ID_SEDE";
 $return_sede = mysqli_query($conn, $get_sede);
-
 $get_tipo = "SELECT DISTINCT ID_TIPO, NOME_TIPO, TIPO_ID FROM admissao_dominio as a RIGHT JOIN tipo as t on t.TIPO_ID = a.ID_TIPO";
 $return_tipo = mysqli_query($conn, $get_tipo);
-
 $get_captacao = "SELECT DISTINCT ID_CAPTACAO, NOME_PARAMETRO, CAPTACAO_ID FROM admissao_dominio as a RIGHT JOIN parametros_captacao as p on p.CAPTACAO_ID = a.ID_CAPTACAO";
 $return_captacao = mysqli_query($conn, $get_captacao);
-
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +56,6 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                         <th width='100px'>Captação</th>
                         <th width='100px'>Carga Horária</th>
                         <th width='150px'>Horário</th>
-
                         <th width='200px'>Sexo</th>
                         <th width='150px'>Fone</th>
                         <th width='200px' <?php if ($grupo == "Suporte Interno") {
@@ -79,22 +72,16 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                         <th width='150px'>Cliente</th>
                         <th width='150px'>Projeto</th>
                         <th width='330px'>Email Pessoal</th>
-
-
                         <th width='200px'>Posição(Comentários)</th>
                         <th width='200px'>Administrativo + Flyback - Hotel</th>
                         <th scope="col" width='200px'>Comentários</th>
                         <th scope="col" width='150px'></th>
-
-
                     </tr>
                 </thead>
 
                 <tbody>
-
                     <form id='altera-func' method='POST' action='altera-funcionario.php'>
                         <input type='hidden' name="USUARIO_ID" value='<?php echo $funcionarios['USUARIO_ID'] ?>' />
-
                         <td><select name="status" class="intable" value="<?= $rows_dados['STATUS'] ?>" required>
                                 <option value="" selected="selected"></option>
                                 <option>SOLICITAÇÃO DE PROPOSTA</option>
@@ -111,7 +98,6 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                                 <option>DESISTENCIA</option>
                                 <option>RECUSADO</option>
                             </select></td>
-
                         <td id='add-nome'><input class='intable' type="text" name="NOME" value="<?= $funcionarios['NOME']; ?>"></td>
                         <td id='add-admissao'><input class='intable' type="date" name="DATA_ADMISSAO" value="<?= $funcionarios['DATA_ADMISSAO']; ?>"></td>
                         <td><select name="ID_SEDE" class="selectadd intable" id="recipient-funcao">
@@ -122,7 +108,6 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                                                                                                 } ?>><?php echo $rows_funcoes['NOME_SEDE']; ?></option>
                                 <?php } ?>
                             </select></td>
-
                         <td width="100px"><select id="tipo" class="selectadd intable" name='ID_TIPO'>
                                 <option>Escolha...</option>
                                 <?php while ($rows_funcoes = mysqli_fetch_assoc($return_tipo)) { ?>
@@ -131,7 +116,6 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                                                                                                 } ?>><?php echo $rows_funcoes['NOME_TIPO']; ?></option>
                                 <?php } ?>
                             </select></td>
-
                         <td><select name="ID_CAPTACAO" class="selectadd intable" id="recipient-funcao">
                                 <option>Escolha...</option>
                                 <?php while ($rows_funcoes = mysqli_fetch_assoc($return_captacao)) { ?>
@@ -140,14 +124,10 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                                                                                                     } ?>><?php echo $rows_funcoes['NOME_PARAMETRO']; ?></option>
                                 <?php } ?>
                             </select></td>
-
                         <?php $REMUNERACAO_BASE = number_format($funcionarios['REMUNERACAO_BASE'], 2, ',', '.'); ?>
                         <?php $GRATIFICACAO = number_format($funcionarios['GRATIFICACAO'], 2, ',', '.'); ?>
-
-
                         <td id='add-carga_horaria'><input class='intable' type="text" name="CARGA_HORARIA" value="<?= $funcionarios['CARGA_HORARIA']; ?>"></td>
                         <td id='add-horario'><input class='intable' type="text" name="HORARIO" value="<?= $funcionarios['HORARIO']; ?>"></td>
-
                         <td><select name="sexo" class="intable" value="<?= $rows_dados['SEXO'] ?>">
                                 <option value="" selected="selected"></option>
                                 <option>Não informou</option>
@@ -170,17 +150,13 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                         <td id='add-cliente'><input class='intable' type="text" name="CLIENTE" value="<?= $funcionarios['CLIENTE']; ?>"></td>
                         <td id='add-projeto'><input class='intable' type="text" name="PROJETO" value="<?= $funcionarios['PROJETO']; ?>"></td>
                         <td id='add-email'><input class='intable' type="email" name="EMAIL" value="<?= $funcionarios['EMAIL']; ?>"></td>
-
-
                         <td id='add-posicao_comentario'><input class='intable' type="text" name="POSICAO_COMENTARIO" value="<?= $funcionarios['POSICAO_COMENTARIO']; ?>"></td>
                         <td id='add-administrativo'><input class='intable' type="text" name="ADMINISTRATIVO" value="<?= $funcionarios['ADMINISTRATIVO']; ?>"></td>
                         <td id='add-comentario'><input class='intable' type="text" name="COMENTARIOS" value="<?= $funcionarios['COMENTARIOS']; ?>"></td>
                         <td><button class="btn btn-default" type="submit" >Alterar</button></td>
                     </form>
-
                 </tbody>
             </table>
-
         </section>
         <section class="container estruct">
             <h2 class="titulo" align='center'>Legendas</h2>
@@ -191,8 +167,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                 </tr>
                 <tr class='tb2'>
                     <td class='tb2'>SOLICITAÇÃO DE PROPOSTA</td>
-                    <td class='tb2'>Gestor solicitou a proposta de contratação</td>
-                    
+                    <td class='tb2'>Gestor solicitou a proposta de contratação</td>          
                 </tr>
                 <tr class='tb2'>
                     <td class='tb2'>AGUARDANDO APROVAÇÃO</td>
@@ -317,15 +292,12 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                 </tr>
                 <tr>
                     <td class='tb2'>Novo</td>
-
                 </tr>
                 <tr>
                     <td class='tb2'>Ex-Estagiário</td>
-
                 </tr>
                 <tr>
                     <td class='tb2'>Ex-Funcionário</td>
-
                 </tr>
                 <tr>
                     <td class='tb2'>Ex-Bolsista</td>
@@ -333,11 +305,9 @@ $return_captacao = mysqli_query($conn, $get_captacao);
             </table>
         </section>
     </main>
-
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src='../js/desabilitaStepWizard.js'></script>
-
 </body>

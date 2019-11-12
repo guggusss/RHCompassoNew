@@ -3,7 +3,6 @@ include("../db/conexao.php");
 include("../update.php");
 session_start();
 $id = $_SESSION['id'];
-
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $AGENDAMENTO_EXAM_ADM = $_POST['AGENDAMENTO_EXAM_ADM'];
 $ENVIO_FUNC_EXAME = $_POST['ENVIO_FUNC_EXAME'];
@@ -13,14 +12,7 @@ $COMENTARIO = $_POST['COMENTARIO'];
 
 
 if (exame($conn, $ID_USUARIO, $AGENDAMENTO_EXAM_ADM, $ENVIO_FUNC_EXAME, $EMAIL_RECEBIDO_EXAM, $COMENTARIO)) {
-    /*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-$STATUS = 'EM CONTRATO';
-status($conn, $ID_USUARIO, $STATUS);
-}else{
-status($conn, $ID_USUARIO, $STATUS);
-}
-/*/
- 
+
     include("../telas/salvoSucesso.php");
 } 
 else 

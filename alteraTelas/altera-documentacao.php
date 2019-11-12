@@ -12,17 +12,7 @@ $CTPS_RECEBIDA = $_POST['CTPS_RECEBIDA'];
 $COMENTARIO = $_POST['COMENTARIO'];
 
 
-if (Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDOS, $DOCUMENTOS_FISICOS, $CTPS_RECEBIDA, $COMENTARIO)) { ?>
-    <?php
-
-        /*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-    $STATUS = 'EM CONTRATO';
-            status($conn, $ID_USUARIO, $STATUS);
-    //}else{
-            status($conn, $ID_USUARIO, $STATUS);
-    }
-            /*/
-
+if (Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDOS, $DOCUMENTOS_FISICOS, $CTPS_RECEBIDA, $COMENTARIO)) {
     
     include("../telas/salvoSucesso.php");
 } 

@@ -14,16 +14,7 @@ $COMENTARIO = $_POST['COMENTARIO'];
 
 
 
-if (admissao($conn, $ID_USUARIO, $QUALIFIC_CADASTRAL_CEP, $CAD_ADM_PLATAFORMA_ADM_DIMIN, $DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO, $TERMO_PSI, $INCLUI_ADM_PROV, $COMENTARIO)) { ?>
-    <?php
-
-        /*/if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
-  $STATUS = 'EM CONTRATO';
-      status($conn, $ID_USUARIO, $STATUS);
-  }else{
-      status($conn, $ID_USUARIO, $STATUS);
-  }
-      /*/
+if (admissao($conn, $ID_USUARIO, $QUALIFIC_CADASTRAL_CEP, $CAD_ADM_PLATAFORMA_ADM_DIMIN, $DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO, $TERMO_PSI, $INCLUI_ADM_PROV, $COMENTARIO)) {
 
 include("../telas/salvoSucesso.php");
 } 

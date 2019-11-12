@@ -3,14 +3,12 @@ session_start();
 include("../db/conexao.php");
 include("../update.php");
 
-
 if (!isset($id)) {
     $id = $_SESSION['id'];
 }
 
 $ID_USUARIO = $id;
 $STATUS = 'FINALIZADO';
-
 
 if (status($conn, $ID_USUARIO, $STATUS)) {
 
