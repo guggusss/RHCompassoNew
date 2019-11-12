@@ -257,83 +257,6 @@ $result = mysqli_query($connect, $sql);
 
 <?PHP
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
-$sql = "SELECT ID_USUARIO, ENVIO_SOLICITANTE_PRI,
-        DATA_VENCIMENTO_PRI, RENOVACAO,
-        ENVIO_SOLICITANTE_SEG, DATA_VENCIMENTO_SEG,
-        EFETIVACAO, STATUS, PROJETO, NOME
-        from vencimentos as p
-        LEFT JOIN admissao_dominio as a
-        on p.ID_USUARIO = a.USUARIO_ID
-        where ID_USUARIO = USUARIO_ID";
-
-$result = mysqli_query($connect, $sql);
-?>
-<html>
-
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-  <div class="container estruct">
-    <br />
-    <br />
-    <br />
-    <div class="table-responsive">
-      <h1>Vencimentos Contratos</h1>
-      <table class="table table-bordered">
-        <tr>
-          <th></th>
-          <th></th>
-          <th colspan='3'>1° Alerta Vencimento 45 dias<p>10DD</th>
-          <th colspan='3'>1° Alerta Vencimento 90 dias<p>20DD</th>
-          <th></th>
-        </tr>
-        <tr>
-          <th>STATUS</th>
-          <th>NOME</th>
-          <th>Envio Solicitante</th>
-          <th>Data vencimento</th>
-          <th>Renovação<p>S = Sim N = Não</th>
-          <th>Envio Solicitante</th>
-          <th>Data Vencimento</th>
-          <th>Efetivação<p>S = Sim N = Não</th>
-          <th width='150px'>Projeto</th>
-        </tr>
-
-        <?php
-        while ($row = mysqli_fetch_array($result)) {
-          echo '
-       <tr>
-         <td>' . $row["STATUS"] . '</td>
-         <td>' . $row["NOME"] . '</td>
-         <td>' . $row['ENVIO_SOLICITANTE_PRI'] . '</td>
-         <td>' . $row["DATA_VENCIMENTO_PRI"] . '</td>
-         <td>' . $row['RENOVACAO'] . '</td>
-         <td>' . $row["ENVIO_SOLICITANTE_SEG"] . '</td>
-         <td>' . $row["DATA_VENCIMENTO_SEG"] . '</td>
-         <td>' . $row["EFETIVACAO"] . '</td>
-         <td>' . $row["PROJETO"] . '</td>
-       </tr>
-        ';
-        }
-        ?>
-      </table>
-      <br />
-      <form method="post" action="exportPagina4.php">
-        <input type="submit" name="export" class="btn btn-success" value="EXPORTAR" />
-      </form>
-    </div>
-  </div>
-</body>
-
-</html>
-
-
-<?PHP
-$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, FORMULARIOS_ENVIADOS,
         FORMULARIOS_RECEBIDOS, DOCUMENTOS_FISICOS,
         CTPS_RECEBIDA,
@@ -841,7 +764,7 @@ $result = mysqli_query($connect, $sql);
 <?PHP
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, BOAS_VINDAS_INGR_AGENDADA, BOAS_VINDAS_INGR_REALIZADA,
-        BOAS_VINDAS_SALA, LAYOUT_BOAS_VINDAS_MENSAL,
+        BOAS_VINDAS_SALA, LAYOUT_BOAS_VINDAS_MENSAL, SURVEY,
         STATUS, PROJETO, NOME
         from boas_vindas as p
         LEFT JOIN admissao_dominio as a
@@ -867,7 +790,7 @@ $result = mysqli_query($connect, $sql);
       <h1>Boas Vindas</h1>
       <table class="table table-bordered">
         <tr>
-          <th colspan='7'>Boas Vindas Compasso</th>
+          <th colspan='8'>Boas Vindas Compasso</th>
         </tr>
         <tr>
           <th>STATUS</th>
@@ -875,7 +798,8 @@ $result = mysqli_query($connect, $sql);
           <th>integração agendada</th>
           <th>integração realizada</th>
           <th>sala</th>
-          <th>Layot Boas vindas Mensal</th>
+          <th>Layout Boas vindas Mensal</th>
+          <th>Survey</th>
           <th width='150px'>Projeto</th>
         </tr>
 
@@ -889,6 +813,7 @@ $result = mysqli_query($connect, $sql);
          <td>' . $row["BOAS_VINDAS_INGR_REALIZADA"] . '</td>
          <td>' . $row["BOAS_VINDAS_SALA"] . '</td>
          <td>' . $row["LAYOUT_BOAS_VINDAS_MENSAL"] . '</td>
+         <td>' . $row["SURVEY"] . '</td>
          <td>' . $row["PROJETO"] . '</td>
        </tr>
         ';
@@ -897,6 +822,82 @@ $result = mysqli_query($connect, $sql);
       </table>
       <br />
       <form method="post" action="exportPagina12.php">
+        <input type="submit" name="export" class="btn btn-success" value="EXPORTAR" />
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<?PHP
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
+$sql = "SELECT ID_USUARIO, ENVIO_SOLICITANTE_PRI,
+        DATA_VENCIMENTO_PRI, RENOVACAO,
+        ENVIO_SOLICITANTE_SEG, DATA_VENCIMENTO_SEG,
+        EFETIVACAO, STATUS, PROJETO, NOME
+        from vencimentos as p
+        LEFT JOIN admissao_dominio as a
+        on p.ID_USUARIO = a.USUARIO_ID
+        where ID_USUARIO = USUARIO_ID";
+
+$result = mysqli_query($connect, $sql);
+?>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container estruct">
+    <br />
+    <br />
+    <br />
+    <div class="table-responsive">
+      <h1>Vencimentos Contratos</h1>
+      <table class="table table-bordered">
+        <tr>
+          <th></th>
+          <th></th>
+          <th colspan='3'>1° Alerta Vencimento 45 dias<p>10DD</th>
+          <th colspan='3'>1° Alerta Vencimento 90 dias<p>20DD</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>STATUS</th>
+          <th>NOME</th>
+          <th>Envio Solicitante</th>
+          <th>Data vencimento</th>
+          <th>Renovação<p>S = Sim N = Não</th>
+          <th>Envio Solicitante</th>
+          <th>Data Vencimento</th>
+          <th>Efetivação<p>S = Sim N = Não</th>
+          <th width='150px'>Projeto</th>
+        </tr>
+
+        <?php
+        while ($row = mysqli_fetch_array($result)) {
+          echo '
+       <tr>
+         <td>' . $row["STATUS"] . '</td>
+         <td>' . $row["NOME"] . '</td>
+         <td>' . $row['ENVIO_SOLICITANTE_PRI'] . '</td>
+         <td>' . $row["DATA_VENCIMENTO_PRI"] . '</td>
+         <td>' . $row['RENOVACAO'] . '</td>
+         <td>' . $row["ENVIO_SOLICITANTE_SEG"] . '</td>
+         <td>' . $row["DATA_VENCIMENTO_SEG"] . '</td>
+         <td>' . $row["EFETIVACAO"] . '</td>
+         <td>' . $row["PROJETO"] . '</td>
+       </tr>
+        ';
+        }
+        ?>
+      </table>
+      <br />
+      <form method="post" action="exportPagina4.php">
         <input type="submit" name="export" class="btn btn-success" value="EXPORTAR" />
       </form>
     </div>

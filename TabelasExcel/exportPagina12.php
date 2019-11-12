@@ -5,7 +5,7 @@ $output = '';
 if(isset($_POST["export"]))
 {
  $query = "SELECT ID_USUARIO, BOAS_VINDAS_INGR_AGENDADA, BOAS_VINDAS_INGR_REALIZADA,
-            BOAS_VINDAS_SALA, LAYOUT_BOAS_VINDAS_MENSAL,
+            BOAS_VINDAS_SALA, LAYOUT_BOAS_VINDAS_MENSAL, SURVEY,
             STATUS, PROJETO, NOME 
             from boas_vindas as p 
             LEFT JOIN admissao_dominio as a 
@@ -30,6 +30,7 @@ $result = mysqli_query($connect, $query);
                 <th width= "150px">integração realizada</th>
                 <th width= "150px">sala</th>
                 <th width= "150px">Layot Boas vindas Mensal</th>
+                <th width= "150px">Survey</th>
                 <th width= "150px">Projeto</th>
             </tr>
                     
@@ -44,7 +45,8 @@ $result = mysqli_query($connect, $query);
                 <td>'.$row["BOAS_VINDAS_INGR_REALIZADA"].'</td>
                 <td>'.$row["BOAS_VINDAS_SALA"].'</td>
                 <td>'.$row["LAYOUT_BOAS_VINDAS_MENSAL"].'</td>
-                <td>'.$row["PROJETO"].'</td>
+                <td>'.$row["SURVEY"].'</td>
+                <td>'.$row["PROJETO"].'</td>                
             </tr>  
             ';  
   }
