@@ -186,9 +186,9 @@ $docreceb = buscavias($conn, $id);
                         <th>Status</th>
                         <th colspan='3'>Crachá + Cordão + Roller</th>
                         <th colspan='2'>E-mail Adm Caderno Compasso </th>
-                        <th>Malote (Caderno) + <br />CTPS (Controle RH)</th>
-                        <th>Recebido após assinatura Escanear Docs</th>
-                        <th>Salvar na Pasta</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -199,9 +199,9 @@ $docreceb = buscavias($conn, $id);
                         <th>Protocolo</th>
                         <th>E-mail Solicitado </th>
                         <th>Recebido</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>Malote (Caderno) + <br />CTPS (Controle RH)</th>
+                        <th>Recebido após assinatura Escanear Docs</th>
+                        <th>Salvar na Pasta</th>
                         <th></th>
                         <th></th>
                     </tr>
