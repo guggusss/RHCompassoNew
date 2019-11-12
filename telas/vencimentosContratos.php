@@ -182,7 +182,7 @@ $translado = buscasuporte($conn, $id);
                     <tr>
                         <th></th>
                         <th colspan='3'>1°Alerta Vencimento 45 dias <p>10DD</th>
-                        <th colspan='3'>2°Alerta Vencimetno 90 dias <p>20DD</th>
+                        <th colspan='3'>2°Alerta Vencimento 90 dias <p>20DD</th>
                         <th></th>
                         <th></th>
 
