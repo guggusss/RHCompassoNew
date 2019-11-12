@@ -244,37 +244,47 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                 </tr>
             </table>
             <table class='legendas-sedes'>
-                <tr>
-                    <th class='tb2'>SEDE</th>
-                </tr>
-                <tr>
-                    <td class='tb2'>CWB</td>
-                </tr>
-                <tr>
-                    <td class='tb2'>ERE</td>
-                </tr>
-                <tr>
-                    <td class='tb2'>PF</td>
-                </tr>
-                <tr>
-                    <td class='tb2'>POA</td>
-                </tr>
-                <tr>
-                    <td class='tb2'>RG</td>
-                </tr>
-                <tr>
-                    <td class='tb2'>SP</td>
-                </tr>
-                <tr>
-                    <td class='tb2'>FLN</td>
-                </tr>
-                <tr>
-                    <td class='tb2'>XAP</td>
-                </tr>
-                <tr>
-                    <td class='tb2'>REC</td>
-                </tr>
-            </table>
+        <tr>
+            <th scope="col" class='tb2'>SEDE</th>
+            <th scope="col" class='tb2'>NOME</th>
+        </tr>
+        <tr>
+            <td class='tb2'>CWB</td>
+            <td class='tb2'>Curitiba</td>
+        </tr>
+        <tr>
+            <td class='tb2'>ERE</td>
+            <td class='tb2'>Erechim</td>
+        </tr>
+        <tr>
+            <td class='tb2'>PF</td>
+            <td class='tb2'>Passo Fundo</td>
+        </tr>
+        <tr>
+            <td class='tb2'>POA</td>
+            <td class='tb2'>Porto Alegre</td>
+        </tr>
+        <tr>
+            <td class='tb2'>RG</td>
+            <td class='tb2'>Rio Grande</td>
+        </tr>
+        <tr>
+            <td class='tb2'>SP</td>
+            <td class='tb2'>São Paulo</td>
+        </tr>
+        <tr>
+            <td class='tb2'>FLN</td>
+            <td class='tb2'>Florianópolis</td>
+        </tr>
+        <tr>
+            <td class='tb2'>XAP</td>
+            <td class='tb2'>Chapecó</td>
+        </tr>
+        <tr>
+            <td class='tb2'>REC</td>
+            <td class='tb2'>Recife</td>
+        </tr>
+    </table>
             <table class='legendas-tipos'>
                 <tr>
                     <th class='tb2'>TIPO</th>
