@@ -43,6 +43,5 @@
       </li>
     </ul>
     <input type="hidden" name="body" id="inputBody" value="">
-    <p>Clique em qualquer lugar abaixo e depois no botão Copy acima para copiar toda a mensagem: </p>
   </form>
 </div>
