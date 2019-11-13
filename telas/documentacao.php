@@ -1,5 +1,4 @@
 <?php
-
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -46,7 +45,6 @@ $translado = buscasuporte($conn, $id);
 
 /* $usuarios = mysql_fetch_assoc($resultado); */
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
 

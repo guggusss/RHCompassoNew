@@ -7,4 +7,4 @@
     }elseif($_SESSION['grupo'] == "Compasso - RH Integração"){
         echo "<script src='../js/valida/apoioSede.js'></script>";
     }
-    ?>
+?>

@@ -1,5 +1,4 @@
 <?php
-
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -221,7 +220,6 @@ $translado = buscasuporte($conn, $id);
 
                         </tr>
                     <?php } ?>
-
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-vencimento.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">

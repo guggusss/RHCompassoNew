@@ -1,5 +1,4 @@
 <?php
-
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -222,7 +221,6 @@ $docreceb = buscavias($conn, $id);
                             <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
-
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-vias.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">

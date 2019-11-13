@@ -3,7 +3,6 @@ require_once("db/conexao.php");
 include("update.php");
 include("emails/defineNomeDoGrupoDeEmail.php");
 
-
 $status = $_POST['status'];
 $id_sede = $_POST["sede"];
 $id_tipo = $_POST["tipo"];
@@ -52,7 +51,7 @@ if ($execQuery == "") {
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/arquivo.css">
 	</head>
-	<h1 class="text-danger">Ocorreu um erro ao salvar. Usuario já existe.</h1>
+	<h1 class="text-danger">Ocorreu um erro ao salvar. E-Mail já cadastrado e/ou nome com caracteres inválidos.</h1>
 <?php
 } else {
 	header("Location: telas/menuPrincipal.php");

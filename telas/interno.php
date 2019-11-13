@@ -40,7 +40,6 @@ $campoV = 'class="txtVazio" ';
 /* $usuarios = mysql_fetch_assoc($resultado); */
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
 

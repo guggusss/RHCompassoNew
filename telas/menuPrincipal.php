@@ -703,8 +703,8 @@ if (isset($_POST['botao'])) {
                 <tbody>
                     <?php
                     if ($resultado) {
-                        while ($rows_dados = mysqli_fetch_assoc($resultado)) { ?>
-                            <?php $SOMA = $rows_dados['REMUNERACAO_BASE'] + $rows_dados['GRATIFICACAO']; ?>
+                        while ($rows_dados = mysqli_fetch_assoc($resultado)) {
+                                $SOMA = $rows_dados['REMUNERACAO_BASE'] + $rows_dados['GRATIFICACAO']; ?>
                             <tr style="vertical-align: right !important;">
                                 <td><?php echo $rows_dados['STATUS']; ?></td>
                                 <td><?php echo $rows_dados['NOME']; ?></td>

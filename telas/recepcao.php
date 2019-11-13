@@ -1,5 +1,4 @@
 <?php
-
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -50,8 +49,6 @@ $translado = buscasuporte($conn, $id);
 $deacordo = buscaProposta($conn, $id);
 $campoV = 'class="txtVazio" ';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -215,7 +212,6 @@ $campoV = 'class="txtVazio" ';
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>                                                        
                         </tr>
                     <?php } ?>
-
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-recepcao.php">
                             <input type='hidden' name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">

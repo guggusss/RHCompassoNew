@@ -1,5 +1,4 @@
 <?php
-
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -37,11 +36,7 @@ $formRec = buscadocs($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="pt">
 

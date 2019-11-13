@@ -47,13 +47,7 @@ $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 /*$usuario_atv = buscasuporte($conn, $id); */
 /*$usuarios = mysql_fetch_assoc($resultado); */
-
-
-
 ?>
-
-
-
 <!DOCTYPE html>
 
 <html lang="pt">
@@ -233,7 +227,6 @@ $emailsoli = buscavias($conn, $id);
 
                         </tr>
                     <?php } ?>
-
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-suporte.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">

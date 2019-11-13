@@ -15,7 +15,6 @@ $return_tipo = mysqli_query($conn, $get_tipo);
 $get_captacao = "SELECT DISTINCT ID_CAPTACAO, NOME_PARAMETRO, CAPTACAO_ID FROM admissao_dominio as a RIGHT JOIN parametros_captacao as p on p.CAPTACAO_ID = a.ID_CAPTACAO";
 $return_captacao = mysqli_query($conn, $get_captacao);
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
 

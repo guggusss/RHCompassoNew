@@ -1,5 +1,4 @@
 <?php
-
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -46,8 +45,6 @@ $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $campoV = 'class="txtVazio" ';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt">
 
