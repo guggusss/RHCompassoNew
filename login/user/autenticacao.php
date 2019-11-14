@@ -1,6 +1,6 @@
 <?php
 require_once('../../db/serverLDAP.php');
-
+require_once('../../db/conexao.php');
 session_start();
 
 $usuario = $_POST['usuario'];
