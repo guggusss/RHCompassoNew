@@ -219,13 +219,9 @@ $emailsoli = buscavias($conn, $id);
                             <td <?php if ($rows_dados['TRANSLADO'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['TRANSLADO']; ?></td>
-                            <td><?php 
-                                    $sede = buscaSedeFuncionario($conn, $status['ID_SEDE']);
-                                    $cargo = buscaCargoFuncionario($conn, $id, $id);
-                                    $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
-                                    if ($rows_dados['EQUIPE'] == "") {
-                                        echo $grupDeEmail;
-                                    }else{echo $rows_dados['EQUIPE'];} ?></td>
+                            <td <?php if ($rows_dados['EQUIPE'] == "") {
+                                        echo ($campoV);
+                                    } ?>><?php echo $rows_dados['EQUIPE']; ?></td>
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
