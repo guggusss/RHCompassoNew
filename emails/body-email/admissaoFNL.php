@@ -24,7 +24,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
   <link rel="stylesheet" href="../css/site.css">
   <link rel="stylesheet" href="../css/admissao.css">
   <link rel="stylesheet" href="../css/rodape.css">
-  <title>Admissão FNL</title>
+  <title>Admissão FLN</title>
 </head>
 
 <body>
