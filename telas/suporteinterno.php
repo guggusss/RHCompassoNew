@@ -28,7 +28,7 @@ if ($count == 1) {
     $sede = buscaSedeFuncionario($conn, $status['ID_SEDE']);
     $cargo = buscaCargoFuncionario($conn, $id, $id);
     $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
-    $nome = defineUser($link, $status['NOME'], $id);
+    $nome = defineUser($conn, $status['NOME'], $id);
     mysqli_query($conn, "INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE`) VALUES (NULL,$id,'$nome@compasso.com.br','$nome',NULL,NULL,NULL,'$grupDeEmail')");
     $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }

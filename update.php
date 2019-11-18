@@ -97,37 +97,37 @@
 		  }
 
 		 
-		  $verifica = buscaUsuarioCompasso($link, $email);
+		  $verifica = buscasuporteExiste($link, $email);
 		  if($verifica > 0 AND $conta == 2){
 			$email = $nome.".".$sobrenome.$id;
 			}
 		  //se tem no banco
 		
-		  $verifica2 = buscaUsuarioCompasso($link, $email);
+		  $verifica2 = buscasuporteExiste($link, $email);
 		  if($verifica2 > 0){
 			$sobrenome = $meuNome[$conta-2];
 			$email = $nome.".". $sobrenome;
 			}
 
-			$verifica3 = buscaUsuarioCompasso($link, $email);
+			$verifica3 = buscasuporteExiste($link, $email);
 			if($verifica3 > 0){
 				$sobrenome = $meuNome[$conta-3];
 				$email = $nome.".". $sobrenome;
 			}
 
-			$verifica4 = buscaUsuarioCompasso($link, $email);
+			$verifica4 = buscasuporteExiste($link, $email);
 			if($verifica4 > 0){
 				$sobrenome = $meuNome[$conta-4];
 				$email = $nome.".". $sobrenome;
 			}
 
-			$verifica5 = buscaUsuarioCompasso($link, $email);
+			$verifica5 = buscasuporteExiste($link, $email);
 			if($verifica5 > 0){
 				$sobrenome = $meuNome[$conta-5];
 				$email = $nome.".". $sobrenome;
 			}
 			
-			$verifica6 = buscaUsuarioCompasso($link, $email);
+			$verifica6 = buscasuporteExiste($link, $email);
 			if($verifica6 > 0){
 				$sobrenome = $meuNome[$conta-6];
 				$email = $nome.".". $sobrenome;
