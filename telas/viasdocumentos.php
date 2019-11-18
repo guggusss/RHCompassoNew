@@ -71,6 +71,7 @@ $docreceb = buscavias($conn, $id);
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
+        </header>
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Vias Documentos funcionário</h2>
