@@ -372,13 +372,13 @@ if (isset($_POST['botao'])) {
                                 <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
                                 <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
                                 <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
-                                <option value="E-MAIL: PROPOSTA ACEITA">PROPOSTA ACEITA</option>
-                                <option value="E-MAIL: EM ANDAMENTO">EM ANDAMENTO</option>
-                                <option value="E-MAIL: PROPOSTA INVÁLIDA">PROPOSTA INVÁLIDA</option>
+                                <option value="PROPOSTA ACEITA">PROPOSTA ACEITA</option>
+                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
+                                <option value="PROPOSTA INVÁLIDA">PROPOSTA INVÁLIDA</option>
                                 <option value="EM CONTRATO">EM CONTRATO</option>
                                 <option value="RETORNO DOCS">RETORNO DOCS</option>
-                                <option value="E-MAIL: DESISTENCIA">DESISTENCIA</option>
-                                <option value="E-MAIL RECUSADO">RECUSADO</option>
+                                <option value="DESISTENCIA">DESISTENCIA</option>
+                                <option value="RECUSADO">RECUSADO</option>
                                 <option value="FINALIZADO">FINALIZADO</option>
                             </select>
                         </div>
