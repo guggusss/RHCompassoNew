@@ -15,7 +15,7 @@ $ACESSOS = $_POST['ACESSOS'];
 
 if (interno($conn, $ID_USUARIO, $INTRANET_CADASTRO_USUARIO, $INTRANET_CADASTRO_SENHA, $KAIROS_CADASTRO_USUARIO, $KAIROS_CADASTRO_SENHA, $EMAIL_GESTOR_APOIO_SEDE, $EMAIL_INICIO_ATIVIDADES, $EMAIL_BOAS_VINDAS, $ACESSOS)) {
     
-        include("../telas/salvoSucesso.php");
+    include("../telas/salvoSucesso.php");
 } 
 else 
 {

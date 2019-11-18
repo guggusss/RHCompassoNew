@@ -27,32 +27,13 @@ $COMENTARIOS = $_POST['COMENTARIOS'];
 $REMUNERACAO_BASE = str_replace(',', '.', preg_replace('#[^\d\,]#is', '', $REMUNERACAO_BASE));
 $GRATIFICACAO = str_replace(',', '.', preg_replace('#[^\d\,]#is', '', $GRATIFICACAO));
 
-if (funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HORARIA, $HORARIO, $NOME, $SEXO, $FONE_CONTATO, $DATA_ADMISSAO, $CARGO, $SOLICITANTE, $LOG_REGISTRO_DIA_RH_ENVIA_DP, $REMUNERACAO_BASE, $GRATIFICACAO, $CLIENTE, $PROJETO, $EMAIL, $ADMINISTRATIVO, $POSICAO_COMENTARIO, $COMENTARIOS) && status($conn, $USUARIO_ID, $STATUS)) { ?>
+if (funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HORARIA, $HORARIO, $NOME, $SEXO, $FONE_CONTATO, $DATA_ADMISSAO, $CARGO, $SOLICITANTE, $LOG_REGISTRO_DIA_RH_ENVIA_DP, $REMUNERACAO_BASE, $GRATIFICACAO, $CLIENTE, $PROJETO, $EMAIL, $ADMINISTRATIVO, $POSICAO_COMENTARIO, $COMENTARIOS) && status($conn, $USUARIO_ID, $STATUS)) {
 
-    <head>
-        <meta charset="UTF-8">
-        <title>RH Contratações</title>
-        <link rel="stylesheet" href="../css/reset.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/arquivo.css">
-    </head>
-    <h1 class="text-success">Alterado com sucesso!</h1>
+    include("../telas/salvoSucesso.php");
 
-    <?php
     } else {
-    $msg = mysqli_error($conn);
-    ?>
-    <head>
-        <meta charset="UTF-8">
-        <title>RH Contratações</title>
-        <link rel="stylesheet" href="../css/reset.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/arquivo.css">
-    </head>
-    <p class="text-danger">Não foi alterado: <?= $msg ?></p>
-<?php
+    $msg = mysqli_error($conn); 
+    include("../telas/naoSalvo.php");
 }
 header("Refresh:1; url=../telas/menuPrincipal.php");
 ?>
