@@ -291,6 +291,7 @@ $result = mysqli_query($connect, $sql);
           <th>Documentos Físicos</th>
           <th>CTPS</th>
           <th></th>
+          <th></th>
         </tr>
         <tr>
           <th>STATUS</th>
