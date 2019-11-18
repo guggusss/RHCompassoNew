@@ -83,7 +83,8 @@
 			$meuNome = explode(' ', $meuNome);
 			$nome = $meuNome[0];
 			$conta = count($meuNome);
-			$sobrenome = $meuNome[$conta-1];
+			$sobrenomeOriginal = $meuNome[$conta-1];
+			$sobrenome = $meuNome[$conta-1];			
 			//conta
 			$max = count($agnomes);
 			for($i = 0; $i < $max; $i++) {
@@ -98,15 +99,20 @@
 
 		 
 		  $verifica = buscasuporteExiste($link, $email);
+		  if($verifica > 0 AND $conta == 1){
+			$email = $nome."_".$id;
+			}
+
+		  $verifica = buscasuporteExiste($link, $email);
 		  if($verifica > 0 AND $conta == 2){
-			$email = $nome.".".$sobrenome.$id;
+			$email = $nome.".".$sobrenome."_".$id;
 			}
 		  //se tem no banco
 		
 		  $verifica2 = buscasuporteExiste($link, $email);
 		  if($verifica2 > 0){
 			$sobrenome = $meuNome[$conta-2];
-			if($meuNome[$conta-2] == "de" or $meuNome[$conta-2] == "dos"){
+			if($meuNome[$conta-2] == "de" or $meuNome[$conta-2] == "dos" or $meuNome[$conta-2] == "do" or $meuNome[$conta-2] == "das" or $meuNome[$conta-2] == "da"){
 			 $sobrenome = $meuNome[$conta-3];
 			}
 			$email = $nome.".". $sobrenome;
@@ -115,7 +121,7 @@
 			$verifica3 = buscasuporteExiste($link, $email);
 			if($verifica3 > 0){
 				$sobrenome = $meuNome[$conta-3];
-				if($meuNome[$conta-3] == "de" or $meuNome[$conta-3] == "dos"){
+				if($meuNome[$conta-3] == "de" or $meuNome[$conta-3] == "dos" or $meuNome[$conta-3] == "do" or $meuNome[$conta-3] == "das" or $meuNome[$conta-3] == "da"){
 					$sobrenome = $meuNome[$conta-4];
 				   }
 				$email = $nome.".". $sobrenome;
@@ -124,7 +130,7 @@
 			$verifica4 = buscasuporteExiste($link, $email);
 			if($verifica4 > 0){
 				$sobrenome = $meuNome[$conta-4];
-				if($meuNome[$conta-4] == "de" or $meuNome[$conta-4] == "dos"){
+				if($meuNome[$conta-4] == "de" or $meuNome[$conta-4] == "dos" or $meuNome[$conta-4] == "do" or $meuNome[$conta-4] == "das" or $meuNome[$conta-4] == "da"){
 					$sobrenome = $meuNome[$conta-5];
 				   }
 				$email = $nome.".". $sobrenome;
@@ -133,7 +139,7 @@
 			$verifica5 = buscasuporteExiste($link, $email);
 			if($verifica5 > 0){
 				$sobrenome = $meuNome[$conta-5];
-				if($meuNome[$conta-5] == "de" or $meuNome[$conta-5] == "dos"){
+				if($meuNome[$conta-5] == "de" or $meuNome[$conta-5] == "dos" or $meuNome[$conta-5] == "do" or $meuNome[$conta-5] == "das" or $meuNome[$conta-5] == "da"){
 					$sobrenome = $meuNome[$conta-6];
 				   }
 				$email = $nome.".". $sobrenome;
@@ -142,12 +148,15 @@
 			$verifica6 = buscasuporteExiste($link, $email);
 			if($verifica6 > 0){
 				$sobrenome = $meuNome[$conta-6];
-				if($meuNome[$conta-6] == "de" or $meuNome[$conta-6] == "dos"){
+				if($meuNome[$conta-6] == "de" or $meuNome[$conta-6] == "dos" or $meuNome[$conta-6] == "do" or $meuNome[$conta-6] == "das" or $meuNome[$conta-6] == "da"){
 					$sobrenome = $meuNome[$conta-3];
 				   }
 				$email = $nome.".". $sobrenome;
 			}
-			
+
+			if($sobrenome == $meuNome[0]){			
+				$email = $nome.".".$sobrenomeOriginal;
+			}		
 			
 
 		return $email;
