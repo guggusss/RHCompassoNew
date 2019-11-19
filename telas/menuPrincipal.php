@@ -337,6 +337,26 @@ if (isset($_POST['botao'])) {
                 <form id='form-filtrar' method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <div>
                         <div>
+                            <label for="status">Status</label>
+                            <select name="status" class="form-control campo-filter" value="<?= $rows_dados['STATUS'] ?>">
+                                <option value="" selected="selected"></option>
+                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
+                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
+                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
+                                <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
+                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
+                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
+                                <option value="PROPOSTA ACEITA">PROPOSTA ACEITA</option>
+                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
+                                <option value="PROPOSTA INVÁLIDA">PROPOSTA INVÁLIDA</option>
+                                <option value="EM CONTRATO">EM CONTRATO</option>
+                                <option value="RETORNO DOCS">RETORNO DOCS</option>
+                                <option value="DESISTENCIA">DESISTENCIA</option>
+                                <option value="RECUSADO">RECUSADO</option>
+                                <option value="FINALIZADO">FINALIZADO</option>
+                            </select>
+                        </div>
+                        <div>
                             <label for="sede">Sede</label>
                             <select id="sede" name="sede" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
