@@ -1,5 +1,5 @@
 <?php
-$ldapuri = "ldap://192.168.0.2:389";
+$ldapuri = "ldap://ad.pampa.compasso";
 
 $link = ldap_connect($ldapuri)  or die("Server LDAP nao encontrado");
 ?>
