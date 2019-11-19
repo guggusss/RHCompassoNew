@@ -319,32 +319,6 @@ if (isset($_POST['botao'])) {
     <link rel="stylesheet" href="../css/menuPrincipal.css">
 </head>
 <body>
-<header class="site-header">
-        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
-        <nav>
-            <a class='nav inicio' href='menuPrincipal.php'>Início</a>
-            <div class="dropdown">
-                <a class="dropbtn nav">Emails <span class='caret'></span></a>
-                <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>>'>9. Acessos Liberado</a>
-                </div>
-            </div>
-            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
-        </nav>
-
-    </header>
-
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
@@ -362,26 +336,6 @@ if (isset($_POST['botao'])) {
             <fieldset>
                 <form id='form-filtrar' method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <div>
-                        <div>
-                            <label for="status">Status</label>
-                            <select name="status" class="form-control campo-filter" value="<?= $rows_dados['STATUS'] ?>">
-                                <option value="" selected="selected"></option>
-                                <option value="SOLICITAÇÃO DE PROPOSTA">SOLICITAÇÃO DE PROPOSTA</option>
-                                <option value="AGUARDANDO APROVAÇÃO">AGUARDANDO APROVAÇÃO</option>
-                                <option value="APROVADO DIRETORIA">APROVADO DIRETORIA</option>
-                                <option value="EM VALIDAÇÃO">EM VALIDAÇÃO</option>
-                                <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
-                                <option value="PROPOSTA ENVIADA">PROPOSTA ENVIADA</option>
-                                <option value="PROPOSTA ACEITA">PROPOSTA ACEITA</option>
-                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
-                                <option value="PROPOSTA INVÁLIDA">PROPOSTA INVÁLIDA</option>
-                                <option value="EM CONTRATO">EM CONTRATO</option>
-                                <option value="RETORNO DOCS">RETORNO DOCS</option>
-                                <option value="DESISTENCIA">DESISTENCIA</option>
-                                <option value="RECUSADO">RECUSADO</option>
-                                <option value="FINALIZADO">FINALIZADO</option>
-                            </select>
-                        </div>
                         <div>
                             <label for="sede">Sede</label>
                             <select id="sede" name="sede" class="form-control campo-filter">
