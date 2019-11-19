@@ -71,7 +71,7 @@ if ($saida['count'] > 0) {
     }
  } else {
     ldap_close($link);
-    header("login.php?erro=fail");
+    header("Location:./login.php?erro=fail");
 }
 
 function isValidPerfilAllAccess($saida)
