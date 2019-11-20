@@ -60,8 +60,21 @@ if ($saida['count'] > 0) {
                         $_SESSION["grupo"] = $groupPerfil;
                         
                         header("location:../../telas/menuPrincipal.php"); 
-                    }
-                    else {
+                    }else{
+                        $groupPerfil = isInfra($saida);
+                        if($groupPerfil){
+                            $_SESSION["InfoUser"] = $saida;
+                            $_SESSION["grupo"] = $groupPerfil;
+                            
+                            header("location:../../telas/menuPrincipal.php"); 
+                        }else{
+                            $groupPerfil = isInfra2($saida);
+                            if($groupPerfil){
+                                $_SESSION["InfoUser"] = $saida;
+                                $_SESSION["grupo"] = $groupPerfil;
+                                
+                                header("location:../../telas/menuPrincipal.php"); 
+                            }else{
                         ldap_close($link);
                         header("Location:./login.php?erro=fail");
                     }
@@ -69,7 +82,9 @@ if ($saida['count'] > 0) {
             }
         }
     }
- } else {
+    }
+}
+ }else {
     ldap_close($link);
     header("Location:./login.php?erro=fail");
 }
@@ -128,6 +143,7 @@ function isSuporteInterno($saida){
     }
     return false;
 }
+
 function isApoioSede($saida){
     for ($i = 0; $i < $saida[0]['memberof']['count']; $i++) {
         $grupoAd = $saida[0]['memberof'][$i];
@@ -139,6 +155,34 @@ function isApoioSede($saida){
             $grupo = $textGroup[1];
         }
         if ($grupo == "Compasso - RH Integração") {
+            return $grupo;
+        }
+    }
+    return false;
+}
+
+function isInfra($saida){
+    for ($i = 0; $i < $saida[0]['memberof']['count']; $i++) {
+        $grupoAd = $saida[0]['memberof'][$i];
+        $textGroup = preg_split('/=|\,/', $grupoAd);
+        
+        $grupo = $textGroup[1];
+        
+        if ($grupo == "projetos.infra.n3") {
+            return $grupo;
+        }
+    }
+    return false;
+}
+
+function isInfra2($saida){
+    for ($i = 0; $i < $saida[0]['memberof']['count']; $i++) {
+        $grupoAd = $saida[0]['memberof'][$i];
+        $textGroup = preg_split('/=|\,/', $grupoAd);
+        
+        $grupo = $textGroup[1];
+        
+        if ($grupo == "Infraestrutura") {
             return $grupo;
         }
     }
