@@ -31,35 +31,35 @@ if ($saida['count'] > 0) {
         $_SESSION["InfoUser"] = $saida;
         $_SESSION["grupo"] = $groupPerfil;
         
-        header("location:../../telas/menuPrincipal.php");
+        header("location:../../telas/Index.php");
     } else{
         $groupPerfil = isRH($saida);
         if ($groupPerfil) {
             $_SESSION["InfoUser"] = $saida;
             $_SESSION["grupo"] = $groupPerfil;
             
-            header("location:../../telas/menuPrincipal.php");
+            header("location:../../telas/Index.php");
         } else{
             $groupPerfil = isGestor($saida);
             if($groupPerfil){
                 $_SESSION["InfoUser"] = $saida;
                 $_SESSION["grupo"] = $groupPerfil;
                 
-                header("location:../../telas/menuPrincipal.php");
+                header("location:../../telas/Index.php");
             }else{
                 $groupPerfil = isSuporteInterno($saida);
                 if($groupPerfil){
                     $_SESSION["InfoUser"] = $saida;
                     $_SESSION["grupo"] = $groupPerfil;
                     
-                    header("location:../../telas/menuPrincipal.php"); 
+                    header("location:../../telas/Index.php"); 
                 }else{
                     $groupPerfil = isApoioSede($saida);
                     if($groupPerfil){
                         $_SESSION["InfoUser"] = $saida;
                         $_SESSION["grupo"] = $groupPerfil;
                         
-                        header("location:../../telas/menuPrincipal.php"); 
+                        header("location:../../telas/Index.php"); 
                     }
                     else {
                         ldap_close($link);
