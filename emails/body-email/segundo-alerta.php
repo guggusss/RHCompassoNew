@@ -42,11 +42,11 @@ $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'
         <div class='container'>
           <table border='1'>
             <tr id='table'>
-              <th id='res'>Nome Coloaborador(a)</th>
-              <th id='res'>Empresa/Filial</th>
-              <th id='res'>Cargo</th>
-              <th id='res'>Data Admissão</th>
-              <th id='res'>Vcto.contrato 90dd</th>
+              <th id='camp'>Nome Coloaborador(a)</th>
+              <th id='camp'>Empresa/Filial</th>
+              <th id='camp'>Cargo</th>
+              <th id='camp'>Data Admissão</th>
+              <th id='camp'>Vcto.contrato 90dd</th>
             </tr>
             <tr id='table01'>
               <td><strong class='sublinhe'><?= $funcionario['NOME'] ?></strong></td>
