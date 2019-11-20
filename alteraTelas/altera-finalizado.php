@@ -19,5 +19,5 @@ else
     $msg = mysqli_error($conn);
     include("../telas/naoSalvo.php");
 }
-header("Refresh:1; url=../telas/menuPrincipal.php");
+header("Refresh:1; url=../telas/Index.php");
 ?>

@@ -33,7 +33,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio' href='../telas/menuPrincipal.php'>Início</a>
+            <a class='nav inicio' href='../telas/index.php'>Início</a>
         </nav>
     </header>
     <main>
