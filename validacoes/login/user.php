@@ -2,7 +2,9 @@
 session_start();
 
 if (!isset($_SESSION['InfoUser'])) {
-  header("location:../login/user/login.php");
+  ?>    
+    <meta http-equiv="refresh" content="0;  url=../login/user/login.php"/>
+<?php 
 }
 
 $InfoUser = $_SESSION['InfoUser'];
