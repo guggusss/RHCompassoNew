@@ -406,28 +406,9 @@ if (isset($_POST['botao'])) {
                         <div>
                             <label for="data_admissao">Data de Admissão</label>
                             <input type="date" id="data_admissao" name="data_admissao" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Data Admissão" />
-                        </div>
-                        <div>
-                            <label for="vencimento">Data Venc. Efetivação 45dias</label>
-                            <input type="date" id='vencimento' name="vencimento" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Data Vencimento" />
+                        </div>                       
 
-                        </div>
-                        <div>
-                            <label for="vencimentos">Data Venc. Efetivação 90 dias</label>
-                            <input type="date" id='vencimentos' name="vencimentos" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Data Vencimentos" />
-                        </div>
-
-                        <div>
-                            <label for="envio_solicitante45">Envio Solicitante 45 dias</label>
-                            <input type="date" id='envio_solicitante45' name="envio_solicitante45" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Envio Solicitante" />
-                        </div>
-
-                        <div>
-                            <label for="envio_solicitante90">Envio Solicitante 90 dias</label>
-                            <input type="date" id='envio_solicitante90' name="envio_solicitante90" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Envio Solicitantes" />
-                        </div>
-
-                        <h2>Tela 5 - Documentação</h2>
+                        <h2>Tela 4 - Documentação</h2>
                         <div>
                             <label for="formularios_enviados">Formulários Enviados</label>
                             <input type="date" id='formularios_enviados' name="formularios_enviados" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Formulários Enviados" />
@@ -448,7 +429,7 @@ if (isset($_POST['botao'])) {
                             <input type="date" id='r' name="ctps" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="CTPS" />
                             <input type="checkbox" name="ctps_check" value="NULL" />Vazio
                         </div>
-                        <h2>Tela 6 - Admissão</h2>
+                        <h2>Tela 5 - Admissão</h2>
                         <div>
                             <label for="qualific">Qualificação Cadastral e CEP</label>
                             <input type="date" id='qualific' name="qualific" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Qualificação Cadastral e CEP" />
@@ -474,7 +455,7 @@ if (isset($_POST['botao'])) {
                             <input type="date" id='inclui_adm' name="inclui_adm" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Incluir Admissão na Provisória" />
                             <input type="checkbox" name="inclui_adm_check" value="NULL" />Vazio
                         </div>
-                        <h2>Tela 7 - Exame</h2>
+                        <h2>Tela 6 - Exame</h2>
                         <div>
                             <label for="agendamento_exam">Agendamento</label>
                             <input type="date" id='agendamento_exam' name="agendamento_exam" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Agendamento" />
@@ -495,7 +476,7 @@ if (isset($_POST['botao'])) {
                             <input type="date" id='anexar_aso' name="anexar_aso" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Anexar ASO assinado na Domínio" />
                             <input type="checkbox" name="anexar_aso_check" value="NULL" />Vazio
                         </div>
-                        <h2>Tela 8 - Dados Bancários</h2>
+                        <h2>Tela 7 - Dados Bancários</h2>
                         <div>
                             <label for="envio">Envio</label>
                             <input type="date" id='envio' name="envio" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Envio" />
@@ -521,7 +502,7 @@ if (isset($_POST['botao'])) {
                             <input type="date" id='form_compro' name="form_compro" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Formulário + Comprovante Bancário" />
                             <input type="checkbox" name="form_compro_check" value="NULL" />Vazio
                         </div>
-                        <h2>Tela 10 - Interno</h2>
+                        <h2>Tela 9 - Interno</h2>
                         <div>
                             <label for="intra_data">Intranet - Cadastro Usuário</label>
                             <input type="date" id='intra_data' name="intra_data" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Intranet - Cadastro Usuário" />
@@ -552,7 +533,7 @@ if (isset($_POST['botao'])) {
                             <input type="date" id='acessos' name="acessos" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Acessos" />
                             <input type="checkbox" name="acessos_check" value="NULL" />Vazio
                         </div>
-                        <h2>Tela 11 - Vias documentos</h2>
+                        <h2>Tela 10 - Vias documentos</h2>
                         <div>
                             <label for="cracha_pedido">Data do pedido do crachá</label>
                             <input type="date" id='cracha_pedido' name="cracha_pedido" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Data do pedido do crachá" />
@@ -587,6 +568,26 @@ if (isset($_POST['botao'])) {
                             <label for="assinados">Recebido após assinatura Escanear Docs e Salvar na Pasta</label>
                             <input type="date" id='assinados' name="assinados" class="filtrosContrarios form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Recebido após assinatura Escanear Docs e Salvar na Pasta" />
                             <input type="checkbox" name="assinados_check" value="NULL" />Vazio
+                        </div>
+                        <h2>Tela 12 - Vencimentos Contratos</h2>
+                        <div>
+                            <label for="vencimento">Data Venc. Efetivação 45dias</label>
+                            <input type="date" id='vencimento' name="vencimento" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Data Vencimento" />
+
+                        </div>
+                        <div>
+                            <label for="vencimentos">Data Venc. Efetivação 90 dias</label>
+                            <input type="date" id='vencimentos' name="vencimentos" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Data Vencimentos" />
+                        </div>
+
+                        <div>
+                            <label for="envio_solicitante45">Envio Solicitante 45 dias</label>
+                            <input type="date" id='envio_solicitante45' name="envio_solicitante45" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Envio Solicitante" />
+                        </div>
+
+                        <div>
+                            <label for="envio_solicitante90">Envio Solicitante 90 dias</label>
+                            <input type="date" id='envio_solicitante90' name="envio_solicitante90" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Envio Solicitantes" />
                         </div>
                         <input type="submit" name="botao" class="botao btn btn-default btn-xs btn-filter campo-filter" value="Filtrar">
                     </div>
