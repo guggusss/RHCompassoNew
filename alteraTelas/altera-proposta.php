@@ -1,6 +1,7 @@
 <?php
 include("../db/conexao.php");
 include("../update.php");
+include("../static/php/RemoveMascAndFormatDate.php");
 $DATA = date_create();
 $DATA_HOJE = date_format($DATA, 'y-m-d');
 session_start();

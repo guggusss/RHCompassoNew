@@ -5,6 +5,7 @@ include("../db/conexao.php");
 include("../db/serverLDAP.php");
 include("../update.php");
 include("../emails/defineNomeDoGrupoDeEmail.php");
+include("../static/php/RemoveMascAndFormatDate.php");
 
 
 
