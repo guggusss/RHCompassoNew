@@ -18,7 +18,11 @@ ldap_set_option($link, LDAP_OPT_PROTOCOL_VERSION, 3);
 ldap_set_option($link, LDAP_OPT_REFERRALS, 0);
 
 $r = @ldap_bind($link, $usuario . '@' . $dominio, $senha);
-$usuario="jessica.ferreira";
+
+if (!$r) {
+    header("Location:./login.php?erro=fail");
+}
+
 $filtro = "(samaccountname=" . $usuario . ")";
 $justthese = array("*");
 $res = ldap_search($link, "dc=pampa,dc=compasso", $filtro, $justthese);
