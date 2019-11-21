@@ -54,7 +54,11 @@ if ($execQuery == "") {
 	<h1 class="text-danger">Ocorreu um erro ao salvar. E-Mail já cadastrado e/ou nome com caracteres inválidos.</h1>
 <?php
 } else {
-	header("Location: telas/Index.php");
+	?>    
+    <meta http-equiv="refresh" content="0;  url=telas/menuPrincipal.php"/>
+<?php 
+	
 }
-header("Refresh:3; telas/Index.php");
-?>
+?>    
+    <meta http-equiv="refresh" content="1;  url=telas/menuPrincipal.php"/>
+<?php 

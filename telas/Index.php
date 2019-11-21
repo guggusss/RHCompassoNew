@@ -6,11 +6,16 @@ include("../static/php/RemoveMascAndFormatDate.php");
 $listar = listar($conn);
 //if ($_GET['botaoLimpar']=='Limpar') {
 if (isset($_POST['botaoVolta'])) {
-    header('Location: Index.php');
+    ?>    
+    <meta http-equiv="refresh" content="0;  url=Index.php"/>
+<?php 
+    
 }
 //if ($_GET['botao']=='Filtrar') {
 if (isset($_POST['botaoVolta'])) {
-    header('Location: Index.php');
+    ?>    
+    <meta http-equiv="refresh" content="0;  url=Index.php"/>
+<?php
 }
 //if ($_GET['botao']=='Filtrar') {
 if (isset($_POST['botao'])) {
