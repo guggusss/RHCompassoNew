@@ -20,7 +20,7 @@ ldap_set_option($link, LDAP_OPT_PROTOCOL_VERSION, 3);
 // Usara as referencias do servidor AD, neste caso nao
 ldap_set_option($link, LDAP_OPT_REFERRALS, 0);
 
-$r = @ldap_bind($link, $usuario . '@' . $dominio, $senha) or die("Usuário ou senha Inválido");
+$r = @ldap_bind($link, $usuario . '@' . $dominio, $senha) or die (header("location:./login.php"));
 
 if(!$r) {
 ?>    
