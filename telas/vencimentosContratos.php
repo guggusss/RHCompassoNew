@@ -73,7 +73,7 @@ $translado = buscasuporte($conn, $id);
 <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio' href='menuPrincipal.php'>Início</a>
+            <a class='nav inicio' href='Index.php'>Início</a>
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
@@ -136,7 +136,7 @@ $translado = buscasuporte($conn, $id);
                 <div class="stepwizard">
                     <div class="passos stepwizard-row1 setup-panel">
                         <div class="stepwizard-step col-md-auto">
-                            <a title="Menu Principal" href="menuPrincipal.php?id=<?= $id ?>" type="button" class="btn btn-default btn-circle">1</a>
+                            <a title="Menu Principal" href="Index.php?id=<?= $id ?>" type="button" class="btn btn-default btn-circle">1</a>
                         </div>
                         <div title="Proposta de Contratação" class="stepwizard-step col-md-auto">
                             <a href="funcionario.php?id=<?= $id ?>" type="button" class="btn btn-default btn-circle">2</a>
