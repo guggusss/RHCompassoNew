@@ -202,7 +202,7 @@ $translado = buscasuporte($conn, $id);
                     <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-documentacao.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="FORMULARIOS_ENVIADOS" value=<?= $formEnv['FORMULARIOS_ENVIADOS'] ?>></td>
                             <td><input type="date" id="campo2" class='intable' name="FORMULARIOS_RECEBIDOS" value=<?= $formRec['FORMULARIOS_RECEBIDOS'] ?>></td>

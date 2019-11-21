@@ -181,12 +181,12 @@ $emailsoli = buscavias($conn, $id);
                     <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-exame.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
-                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="AGENDAMENTO_EXAM_ADM" value="<?= $agend['AGENDAMENTO_EXAM_ADM'] ?>"></td>
-                            <td><input type="date" id="campo2" class='intable' name="ENVIO_FUNC_EXAME" value="<?= $envio['ENVIO_FUNC_EXAME'] ?>"></td>
-                            <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM" value="<?= $email['EMAIL_RECEBIDO_EXAM'] ?>"></td>
-                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value="<?= $rows_dados['COMENTARIO'] ?>"></td>
+                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
+                            <td><input class='intable' readonly name="STATUS" value=<?= $status['STATUS'] ?>></td>
+                            <td><input type='date' id="campo" class='intable' name="AGENDAMENTO_EXAM_ADM" value=<?= $agend['AGENDAMENTO_EXAM_ADM'] ?>></td>
+                            <td><input type="date" id="campo2" class='intable' name="ENVIO_FUNC_EXAME" value=<?= $envio['ENVIO_FUNC_EXAME'] ?>></td>
+                            <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM" value=<?= $email['EMAIL_RECEBIDO_EXAM'] ?>></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value=<?= $rows_dados['COMENTARIO'] ?>></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
