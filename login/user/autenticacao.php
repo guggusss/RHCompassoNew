@@ -1,6 +1,5 @@
 <?php
 require_once('../../db/serverLDAP.php');
-require_once('../../db/conexao.php');
 session_start();
 
 $usuario = $_POST['usuario'];
@@ -19,60 +18,14 @@ ldap_set_option($link, LDAP_OPT_REFERRALS, 0);
 
 $r = @ldap_bind($link, $usuario . '@' . $dominio, $senha);
 
+if (!$r) {
+    header("Location:./login.php?erro=fail");
+}
+
 $filtro = "(samaccountname=" . $usuario . ")";
 $justthese = array("*");
 $res = ldap_search($link, "dc=pampa,dc=compasso", $filtro, $justthese);
 $saida = ldap_get_entries($link, $res);
-$nomeGrupo = null;
-
-if ($saida['count'] > 0) {
-    $groupPerfil = isValidPerfilAllAccess($saida);
-    if($groupPerfil != false){
-        $_SESSION["InfoUser"] = $saida;
-        $_SESSION["grupo"] = $groupPerfil;
-        
-        header("location:../../telas/Index.php");
-    } else{
-        $groupPerfil = isRH($saida);
-        if ($groupPerfil) {
-            $_SESSION["InfoUser"] = $saida;
-            $_SESSION["grupo"] = $groupPerfil;
-            
-            header("location:../../telas/Index.php");
-        } else{
-            $groupPerfil = isGestor($saida);
-            if($groupPerfil){
-                $_SESSION["InfoUser"] = $saida;
-                $_SESSION["grupo"] = $groupPerfil;
-                
-                header("location:../../telas/Index.php");
-            }else{
-                $groupPerfil = isSuporteInterno($saida);
-                if($groupPerfil){
-                    $_SESSION["InfoUser"] = $saida;
-                    $_SESSION["grupo"] = $groupPerfil;
-                    
-                    header("location:../../telas/Index.php"); 
-                }else{
-                    $groupPerfil = isApoioSede($saida);
-                    if($groupPerfil){
-                        $_SESSION["InfoUser"] = $saida;
-                        $_SESSION["grupo"] = $groupPerfil;
-                        
-                        header("location:../../telas/Index.php"); 
-                    }
-                    else {
-                        ldap_close($link);
-                        header("Location:./login.php?erro=fail");
-                    }
-                }
-            }
-        }
-    }
- } else {
-    ldap_close($link);
-    header("Location:./login.php?erro=fail");
-}
 
 function isValidPerfilAllAccess($saida)
 {
@@ -143,6 +96,55 @@ function isApoioSede($saida){
         }
     }
     return false;
+}
+
+if ($saida['count'] > 0) {
+    $groupPerfil = isValidPerfilAllAccess($saida);
+    if($groupPerfil != false){
+        $_SESSION["InfoUser"] = $saida;
+        $_SESSION["grupo"] = $groupPerfil;
+        
+        header("location:../../telas/Index.php");
+    } else{
+        $groupPerfil = isRH($saida);
+        if ($groupPerfil) {
+            $_SESSION["InfoUser"] = $saida;
+            $_SESSION["grupo"] = $groupPerfil;
+            
+            header("location:../../telas/Index.php");
+        } else{
+            $groupPerfil = isGestor($saida);
+            if($groupPerfil){
+                $_SESSION["InfoUser"] = $saida;
+                $_SESSION["grupo"] = $groupPerfil;
+                
+                header("location:../../telas/Index.php");
+            }else{
+                $groupPerfil = isSuporteInterno($saida);
+                if($groupPerfil){
+                    $_SESSION["InfoUser"] = $saida;
+                    $_SESSION["grupo"] = $groupPerfil;
+                    
+                    header("location:../../telas/Index.php"); 
+                }else{
+                    $groupPerfil = isApoioSede($saida);
+                    if($groupPerfil){
+                        $_SESSION["InfoUser"] = $saida;
+                        $_SESSION["grupo"] = $groupPerfil;
+                        
+                        header("location:../../telas/Index.php"); 
+                    }
+                    else {
+                        ldap_close($link);
+                        header("Location:./login.php?erro=fail");
+                    }
+                }
+            }
+        }
+    }
+ } else {
+    ldap_close($link);
+    header("Location:./login.php?erro=fail");
 }
 
 $_SESSION['usuario'] = $usuario;
