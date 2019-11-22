@@ -38,4 +38,4 @@ if (funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HOR
 }
 //header("Refresh:1; url=../telas/Index.php");
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/Index.php?id=<?php echo $id ?>"/>
+<meta http-equiv="refresh" content="1;  url=../telas/Index.php"/>
