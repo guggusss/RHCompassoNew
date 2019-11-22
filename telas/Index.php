@@ -571,23 +571,20 @@ if (isset($_POST['botao'])) {
                         </div>
                         <h2>Tela 12 - Vencimentos Contratos</h2>
                         <div>
-                            <label for="vencimento">Data Venc. Efetivação 45dias</label>
+                            <label for="envio_solicitante45">Envio Solicitante 45 dias</label>
+                            <input type="date" id='envio_solicitante45' name="envio_solicitante45" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Envio Solicitante" />
+                        </div>                        
+                        <div>
+                            <label for="vencimento">Data Venc. Efetivação 45 dias</label>
                             <input type="date" id='vencimento' name="vencimento" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Data Vencimento" />
-
+                        </div>
+                        <div>
+                            <label for="envio_solicitante90">Envio Solicitante 90 dias</label>
+                            <input type="date" id='envio_solicitante90' name="envio_solicitante90" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Envio Solicitantes" />
                         </div>
                         <div>
                             <label for="vencimentos">Data Venc. Efetivação 90 dias</label>
                             <input type="date" id='vencimentos' name="vencimentos" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Data Vencimentos" />
-                        </div>
-
-                        <div>
-                            <label for="envio_solicitante45">Envio Solicitante 45 dias</label>
-                            <input type="date" id='envio_solicitante45' name="envio_solicitante45" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Envio Solicitante" />
-                        </div>
-
-                        <div>
-                            <label for="envio_solicitante90">Envio Solicitante 90 dias</label>
-                            <input type="date" id='envio_solicitante90' name="envio_solicitante90" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Envio Solicitantes" />
                         </div>
                         <input type="submit" name="botao" class="botao btn btn-default btn-xs btn-filter campo-filter" value="Filtrar">
                     </div>
