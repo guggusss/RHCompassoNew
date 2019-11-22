@@ -34,4 +34,4 @@ else
 
 //header("Refresh:1; url=../telas/Index.php");
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/Index.php?id=<?php echo $id ?>"/>
+<meta http-equiv="refresh" content="1;  url=../telas/Index.php"/>
