@@ -27,9 +27,7 @@ $ADMINISTRATIVO = $_POST['ADMINISTRATIVO'];
 $COMENTARIOS = $_POST['COMENTARIOS'];
 $REMUNERACAO_BASE = str_replace(',', '.', preg_replace('#[^\d\,]#is', '', $REMUNERACAO_BASE));
 $GRATIFICACAO = str_replace(',', '.', preg_replace('#[^\d\,]#is', '', $GRATIFICACAO));
-if(empty($ID_USUARIO)) {
-    $ID_USUARIO = "0001-01-01";
-}
+
 if(empty($LOG_REGISTRO_DIA_RH_ENVIA_DP)) {
     $LOG_REGISTRO_DIA_RH_ENVIA_DP = "0001-01-01";
 }if(empty($DATA_ADMISSAO)) {

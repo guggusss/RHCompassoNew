@@ -14,9 +14,7 @@ $AGENCIA = $_POST['AGENCIA'];
 $NUMERO_CONTA = $_POST['NUMERO_CONTA'];
 $TIPO_CONTA = $_POST['TIPO_CONTA'];
 
-if(empty($ID_USUARIO)) {
-    $ID_USUARIO = "0001-01-01";
-}
+
 if(empty($ENVIO)) {
     $ENVIO = "0001-01-01";
 }
@@ -29,15 +27,9 @@ if(empty($PLANILHA_CONTAS)) {
 if(empty($FORM_COMPR_BANCARIO)) {
     $FORM_COMPR_BANCARIO = "0001-01-01";
 }
-if(empty($AGENCIA)) {
-    $AGENCIA = "0001-01-01";
-}
-if(empty($NUMERO_CONTA)) {
-    $NUMERO_CONTA = "0001-01-01";
-}
-if(empty($TIPO_CONTA)) {
-    $TIPO_CONTA = "0001-01-01";
-}
+
+
+
 
 
 
