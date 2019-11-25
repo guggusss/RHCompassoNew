@@ -228,16 +228,16 @@ $translado = buscasuporte($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
         window.onload = function verifica() {
-            if (document.getElementById("campo").value == "") {
+            if (document.getElementById("campo").value == "0001-01-01") {
                 $("#data").addClass("dataVazia");
             }
-            if (document.getElementById("campo2").value == "") {
+            if (document.getElementById("campo2").value == "0001-01-01") {
                 $("#data2").addClass("dataVazia");
             }
-            if (document.getElementById("campo3").value == "") {
+            if (document.getElementById("campo3").value == "0001-01-01") {
                 $("#data3").addClass("dataVazia");
             }
-            if (document.getElementById("campo4").value == "") {
+            if (document.getElementById("campo4").value == "0001-01-01") {
                 $("#data4").addClass("dataVazia");
             }
         }

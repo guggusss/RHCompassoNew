@@ -21,6 +21,5 @@ else
     $msg = mysqli_error($conn);
     include("../telas/naoSalvo.php");
 }
-//header("Refresh:1; url=../telas/vencimentosContratos.php?id=$id");
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/vencimentosContratos.php?id=<?php echo $id ?>"/>

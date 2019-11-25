@@ -12,6 +12,20 @@ $DOCUMENTOS_FISICOS = $_POST['DOCUMENTOS_FISICOS'];
 $CTPS_RECEBIDA = $_POST['CTPS_RECEBIDA'];
 $COMENTARIO = $_POST['COMENTARIO'];
 
+if(empty($ID_USUARIO)) {
+    $ID_USUARIO = "0001-01-01";
+}
+if(empty($FORMULARIOS_ENVIADOS)) {
+    $ID_USFORMULARIOS_ENVIADOSUARIO = "0001-01-01";
+}if(empty($FORMULARIOS_RECEBIDOS)) {
+    $FORMULARIOS_RECEBIDOS = "0001-01-01";
+}if(empty($DOCUMENTOS_FISICOS)) {
+    $DOCUMENTOS_FISICOS = "0001-01-01";
+}if(empty($CTPS_RECEBIDA)) {
+    $CTPS_RECEBIDA = "0001-01-01";
+}if(empty($COMENTARIO)) {
+    $COMENTARIO = "0001-01-01";
+}
 
 if (Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDOS, $DOCUMENTOS_FISICOS, $CTPS_RECEBIDA, $COMENTARIO)) {
     
@@ -22,6 +36,5 @@ else
     $msg = mysqli_error($conn);
     include("../telas/naoSalvo.php");
 }
-//header("Refresh:1; url=../telas/documentacao.php?id=$id");
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/documentacao.php?id=<?php echo $id ?>"/>
