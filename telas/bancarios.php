@@ -207,8 +207,8 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="date" id="campo2" class='intable' name="RECEBIDO" value=<?= $recebido['RECEBIDO'] ?>></td>
                             <td><input type="date" id="campo4" class='intable' name="PLANILHA_CONTAS" value=<?= $planilha['PLANILHA_CONTAS'] ?>></td>
                             <td><input type="date" id="campo5" class='intable' name="FORM_COMPR_BANCARIO" value=<?= $form['FORM_COMPR_BANCARIO'] ?>></td>
-                            <td><input type="text" class='intable' name="AGENCIA" value=<?= $agencia['AGENCIA'] ?> maxlength="4"></td>
-                            <td><input type="text" class='intable' name="NUMERO_CONTA" value=<?= $numero_conta['NUMERO_CONTA'] ?> maxlength="9"></td>
+                            <td><input type="text" class='intable' name="AGENCIA" value="<?= $agencia['AGENCIA']?>" maxlength="4"></td>
+                            <td><input type="text" class='intable' name="NUMERO_CONTA" value="<?= $numero_conta['NUMERO_CONTA']?>" maxlength="9"></td>
                             <td><select name="TIPO_CONTA" class="intable" value=<?= $tipo_conta['TIPO_CONTA'] ?>>
                                     <option value="" selected="selected"></option>
                                     <option>Corrente</option>
