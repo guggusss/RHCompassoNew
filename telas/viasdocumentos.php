@@ -225,28 +225,28 @@ $docreceb = buscavias($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
         window.onload = function verifica() {
-            if (document.getElementById("campo").value == "") {
+            if (document.getElementById("campo").value == "0001-01-01") {
                 $("#data").addClass("dataVazia");
             }
-            if (document.getElementById("campo2").value == "") {
+            if (document.getElementById("campo2").value == "0001-01-01") {
                 $("#data2").addClass("dataVazia");
             }
-            if (document.getElementById("campo3").value == "") {
+            if (document.getElementById("campo3").value == "0001-01-01") {
                 $("#data3").addClass("dataVazia");
             }
-            if (document.getElementById("campo4").value == "") {
+            if (document.getElementById("campo4").value == "0001-01-01") {
                 $("#data4").addClass("dataVazia");
             }
-            if (document.getElementById("campo5").value == "") {
+            if (document.getElementById("campo5").value == "0001-01-01") {
                 $("#data5").addClass("dataVazia");
             }
-            if (document.getElementById("campo6").value == "") {
+            if (document.getElementById("campo6").value == "0001-01-01") {
                 $("#data6").addClass("dataVazia");
             }
-            if (document.getElementById("campo7").value == "") {
+            if (document.getElementById("campo7").value == "0001-01-01") {
                 $("#data7").addClass("dataVazia");
             }
-            if (document.getElementById("campo8").value == "") {
+            if (document.getElementById("campo8").value == "0001-01-01") {
                 $("#data8").addClass("dataVazia");
             }
         }

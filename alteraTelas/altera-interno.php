@@ -14,6 +14,25 @@ $EMAIL_INICIO_ATIVIDADES = $_POST['EMAIL_INICIO_ATIVIDADES'];
 $EMAIL_BOAS_VINDAS = $_POST['EMAIL_BOAS_VINDAS'];
 $ACESSOS = $_POST['ACESSOS'];
 
+
+if(empty($INTRANET_CADASTRO_USUARIO)) {
+    $INTRANET_CADASTRO_USUARIO = "0001-01-01";
+}
+if(empty($KAIROS_CADASTRO_USUARIO)) {
+    $KAIROS_CADASTRO_USUARIO = "0001-01-01";
+}
+if(empty($EMAIL_GESTOR_APOIO_SEDE)) {
+    $EMAIL_GESTOR_APOIO_SEDE = "0001-01-01";
+}
+if(empty($EMAIL_INICIO_ATIVIDADES)) {
+    $EMAIL_INICIO_ATIVIDADES = "0001-01-01";
+}
+if(empty($EMAIL_BOAS_VINDAS)) {
+    $EMAIL_BOAS_VINDAS = "0001-01-01";
+}
+if(empty($ACESSOS)) {
+    $ACESSOS = "0001-01-01";
+}
 if (interno($conn, $ID_USUARIO, $INTRANET_CADASTRO_USUARIO, $INTRANET_CADASTRO_SENHA, $KAIROS_CADASTRO_USUARIO, $KAIROS_CADASTRO_SENHA, $EMAIL_GESTOR_APOIO_SEDE, $EMAIL_INICIO_ATIVIDADES, $EMAIL_BOAS_VINDAS, $ACESSOS)) {
     
     include("../telas/salvoSucesso.php");
@@ -23,6 +42,5 @@ else
     $msg = mysqli_error($conn);
     include("../telas/naoSalvo.php");
 }
-//header("Refresh:1; url=../telas/interno.php?id=$id");
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/interno.php?id=<?php echo $id ?>"/>

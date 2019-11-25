@@ -21,6 +21,5 @@ else
     include("../telas/naoSalvo.php");
 }
 
-//header("Refresh:1; url=../telas/gestao.php?id=$id");
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/gestao.php?id=<?php echo $id ?>"/>
