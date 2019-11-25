@@ -232,15 +232,7 @@ $campoV = 'class="txtVazio" ';
             if (!variavel == "") {
                 $("#botao3, #botao4, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);
             }
-            if (document.getElementById("campo").value == "0001-01-01") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "0001-01-01") {
-                $("#data2").addClass("dataVazia");
-            }
-            if (document.getElementById("campo3").value == "0001-01-01") {
-                $("#data3").addClass("dataVazia");
-            }
+            
         }
     </script>
     <script src='../js/desabilitaStepWizard.js'></script>

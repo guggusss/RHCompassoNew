@@ -227,22 +227,7 @@ $campoV = 'class="txtVazio" ';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-    <script>
-        window.onload = function verifica() {
-            if (document.getElementById("campo").value == "0001-01-01") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "0001-01-01") {
-                $("#data2").addClass("dataVazia");
-            }
-            if (document.getElementById("campo3").value == "0001-01-01") {
-                $("#data3").addClass("dataVazia");
-            }
-            if (document.getElementById("campo4").value == "0001-01-01") {
-                $("#data4").addClass("dataVazia");
-            }
-        }
-    </script>
+
 </body>
 
 </html>

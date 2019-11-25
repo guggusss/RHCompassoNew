@@ -2,16 +2,11 @@
 require_once('../../db/serverLDAP.php');
 require_once('../../db/conexao.php');
 session_start();
-
 $usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
 
-if ($usuario == NULL || $senha == NULL) {
-
-?>    
-    <meta http-equiv="refresh" content="1;  url=./login.php?erro=fail"/>
-<?php
-}
+if ($usuario == NULL || $senha == NULL) 
+{ ?><meta http-equiv="refresh" content="1;  url=./login.php?erro=fail"/><?php }
 
 $dominio = "pampa.compasso";
 
@@ -22,11 +17,9 @@ ldap_set_option($link, LDAP_OPT_REFERRALS, 0);
 
 $r = @ldap_bind($link, $usuario . '@' . $dominio, $senha) or die (header("location:./login.php?erro=fail"));
 
-if(!$r) {
-?>    
-    <meta http-equiv="refresh" content="1;  url=./login.php?erro=fail"/>
-<?php
-}
+if(!$r) 
+{ ?><meta http-equiv="refresh" content="1;  url=./login.php?erro=fail"/><?php }
+
 $filtro = "(samaccountname=" . $usuario . ")";
 $justthese = array("*");
 $res = ldap_search($link, "dc=pampa,dc=compasso", $filtro, $justthese) or die (header("location:./login.php?erro=fail"));
@@ -38,51 +31,39 @@ if ($saida['count'] > 0) {
     if($groupPerfil != false){
         $_SESSION["InfoUser"] = $saida;
         $_SESSION["grupo"] = $groupPerfil;
-?>    
-    <meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/>
-<?php       
+            ?><meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/><?php    
+
     } else{
         $groupPerfil = isRH($saida);
         if ($groupPerfil) {
             $_SESSION["InfoUser"] = $saida;
             $_SESSION["grupo"] = $groupPerfil;
-            
-            ?>    
-            <meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/>
-        <?php 
+            ?><meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/><?php 
+
         } else{
             $groupPerfil = isGestor($saida);
             if($groupPerfil){
                 $_SESSION["InfoUser"] = $saida;
                 $_SESSION["grupo"] = $groupPerfil;
-                
-?>    
-    <meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/>
-<?php 
+            ?><meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/><?php 
+
             }else{
                 $groupPerfil = isSuporteInterno($saida);
                 if($groupPerfil){
                     $_SESSION["InfoUser"] = $saida;
                     $_SESSION["grupo"] = $groupPerfil;
-                    
-                    ?>    
-                    <meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/>
-                <?php 
+                    ?><meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/><?php 
+
                 }else{
                     $groupPerfil = isApoioSede($saida);
                     if($groupPerfil){
                         $_SESSION["InfoUser"] = $saida;
-                        $_SESSION["grupo"] = $groupPerfil;
-                        
-?>    
-    <meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/>
-<?php  
-                    }
-                    else {
+                        $_SESSION["grupo"] = $groupPerfil;                        
+                        ?><meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/><?php  
+
+                    }else {
                         ldap_close($link);
-?>    
-    <meta http-equiv="refresh" content="1;  url=./login.php?erro=fail"/>
-<?php
+                        ?><meta http-equiv="refresh" content="1;  url=./login.php?erro=fail"/><?php
                     }
                 }
             }
