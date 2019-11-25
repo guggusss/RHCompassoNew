@@ -239,8 +239,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="text" class='intable' name="SENHA" id="jogaSenha" value="<?= $senha['SENHA'] ?>"></td>
                             <td><input type="text" class='intable' name="EQUIPAMENTO" value="<?= $equipamento['EQUIPAMENTO'] ?>"></td>
                             <td><input type="text" class='intable' name="TRANSLADO" id="campo"  value="<?= $translado['TRANSLADO'] ?>"></td>
-                            <td><select multiple"" onclick="anexaGrupo()" class="intable" name="EQUIPE[]" id="books"  value="<?= $anexar_equipe['EQUIPE'] ?>"></select></td>
-
+                            <td><select multiple"" onclick="anexaGrupo()" class="intable" name="EQUIPE[]" id="books"></select></td>
                             <td><input type="button" name="botao-ok" value="Gerar senha" onclick="funcao()" id="senhaUsuario"></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
