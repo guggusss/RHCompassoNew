@@ -51,7 +51,7 @@ if ($execQuery == "") {
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/arquivo.css">
 	</head>
-	<h1 class="text-danger">Ocorreu um erro ao salvar. E-Mail já cadastrado e/ou nome com caracteres inválidos.</h1>
+	<h2 class="text-danger">Ocorreu um erro ao salvar. E-Mail já cadastrado e/ou nome com caracteres inválidos.</h2>
 <?php
 } else {
 	?>    

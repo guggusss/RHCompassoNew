@@ -126,7 +126,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                         <?php $GRATIFICACAO = number_format($funcionarios['GRATIFICACAO'], 2, ',', '.'); ?>
                         <td id='add-carga_horaria'><input class='intable' type="text" name="CARGA_HORARIA" value="<?= $funcionarios['CARGA_HORARIA']; ?>"></td>
                         <td id='add-horario'><input class='intable' type="text" name="HORARIO" value="<?= $funcionarios['HORARIO']; ?>"></td>
-                        <td><select name="sexo" class="intable" value="<?= $rows_dados['SEXO'] ?>">
+                        <td><select name="sexo" class="intable" value="<?= $rows_dados['SEXO'] ?>" required>
                                 <option value="" selected="selected"></option>
                                 <option>Não informou</option>
                                 <option>Masculino</option>
