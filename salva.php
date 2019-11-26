@@ -55,10 +55,10 @@ if ($execQuery == "") {
 <?php
 } else {
 	?>    
-    <meta http-equiv="refresh" content="0;  url=telas/index.php"/>
+    <meta http-equiv="refresh" content="0;  url=telas/Index.php"/>
 <?php 
 	
 }
 ?>    
-    <meta http-equiv="refresh" content="1;  url=telas/index.php"/>
+    <meta http-equiv="refresh" content="1;  url=telas/Index.php"/>
 <?php 
