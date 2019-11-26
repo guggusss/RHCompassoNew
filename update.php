@@ -271,7 +271,7 @@
 	function suporte ($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $EQUIPE){
 		// Converte de Array para String:
 		if ($EQUIPE != "") {
-				$STR_EQUIPE = implode(",", $EQUIPE);
+				$STR_EQUIPE = implode(", ", $EQUIPE);
 		}else{
 			$STR_EQUIPE = "";
 		}

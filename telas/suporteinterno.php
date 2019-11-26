@@ -34,6 +34,10 @@ if ($count == 1) {
     $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
+$sede1 = buscaSedeFuncionario($conn, $status['ID_SEDE']);
+$cargo1 = buscaCargoFuncionario($conn, $id, $id);
+$grupDeEmail1 = grupoEmail2($cargo1['CARGO'], $sede1['nome_sede']);
+
 $funcionario = buscaProposta($conn, $id);
 $mail = buscasuporte($conn, $id);
 $usuario = buscasuporte($conn, $id);
@@ -223,7 +227,7 @@ $campoV = 'class="txtVazio" ';
                                     } ?>><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td <?php if ($rows_dados['EQUIPE'] == "") {
                                         echo ($campoV);
-                                    } ?>><?php echo $rows_dados['EQUIPE']; ?></td>
+                                    } ?>><?php echo $grupDeEmail1.$rows_dados['EQUIPE']; ?></td>
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
