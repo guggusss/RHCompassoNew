@@ -75,11 +75,17 @@ if(isset($_POST["export"]))
                             <th></th>
                             <th></th>
                             <th></th>
+                            <th></th>
                             <th colspan="3">1° Alerta Vencimento 45 dias</th>
                             <th colspan="3">1° Alerta Vencimento 90 dias</th>
                             <th colspan="2">E-mail  formulários admissão</th>
                             <th>Documentos Físicos</th>
                             <th>CTPS</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>                            
+                            <th></th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -106,6 +112,7 @@ if(isset($_POST["export"]))
                             <th></th>
                             <th colspan="2">Posição UOL</th>
                             <th colspan="2">E-mail Adm Caderno Compasso</th>
+                            <th></th>
                             <th></th>
                             <th></th>
                             <th colspan="3">Crachá + Cordão + Roller</th>

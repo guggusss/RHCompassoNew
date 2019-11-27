@@ -4,10 +4,7 @@ $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $output = '';
 if(isset($_POST["export"]))
 {
- $query = "SELECT ID_USUARIO, EMAIL_SUP,
-            USUARIO, SENHA, EQUIPE,
-            EQUIPAMENTO, TRANSLADO
-            STATUS, PROJETO, NOME
+ $query = "SELECT ID_USUARIO, EMAIL_SUP, USUARIO, SENHA, EQUIPE, EQUIPAMENTO, TRANSLADO, STATUS, PROJETO, NOME, USUARIO_ATV
             from suporte_interno as p
             LEFT JOIN admissao_dominio as a
             on p.ID_USUARIO = a.USUARIO_ID
