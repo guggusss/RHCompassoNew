@@ -31,35 +31,35 @@ if ($saida['count'] > 0) {
     if($groupPerfil != false){
         $_SESSION["InfoUser"] = $saida;
         $_SESSION["grupo"] = $groupPerfil;
-            ?><meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/><?php    
+            ?><meta http-equiv="refresh" content="1;  url=../../telas/index.php"/><?php    
 
     } else{
         $groupPerfil = isRH($saida);
         if ($groupPerfil) {
             $_SESSION["InfoUser"] = $saida;
             $_SESSION["grupo"] = $groupPerfil;
-            ?><meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/><?php 
+            ?><meta http-equiv="refresh" content="1;  url=../../telas/index.php"/><?php 
 
         } else{
             $groupPerfil = isGestor($saida);
             if($groupPerfil){
                 $_SESSION["InfoUser"] = $saida;
                 $_SESSION["grupo"] = $groupPerfil;
-            ?><meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/><?php 
+            ?><meta http-equiv="refresh" content="1;  url=../../telas/index.php"/><?php 
 
             }else{
                 $groupPerfil = isSuporteInterno($saida);
                 if($groupPerfil){
                     $_SESSION["InfoUser"] = $saida;
                     $_SESSION["grupo"] = $groupPerfil;
-                    ?><meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/><?php 
+                    ?><meta http-equiv="refresh" content="1;  url=../../telas/index.php"/><?php 
 
                 }else{
                     $groupPerfil = isApoioSede($saida);
                     if($groupPerfil){
                         $_SESSION["InfoUser"] = $saida;
                         $_SESSION["grupo"] = $groupPerfil;                        
-                        ?><meta http-equiv="refresh" content="1;  url=../../telas/Index.php"/><?php  
+                        ?><meta http-equiv="refresh" content="1;  url=../../telas/index.php"/><?php  
 
                     }else {
                         ldap_close($link);

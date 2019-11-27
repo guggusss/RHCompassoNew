@@ -43,4 +43,4 @@ if (funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HOR
     include("../telas/naoSalvo.php");
 }
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/Index.php"/>
+<meta http-equiv="refresh" content="1;  url=../telas/index.php"/>

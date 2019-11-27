@@ -29,4 +29,4 @@ else {
     include("../telas/naoSalvo.php");   
 }
 ?>
-<meta http-equiv='refresh' content='1;  url=../telas/Index.php'/>
+<meta http-equiv='refresh' content='1;  url=../telas/index.php'/>

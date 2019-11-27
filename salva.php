@@ -55,5 +55,5 @@ if ($execQuery == "") {
 <?php
 }
 ?>    
-    <meta http-equiv="refresh" content="0;  url=telas/Index.php"/>
+    <meta http-equiv="refresh" content="0;  url=telas/index.php"/>
 <?php 

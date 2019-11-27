@@ -7,14 +7,14 @@ $listar = listar($conn);
 //if ($_GET['botaoLimpar']=='Limpar') {
 if (isset($_POST['botaoVolta'])) {
     ?>    
-    <meta http-equiv="refresh" content="0;  url=Index.php"/>
+    <meta http-equiv="refresh" content="0;  url=index.php"/>
 <?php 
     
 }
 //if ($_GET['botao']=='Filtrar') {
 if (isset($_POST['botaoVolta'])) {
     ?>    
-    <meta http-equiv="refresh" content="0;  url=Index.php"/>
+    <meta http-equiv="refresh" content="0;  url=index.php"/>
 <?php
 }
 //if ($_GET['botao']=='Filtrar') {
@@ -327,7 +327,7 @@ if (isset($_POST['botao'])) {
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio' href='Index.php'>Início</a>
+            <a class='nav inicio' href='index.php'>Início</a>
             <a class='nav filter pos'>Filtragem</a>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
@@ -596,7 +596,7 @@ if (isset($_POST['botao'])) {
                 <div class="stepwizard">
                     <div class="passos stepwizard-row setup-panel">
                         <div title="Menu Principal" class="stepwizard-step col-md-auto ">
-                            <a href="Index.php" type="button" class="btn btn-success btn-circle">1</a>
+                            <a href="index.php" type="button" class="btn btn-success btn-circle">1</a>
                         </div>
                         <div title="Proposta de Contratação" class="stepwizard-step col-md-auto">
                             <a href="funcionario.php" type="button" class="btn btn-default btn-circle disabled" disabled>2</a>

@@ -54,7 +54,7 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $d
     echo  "<script>javascript:history.back(-2)</script>";
   } else {
       echo  "<script>alert('Email enviado com sucesso!');</script>";
-      echo "<script>document.location='../telas/Index.php'</script>";
+      echo "<script>document.location='../telas/index.php'</script>";
   }
 }
 enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha, $como);
