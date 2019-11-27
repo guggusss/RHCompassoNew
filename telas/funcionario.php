@@ -80,7 +80,7 @@ $campoV = 'class="txtVazio" ';
                     <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>
                     <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>
                     <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>>'>9. Acessos Liberado</a>
+                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
                 </div>
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
