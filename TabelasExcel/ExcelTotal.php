@@ -76,8 +76,6 @@ if(isset($_POST["export"]))
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th colspan="3">1° Alerta Vencimento 45 dias</th>
-                            <th colspan="3">1° Alerta Vencimento 90 dias</th>
                             <th colspan="2">E-mail  formulários admissão</th>
                             <th>Documentos Físicos</th>
                             <th>CTPS</th>
@@ -117,6 +115,8 @@ if(isset($_POST["export"]))
                             <th></th>
                             <th colspan="3">Crachá + Cordão + Roller</th>
                             <th colspan="5">Boas Vindas Compasso</th>
+                            <th colspan="3">1° Alerta Vencimento 45 dias</th>
+                            <th colspan="3">1° Alerta Vencimento 90 dias</th>
 
                        </tr>
                         <tr>
@@ -152,13 +152,7 @@ if(isset($_POST["export"]))
                             <th>GESTOR SABE?</th>
                             <th>GESTOR LOCAL</th>
                             <th>GESTOR LOCAL SABE?</th>
-                            <th>Quem do projeto receberá a pessoa?</th>
-                            <th>Envio Solicitante</th>
-                            <th>Data vencimento</th>
-                            <th>Renovação</th>
-                            <th>Envio Solicitante</th>
-                            <th>Data Vencimento</th>
-                            <th>Efetivação</th>
+                            <th>Quem do projeto receberá a pessoa?</th>                            
                             <th>Formulários Enviados</th>
                             <th>Formulários Recebidos</th>
                             <th>Cópia RG/CPF/PIS/Titulo  Eleitor/Declaração Oracle/Foto 3x4/Comprovante endereço</th>
@@ -211,6 +205,12 @@ if(isset($_POST["export"]))
                             <th>sala</th>
                             <th>Layot Boas vindas Mensal</th>
                             <th>Survey</th>
+                            <th>Envio Solicitante</th>
+                            <th>Data vencimento</th>
+                            <th>Renovação</th>
+                            <th>Envio Solicitante</th>
+                            <th>Data Vencimento</th>
+                            <th>Efetivação</th>
                         </tr>
         ';
 
