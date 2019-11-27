@@ -13,12 +13,22 @@ $STATUS = 'FINALIZADO';
 
 if (status($conn, $ID_USUARIO, $STATUS)) {
 
-    include("../telas/salvoSucesso.php");
+    echo "<head>
+        <meta charset='UTF-8'>
+        <title>RH Contratações</title>
+        <link rel='stylesheet' href='../css/reset.css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+        <link rel='stylesheet' href='../css/bootstrap.min.css'>
+        <link rel='stylesheet' href='../css/arquivo.css'>
+    </head>
+    <h1 class='text-success'>Finalizado com sucesso!</h1>
+    <meta http-equiv='refresh' content='1;  url=../telas/Index.php'/>";
+
 } 
 else 
 {
     $msg = mysqli_error($conn);
     include("../telas/naoSalvo.php");
+    echo "<meta http-equiv='refresh' content='5;  url=../telas/Index.php'/>";
 }
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/Index.php"/>

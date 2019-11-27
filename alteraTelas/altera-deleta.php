@@ -10,8 +10,7 @@ if (!isset($id)) {
 }
 
 $ID_USUARIO = $id;
-$STATUS = 'EXCLUIDO';
-
+$STATUS = "EXCLUIDO";
 
 if (deleteAD($conn, $ID_USUARIO, $STATUS)) {
     
@@ -23,14 +22,15 @@ if (deleteAD($conn, $ID_USUARIO, $STATUS)) {
         <link rel='stylesheet' href='../css/bootstrap.min.css'>
         <link rel='stylesheet' href='../css/arquivo.css'>
     </head>
-    <h1 class='text-success'>Excluido com sucesso!</h1>";
+    <h1 class='text-success'>Excluido com sucesso!</h1>
+    <meta http-equiv='refresh' content='1;  url=../telas/Index.php'/>";
 
 } 
 else 
 {
     $msg = mysqli_error($conn);
     include("../telas/naoSalvo.php");
+    echo "<meta http-equiv='refresh' content='5;  url=../telas/Index.php'/>";
 }
 
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/Index.php"/>
