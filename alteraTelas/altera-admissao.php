@@ -1,7 +1,6 @@
 <?php
 include("../db/conexao.php");
 include_once("../update.php");
-include("../static/php/RemoveMascAndFormatDate.php");
 session_start();
 $id = $_SESSION['id'];
 

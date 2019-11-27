@@ -1,7 +1,6 @@
 <?php
 include("../db/conexao.php");
 include_once("../update.php");
-include("../static/php/RemoveMascAndFormatDate.php");
 require_once('../validacoes/login/user.php');
 
 $id = $_GET['id'];

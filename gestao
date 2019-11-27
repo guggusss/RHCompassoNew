@@ -69,7 +69,7 @@ Binary files a/Atividades.xlsx and /dev/null differ
    <header class="site-header">[m
            <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">[m
            <nav>[m
-               <a class='nav inicio' href='../telas/menuPrincipal.php'>Início</a>[m
+               <a class='nav inicio' href='../telas/index.php'>Início</a>[m
            </nav>[m
        </header>[m
 [31m-      [m
@@ -13844,35 +13844,35 @@ uporteInterno.js[m
 [32m+[m[32m        $_SESSION["InfoUser"] = $saida;[m
 [32m+[m[32m        $_SESSION["grupo"] = $groupPerfil;[m
 [32m+[m[41m        [m
-[32m+[m[32m        header("location:../../telas/menuPrincipal.php");[m
+[32m+[m[32m        header("location:../../telas/index.php");[m
 [32m+[m[32m    } else{[m
 [32m+[m[32m        $groupPerfil = isRH($saida);[m
 [32m+[m[32m        if ($groupPerfil) {[m
 [32m+[m[32m            $_SESSION["InfoUser"] = $saida;[m
 [32m+[m[32m            $_SESSION["grupo"] = $groupPerfil;[m
 [32m+[m[41m            [m
-[32m+[m[32m            header("location:../../telas/menuPrincipal.php");[m
+[32m+[m[32m            header("location:../../telas/index.php");[m
 [32m+[m[32m        } else{[m
 [32m+[m[32m            $groupPerfil = isGestor($saida);[m
 [32m+[m[32m            if($groupPerfil){[m
 [32m+[m[32m                $_SESSION["InfoUser"] = $saida;[m
 [32m+[m[32m                $_SESSION["grupo"] = $groupPerfil;[m
 [32m+[m[41m                [m
-[32m+[m[32m                header("location:../../telas/menuPrincipal.php");[m
+[32m+[m[32m                header("location:../../telas/index.php");[m
 [32m+[m[32m            }else{[m
 [32m+[m[32m                $groupPerfil = isSuporteInterno($saida);[m
 [32m+[m[32m                if($groupPerfil){[m
 [32m+[m[32m                    $_SESSION["InfoUser"] = $saida;[m
 [32m+[m[32m                    $_SESSION["grupo"] = $groupPerfil;[m
 [32m+[m[41m                    [m
-[32m+[m[32m                    header("location:../../telas/menuPrincipal.php");[m[41m [m
+[32m+[m[32m                    header("location:../../telas/index.php");[m[41m [m
 [32m+[m[32m                }else{[m
 [32m+[m[32m                    $groupPerfil = isApoioSede($saida);[m
 [32m+[m[32m                    if($groupPerfil){[m
 [32m+[m[32m                        $_SESSION["InfoUser"] = $saida;[m
 [32m+[m[32m                        $_SESSION["grupo"] = $groupPerfil;[m
 [32m+[m[41m                        [m
-[32m+[m[32m                        header("location:../../telas/menuPrincipal.php");[m[41m [m
+[32m+[m[32m                        header("location:../../telas/index.php");[m[41m [m
 [32m+[m[32m                    }[m
 [32m+[m[32m                    else {[m
 [32m+[m[32m                        ldap_close($link);[m
@@ -14110,8 +14110,8 @@ uporteInterno.js[m
                  <div class="stepwizard">[m
                      <div class="passos stepwizard-row1 setup-panel">[m
                          <div class="stepwizard-step col-md-auto">[m
-[31m-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
-[32m+[m[32m                            <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
+[31m-                            <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                            <a title="Menu Principal" href="index.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
 [m
                          </div>[m
                          <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
@@ -14379,7 +14379,7 @@ uporteInterno.js[m
 [31m-    <header class="site-header">[m
 [31m-        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">[m
 [31m-        <nav>[m
-[31m-            <a class='nav inicio' href='menuPrincipal.php'>Início</a>[m
+[31m-            <a class='nav inicio' href='index.php'>Início</a>[m
 [31m-            <div class="dropdown">[m
 [31m-            <a class="dropbtn nav">Emails <span class='caret'></span></a>[m
 [31m-            <div class="dropdown-content">[m
@@ -14430,7 +14430,7 @@ uporteInterno.js[m
 [31m-                <div class="stepwizard">[m
 [31m-                    <div class="passos stepwizard-row1 setup-panel">[m
 [31m-                        <div class="stepwizard-step col-md-auto">[m
-[31m-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[31m-                            <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
 [31m-                        </div>[m
 [31m-                        <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
 [31m-                            <a href="funcionario.php" type="button" class="btn btn-default btn-circle" >2</a>[m
@@ -14716,7 +14716,7 @@ uporteInterno.js[m
 [32m+[m[32m    <header class="site-header">[m
 [32m+[m[32m        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">[m
 [32m+[m[32m        <nav>[m
-[32m+[m[32m            <a class='nav inicio' href='menuPrincipal.php'>Início</a>[m
+[32m+[m[32m            <a class='nav inicio' href='index.php'>Início</a>[m
 [32m+[m[32m            <div class="dropdown">[m
 [32m+[m[32m            <a class="dropbtn nav">Emails <span class='caret'></span></a>[m
 [32m+[m[32m            <div class="dropdown-content">[m
@@ -14768,7 +14768,7 @@ uporteInterno.js[m
 [32m+[m[32m            <div class="stepwizard">[m
 [32m+[m[32m                <div class="passos stepwizard-row1 setup-panel">[m
 [32m+[m[32m                    <div class="stepwizard-step col-md-auto">[m
-[32m+[m[32m                        <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                        <a title="Menu Principal" href="index.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m
 [32m+[m[32m                    </div>[m
 [32m+[m[32m                    <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
 [32m+[m[32m                        <a href="funcionario.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle" >2</a>[m
@@ -15047,8 +15047,8 @@ uporteInterno.js[m
                  <div class="stepwizard">[m
                      <div class="passos stepwizard-row1 setup-panel">[m
                          <div class="stepwizard-step col-md-auto">[m
-[31m-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
-[32m+[m[32m                            <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
+[31m-                            <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                            <a title="Menu Principal" href="index.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
 [m
                          </div>[m
                          <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
@@ -15284,8 +15284,8 @@ uporteInterno.js[m
 [32m+[m[32m                    <div class="passos stepwizard-row1 setup-panel">[m[41m
 [m
                              <div class="stepwizard-step col-md-auto">[m
-[31m-                                <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
-[32m+[m[32m                                <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
+[31m-                                <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                                <a title="Menu Principal" href="index.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
 [m
                              </div>[m
                              <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
@@ -15500,8 +15500,8 @@ uporteInterno.js[m
                      <div class="stepwizard">[m
                          <div class="passos stepwizard-row1 setup-panel">[m
                              <div class="stepwizard-step col-md-auto">[m
-[31m-                                <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
-[32m+[m[32m                                <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
+[31m-                                <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                                <a title="Menu Principal" href="index.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
 [m
                              </div>[m
                              <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
@@ -15835,8 +15835,8 @@ uporteInterno.js[m
                  <div class="stepwizard">[m
                      <div class="passos stepwizard-row1 setup-panel">[m
                          <div class="stepwizard-step col-md-auto">[m
-[31m-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
-[32m+[m[32m                            <a title="Menu Principal" href="menuPrincipal.php" id="botao1" type="button" class="btn btn-default btn-circle">1</a>[m
+[31m-                            <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                            <a title="Menu Principal" href="index.php" id="botao1" type="button" class="btn btn-default btn-circle">1</a>[m
                          </div>[m
                          <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
 [31m-                            <a href="funcionario.php" type="button" class="btn btn-default btn-circle" >2</a>[m
@@ -16053,8 +16053,8 @@ uporteInterno.js[m
                  <div class="stepwizard">[m
                      <div class="passos stepwizard-row1 setup-panel">[m
                          <div class="stepwizard-step col-md-auto">[m
-[31m-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
-[32m+[m[32m                            <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
+[31m-                            <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                            <a title="Menu Principal" href="index.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
 [m
                          </div>[m
                          <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
@@ -16238,10 +16238,10 @@ uporteInterno.js[m
  </body>[m
  [m
  </html>[m
-[1mdiff --git a/telas/menuPrincipal.php b/telas/menuPrincipal.php[m
+[1mdiff --git a/telas/index.php b/telas/index.php[m
 [1mindex 0a88f7a..9d1e984 100644[m
-[1m--- a/telas/menuPrincipal.php[m
-[1m+++ b/telas/menuPrincipal.php[m
+[1m--- a/telas/index.php[m
+[1m+++ b/telas/index.php[m
 [36m@@ -1,6 +1,5 @@[m
  <?php[m
 [31m-session_start();[m
@@ -16648,7 +16648,7 @@ uporteInterno.js[m
                $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA[m
 [36m@@ -188,11 +307,13 @@[m [mif (isset($_POST['botaoVolta'])) {[m
          <nav>[m
-             <a class='nav inicio' href='menuPrincipal.php'>Início</a>[m
+             <a class='nav inicio' href='index.php'>Início</a>[m
              <a class='nav filter pos' >Filtragem</a>[m
 [32m+[m[32m            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>[m[41m
 [m
@@ -17305,8 +17305,8 @@ uporteInterno.js[m
                  <div class="stepwizard">[m
                      <div class="passos stepwizard-row1 setup-panel">[m
                          <div class="stepwizard-step col-md-auto">[m
-[31m-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
-[32m+[m[32m                            <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
+[31m-                            <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                            <a title="Menu Principal" href="index.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
 [m
                          </div>[m
                          <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
@@ -17621,7 +17621,7 @@ uporteInterno.js[m
 [31m-    <header class="site-header">[m
 [31m-        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">[m
 [31m-        <nav>[m
-[31m-            <a class='nav inicio' href='menuPrincipal.php'>Início</a>[m
+[31m-            <a class='nav inicio' href='index.php'>Início</a>[m
 [31m-            <div class="dropdown">[m
 [31m-            <a class="dropbtn nav">Emails <span class='caret'></span></a>[m
 [31m-            <div class="dropdown-content">[m
@@ -17673,7 +17673,7 @@ uporteInterno.js[m
 [31m-                <div class="stepwizard">[m
 [31m-                    <div class="passos stepwizard-row1 setup-panel">[m
 [31m-                        <div class="stepwizard-step col-md-auto">[m
-[31m-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[31m-                            <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
 [31m-                        </div>[m
 [31m-                        <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
 [31m-                            <a href="funcionario.php" type="button" class="btn btn-default btn-circle" >2</a>[m
@@ -17957,7 +17957,7 @@ uporteInterno.js[m
 [32m+[m[32m    <header class="site-header">[m
 [32m+[m[32m        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">[m
 [32m+[m[32m        <nav>[m
-[32m+[m[32m            <a class='nav inicio' href='menuPrincipal.php'>Início</a>[m
+[32m+[m[32m            <a class='nav inicio' href='index.php'>Início</a>[m
 [32m+[m[32m            <div class="dropdown">[m
 [32m+[m[32m            <a class="dropbtn nav">Emails <span class='caret'></span></a>[m
 [32m+[m[32m            <div class="dropdown-content">[m
@@ -18010,7 +18010,7 @@ uporteInterno.js[m
 [32m+[m[32m                <div class="stepwizard">[m
 [32m+[m[32m                    <div class="passos stepwizard-row1 setup-panel">[m
 [32m+[m[32m                        <div class="stepwizard-step col-md-auto">[m
-[32m+[m[32m                            <a title="Menu Principal" href="menuPrincipal.php" id="botao1" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                            <a title="Menu Principal" href="index.php" id="botao1" type="button" class="btn btn-default btn-circle">1</a>[m
 [32m+[m[32m                        </div>[m
 [32m+[m[32m                        <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
 [32m+[m[32m                            <a href="funcionario.php?id=<?=$id?>" type="button" id="botao2" class="btn btn-default btn-circle" >2</a>[m
@@ -18276,8 +18276,8 @@ uporteInterno.js[m
                  <div class="stepwizard">[m
                      <div class="passos stepwizard-row1 setup-panel">[m
                          <div class="stepwizard-step col-md-auto">[m
-[31m-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
-[32m+[m[32m                            <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m
+[31m-                            <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                            <a title="Menu Principal" href="index.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m
                          </div>[m
                          <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m
 [31m-                            <a href="funcionario.php" type="button" class="btn btn-default btn-circle" >2</a>[m
@@ -18515,8 +18515,8 @@ uporteInterno.js[m
                  <div class="stepwizard">[m
                      <div class="passos stepwizard-row1 setup-panel">[m
                          <div class="stepwizard-step col-md-auto">[m
-[31m-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>[m
-[32m+[m[32m                            <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
+[31m-                            <a title="Menu Principal" href="index.php" type="button" class="btn btn-default btn-circle">1</a>[m
+[32m+[m[32m                            <a title="Menu Principal" href="index.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>[m[41m
 [m
                          </div>[m
                          <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">[m

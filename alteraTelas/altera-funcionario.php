@@ -1,6 +1,5 @@
 <?php
 include("../db/conexao.php");
-include("../static/php/RemoveMascAndFormatDate.php");
 include_once("../update.php");
 
 $STATUS = $_POST['status'];
