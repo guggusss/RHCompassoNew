@@ -13,7 +13,6 @@ $ID_USUARIO = $id;
 $STATUS = "EXCLUIDO";
 
 if (deleteAD($conn, $ID_USUARIO, $STATUS)) {
-    
     echo "<head>
         <meta charset='UTF-8'>
         <title>RH Contratações</title>
@@ -22,15 +21,12 @@ if (deleteAD($conn, $ID_USUARIO, $STATUS)) {
         <link rel='stylesheet' href='../css/bootstrap.min.css'>
         <link rel='stylesheet' href='../css/arquivo.css'>
     </head>
-    <h1 class='text-success'>Excluido com sucesso!</h1>
-    <meta http-equiv='refresh' content='1;  url=../telas/Index.php'/>";
-
-} 
-else 
-{
-    $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");
-    echo "<meta http-equiv='refresh' content='5;  url=../telas/Index.php'/>";
+    <h1 class='text-success'>Excluido com sucesso!</h1>";
 }
 
+else {
+    $msg = mysqli_error($conn);
+    include("../telas/naoSalvo.php");   
+}
 ?>
+<meta http-equiv='refresh' content='1;  url=../telas/Index.php'/>

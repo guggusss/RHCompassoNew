@@ -4,6 +4,7 @@ include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 session_start();
 $id = $_SESSION['id'];
+
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $EMAIL_SUP = $_POST['EMAIL_SUP'];
 $USUARIO = $_POST['USUARIO'];

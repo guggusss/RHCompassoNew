@@ -21,14 +21,12 @@ if (status($conn, $ID_USUARIO, $STATUS)) {
         <link rel='stylesheet' href='../css/bootstrap.min.css'>
         <link rel='stylesheet' href='../css/arquivo.css'>
     </head>
-    <h1 class='text-success'>Finalizado com sucesso!</h1>
-    <meta http-equiv='refresh' content='1;  url=../telas/Index.php'/>";
+    <h1 class='text-success'>Finalizado com sucesso!</h1>";
 
 } 
-else 
-{
+else {
     $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");
-    echo "<meta http-equiv='refresh' content='5;  url=../telas/Index.php'/>";
+    include("../telas/naoSalvo.php");   
 }
 ?>
+<meta http-equiv='refresh' content='1;  url=../telas/Index.php'/>

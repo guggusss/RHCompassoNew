@@ -4,6 +4,7 @@ include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 session_start();
 $id = $_SESSION['id'];
+
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $BOAS_VINDAS_INGR_AGENDADA = $_POST['BOAS_VINDAS_INGR_AGENDADA'];
 $BOAS_VINDAS_INGR_REALIZADA = $_POST['BOAS_VINDAS_INGR_REALIZADA'];

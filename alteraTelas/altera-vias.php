@@ -4,6 +4,7 @@ include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 session_start();
 $id = $_SESSION['id'];
+
 $STATUS = $_POST['STATUS'];
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $CRACHA_DATA_PEDIDO = $_POST['CRACHA_DATA_PEDIDO'];

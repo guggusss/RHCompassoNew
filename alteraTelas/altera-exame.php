@@ -4,6 +4,7 @@ include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 session_start();
 $id = $_SESSION['id'];
+
 $ID_USUARIO = $_POST['ID_USUARIO'];
 $AGENDAMENTO_EXAM_ADM = $_POST['AGENDAMENTO_EXAM_ADM'];
 $ENVIO_FUNC_EXAME = $_POST['ENVIO_FUNC_EXAME'];
