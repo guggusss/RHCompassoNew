@@ -81,7 +81,7 @@ $campoV = 'class="txtVazio" ';
                     <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>
                     <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>
                     <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
+                     or "01010101"
                 </div>
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
@@ -188,12 +188,12 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_AGENDADA'] == "0001-01-01" or $rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
-                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_REALIZADA'] == "0001-01-01" or $rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_AGENDADA'] == "0001-01-01" or $rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_REALIZADA'] == "0001-01-01" or $rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
                             <td <?php if ($rows_dados['BOAS_VINDAS_SALA'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
-                            <td <?php if ($layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] == "0001-01-01" or $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
+                            <td <?php if ($layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] == "0001-01-01" or $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
                             <td <?php if ($rows_dados['SURVEY'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['SURVEY']; ?></td>
