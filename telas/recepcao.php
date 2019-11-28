@@ -188,12 +188,12 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_AGENDADA'] == "0001-01-01" or $rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
-                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_REALIZADA'] == "0001-01-01" or $rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_AGENDADA'] == "01010101" or $rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_REALIZADA'] == "01010101" or $rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
                             <td <?php if ($rows_dados['BOAS_VINDAS_SALA'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
-                            <td <?php if ($layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] == "0001-01-01" or $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
+                            <td <?php if ($layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] == "01010101" or $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
                             <td <?php if ($rows_dados['SURVEY'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['SURVEY']; ?></td>

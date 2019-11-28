@@ -185,14 +185,14 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($malote['CRACHA_DATA_PEDIDO'] == "0001-01-01" or $rows_dados['CRACHA_DATA_PEDIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
-                            <td <?php if ($malote['CRACHA_CONTROLE'] == "0001-01-01" or $rows_dados['CRACHA_CONTROLE'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>
-                            <td <?php if ($malote['CRACHA_PROTOCOLO'] == "0001-01-01" or $rows_dados['CRACHA_PROTOCOLO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>
-                            <td <?php if ($malote['EMAIL_CADERNO_COMPASSO_SOLICITADO'] == "0001-01-01" or $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
-                            <td <?php if ($malote['EMAIL_CADERNO_COMPASSO_RECEBIDO'] == "0001-01-01" or $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
-                            <td <?php if ($malote['MALOTE_CADERNO_COMPASSO_CTPS'] == "0001-01-01" or $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
-                            <td <?php if ($malote['DOCUMENTOS_RECEBIDOS_ASSINADOS'] == "0001-01-01" or $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
-                            <td <?php if ($malote['SALVAR_PASTA'] == "0001-01-01" or $rows_dados['SALVAR_PASTA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['SALVAR_PASTA']; ?></td>
+                            <td <?php if ($malote['CRACHA_DATA_PEDIDO'] == "01010101" or $rows_dados['CRACHA_DATA_PEDIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
+                            <td <?php if ($malote['CRACHA_CONTROLE'] == "01010101" or $rows_dados['CRACHA_CONTROLE'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>
+                            <td <?php if ($malote['CRACHA_PROTOCOLO'] == "01010101" or $rows_dados['CRACHA_PROTOCOLO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>
+                            <td <?php if ($malote['EMAIL_CADERNO_COMPASSO_SOLICITADO'] == "01010101" or $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
+                            <td <?php if ($malote['EMAIL_CADERNO_COMPASSO_RECEBIDO'] == "01010101" or $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
+                            <td <?php if ($malote['MALOTE_CADERNO_COMPASSO_CTPS'] == "01010101" or $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
+                            <td <?php if ($malote['DOCUMENTOS_RECEBIDOS_ASSINADOS'] == "01010101" or $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
+                            <td <?php if ($malote['SALVAR_PASTA'] == "01010101" or $rows_dados['SALVAR_PASTA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['SALVAR_PASTA']; ?></td>
                             <td><a title="Boas Vindas" href='recepcao.php?id=<?= $id ?>' class="btn btn-default">Próximo</td>
                             <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
