@@ -208,7 +208,7 @@ $campoV = 'class="txtVazio" ';
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-interno.php">
                             <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
-                            <td><input class='intable' readonly name="STATUS" value=<?= $status['STATUS'] ?>></td>
+                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="INTRANET_CADASTRO_USUARIO" value=<?= $intranetusu['INTRANET_CADASTRO_USUARIO'] ?>></td>
                             <td><input type="text" class='intable' name="INTRANET_CADASTRO_SENHA" value=<?= $intranetsen['INTRANET_CADASTRO_SENHA'] ?>></td>
                             <td><input type="date" id="campo2" class='intable' name="KAIROS_CADASTRO_USUARIO" value=<?= $kairosusu['KAIROS_CADASTRO_USUARIO'] ?>></td>

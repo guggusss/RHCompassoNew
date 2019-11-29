@@ -204,7 +204,7 @@ $campoV = 'class="txtVazio" ';
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-recepcao.php">
                             <input type='hidden' name="ID_USUARIO" value=<?= $funcionario['ID_USUARIO'] ?>>
-                            <td><input class='intable' readonly type='text' name="STATUS" value=<?= $status['STATUS']; ?>></td>
+                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input class='intable' id="campo" type='date' name='BOAS_VINDAS_INGR_AGENDADA' value=<?= $boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA'] ?>></td>
                             <td><input class='intable' id="campo2" type='date' name='BOAS_VINDAS_INGR_REALIZADA' value=<?= $boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA'] ?>></td>
                             <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' value=<?= $boasVindasSala['BOAS_VINDAS_SALA'] ?>></td>
