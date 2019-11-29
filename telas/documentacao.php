@@ -193,10 +193,10 @@ $campoV = 'class="txtVazio" ';
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
 
-                            <td <?php if ($ctps['FORMULARIOS_ENVIADOS'] == "0001-01-01" or $rows_dados['FORMULARIOS_ENVIADOS'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>
-                            <td <?php if ($ctps['FORMULARIOS_RECEBIDOS'] == "0001-01-01" or $rows_dados['FORMULARIOS_RECEBIDOS'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
-                            <td <?php if ($ctps['DOCUMENTOS_FISICOS'] == "0001-01-01" or $rows_dados['DOCUMENTOS_FISICOS'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
-                            <td <?php if ($ctps['CTPS_RECEBIDA'] == "0001-01-01" or $rows_dados['CTPS_RECEBIDA'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
+                            <td <?php if ($ctps['FORMULARIOS_ENVIADOS'] == "0001-01-01" or $rows_dados['FORMULARIOS_ENVIADOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>
+                            <td <?php if ($ctps['FORMULARIOS_RECEBIDOS'] == "0001-01-01" or $rows_dados['FORMULARIOS_RECEBIDOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
+                            <td <?php if ($ctps['DOCUMENTOS_FISICOS'] == "0001-01-01" or $rows_dados['DOCUMENTOS_FISICOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
+                            <td <?php if ($ctps['CTPS_RECEBIDA'] == "0001-01-01" or $rows_dados['CTPS_RECEBIDA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
                             <td><?php echo $rows_dados['COMENTARIO']; ?></td>
                             <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="btn btn-default" href="admissao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
