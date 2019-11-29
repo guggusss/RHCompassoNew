@@ -28,12 +28,6 @@ $COMENTARIOS = $_POST['COMENTARIOS'];
 $REMUNERACAO_BASE = str_replace(',', '.', preg_replace('#[^\d\,]#is', '', $REMUNERACAO_BASE));
 $GRATIFICACAO = str_replace(',', '.', preg_replace('#[^\d\,]#is', '', $GRATIFICACAO));
 
-if(empty($LOG_REGISTRO_DIA_RH_ENVIA_DP)) {
-    $LOG_REGISTRO_DIA_RH_ENVIA_DP = "0001-01-01";
-}if(empty($DATA_ADMISSAO)) {
-    $DATA_ADMISSAO = "0001-01-01";
-}
-
 if (funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HORARIA, $HORARIO, $NOME, $SEXO, $FONE_CONTATO, $DATA_ADMISSAO, $CARGO, $SOLICITANTE, $LOG_REGISTRO_DIA_RH_ENVIA_DP, $REMUNERACAO_BASE, $GRATIFICACAO, $CLIENTE, $PROJETO, $EMAIL, $ADMINISTRATIVO, $POSICAO_COMENTARIO, $COMENTARIOS) && status($conn, $USUARIO_ID, $STATUS)) {
 
     include("../telas/salvoSucesso.php");
