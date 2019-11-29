@@ -202,7 +202,7 @@ $campoV = 'class="txtVazio" ';
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-bancario.php">
                             <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
-                            <td><input class='intable' readonly name="STATUS" value=<?= $status['STATUS'] ?>></td>
+                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="ENVIO" value=<?= $envio['ENVIO'] ?>></td>
                             <td><input type="date" id="campo2" class='intable' name="RECEBIDO" value=<?= $recebido['RECEBIDO'] ?>></td>
                             <td><input type="date" id="campo4" class='intable' name="PLANILHA_CONTAS" value=<?= $planilha['PLANILHA_CONTAS'] ?>></td>

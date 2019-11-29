@@ -193,7 +193,7 @@ $campoV = 'class="txtVazio" ';
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-admissao.php">
                             <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
-                            <td><input class='intable' readonly name="STATUS" value=<?= $status['STATUS'] ?>></td>
+                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="QUALIFIC_CADASTRAL_CEP" value=<?= $quali['QUALIFIC_CADASTRAL_CEP'] ?>></td>
                             <td><input type="date" id="campo2" class='intable' name="CAD_ADM_PLATAFORMA_ADM_DIMIN" value=<?= $cad['CAD_ADM_PLATAFORMA_ADM_DIMIN'] ?>></td>
                             <td><input type="date" id="campo3" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" value=<?= $doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO'] ?>></td>

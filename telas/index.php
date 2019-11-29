@@ -729,7 +729,9 @@ if (isset($_POST['botao'])) {
                             }
                         } ?>
 
-                            <tr>
+                            <tr <?php if ($grupo == "Suporte Interno") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>>
                                 
                             <form id='form-add' method="POST" action="../salva.php">
                             <?/*/ verifica se salvou ou nao /*/?>
@@ -809,7 +811,9 @@ if (isset($_POST['botao'])) {
                 </tbody>
             </table>
             <section>
-                <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default">Exportar para Excel</a>
+                <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>>Exportar para Excel</a>
             </section>
 
         </section>
