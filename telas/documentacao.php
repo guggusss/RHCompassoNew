@@ -43,7 +43,7 @@ $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
-
+$campoV = 'class="txtVazio" ';
 /* $usuarios = mysql_fetch_assoc($resultado); */
 ?>
 <!DOCTYPE html>
@@ -228,16 +228,16 @@ $translado = buscasuporte($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
         window.onload = function verifica() {
-            if (document.getElementById("campo").value == "0001-01-01") {
+            if (document.getElementById("campo").value == "0000-00-00") {
                 $("#data").addClass("dataVazia");
             }
-            if (document.getElementById("campo2").value == "0001-01-01") {
+            if (document.getElementById("campo2").value == "0000-00-00") {
                 $("#data2").addClass("dataVazia");
             }
-            if (document.getElementById("campo3").value == "0001-01-01") {
+            if (document.getElementById("campo3").value == "0000-00-00") {
                 $("#data3").addClass("dataVazia");
             }
-            if (document.getElementById("campo4").value == "0001-01-01") {
+            if (document.getElementById("campo4").value == "0000-00-00") {
                 $("#data4").addClass("dataVazia");
             }
         }
