@@ -290,16 +290,16 @@ $campoV = 'class="txtVazio" ';
     </script>
     <script>
         window.onload = function verifica() {
-            if (document.getElementById("campo").value == "0000-00-00") {
+            if (document.getElementById("campo").value == "") {
                 $("#data").addClass("dataVazia");
             }
-            if (document.getElementById("campo2").value == "0000-00-00") {
+            if (document.getElementById("campo2").value == "") {
                 $("#data2").addClass("dataVazia");
             }
-            if (document.getElementById("campo3").value == "0000-00-00") {
+            if (document.getElementById("campo3").value == "") {
                 $("#data3").addClass("dataVazia");
             }
-            if (document.getElementById("campo4").value == "0000-00-00") {
+            if (document.getElementById("campo4").value == "") {
                 $("#data4").addClass("dataVazia");
             }
             <?php calculo($conn, $status, $id); ?>

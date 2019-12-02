@@ -188,12 +188,12 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_AGENDADA'] == "0000-00-00" or $rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
-                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_REALIZADA'] == "0000-00-00" or $rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_AGENDADA'] == "" or $rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_REALIZADA'] == "" or $rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
                             <td <?php if ($rows_dados['BOAS_VINDAS_SALA'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
-                            <td <?php if ($layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] == "0000-00-00" or $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
+                            <td <?php if ($layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] == "" or $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
                             <td <?php if ($rows_dados['SURVEY'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['SURVEY']; ?></td>
@@ -232,13 +232,13 @@ $campoV = 'class="txtVazio" ';
             if (!variavel == "") {
                 $("#botao3, #botao4, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);
             }
-            if (document.getElementById("campo").value == "0000-00-00") {
+            if (document.getElementById("campo").value == "") {
                 $("#data").addClass("dataVazia");
             }
-            if (document.getElementById("campo2").value == "0000-00-00") {
+            if (document.getElementById("campo2").value == "") {
                 $("#data2").addClass("dataVazia");
             }
-            if (document.getElementById("campo3").value == "0000-00-00") {
+            if (document.getElementById("campo3").value == "") {
                 $("#data3").addClass("dataVazia");
             }
         }
