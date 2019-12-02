@@ -205,11 +205,11 @@ $campoV = 'class="txtVazio" ';
                         <form method="POST" action="../alteraTelas/altera-documentacao.php">
                             <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="FORMULARIOS_ENVIADOS" value=<?= $formEnv['FORMULARIOS_ENVIADOS'] ?>></td>
-                            <td><input type="date" id="campo2" class='intable' name="FORMULARIOS_RECEBIDOS" value=<?= $formRec['FORMULARIOS_RECEBIDOS'] ?>></td>
-                            <td><input type="date" id="campo3" class='intable' name="DOCUMENTOS_FISICOS" value=<?= $docfis['DOCUMENTOS_FISICOS'] ?>></td>
-                            <td><input type="date" id="campo4" class='intable' name="CTPS_RECEBIDA" value=<?= $ctps['CTPS_RECEBIDA'] ?>></td>
-                            <td><input type="text" class='intable' name="COMENTARIO" value=<?= $ctps['COMENTARIO'] ?>></td>
+                            <td><input type='date' id="campo" class='intable' name="FORMULARIOS_ENVIADOS" value='<?= $formEnv['FORMULARIOS_ENVIADOS'] ?>'></td>
+                            <td><input type="date" id="campo2" class='intable' name="FORMULARIOS_RECEBIDOS" value='<?= $formRec['FORMULARIOS_RECEBIDOS'] ?>'></td>
+                            <td><input type="date" id="campo3" class='intable' name="DOCUMENTOS_FISICOS" value='<?= $docfis['DOCUMENTOS_FISICOS'] ?>'></td>
+                            <td><input type="date" id="campo4" class='intable' name="CTPS_RECEBIDA" value='<?= $ctps['CTPS_RECEBIDA'] ?>'></td>
+                            <td><input type="text" class='intable' name="COMENTARIO" value='<?= $ctps['COMENTARIO'] ?>'></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
