@@ -37,7 +37,6 @@ $formRec = buscadocs($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
-$campoV = 'class="txtVazio" ';
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -173,9 +172,9 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($envio['AGENDAMENTO_EXAM_ADM'] == "0001-01-01" or $rows_dados['AGENDAMENTO_EXAM_ADM'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
-                            <td <?php if ($envio['ENVIO_FUNC_EXAME'] == "0001-01-01" or $rows_dados['ENVIO_FUNC_EXAME'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
-                            <td <?php if ($envio['EMAIL_RECEBIDO_EXAM'] == "0001-01-01" or $rows_dados['EMAIL_RECEBIDO_EXAM'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
+                            <td id="data"><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
                             <td><?php echo $rows_dados['COMENTARIO']; ?></td>
                             <td><a title="Dados Bancáriso" id="proximo" class="  btn btn-default" href="bancarios.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>

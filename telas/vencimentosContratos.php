@@ -57,7 +57,6 @@ $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
-$campoV = 'class="txtVazio" ';
 ?>
 <!DOCTYPE html>
 <html lang="pt">

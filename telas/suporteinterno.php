@@ -50,7 +50,6 @@ $anexar = buscaexame($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
-$campoV = 'class="txtVazio" ';
 /*$usuario_atv = buscasuporte($conn, $id); */
 /*$usuarios = mysql_fetch_assoc($resultado); */
 ?>
