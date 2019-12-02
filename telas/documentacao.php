@@ -44,7 +44,6 @@ $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $campoV = 'class="txtVazio" ';
-
 /* $usuarios = mysql_fetch_assoc($resultado); */
 ?>
 <!DOCTYPE html>
@@ -193,10 +192,10 @@ $campoV = 'class="txtVazio" ';
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
 
-                            <td <?php if ($ctps['FORMULARIOS_ENVIADOS'] == "0001-01-01" or $rows_dados['FORMULARIOS_ENVIADOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>
-                            <td <?php if ($ctps['FORMULARIOS_RECEBIDOS'] == "0001-01-01" or $rows_dados['FORMULARIOS_RECEBIDOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
-                            <td <?php if ($ctps['DOCUMENTOS_FISICOS'] == "0001-01-01" or $rows_dados['DOCUMENTOS_FISICOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
-                            <td <?php if ($ctps['CTPS_RECEBIDA'] == "0001-01-01" or $rows_dados['CTPS_RECEBIDA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
+                            <td id="data"><?php echo $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
                             <td><?php echo $rows_dados['COMENTARIO']; ?></td>
                             <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="btn btn-default" href="admissao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
@@ -227,7 +226,22 @@ $campoV = 'class="txtVazio" ';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-
+    <script>
+        window.onload = function verifica() {
+            if (document.getElementById("campo").value == "") {
+                $("#data").addClass("dataVazia");
+            }
+            if (document.getElementById("campo2").value == "") {
+                $("#data2").addClass("dataVazia");
+            }
+            if (document.getElementById("campo3").value == "") {
+                $("#data3").addClass("dataVazia");
+            }
+            if (document.getElementById("campo4").value == "") {
+                $("#data4").addClass("dataVazia");
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -182,10 +182,10 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($form['ENVIO'] == "0001-01-01" or $rows_dados['ENVIO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['ENVIO']; ?></td>
-                            <td <?php if ($form['RECEBIDO'] == "0001-01-01" or $rows_dados['RECEBIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['RECEBIDO']; ?></td>
-                            <td <?php if ($form['PLANILHA_CONTAS'] == "0001-01-01" or $rows_dados['PLANILHA_CONTAS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
-                            <td <?php if ($form['FORM_COMPR_BANCARIO'] == "0001-01-01" or $rows_dados['FORM_COMPR_BANCARIO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
+                            <td id="data"><?php echo $rows_dados['ENVIO']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['RECEBIDO']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
+                            <td id="data5"><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
                             <td <?php if ($rows_dados['AGENCIA'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['AGENCIA']; ?></td>
@@ -231,7 +231,25 @@ $campoV = 'class="txtVazio" ';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-    
+    <script>
+        window.onload = function verifica() {
+            if (document.getElementById("campo").value == "") {
+                $("#data").addClass("dataVazia");
+            }
+            if (document.getElementById("campo2").value == "") {
+                $("#data2").addClass("dataVazia");
+            }
+            /*/if(document.getElementById("campo3").value == ""){
+                $("#data3").addClass("dataVazia");
+            }/*/
+            if (document.getElementById("campo4").value == "") {
+                $("#data4").addClass("dataVazia");
+            }
+            if (document.getElementById("campo5").value == "") {
+                $("#data5").addClass("dataVazia");
+            }
+        }
+    </script>
 </body>
 
 </html>

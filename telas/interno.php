@@ -189,18 +189,18 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($acessos['INTRANET_CADASTRO_USUARIO'] == "0001-01-01" or $rows_dados['INTRANET_CADASTRO_USUARIO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>
+                            <td id="data"><?php echo $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>
                             <td <?php if ($rows_dados['INTRANET_CADASTRO_SENHA'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['INTRANET_CADASTRO_SENHA']; ?></td>
-                            <td <?php if ($acessos['KAIROS_CADASTRO_USUARIO'] == "0001-01-01" or $rows_dados['KAIROS_CADASTRO_USUARIO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>
                             <td <?php if ($rows_dados['KAIROS_CADASTRO_SENHA'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['KAIROS_CADASTRO_SENHA']; ?></td>
-                            <td <?php if ($acessos['EMAIL_GESTOR_APOIO_SEDE'] == "0001-01-01" or $rows_dados['EMAIL_GESTOR_APOIO_SEDE'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>
-                            <td <?php if ($acessos['EMAIL_INICIO_ATIVIDADES'] == "0001-01-01" or $rows_dados['EMAIL_INICIO_ATIVIDADES'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
-                            <td <?php if ($acessos['EMAIL_BOAS_VINDAS'] == "0001-01-01" or $rows_dados['EMAIL_BOAS_VINDAS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
-                            <td <?php if ($acessos['ACESSOS'] == "0001-01-01" or $rows_dados['ACESSOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['ACESSOS']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
+                            <td id="data5"><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
+                            <td id="data6"><?php echo $rows_dados['ACESSOS']; ?></td>
                             <td><a title="Vias Documentos Funcionários" id="proximo" class="  btn btn-default" href="viasdocumentos.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
@@ -233,7 +233,28 @@ $campoV = 'class="txtVazio" ';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-    
+    <script>
+        window.onload = function verifica() {
+            if (document.getElementById("campo").value == "") {
+                $("#data").addClass("dataVazia");
+            }
+            if (document.getElementById("campo2").value == "") {
+                $("#data2").addClass("dataVazia");
+            }
+            if (document.getElementById("campo3").value == "") {
+                $("#data3").addClass("dataVazia");
+            }
+            if (document.getElementById("campo4").value == "") {
+                $("#data4").addClass("dataVazia");
+            }
+            if (document.getElementById("campo5").value == "") {
+                $("#data5").addClass("dataVazia");
+            }
+            if (document.getElementById("campo6").value == "") {
+                $("#data6").addClass("dataVazia");
+            }
+        }
+    </script>
 </body>
 
 </html>

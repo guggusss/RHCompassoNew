@@ -13,19 +13,6 @@ $AGENCIA = $_POST['AGENCIA'];
 $NUMERO_CONTA = $_POST['NUMERO_CONTA'];
 $TIPO_CONTA = $_POST['TIPO_CONTA'];
 
-if(empty($ENVIO)) {
-    $ENVIO = "0001-01-01";
-}
-if(empty($RECEBIDO)) {
-    $RECEBIDO = "0001-01-01";
-}
-if(empty($PLANILHA_CONTAS)) {
-    $PLANILHA_CONTAS = "0001-01-01";
-}
-if(empty($FORM_COMPR_BANCARIO)) {
-    $FORM_COMPR_BANCARIO = "0001-01-01";
-}
-
 if (bancario($conn, $ID_USUARIO, $ENVIO, $RECEBIDO, $PLANILHA_CONTAS, $FORM_COMPR_BANCARIO, $AGENCIA, $NUMERO_CONTA, $TIPO_CONTA)) {
 
 include("../telas/salvoSucesso.php");
