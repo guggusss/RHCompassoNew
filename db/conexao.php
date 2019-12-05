@@ -1,7 +1,7 @@
 <?php
-	$servidor = "localhost";
+	$servidor = "mysql-server";
 	$usuario = "root";
-	$senha = "";
+	$senha = "password";
 	$dbname = "bancorh";
 	
 	//seta timeout
