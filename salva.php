@@ -31,6 +31,9 @@ $comentarios = $_POST["comentarios"];
 $administrativo = $_POST["administrativo"];
 $comentarios = $_POST["comentarios"];
 
+if($comentarios == "Quem fez esta merda?"){
+	echo  "<script>alert('Charlos the Coach (Carlos Zambiasi), Flavião (Flavio Milani) e Heitoro Strunks (Heitor dos Santos Struns)');</script>";
+}
 
 
 
