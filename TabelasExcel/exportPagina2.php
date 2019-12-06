@@ -1,6 +1,6 @@
 <?php
 //export.php
-$connect = mysqli_connect("localhost", "root", "", "bancorh");
+$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
 $output = '';
 if(isset($_POST["export"]))
 {
