@@ -176,16 +176,20 @@ $campoV = 'class="txtVazio" ';
                         <th></th>
                     </tr>
                 </thead>
+
+
+
+
                 <tbody>
-                    <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
+                   <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td id="data"><?= $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>
-                            <td id="data2"><?= $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>
-                            <td id="data3"><?= $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
-                            <td id="data4"><?= $rows_dados['TERMO_PSI']; ?></td>
-                            <td id="data5"><?= $rows_dados['INCLUI_ADM_PROV']; ?></td>
-                            <td><?= $rows_dados['COMENTARIO']; ?></td>
+                            <td <?php if ($doc['QUALIFIC_CADASTRAL_CEP'] == "0001-01-01" or $rows_dados['QUALIFIC_CADASTRAL_CEP'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>
+                            <td <?php if ($doc['CAD_ADM_PLATAFORMA_ADM_DIMIN'] == "0001-01-01" or $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>
+                            <td <?php if ($doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO'] == "0001-01-01" or $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
+                            <td <?php if ($doc['TERMO_PSI'] == "0001-01-01" or $rows_dados['TERMO_PSI'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['TERMO_PSI']; ?></td>
+                            <td <?php if ($doc['INCLUI_ADM_PROV'] == "0001-01-01" or $rows_dados['INCLUI_ADM_PROV'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
+                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>
                             <td><a title="Exame Admissional" id="proximo" class="btn btn-default" href="exame.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
