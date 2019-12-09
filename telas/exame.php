@@ -33,6 +33,7 @@ $funcionario = buscaProposta($conn, $id);
 $agend = buscaexame($conn, $id);
 $envio = buscaexame($conn, $id);
 $email = buscaexame($conn, $id);
+$fomentario = buscaexame($conn, $id);
 $formRec = buscadocs($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
@@ -188,7 +189,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input type='date' id="campo" class='intable' name="AGENDAMENTO_EXAM_ADM" value='<?= $agend['AGENDAMENTO_EXAM_ADM'] ?>'></td>
                             <td><input type="date" id="campo2" class='intable' name="ENVIO_FUNC_EXAME" value='<?= $envio['ENVIO_FUNC_EXAME'] ?>'></td>
                             <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM" value='<?= $email['EMAIL_RECEBIDO_EXAM'] ?>'></td>
-                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value='<?= $rows_dados['COMENTARIO'] ?>'></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value='<?= $fomentario['COMENTARIO'] ?>'></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>

@@ -35,6 +35,7 @@ $quali = buscaadmissao($conn, $id);
 $cad = buscaadmissao($conn, $id);
 $doc = buscaadmissao($conn, $id);
 $termo = buscaadmissao($conn, $id);
+$coment = buscaadmissao($conn, $id);
 $inclui = buscaadmissao($conn, $id);
 $formRec = buscadocs($conn, $id);
 $anexar = buscaexame($conn, $id);
@@ -199,7 +200,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="date" id="campo3" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" value='<?= $doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO'] ?>'></td>
                             <td><input type="date" id="campo4" class='intable' name="TERMO_PSI" value='<?= $termo['TERMO_PSI'] ?>'></td>
                             <td><input type="date" id="campo5" class='intable' name="INCLUI_ADM_PROV" value='<?= $inclui['INCLUI_ADM_PROV'] ?>'></td>
-                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value='<?= $rows_dados['COMENTARIO'] ?>'></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value='<?= $coment['COMENTARIO'] ?>'></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>

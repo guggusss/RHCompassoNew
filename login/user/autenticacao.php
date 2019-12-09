@@ -19,7 +19,7 @@ $r = @ldap_bind($link, $usuario . '@' . $dominio, $senha) or die (header("locati
 
 if(!$r) 
 { ?><meta http-equiv="refresh" content="1;  url=./login.php?erro=fail"/><?php }
-
+$usuario='jessica.ferreira';
 $filtro = "(samaccountname=" . $usuario . ")";
 $justthese = array("*");
 $res = ldap_search($link, "dc=pampa,dc=compasso", $filtro, $justthese) or die (header("location:./login.php?erro=fail"));
