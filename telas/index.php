@@ -339,7 +339,7 @@ if (isset($_POST['botao'])) {
         <section class='inputs panel-body display campo-filtro estruct'>
             <h2 id='Filtro'>Filtro</h2>
             <fieldset>
-                <form id='form-filtrar' method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <form id='form-filtrar' method="POST" action="<?= $_SERVER['PHP_SELF']; ?>">
                     <div>
                         <div>
                             <label for="status">Status</label>
@@ -366,7 +366,7 @@ if (isset($_POST['botao'])) {
                             <select id="sede" name="sede" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
                                 <?php foreach ($listar as $linha) : ?>
-                                    <option value="<?= $linha['SEDE_ID'] ?>"><?php echo $linha['NOME_SEDE'] ?></option>
+                                    <option value="<?= $linha['SEDE_ID'] ?>"><?= $linha['NOME_SEDE'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -683,37 +683,37 @@ if (isset($_POST['botao'])) {
                         while ($rows_dados = mysqli_fetch_assoc($resultado)) {
                                 $SOMA = $rows_dados['REMUNERACAO_BASE'] + $rows_dados['GRATIFICACAO']; ?>
                             <tr style="vertical-align: right !important;">
-                                <td><?php echo $rows_dados['STATUS']; ?></td>
-                                <td><?php echo $rows_dados['NOME']; ?></td>
-                                <td><?php echo $rows_dados['DATA_ADMISSAO']; ?></td>
-                                <td><?php echo $rows_dados['NOME_SEDE']; ?></td>
-                                <td><?php echo $rows_dados['NOME_TIPO']; ?></td>
-                                <td><?php echo $rows_dados['NOME_PARAMETRO']; ?></td>
-                                <td><?php echo $rows_dados['CARGA_HORARIA']; ?></td>
-                                <td><?php echo $rows_dados['HORARIO']; ?></td>
-                                <td><?php echo $rows_dados['SEXO']; ?></td>
-                                <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
+                                <td><?= $rows_dados['STATUS']; ?></td>
+                                <td><?= $rows_dados['NOME']; ?></td>
+                                <td><?= $rows_dados['DATA_ADMISSAO']; ?></td>
+                                <td><?= $rows_dados['NOME_SEDE']; ?></td>
+                                <td><?= $rows_dados['NOME_TIPO']; ?></td>
+                                <td><?= $rows_dados['NOME_PARAMETRO']; ?></td>
+                                <td><?= $rows_dados['CARGA_HORARIA']; ?></td>
+                                <td><?= $rows_dados['HORARIO']; ?></td>
+                                <td><?= $rows_dados['SEXO']; ?></td>
+                                <td><?= $rows_dados['FONE_CONTATO']; ?></td>
                                 <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><?php echo $rows_dados['CARGO']; ?></td>
-                                <td><?php echo formatDateApresentation($rows_dados['LOG_REGISTRO_DIA_RH_ENVIA_DP']); ?></td>
+                                            } ?>><?= $rows_dados['CARGO']; ?></td>
+                                <td><?= formatDateApresentation($rows_dados['LOG_REGISTRO_DIA_RH_ENVIA_DP']); ?></td>
                                 <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><?php echo 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
+                                            } ?>><?= 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
                                 <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><?php echo 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
+                                            } ?>><?= 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
                                 <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
-                                <td><?php echo $rows_dados['SOLICITANTE']; ?></td>
-                                <td><?php echo $rows_dados['CLIENTE']; ?></td>
-                                <td><?php echo $rows_dados['PROJETO']; ?></td>
-                                <td><?php echo $rows_dados['EMAIL']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
-                                <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes </td>
+                                            } ?>><?= 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
+                                <td><?= $rows_dados['SOLICITANTE']; ?></td>
+                                <td><?= $rows_dados['CLIENTE']; ?></td>
+                                <td><?= $rows_dados['PROJETO']; ?></td>
+                                <td><?= $rows_dados['EMAIL']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['POSICAO_COMENTARIO']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['ADMINISTRATIVO']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['COMENTARIOS']; ?></td>
+                                <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?= $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes </td>
                                 <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
                                             } ?>><a title="Editar" href="../alteraTelas/altera-form.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
@@ -755,7 +755,7 @@ if (isset($_POST['botao'])) {
                                     <td><select id="add-sede" name='sede' class="selectadd intable" required>
                                             <option value="" selected="selected"></option>
                                             <?php foreach ($listar as $linha) : ?>
-                                                <option value="<?= $linha['SEDE_ID'] ?>"><?php echo $linha['NOME_SEDE'] ?></option>
+                                                <option value="<?= $linha['SEDE_ID'] ?>"><?= $linha['NOME_SEDE'] ?></option>
                                             <?php endforeach ?>
                                         </select></td>
                                     <td><select id="add-tipo" name='tipo' class="selectadd intable" onclick="validaCargo()" required>
@@ -817,7 +817,7 @@ if (isset($_POST['botao'])) {
             </section>
 
         </section>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?= file_get_contents("telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>

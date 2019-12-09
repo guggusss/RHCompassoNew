@@ -14098,7 +14098,7 @@ uporteInterno.js[m
  include("../update.php");[m
  [m
 [36m@@ -83,6 +84,7 @@[m [m$translado = buscasuporte($conn, $id);[m
-                 <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+                 <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
                  </div>[m
              </div>[m
 [32m+[m[32m            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>[m[41m
@@ -14188,21 +14188,21 @@ uporteInterno.js[m
                  <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
                          <tr>[m
                              <td><?=$status['STATUS']?></td>[m
-[31m-                            <td><?php echo $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['TERMO_PSI']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>[m
+[31m-                            <td><?= $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>[m
+[31m-                            <td><?= $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>[m
+[31m-                            <td><?= $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['TERMO_PSI']; ?></td>[m
+[31m-                            <td><?= $rows_dados['INCLUI_ADM_PROV']; ?></td>[m
 [31m-                            <td><a title="Exame Admissional" id="proximo" class="disabled" href="exame.php"> Próximo </td>[m
-[32m+[m[32m                            <td id="data"><?php echo $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data"><?= $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data2"><?php echo $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data2"><?= $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data3"><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data3"><?= $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data4"><?php echo $rows_dados['TERMO_PSI']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data4"><?= $rows_dados['TERMO_PSI']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data5"><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data5"><?= $rows_dados['INCLUI_ADM_PROV']; ?></td>[m[41m
 [m
 [32m+[m[32m                            <td><a title="Exame Admissional" id="proximo" class="btn btn-default" href="exame.php"> Próximo </td>[m[41m
 [m
@@ -14211,7 +14211,7 @@ uporteInterno.js[m
                          </tr>[m
 [36m@@ -186,11 +188,11 @@[m [m$translado = buscasuporte($conn, $id);[m
                          <form method="POST" action="../alteraTelas/altera-admissao.php">[m
-                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+                             <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
                              <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>[m
 [31m-                            <td><input type='date' class='intable' name="QUALIFIC_CADASTRAL_CEP" required value="<?=$quali['QUALIFIC_CADASTRAL_CEP']?>"></td>[m
 [31m-                            <td><input type="date" class='intable' name ="CAD_ADM_PLATAFORMA_ADM_DIMIN" required value="<?=$cad['CAD_ADM_PLATAFORMA_ADM_DIMIN']?>"></td>[m
@@ -14383,17 +14383,17 @@ uporteInterno.js[m
 [31m-            <div class="dropdown">[m
 [31m-            <a class="dropbtn nav">Emails <span class='caret'></span></a>[m
 [31m-            <div class="dropdown-content">[m
-[31m-                <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id?>'>5. Documentos Admissão POA</a>[m
-[31m-                <a href='../emails/body-email/admissãoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>[m
-[31m-                <a href='../emails/body-email/admissãoPF.php?id=<?php echo $id?>'>5.2 Documentos de Admissão PF</a>[m
-[31m-                <a href='../emails/body-email/admissãoERE.php?id=<?php echo $id?>'>5.3 Documentos de Admissão ERE</a>[m
-[31m-                <a href='../emails/body-email/admissãoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>[m
-[31m-                <a href='../emails/body-email/admissãoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>[m
-[31m-                <a href='../emails/body-email/admissãoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>[m
-[31m-                <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>[m
-[31m-                <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>[m
-[31m-                <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id?>'>8. Novo Acesso</a>[m
-[31m-                <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+[31m-                <a href='../emails/body-email/admissaoPOA.php?id=<?= $id?>'>5. Documentos Admissão POA</a>[m
+[31m-                <a href='../emails/body-email/admissãoRG.php?id=<?= $id?>'>5.1 Documentos Admissão RG</a>[m
+[31m-                <a href='../emails/body-email/admissãoPF.php?id=<?= $id?>'>5.2 Documentos de Admissão PF</a>[m
+[31m-                <a href='../emails/body-email/admissãoERE.php?id=<?= $id?>'>5.3 Documentos de Admissão ERE</a>[m
+[31m-                <a href='../emails/body-email/admissãoCWB.php?id=<?= $id?>'>5.4 Documentos de Admissão CWB</a>[m
+[31m-                <a href='../emails/body-email/admissãoSP.php?id=<?= $id?>'>5.5 Documentos de Admissão SP</a>[m
+[31m-                <a href='../emails/body-email/admissãoFNL.php?id=<?= $id?>'>5.6 Documentos Admissão FNL</a>[m
+[31m-                <a href='../emails/body-email/primeiro-alerta.php?id=<?= $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>[m
+[31m-                <a href='../emails/body-email/segundo-alerta.php?id=<?= $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>[m
+[31m-                <a href='../emails/body-email/novo-acesso.php?id=<?= $id?>'>8. Novo Acesso</a>[m
+[31m-                <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
 [31m-                </div>[m
 [31m-            </div>[m
 [31m-            </div>[m
@@ -14417,9 +14417,9 @@ uporteInterno.js[m
 [31m-                <tbody>[m
 [31m-                <tr>[m
 [31m-                        <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>[m
-[31m-                            <th width='100px'><?php echo $rows_dados['STATUS'];?></th>[m
-[31m-                            <th width='100px'><?php echo $rows_dados['NOME']; ?></th>[m
-[31m-                            <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO'];?></th>[m
+[31m-                            <th width='100px'><?= $rows_dados['STATUS'];?></th>[m
+[31m-                            <th width='100px'><?= $rows_dados['NOME']; ?></th>[m
+[31m-                            <th width='170px'><?= $rows_dados['DATA_ADMISSAO'];?></th>[m
 [31m-                        <?php  } ?>[m
 [31m-                    </tr>[m
 [31m-                </tbody>[m
@@ -14489,21 +14489,21 @@ uporteInterno.js[m
 [31m-                <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
 [31m-                        <tr>[m
 [31m-                            <td><?=$status['STATUS']?></td>[m
-[31m-                            <td><?php echo $rows_dados['ENVIO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['RECEBIDO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['ANEXAR_COMPR_DOMIN']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['AGENCIA'];?></td>[m
-[31m-                            <td><?php echo $rows_dados['NUMERO_CONTA'];?></td>[m
-[31m-                            <td><?php echo $rows_dados['TIPO_CONTA'];?></td>[m
+[31m-                            <td><?= $rows_dados['ENVIO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['RECEBIDO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['ANEXAR_COMPR_DOMIN']; ?></td>[m
+[31m-                            <td><?= $rows_dados['PLANILHA_CONTAS']; ?></td>[m
+[31m-                            <td><?= $rows_dados['FORM_COMPR_BANCARIO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['AGENCIA'];?></td>[m
+[31m-                            <td><?= $rows_dados['NUMERO_CONTA'];?></td>[m
+[31m-                            <td><?= $rows_dados['TIPO_CONTA'];?></td>[m
 [31m-                            <td><a title="Suporte Interno" id="proximo" class="disabled" href="suporteinterno.php"> Próximo </td>[m
 [31m-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>[m
 [31m-                        </tr>[m
 [31m-                    <?php } ?>[m
 [31m-                    <tr class='funcionario atualiza'>[m
 [31m-                        <form method="POST" action="../alteraTelas/altera-bancario.php">[m
-[31m-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+[31m-                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
 [31m-                            <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>[m
 [31m-                            <td><input type='date' class='intable' name="ENVIO" required value="<?=$envio['ENVIO']?>"></td>[m
 [31m-                            <td><input type="date" class='intable' name ="RECEBIDO" required value="<?=$recebido['RECEBIDO']?>"></td>[m
@@ -14587,7 +14587,7 @@ uporteInterno.js[m
 [31m-                    <th class='tb2'>SEDE</th>[m
 [31m-                </tr>[m
 [31m-                <?php foreach ($listar as $linha):?>[m
-[31m-                <tr><td class='tb2'><?php echo $linha['NOME_SEDE']?></td></tr>[m
+[31m-                <tr><td class='tb2'><?= $linha['NOME_SEDE']?></td></tr>[m
 [31m-                <?php endforeach ?>[m
 [31m-                </table>[m
 [31m-                <table class='legendas-tipos'>[m
@@ -14720,17 +14720,17 @@ uporteInterno.js[m
 [32m+[m[32m            <div class="dropdown">[m
 [32m+[m[32m            <a class="dropbtn nav">Emails <span class='caret'></span></a>[m
 [32m+[m[32m            <div class="dropdown-content">[m
-[32m+[m[32m                <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id?>'>5. Documentos Admissão POA</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoPF.php?id=<?php echo $id?>'>5.2 Documentos de Admissão PF</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoERE.php?id=<?php echo $id?>'>5.3 Documentos de Admissão ERE</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>[m
-[32m+[m[32m                <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>[m
-[32m+[m[32m                <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>[m
-[32m+[m[32m                <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id?>'>8. Novo Acesso</a>[m
-[32m+[m[32m                <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissaoPOA.php?id=<?= $id?>'>5. Documentos Admissão POA</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoRG.php?id=<?= $id?>'>5.1 Documentos Admissão RG</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoPF.php?id=<?= $id?>'>5.2 Documentos de Admissão PF</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoERE.php?id=<?= $id?>'>5.3 Documentos de Admissão ERE</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoCWB.php?id=<?= $id?>'>5.4 Documentos de Admissão CWB</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoSP.php?id=<?= $id?>'>5.5 Documentos de Admissão SP</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoFNL.php?id=<?= $id?>'>5.6 Documentos Admissão FNL</a>[m
+[32m+[m[32m                <a href='../emails/body-email/primeiro-alerta.php?id=<?= $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>[m
+[32m+[m[32m                <a href='../emails/body-email/segundo-alerta.php?id=<?= $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>[m
+[32m+[m[32m                <a href='../emails/body-email/novo-acesso.php?id=<?= $id?>'>8. Novo Acesso</a>[m
+[32m+[m[32m                <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
 [32m+[m[32m                </div>[m
 [32m+[m[32m            </div>[m
 [32m+[m[32m            </div>[m
@@ -14755,9 +14755,9 @@ uporteInterno.js[m
 [32m+[m[32m                <tbody>[m
 [32m+[m[32m                <tr>[m
 [32m+[m[32m                        <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>[m
-[32m+[m[32m                            <th width='100px'><?php echo $rows_dados['STATUS'];?></th>[m
-[32m+[m[32m                            <th width='100px'><?php echo $rows_dados['NOME']; ?></th>[m
-[32m+[m[32m                            <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO'];?></th>[m
+[32m+[m[32m                            <th width='100px'><?= $rows_dados['STATUS'];?></th>[m
+[32m+[m[32m                            <th width='100px'><?= $rows_dados['NOME']; ?></th>[m
+[32m+[m[32m                            <th width='170px'><?= $rows_dados['DATA_ADMISSAO'];?></th>[m
 [32m+[m[32m                        <?php  } ?>[m
 [32m+[m[32m                    </tr>[m
 [32m+[m[32m                </tbody>[m
@@ -14827,21 +14827,21 @@ uporteInterno.js[m
 [32m+[m[32m                <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
 [32m+[m[32m                        <tr>[m
 [32m+[m[32m                            <td><?=$status['STATUS']?></td>[m
-[32m+[m[32m                            <td id="data"><?php echo $rows_dados['ENVIO']; ?></td>[m
-[32m+[m[32m                            <td id="data2"><?php echo $rows_dados['RECEBIDO']; ?></td>[m
-[32m+[m[32m                            <td id="data3"><?php echo $rows_dados['ANEXAR_COMPR_DOMIN']; ?></td>[m
-[32m+[m[32m                            <td id="data4"><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>[m
-[32m+[m[32m                            <td id="data5"><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>[m
-[32m+[m[32m                            <td><?php echo $rows_dados['AGENCIA'];?></td>[m
-[32m+[m[32m                            <td><?php echo $rows_dados['NUMERO_CONTA'];?></td>[m
-[32m+[m[32m                            <td><?php echo $rows_dados['TIPO_CONTA'];?></td>[m
+[32m+[m[32m                            <td id="data"><?= $rows_dados['ENVIO']; ?></td>[m
+[32m+[m[32m                            <td id="data2"><?= $rows_dados['RECEBIDO']; ?></td>[m
+[32m+[m[32m                            <td id="data3"><?= $rows_dados['ANEXAR_COMPR_DOMIN']; ?></td>[m
+[32m+[m[32m                            <td id="data4"><?= $rows_dados['PLANILHA_CONTAS']; ?></td>[m
+[32m+[m[32m                            <td id="data5"><?= $rows_dados['FORM_COMPR_BANCARIO']; ?></td>[m
+[32m+[m[32m                            <td><?= $rows_dados['AGENCIA'];?></td>[m
+[32m+[m[32m                            <td><?= $rows_dados['NUMERO_CONTA'];?></td>[m
+[32m+[m[32m                            <td><?= $rows_dados['TIPO_CONTA'];?></td>[m
 [32m+[m[32m                            <td><a title="Suporte Interno" id="proximo" class="  btn btn-default" href="suporteinterno.php?id=<?=$id?>"> Próximo </td>[m
 [32m+[m[32m                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>[m
 [32m+[m[32m                        </tr>[m
 [32m+[m[32m                    <?php } ?>[m
 [32m+[m[32m                    <tr class='funcionario atualiza'>[m
 [32m+[m[32m                        <form method="POST" action="../alteraTelas/altera-bancario.php">[m
-[32m+[m[32m                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+[32m+[m[32m                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
 [32m+[m[32m                            <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>[m
 [32m+[m[32m                            <td><input type='date' id="campo" class='intable' name="ENVIO"  value="<?=$envio['ENVIO']?>"></td>[m
 [32m+[m[32m                            <td><input type="date" id="campo2" class='intable' name ="RECEBIDO"  value="<?=$recebido['RECEBIDO']?>"></td>[m
@@ -14925,7 +14925,7 @@ uporteInterno.js[m
 [32m+[m[32m                    <th class='tb2'>SEDE</th>[m
 [32m+[m[32m                </tr>[m
 [32m+[m[32m                <?php foreach ($listar as $linha):?>[m
-[32m+[m[32m                <tr><td class='tb2'><?php echo $linha['NOME_SEDE']?></td></tr>[m
+[32m+[m[32m                <tr><td class='tb2'><?= $linha['NOME_SEDE']?></td></tr>[m
 [32m+[m[32m                <?php endforeach ?>[m
 [32m+[m[32m                </table>[m
 [32m+[m[32m                <table class='legendas-tipos'>[m
@@ -15035,7 +15035,7 @@ uporteInterno.js[m
  $inclui = buscaadmissao($conn, $id);[m
  $anexar = buscaexame($conn, $id);[m
 [36m@@ -82,6 +84,7 @@[m [m$translado = buscasuporte($conn, $id);[m
-                   <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+                   <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
                  </div>[m
              </div>[m
 [32m+[m[32m            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>[m[41m
@@ -15136,22 +15136,22 @@ uporteInterno.js[m
                  <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
                      <tr>[m
                          <td><?=$status['STATUS']?></td>[m
-[31m-                        <td><?php echo $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>[m
-[31m-                        <td><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>[m
-[31m-                        <td><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>[m
-[31m-                        <td><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>[m
+[31m-                        <td><?= $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>[m
+[31m-                        <td><?= $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>[m
+[31m-                        <td><?= $rows_dados['DOCUMENTOS_FISICOS']; ?></td>[m
+[31m-                        <td><?= $rows_dados['CTPS_RECEBIDA']; ?></td>[m
 [31m-                        <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="disabled" href="admissao.php"> Próximo </td>[m
 [32m+[m[41m
 [m
-[32m+[m[32m                        <td id="data"><?php echo $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>[m[41m
+[32m+[m[32m                        <td id="data"><?= $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>[m[41m
 [m
-[32m+[m[32m                        <td id="data2"><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>[m[41m
+[32m+[m[32m                        <td id="data2"><?= $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>[m[41m
 [m
-[32m+[m[32m                        <td id="data3"><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>[m[41m
+[32m+[m[32m                        <td id="data3"><?= $rows_dados['DOCUMENTOS_FISICOS']; ?></td>[m[41m
 [m
-[32m+[m[32m                        <td id="data4"><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>[m[41m
+[32m+[m[32m                        <td id="data4"><?= $rows_dados['CTPS_RECEBIDA']; ?></td>[m[41m
 [m
-[32m+[m[32m                        <td><a href="https://www.linkcorreios.com.br/<?= $rows_dados['COD_RASTREIO']?>" target="_blank"> <?php echo $rows_dados['COD_RASTREIO']; ?></a></td>[m[41m
+[32m+[m[32m                        <td><a href="https://www.linkcorreios.com.br/<?= $rows_dados['COD_RASTREIO']?>" target="_blank"> <?= $rows_dados['COD_RASTREIO']; ?></a></td>[m[41m
 [m
 [32m+[m[32m                        <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="btn btn-default" href="admissao.php"> Próximo </td>[m[41m
 [m
@@ -15160,7 +15160,7 @@ uporteInterno.js[m
                      <?php } ?>[m
 [36m@@ -190,10 +198,11 @@[m [m$translado = buscasuporte($conn, $id);[m
                          <form method="POST" action="../alteraTelas/altera-documentacao.php">[m
-                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+                             <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
                              <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>[m
 [31m-                            <td><input type='date' class='intable' name="FORMULARIOS_ENVIADOS" required value="<?=$formEnv['FORMULARIOS_ENVIADOS']?>"></td>[m
 [31m-                            <td><input type="date" class='intable' name ="FORMULARIOS_RECEBIDOS" required value="<?=$formRec['FORMULARIOS_RECEBIDOS']?>"></td>[m
@@ -15268,7 +15268,7 @@ uporteInterno.js[m
  include("../update.php");[m
  [m
 [36m@@ -80,6 +81,7 @@[m [m$emailsoli = buscavias($conn, $id);[m
-                   <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+                   <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
                  </div>[m
              </div>[m
 [32m+[m[32m            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>[m[41m
@@ -15349,18 +15349,18 @@ uporteInterno.js[m
                  <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
                          <tr>[m
                              <td><?=$status['STATUS']?></td>[m
-[31m-                            <td><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['ANEXAR_ASO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>[m
+[31m-                            <td><?= $rows_dados['ENVIO_FUNC_EXAME']; ?></td>[m
+[31m-                            <td><?= $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>[m
+[31m-                            <td><?= $rows_dados['ANEXAR_ASO']; ?></td>[m
 [31m-                            <td><a title= "Dados Bancáriso" id="proximo" class="disabled" href="bancarios.php"> Próximo </td>[m
-[32m+[m[32m                            <td id="data"><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data"><?= $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data2"><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data2"><?= $rows_dados['ENVIO_FUNC_EXAME']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data3"><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data3"><?= $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data4"><?php echo $rows_dados['ANEXAR_ASO']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data4"><?= $rows_dados['ANEXAR_ASO']; ?></td>[m[41m
 [m
 [32m+[m[32m                            <td><a title= "Dados Bancáriso" id="proximo" class="  btn btn-default" href="bancarios.php"> Próximo </td>[m[41m
 [m
@@ -15369,7 +15369,7 @@ uporteInterno.js[m
                      <?php } ?>[m
 [36m@@ -180,10 +182,10 @@[m [m$emailsoli = buscavias($conn, $id);[m
                          <form method="POST" action="../alteraTelas/altera-exame.php">[m
-                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+                             <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
                              <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>[m
 [31m-                            <td><input type='date' class='intable' name="AGENDAMENTO_EXAM_ADM" required value="<?=$agend['AGENDAMENTO_EXAM_ADM']?>"></td>[m
 [31m-                            <td><input type="date" class='intable' name ="ENVIO_FUNC_EXAME" required value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>[m
@@ -15475,7 +15475,7 @@ uporteInterno.js[m
  [m
  $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");[m
 [36m@@ -97,6 +94,9 @@[m [m$translado = buscasuporte($conn, $id);[m
-                   <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+                   <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
                  </div>[m
              </div>[m
 [32m+[m[41m
@@ -15581,30 +15581,30 @@ uporteInterno.js[m
 [36m@@ -191,24 +192,23 @@[m [m$translado = buscasuporte($conn, $id);[m
                  <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
                          <tr>[m
-                             <td><?php echo $rows_dados['STATUS']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>[m
-[31m-							<td><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>[m
-[31m-							<td><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>[m
-[31m-							<td><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>[m
-[32m+[m[32m                            <td id="data"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>[m[41m
+                             <td><?= $rows_dados['STATUS']; ?></td>[m
+[31m-                            <td><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['ENQUADRAMENTO']; ?></td>[m
+[31m-							<td><?= $rows_dados['ENVIO_PROPOSTA']; ?></td>[m
+[31m-							<td><?= $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>[m
+[31m-							<td><?= $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>[m
+[32m+[m[32m                            <td id="data"><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data2"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data2"><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data3"><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data3"><?= $rows_dados['ENQUADRAMENTO']; ?></td>[m[41m
 [m
-[32m+[m							[32m<td id="data4"><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>[m[41m
+[32m+[m							[32m<td id="data4"><?= $rows_dados['ENVIO_PROPOSTA']; ?></td>[m[41m
 [m
-[32m+[m							[32m<td id="data5"><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>[m[41m
+[32m+[m							[32m<td id="data5"><?= $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>[m[41m
 [m
-[32m+[m							[32m<td id="data6"><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>[m[41m
+[32m+[m							[32m<td id="data6"><?= $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>[m[41m
 [m
-                             <td><?php echo $rows_dados['COMENTARIO']; ?></td>[m
-[31m-							<td><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>[m
-[32m+[m							[32m<td id="data8"><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>[m[41m
+                             <td><?= $rows_dados['COMENTARIO']; ?></td>[m
+[31m-							<td><?= $rows_dados['COMUNICAR_STATUS']; ?></td>[m
+[32m+[m							[32m<td id="data8"><?= $rows_dados['COMUNICAR_STATUS']; ?></td>[m[41m
 [m
-                             <td><?php echo $rows_dados['PROJETO']; ?></td>[m
+                             <td><?= $rows_dados['PROJETO']; ?></td>[m
                              <?php unset($_GET['id']); ?>[m
 [31m-                            <td><a title="Gestão" id="proximo" class="disabled" href="gestao.php"> Próximo </td>[m
 [32m+[m[32m                            <td><a title="Gestão" id="proximo" class="disabled btn btn-default" href="gestao.php?id=<?=$id?>"> Próximo </td>[m[41m
@@ -15614,7 +15614,7 @@ uporteInterno.js[m
                      <?php  } ?>[m
                      <tr class='funcionario atualiza'>[m
                          <form method="POST" action="/RHCompasso/alteraTelas/altera-proposta.php">[m
-                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+                             <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
 [31m-[m
                              <td><select class='intable' name="STATUS" ><option value='<?=$status['STATUS']?>' selected= "selected"><?=$status['STATUS']?></option>[m
                              <option value = "AGUARDAR ACEITE">AGUARDAR ACEITE</option>[m
@@ -15822,7 +15822,7 @@ uporteInterno.js[m
  $conn1 = mysqli_num_rows($resultado1);[m
  [m
 [36m@@ -78,6 +78,9 @@[m [m$efetivacao = buscavencimentos($conn, $id);[m
-                 <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+                 <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
                  </div>[m
              </div>[m
 [32m+[m
@@ -15897,8 +15897,8 @@ uporteInterno.js[m
                          <th></th>[m
                          <th></th>[m
 [36m@@ -176,19 +179,53 @@[m [m$efetivacao = buscavencimentos($conn, $id);[m
- 							<td><?php echo $rows_dados['GESTOR_LOCAL_sABE']; ?></td>[m
- 							<td><?php echo $rows_dados['RECEPTOR_PESSOA']; ?></td>[m
+ 							<td><?= $rows_dados['GESTOR_LOCAL_sABE']; ?></td>[m
+ 							<td><?= $rows_dados['RECEPTOR_PESSOA']; ?></td>[m
                              <?php unset($_GET['id']); ?>[m
 [31m-                            <td><a title="Vencimentos Contratos" id="proximo" class="disabled" href="vencimentosContratos.php"> Próximo </td>[m
 [32m+[m[32m                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php"> Próximo </td>[m
@@ -15908,7 +15908,7 @@ uporteInterno.js[m
                      <tr class='funcionario atualiza'>[m
 [31m-                        <form method="POST" action="../alteraTelas/altera-gestor.php">[m
 [32m+[m[32m                        <form method="POST" action="../alteraTelas/altera-gestor.php?id=<?=$id?>">[m
-                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+                             <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
                              <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>[m
 [31m-                            <td><input type='text' class='intable' name="GESTOR" required value="<?=$gestor['GESTOR']?>"></td>[m
 [31m-                            <td><input type="text" class='intable' name ="GESTOR_SABE" required value="<?=$gestor_sabe['GESTOR_SABE']?>"></td>[m
@@ -16130,26 +16130,26 @@ uporteInterno.js[m
                  <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
                      <tr>[m
                          <td><?=$status['STATUS']?></td>[m
-[31m-                        <td><?php echo $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>[m
-[32m+[m[32m                        <td id="data"><?php echo $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>[m[41m
+[31m-                        <td><?= $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>[m
+[32m+[m[32m                        <td id="data"><?= $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>[m[41m
 [m
-                         <td><?php echo $rows_dados['INTRANET_CADASTRO_SENHA']; ?></td>[m
-[31m-                        <td><?php echo $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>[m
-[32m+[m[32m                        <td id="data2"><?php echo $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>[m[41m
+                         <td><?= $rows_dados['INTRANET_CADASTRO_SENHA']; ?></td>[m
+[31m-                        <td><?= $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>[m
+[32m+[m[32m                        <td id="data2"><?= $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>[m[41m
 [m
-                         <td><?php echo $rows_dados['KAIROS_CADASTRO_SENHA']; ?></td>[m
-[31m-                        <td><?php echo $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>[m
-[31m-                        <td><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>[m
-[31m-                        <td><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>[m
-[31m-                        <td><?php echo $rows_dados['ACESSOS']; ?></td>[m
+                         <td><?= $rows_dados['KAIROS_CADASTRO_SENHA']; ?></td>[m
+[31m-                        <td><?= $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>[m
+[31m-                        <td><?= $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>[m
+[31m-                        <td><?= $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>[m
+[31m-                        <td><?= $rows_dados['ACESSOS']; ?></td>[m
 [31m-                        <td><a title="Vias Documentos Funcionários" id="proximo" class="disabled" href="viasdocumentos.php"> Próximo </td>[m
-[32m+[m[32m                        <td id="data3"><?php echo $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>[m[41m
+[32m+[m[32m                        <td id="data3"><?= $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>[m[41m
 [m
-[32m+[m[32m                        <td id="data4"><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>[m[41m
+[32m+[m[32m                        <td id="data4"><?= $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>[m[41m
 [m
-[32m+[m[32m                        <td id="data5"><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>[m[41m
+[32m+[m[32m                        <td id="data5"><?= $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>[m[41m
 [m
-[32m+[m[32m                        <td id="data6"><?php echo $rows_dados['ACESSOS']; ?></td>[m[41m
+[32m+[m[32m                        <td id="data6"><?= $rows_dados['ACESSOS']; ?></td>[m[41m
 [m
 [32m+[m[32m                        <td><a title="Vias Documentos Funcionários" id="proximo" class="  btn btn-default" href="viasdocumentos.php"> Próximo </td>[m[41m
 [m
@@ -16158,7 +16158,7 @@ uporteInterno.js[m
                      <?php } ?>[m
 [36m@@ -195,14 +197,14 @@[m [m$acessos = buscainterno($conn, $id);[m
                          <form method="POST" action="../alteraTelas/altera-interno.php">[m
-                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+                             <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
                              <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>[m
 [31m-                            <td><input type='date' class='intable' name="INTRANET_CADASTRO_USUARIO" required value="<?=$intranetusu['INTRANET_CADASTRO_USUARIO']?>"></td>[m
 [32m+[m[32m                            <td><input type='date' id="campo" class='intable' name="INTRANET_CADASTRO_USUARIO"  value="<?=$intranetusu['INTRANET_CADASTRO_USUARIO']?>"></td>[m[41m
@@ -17051,15 +17051,15 @@ uporteInterno.js[m
 [31m-                        <tr>[m
 [32m+[m[32m                        <tr style="vertical-align: right !important;">[m[41m
 [m
-                             <td><?php echo $rows_dados['STATUS'];?></td>[m
-                             <td><?php echo $rows_dados['NOME_SEDE']; ?></td>[m
-                             <td><?php echo $rows_dados['NOME_TIPO']; ?></td>[m
+                             <td><?= $rows_dados['STATUS'];?></td>[m
+                             <td><?= $rows_dados['NOME_SEDE']; ?></td>[m
+                             <td><?= $rows_dados['NOME_TIPO']; ?></td>[m
 [36m@@ -545,9 +698,9 @@[m [mif (isset($_POST['botaoVolta'])) {[m
-                             <td><?php echo $rows_dados['POSICAO_DATA']; ?></td>[m
-                             <td><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>[m
-                             <td><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>[m
-[31m-                            <td><a title="Proposta de Contratação" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>[m
-[32m+[m[32m                            <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>[m[41m
+                             <td><?= $rows_dados['POSICAO_DATA']; ?></td>[m
+                             <td><?= $rows_dados['POSICAO_COMENTARIO']; ?></td>[m
+                             <td><?= $rows_dados['ADMINISTRATIVO']; ?></td>[m
+[31m-                            <td><a title="Proposta de Contratação" href='funcionario.php?id=<?= $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>[m
+[32m+[m[32m                            <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?= $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>[m[41m
 [m
                              <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default">Editar</span></a></td>[m
 [31m-                        </tr>[m
@@ -17069,7 +17069,7 @@ uporteInterno.js[m
                  }} ?>[m
  [m
 [36m@@ -560,10 +713,10 @@[m [mif (isset($_POST['botaoVolta'])) {[m
-                                     <option value="<?= $linha['SEDE_ID']?>"><?php echo $linha['NOME_SEDE']?></option>[m
+                                     <option value="<?= $linha['SEDE_ID']?>"><?= $linha['NOME_SEDE']?></option>[m
                                  <?php endforeach ?>[m
                                </select></td>[m
 [31m-                            <td><select id="add-tipo" name='tipo' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">CLT</option><option value="2">CC</option><option value="3">HO</option><option value="4">TEMP</option><option value="5">APDZ</option></select></td>[m
@@ -17135,7 +17135,7 @@ uporteInterno.js[m
 [m
                  </tr>[m
                  <?php foreach ($listar as $linha):?>[m
-                 <tr><td class='tb2'><?php echo $linha['NOME_SEDE']?></td></tr>[m
+                 <tr><td class='tb2'><?= $linha['NOME_SEDE']?></td></tr>[m
 [36m@@ -663,8 +816,8 @@[m [mif (isset($_POST['botaoVolta'])) {[m
                  </table>[m
                  <table class='legendas-tipos'>[m
@@ -17293,7 +17293,7 @@ uporteInterno.js[m
  $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");[m
  $conn1 = mysqli_num_rows($resultado1);[m
 [36m@@ -86,6 +85,7 @@[m [m$deacordo = buscaProposta($conn, $id);[m
-                 <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+                 <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
                  </div>[m
              </div>[m
 [32m+[m[32m            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>[m[41m
@@ -17372,18 +17372,18 @@ uporteInterno.js[m
                      <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
                              <tr>[m
                              <td><?=$status['STATUS']?></td>[m
-[31m-                            <td><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>[m
-[32m+[m[32m                            <td id="data"><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>[m[41m
+[31m-                            <td><?= $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>[m
+[31m-                            <td><?= $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>[m
+[32m+[m[32m                            <td id="data"><?= $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data2"><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data2"><?= $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>[m[41m
 [m
-                             <td><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>[m
-[32m+[m[32m                            <td id="data3"><?php echo $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>[m[41m
+                             <td><?= $rows_dados['BOAS_VINDAS_SALA']; ?></td>[m
+[31m-                            <td><?= $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>[m
+[31m-                            <td><?= $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>[m
+[32m+[m[32m                            <td id="data3"><?= $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data4"><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data4"><?= $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>[m[41m
 [m
                              <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>[m
 [31m-                            <td><form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class=" btn btn-default"></form></td>[m
@@ -17625,17 +17625,17 @@ uporteInterno.js[m
 [31m-            <div class="dropdown">[m
 [31m-            <a class="dropbtn nav">Emails <span class='caret'></span></a>[m
 [31m-            <div class="dropdown-content">[m
-[31m-                <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id?>'>5. Documentos Admissão POA</a>[m
-[31m-                <a href='../emails/body-email/admissãoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>[m
-[31m-                <a href='../emails/body-email/admissãoPF.php?id=<?php echo $id?>'>5.2 Documentos de Admissão PF</a>[m
-[31m-                <a href='../emails/body-email/admissãoERE.php?id=<?php echo $id?>'>5.3 Documentos de Admissão ERE</a>[m
-[31m-                <a href='../emails/body-email/admissãoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>[m
-[31m-                <a href='../emails/body-email/admissãoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>[m
-[31m-                <a href='../emails/body-email/admissãoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>[m
-[31m-                <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>[m
-[31m-                <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>[m
-[31m-                <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id?>'>8. Novo Acesso</a>[m
-[31m-                <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+[31m-                <a href='../emails/body-email/admissaoPOA.php?id=<?= $id?>'>5. Documentos Admissão POA</a>[m
+[31m-                <a href='../emails/body-email/admissãoRG.php?id=<?= $id?>'>5.1 Documentos Admissão RG</a>[m
+[31m-                <a href='../emails/body-email/admissãoPF.php?id=<?= $id?>'>5.2 Documentos de Admissão PF</a>[m
+[31m-                <a href='../emails/body-email/admissãoERE.php?id=<?= $id?>'>5.3 Documentos de Admissão ERE</a>[m
+[31m-                <a href='../emails/body-email/admissãoCWB.php?id=<?= $id?>'>5.4 Documentos de Admissão CWB</a>[m
+[31m-                <a href='../emails/body-email/admissãoSP.php?id=<?= $id?>'>5.5 Documentos de Admissão SP</a>[m
+[31m-                <a href='../emails/body-email/admissãoFNL.php?id=<?= $id?>'>5.6 Documentos Admissão FNL</a>[m
+[31m-                <a href='../emails/body-email/primeiro-alerta.php?id=<?= $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>[m
+[31m-                <a href='../emails/body-email/segundo-alerta.php?id=<?= $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>[m
+[31m-                <a href='../emails/body-email/novo-acesso.php?id=<?= $id?>'>8. Novo Acesso</a>[m
+[31m-                <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
 [31m-                </div>[m
 [31m-            </div>[m
 [31m-        </nav>[m
@@ -17660,9 +17660,9 @@ uporteInterno.js[m
 [31m-                <tbody>[m
 [31m-                <tr>[m
 [31m-                        <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>[m
-[31m-                            <th width='100px'><?php echo $rows_dados['STATUS'];?></th>[m
-[31m-                            <th width='100px'><?php echo $rows_dados['NOME']; ?></th>[m
-[31m-                            <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO'];?></th>[m
+[31m-                            <th width='100px'><?= $rows_dados['STATUS'];?></th>[m
+[31m-                            <th width='100px'><?= $rows_dados['NOME']; ?></th>[m
+[31m-                            <th width='170px'><?= $rows_dados['DATA_ADMISSAO'];?></th>[m
 [31m-                        <?php  } ?>[m
 [31m-                    </tr>[m
 [31m-                </tbody>[m
@@ -17730,12 +17730,12 @@ uporteInterno.js[m
 [31m-                    <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
 [31m-                            <tr>[m
 [31m-                            <td><?=$status['STATUS']?></td>[m
-[31m-                            <td><?php echo $rows_dados['EMAIL_SUP']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['USUARIO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['SENHA']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['TRANSLADO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['GRUPOS_DE_EMAIL']; ?></td>[m
+[31m-                            <td><?= $rows_dados['EMAIL_SUP']; ?></td>[m
+[31m-                            <td><?= $rows_dados['USUARIO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['SENHA']; ?></td>[m
+[31m-                            <td><?= $rows_dados['EQUIPAMENTO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['TRANSLADO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['GRUPOS_DE_EMAIL']; ?></td>[m
 [31m-                            <td><a title="Interno" id="proximo" class="disabled" href="interno.php"> Próximo </td>[m
 [31m-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>[m
 [31m-[m
@@ -17744,7 +17744,7 @@ uporteInterno.js[m
 [31m-[m
 [31m-                    <tr class='funcionario atualiza'>[m
 [31m-                        <form method="POST" action="../alteraTelas/altera-suporte.php">[m
-[31m-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+[31m-                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
 [31m-                            <td><input class='intable' readonly name="STATUS" required value='<?=$status['STATUS']?>'></td>[m
 [31m-                            <td><input type='email' class='intable' name="EMAIL_SUP" required value="<?=$mail['EMAIL_SUP']?>"></td>[m
 [31m-                            <td><input type="text" class='intable' name ="USUARIO" required value="<?=$usuario['USUARIO']?>"></td>[m
@@ -17820,7 +17820,7 @@ uporteInterno.js[m
 [31m-                    <th class='tb2'>SEDE</th>[m
 [31m-                </tr>[m
 [31m-                <?php foreach ($listar as $linha):?>[m
-[31m-                <tr><td class='tb2'><?php echo $linha['NOME_SEDE']?></td></tr>[m
+[31m-                <tr><td class='tb2'><?= $linha['NOME_SEDE']?></td></tr>[m
 [31m-                <?php endforeach ?>[m
 [31m-                </table>[m
 [31m-                <table class='legendas-tipos'>[m
@@ -17961,17 +17961,17 @@ uporteInterno.js[m
 [32m+[m[32m            <div class="dropdown">[m
 [32m+[m[32m            <a class="dropbtn nav">Emails <span class='caret'></span></a>[m
 [32m+[m[32m            <div class="dropdown-content">[m
-[32m+[m[32m                <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id?>'>5. Documentos Admissão POA</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoPF.php?id=<?php echo $id?>'>5.2 Documentos de Admissão PF</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoERE.php?id=<?php echo $id?>'>5.3 Documentos de Admissão ERE</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>[m
-[32m+[m[32m                <a href='../emails/body-email/admissãoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>[m
-[32m+[m[32m                <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>[m
-[32m+[m[32m                <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>[m
-[32m+[m[32m                <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id?>'>8. Novo Acesso</a>[m
-[32m+[m[32m                <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>'>9. Acessos Liberado</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissaoPOA.php?id=<?= $id?>'>5. Documentos Admissão POA</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoRG.php?id=<?= $id?>'>5.1 Documentos Admissão RG</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoPF.php?id=<?= $id?>'>5.2 Documentos de Admissão PF</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoERE.php?id=<?= $id?>'>5.3 Documentos de Admissão ERE</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoCWB.php?id=<?= $id?>'>5.4 Documentos de Admissão CWB</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoSP.php?id=<?= $id?>'>5.5 Documentos de Admissão SP</a>[m
+[32m+[m[32m                <a href='../emails/body-email/admissãoFNL.php?id=<?= $id?>'>5.6 Documentos Admissão FNL</a>[m
+[32m+[m[32m                <a href='../emails/body-email/primeiro-alerta.php?id=<?= $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>[m
+[32m+[m[32m                <a href='../emails/body-email/segundo-alerta.php?id=<?= $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>[m
+[32m+[m[32m                <a href='../emails/body-email/novo-acesso.php?id=<?= $id?>'>8. Novo Acesso</a>[m
+[32m+[m[32m                <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>'>9. Acessos Liberado</a>[m
 [32m+[m[32m                </div>[m
 [32m+[m[32m            </div>[m
 [32m+[m[32m            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>[m
@@ -17997,9 +17997,9 @@ uporteInterno.js[m
 [32m+[m[32m                <tbody>[m
 [32m+[m[32m                <tr>[m
 [32m+[m[32m                        <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>[m
-[32m+[m[32m                            <th width='100px'><?php echo $rows_dados['STATUS'];?></th>[m
-[32m+[m[32m                            <th width='100px'><?php echo $rows_dados['NOME']; ?></th>[m
-[32m+[m[32m                            <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO'];?></th>[m
+[32m+[m[32m                            <th width='100px'><?= $rows_dados['STATUS'];?></th>[m
+[32m+[m[32m                            <th width='100px'><?= $rows_dados['NOME']; ?></th>[m
+[32m+[m[32m                            <th width='170px'><?= $rows_dados['DATA_ADMISSAO'];?></th>[m
 [32m+[m[32m                        <?php  } ?>[m
 [32m+[m[32m                    </tr>[m
 [32m+[m[32m                </tbody>[m
@@ -18067,12 +18067,12 @@ uporteInterno.js[m
 [32m+[m[32m                    <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
 [32m+[m[32m                            <tr>[m
 [32m+[m[32m                            <td><?=$status['STATUS']?></td>[m
-[32m+[m[32m                            <td><?php echo $rows_dados['EMAIL_SUP']; ?></td>[m
-[32m+[m[32m                            <td><?php echo $rows_dados['USUARIO']; ?></td>[m
-[32m+[m[32m                            <td><?php echo $rows_dados['SENHA']; ?></td>[m
-[32m+[m[32m                            <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>[m
-[32m+[m[32m                            <td><?php echo $rows_dados['TRANSLADO']; ?></td>[m
-[32m+[m[32m                            <td><?php echo $rows_dados['EQUIPE']; ?></td>[m
+[32m+[m[32m                            <td><?= $rows_dados['EMAIL_SUP']; ?></td>[m
+[32m+[m[32m                            <td><?= $rows_dados['USUARIO']; ?></td>[m
+[32m+[m[32m                            <td><?= $rows_dados['SENHA']; ?></td>[m
+[32m+[m[32m                            <td><?= $rows_dados['EQUIPAMENTO']; ?></td>[m
+[32m+[m[32m                            <td><?= $rows_dados['TRANSLADO']; ?></td>[m
+[32m+[m[32m                            <td><?= $rows_dados['EQUIPE']; ?></td>[m
 [32m+[m[32m                            <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>[m
 [32m+[m[32m                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>[m
 [32m+[m
@@ -18081,7 +18081,7 @@ uporteInterno.js[m
 [32m+[m
 [32m+[m[32m                    <tr class='funcionario atualiza'>[m
 [32m+[m[32m                        <form method="POST" action="../alteraTelas/altera-suporte.php">[m
-[32m+[m[32m                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+[32m+[m[32m                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
 [32m+[m[32m                            <td><input class='intable' readonly name="STATUS"  value='<?=$status['STATUS']?>'></td>[m
 [32m+[m[32m                            <td><input type='email' class='intable' name="EMAIL_SUP"  value="<?=$mail['EMAIL_SUP']?>"></td>[m
 [32m+[m[32m                            <td><input type="text" class='intable' name ="USUARIO"  value="<?=$usuario['USUARIO']?>"></td>[m
@@ -18159,7 +18159,7 @@ uporteInterno.js[m
 [32m+[m[32m                    <th class='tb2'>SEDE</th>[m
 [32m+[m[32m                </tr>[m
 [32m+[m[32m                <?php foreach ($listar as $linha):?>[m
-[32m+[m[32m                <tr><td class='tb2'><?php echo $linha['NOME_SEDE']?></td></tr>[m
+[32m+[m[32m                <tr><td class='tb2'><?= $linha['NOME_SEDE']?></td></tr>[m
 [32m+[m[32m                <?php endforeach ?>[m
 [32m+[m[32m                </table>[m
 [32m+[m[32m                <table class='legendas-tipos'>[m
@@ -18265,7 +18265,7 @@ uporteInterno.js[m
  $envio_Pri = buscavencimentos($conn, $id);[m
  $renovacao = buscavencimentos($conn, $id);[m
 [36m@@ -77,6 +91,7 @@[m [m$translado = buscasuporte($conn, $id);[m
-                 <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+                 <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
                  </div>[m
              </div>[m
 [32m+[m[32m            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>[m
@@ -18351,16 +18351,16 @@ uporteInterno.js[m
                      <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
                              <tr>[m
                              <td><?=$status['STATUS']?></td>[m
-[31m-                            <td><?php echo $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>[m
-[32m+[m[32m                            <td id="data"><?php echo $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>[m
-[32m+[m[32m                            <td id="data2"><?php echo $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>[m
-                             <td><?php echo $rows_dados['RENOVACAO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>[m
-[32m+[m[32m                            <td id="data3"><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>[m
-[32m+[m[32m                            <td id="data4"><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>[m
-                             <td><?php echo $rows_dados['EFETIVACAO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>[m
+[31m-                            <td><?= $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>[m
+[32m+[m[32m                            <td id="data"><?= $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>[m
+[32m+[m[32m                            <td id="data2"><?= $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>[m
+                             <td><?= $rows_dados['RENOVACAO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>[m
+[31m-                            <td><?= $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>[m
+[32m+[m[32m                            <td id="data3"><?= $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>[m
+[32m+[m[32m                            <td id="data4"><?= $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>[m
+                             <td><?= $rows_dados['EFETIVACAO']; ?></td>[m
 [31m-                            <td><a title="Vencimentos Contratos" id="proximo" class="disabled" href="documentacao.php"> Próximo </td>[m
 [32m+[m[32m                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php"> Próximo </td>[m
                              <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>[m
@@ -18368,7 +18368,7 @@ uporteInterno.js[m
  [m
 [36m@@ -190,12 +208,46 @@[m [m$translado = buscasuporte($conn, $id);[m
                          <form method="POST" action="../alteraTelas/altera-vencimento.php">[m
-                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+                             <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
                              <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>[m
 [31m-                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI" required value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>[m
 [31m-                            <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" required value=""></td>[m
@@ -18503,7 +18503,7 @@ uporteInterno.js[m
      include("../update.php");[m
  [m
 [36m@@ -72,6 +73,7 @@[m [m$docreceb = buscavias($conn, $id);[m
-                 <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>[m
+                 <a href='../emails/body-email/acesso-liberado.php?id=<?= $id?>>'>9. Acessos Liberado</a>[m
                  </div>[m
              </div>[m
 [32m+[m[32m            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>[m[41m
@@ -18595,27 +18595,27 @@ uporteInterno.js[m
                  <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>[m
                              <tr>[m
                              <td><?=$status['STATUS']?></td>[m
-[31m-                            <td><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>[m
-[31m-                            <td><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>[m
+[31m-                            <td><?= $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['CRACHA_CONTROLE']; ?></td>[m
+[31m-                            <td><?= $rows_dados['CRACHA_PROTOCOLO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>[m
+[31m-                            <td><?= $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>[m
+[31m-                            <td><?= $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>[m
 [31m-                            <td><a title="Boas Vindas" href='recepcao.php' class='intable'>Proximo</td>[m
-[32m+[m[32m                            <td id="data"><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data"><?= $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data2"><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data2"><?= $rows_dados['CRACHA_CONTROLE']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data3"><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data3"><?= $rows_dados['CRACHA_PROTOCOLO']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data4"><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data4"><?= $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data5"><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data5"><?= $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data6"><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data6"><?= $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>[m[41m
 [m
-[32m+[m[32m                            <td id="data7"><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>[m[41m
+[32m+[m[32m                            <td id="data7"><?= $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>[m[41m
 [m
 [32m+[m[32m                            <td><a title="Boas Vindas" href='recepcao.php' class="btn btn-default">Próximo</td>[m[41m
 [m
@@ -18625,7 +18625,7 @@ uporteInterno.js[m
 [36m@@ -188,14 +191,14 @@[m [m$docreceb = buscavias($conn, $id);[m
                      <tr class='funcionario atualiza'>[m
                          <form method="POST" action="../alteraTelas/altera-vias.php">[m
-                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">[m
+                             <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO']?>">[m
 [31m-                            <td><input class='intable' readonly name="STATUS" required value='<?=$status['STATUS']?>'></td>[m
 [31m-                            <td><input type='date' class='intable' name="CRACHA_DATA_PEDIDO" required value="<?=$emailsoli['CRACHA_DATA_PEDIDO']?>"></td>[m
 [31m-                            <td><input type='date' class='intable' name="CRACHA_CONTROLE" required value="<?=$emailsoli['CRACHA_CONTROLE']?>"></td>[m

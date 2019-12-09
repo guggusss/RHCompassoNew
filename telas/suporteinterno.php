@@ -78,18 +78,18 @@ $campoV = 'class="txtVazio" ';
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
+                    <a href='../emails/body-email/admissaoPOA.php?id=<?= $id ?>'>5. Documentos Admissão POA</a>
+                    <a href='../emails/body-email/admissaoRG.php?id=<?= $id ?>'>5.1 Documentos Admissão RG</a>
+                    <a href='../emails/body-email/admissaoPF.php?id=<?= $id ?>'>5.2 Documentos de Admissão PF</a>
+                    <a href='../emails/body-email/admissaoERE.php?id=<?= $id ?>'>5.3 Documentos de Admissão ERE</a>
+                    <a href='../emails/body-email/admissaoCWB.php?id=<?= $id ?>'>5.4 Documentos de Admissão CWB</a>
+                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?= $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
+                    <a href='../emails/body-email/admissaoFNL.php?id=<?= $id ?>'>5.6 Documentos de Admissão FLN</a>
+                    <a href='../emails/body-email/admissaoRecife.php?id=<?= $id ?>'>5.7 Documentos de Admissão REC</a>
+                    <a href='../emails/body-email/primeiro-alerta.php?id=<?= $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
+                    <a href='../emails/body-email/segundo-alerta.php?id=<?= $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
+                    <a href='../emails/body-email/novo-acesso.php?id=<?= $id ?>'>8. Novo Acesso</a>
+                    <a href='../emails/body-email/acesso-liberado.php?id=<?= $id ?>'>9. Acessos Liberado</a>
                 </div>
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
@@ -116,9 +116,9 @@ $campoV = 'class="txtVazio" ';
                         <tbody>
                             <tr>
                                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
-                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
+                                    <th width='100px'><?= $rows_dados['STATUS']; ?></th>
+                                    <th width='100px'><?= $rows_dados['NOME']; ?></th>
+                                    <th width='170px'><?= $rows_dados['DATA_ADMISSAO']; ?></th>
                                     <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
                                                             if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
                                                             if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
@@ -209,25 +209,25 @@ $campoV = 'class="txtVazio" ';
                                                                                                 }elseif(buscasuporteExisteEmail($conn, $rows_dados['EMAIL_SUP']) > 1) {
                                                                                                     $usuario_atv = "USUÁRIO E/OU E-MAIL JÁ EXISTE";
                                                                                                     echo ($campoV);                                                                                                    
-                                                                                                } ?>> <?php echo $usuario_atv ?> </td>
+                                                                                                } ?>> <?= $usuario_atv ?> </td>
                             <td <?php if ($rows_dados['EMAIL_SUP'] == "") {
                                         echo ($campoV);
-                                    } ?>><?php echo $rows_dados['EMAIL_SUP']; ?></td>
+                                    } ?>><?= $rows_dados['EMAIL_SUP']; ?></td>
                             <td <?php if ($rows_dados['USUARIO'] == "") {
                                         echo ($campoV);
-                                    } ?>><?php echo $rows_dados['USUARIO']; ?></td>
+                                    } ?>><?= $rows_dados['USUARIO']; ?></td>
                             <td <?php if ($rows_dados['SENHA'] == "") {
                                         echo ($campoV);
-                                    } ?>><?php echo $rows_dados['SENHA']; ?></td>
+                                    } ?>><?= $rows_dados['SENHA']; ?></td>
                             <td <?php if ($rows_dados['EQUIPAMENTO'] == "") {
                                         echo ($campoV);
-                                    } ?>><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
+                                    } ?>><?= $rows_dados['EQUIPAMENTO']; ?></td>
                             <td <?php if ($rows_dados['TRANSLADO'] == "") {
                                         echo ($campoV);
-                                    } ?>><?php echo $rows_dados['TRANSLADO']; ?></td>
+                                    } ?>><?= $rows_dados['TRANSLADO']; ?></td>
                             <td <?php if ($rows_dados['EQUIPE'] == "") {
                                         echo ($campoV);
-                                    } ?>><?php echo $grupDeEmail1.$rows_dados['EQUIPE']; ?></td>
+                                    } ?>><?= $grupDeEmail1.$rows_dados['EQUIPE']; ?></td>
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
@@ -235,7 +235,7 @@ $campoV = 'class="txtVazio" ';
                     <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-suporte.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td></td>
                             <td><input type='email' class='intable' name="EMAIL_SUP" value="<?= $mail['EMAIL_SUP'] ?>"></td>
@@ -254,7 +254,7 @@ $campoV = 'class="txtVazio" ';
         <?php if($usuario_atv == "INVÁLIDO"){ ?>
         <h3>Usuário, E-mail e Senha Acesso precisam ser preenchidos!</h3>
         <?php } ?>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?= file_get_contents("telasLegendas.html"); ?>
         
     </main>
     <footer>

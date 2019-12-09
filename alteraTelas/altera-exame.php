@@ -20,4 +20,4 @@ else
     include("../telas/naoSalvo.php");
 }
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/exame.php?id=<?php echo $id ?>"/>
+<meta http-equiv="refresh" content="1;  url=../telas/exame.php?id=<?= $id ?>"/>

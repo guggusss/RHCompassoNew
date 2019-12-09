@@ -36,4 +36,4 @@ else
     include("../telas/naoSalvo.php");
 }
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/viasdocumentos.php?id=<?php echo $id ?>"/>
+<meta http-equiv="refresh" content="1;  url=../telas/viasdocumentos.php?id=<?= $id ?>"/>

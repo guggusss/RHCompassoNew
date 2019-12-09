@@ -22,4 +22,4 @@ else
 }
 
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/gestao.php?id=<?php echo $id ?>"/>
+<meta http-equiv="refresh" content="1;  url=../telas/gestao.php?id=<?= $id ?>"/>

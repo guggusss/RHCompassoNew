@@ -78,7 +78,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
 
                 <tbody>
                     <form id='altera-func' method='POST' action='altera-funcionario.php'>
-                        <input type='hidden' name="USUARIO_ID" value='<?php echo $funcionarios['USUARIO_ID'] ?>' />
+                        <input type='hidden' name="USUARIO_ID" value='<?= $funcionarios['USUARIO_ID'] ?>' />
                         <td><select name="status" class="intable" value="<?= $rows_dados['STATUS'] ?>" required>
                                 <option value="" selected="selected"></option>
                                 <option>SOLICITAÇÃO DE PROPOSTA</option>
@@ -100,25 +100,25 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                         <td><select name="ID_SEDE" class="selectadd intable" id="recipient-funcao">
                                 <option>Escolha...</option>
                                 <?php while ($rows_funcoes = mysqli_fetch_assoc($return_sede)) { ?>
-                                    <option value="<?php echo $rows_funcoes['SEDE_ID']; ?>" <?php if ($rows_funcoes['SEDE_ID'] == $funcionarios['ID_SEDE']) {
+                                    <option value="<?= $rows_funcoes['SEDE_ID']; ?>" <?php if ($rows_funcoes['SEDE_ID'] == $funcionarios['ID_SEDE']) {
                                                                                                     echo "selected";
-                                                                                                } ?>><?php echo $rows_funcoes['NOME_SEDE']; ?></option>
+                                                                                                } ?>><?= $rows_funcoes['NOME_SEDE']; ?></option>
                                 <?php } ?>
                             </select></td>
                         <td width="100px"><select id="tipo" class="selectadd intable" name='ID_TIPO'>
                                 <option>Escolha...</option>
                                 <?php while ($rows_funcoes = mysqli_fetch_assoc($return_tipo)) { ?>
-                                    <option value="<?php echo $rows_funcoes['TIPO_ID']; ?>" <?php if ($rows_funcoes['TIPO_ID'] == $funcionarios['ID_TIPO']) {
+                                    <option value="<?= $rows_funcoes['TIPO_ID']; ?>" <?php if ($rows_funcoes['TIPO_ID'] == $funcionarios['ID_TIPO']) {
                                                                                                     echo "selected";
-                                                                                                } ?>><?php echo $rows_funcoes['NOME_TIPO']; ?></option>
+                                                                                                } ?>><?= $rows_funcoes['NOME_TIPO']; ?></option>
                                 <?php } ?>
                             </select></td>
                         <td><select name="ID_CAPTACAO" class="selectadd intable" id="recipient-funcao">
                                 <option>Escolha...</option>
                                 <?php while ($rows_funcoes = mysqli_fetch_assoc($return_captacao)) { ?>
-                                    <option value="<?php echo $rows_funcoes['CAPTACAO_ID']; ?>" <?php if ($rows_funcoes['CAPTACAO_ID'] == $funcionarios['ID_CAPTACAO']) {
+                                    <option value="<?= $rows_funcoes['CAPTACAO_ID']; ?>" <?php if ($rows_funcoes['CAPTACAO_ID'] == $funcionarios['ID_CAPTACAO']) {
                                                                                                         echo "selected";
-                                                                                                    } ?>><?php echo $rows_funcoes['NOME_PARAMETRO']; ?></option>
+                                                                                                    } ?>><?= $rows_funcoes['NOME_PARAMETRO']; ?></option>
                                 <?php } ?>
                             </select></td>
                         <?php $REMUNERACAO_BASE = number_format($funcionarios['REMUNERACAO_BASE'], 2, ',', '.'); ?>
@@ -155,7 +155,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                 </tbody>
             </table>
         </section>
-        <?php echo file_get_contents("../telas/telasLegendas.html"); ?>
+        <?= file_get_contents("../telas/telasLegendas.html"); ?>
     </main>
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
