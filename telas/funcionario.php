@@ -187,17 +187,17 @@ $campoV = 'class="txtVazio" ';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
+                <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
-                            <td><?= $rows_dados['STATUS']; ?></td>
-                            <td id="data"><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
-                            <td id="data2"><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
-                            <td id="data3"><?= $rows_dados['ENQUADRAMENTO']; ?></td>
-                            <td id="data4"><?= $rows_dados['ENVIO_PROPOSTA']; ?></td>
-                            <td id="data5"><?= $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
-                            <td id="data6"><?= $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
-                            <td><?= $rows_dados['COMENTARIO']; ?></td>
-                            <td id="data8"><?= $rows_dados['COMUNICAR_STATUS']; ?></td>
+                            <td><?php echo $rows_dados['STATUS']; ?></td>
+                            <td <?php if ($envioprop['ENQUADRAMENTO_REMUNERACAO_ENVIO'] == "0101-01-01" or $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
+                            <td <?php if ($envioprop['ENQUADRAMENTO_REMUNERACAO_RETORNO'] == "0101-01-01" or $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
+                            <td <?php if ($envioprop['ENQUADRAMENTO'] == "0101-01-01" or $rows_dados['ENQUADRAMENTO'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>
+                            <td <?php if ($envioprop['ENVIO_PROPOSTA'] == "0101-01-01" or $rows_dados['ENVIO_PROPOSTA'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>
+                            <td <?php if ($envioprop['COMUNICAR_PROPOSTA_ENVIADA'] == "0101-01-01" or $rows_dados['COMUNICAR_PROPOSTA_ENVIADA'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
+                            <td <?php if ($envioprop['ACEITE_RECUSA_CANDIDATO'] == "0101-01-01" or $rows_dados['ACEITE_RECUSA_CANDIDATO'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
+                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>
+                            <td <?php if ($envioprop['COMUNICAR_STATUS'] == "0101-01-01" or $rows_dados['COMUNICAR_STATUS'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
 
                             <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="btn btn-default" href="gestao.php?id=<?= $id ?>"> Próximo </td>
