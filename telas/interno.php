@@ -6,6 +6,13 @@ include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
 
+if($grupo == "Suporte Interno"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
 if (!isset($id)) {
     $id = $_SESSION['id'];
 }
