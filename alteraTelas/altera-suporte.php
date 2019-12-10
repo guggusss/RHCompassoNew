@@ -12,6 +12,8 @@ $EQUIPAMENTO = $_POST['EQUIPAMENTO'];
 $TRANSLADO = $_POST['TRANSLADO'];
 $EQUIPE = (isset($_POST['EQUIPE'])) ? $_POST['EQUIPE'] : array();
 
+
+
 if (suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $EQUIPE)) {
 
     include("../telas/salvoSucesso.php");
