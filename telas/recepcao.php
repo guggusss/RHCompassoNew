@@ -179,7 +179,11 @@ $campoV = 'class="txtVazio" ';
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th colspan='8'>Boas Vindas Compasso</th>
+                        <th <?php if ($grupo == "Gestores") {
+                                                            echo 'colspan="7"';
+                                                        }else{
+                                                            echo 'colspan="8"';
+                                                        } ?>>Boas Vindas Compasso</th>
                     </tr>
                     <tr>
                         <th width='200px'>Status</th>
@@ -188,7 +192,9 @@ $campoV = 'class="txtVazio" ';
                         <th width='200px'>Sala</th>
                         <th>Layout Boas Vindas Mensal</th>
                         <th>Survey</th>
-                        <th></th>
+                        <th <?php if ($grupo == "Gestores") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -205,7 +211,9 @@ $campoV = 'class="txtVazio" ';
                             <td <?php if ($rows_dados['SURVEY'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['SURVEY']; ?></td>
-                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?= $id ?>"> Próximo </td>
+                            <td <?php if ($grupo == "Gestores") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>                                                        
                         </tr>
                     <?php } ?>
@@ -218,7 +226,9 @@ $campoV = 'class="txtVazio" ';
                             <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' value=<?= $boasVindasSala['BOAS_VINDAS_SALA'] ?>></td>
                             <td><input class='intable' id="campo4" type='date' name='LAYOUT_BOAS_VINDAS_MENSAL' value=<?= $layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] ?>></td>
                             <td><input class='intable' type='text' name='SURVEY' value=<?= $survey['SURVEY'] ?>></td>
-                            <td></td>
+                            <td <?php if ($grupo == "Gestores") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
@@ -258,7 +268,7 @@ $campoV = 'class="txtVazio" ';
             if (grupo == "Compasso - RH Integração") {
                 desbilitaStepWizard(2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
             } else if (grupo == "Gestores") {
-                desbilitaStepWizard(2, 4, 5, 6, 7, 8, 9, 10, 11);
+                desbilitaStepWizard(2, 4, 5, 6, 7, 8, 9, 10, 12);
             }
         }
     </script>

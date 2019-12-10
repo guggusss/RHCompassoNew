@@ -13,6 +13,13 @@ if($grupo == "Suporte Interno"){
     }
 }
 
+if($grupo == "Gestores"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
 if (!isset($id)) {
     $id = $_SESSION['id'];
 }
