@@ -185,25 +185,14 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-<<<<<<< HEAD
-                            <td id="data"><?= $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
-                            <td id="data2"><?= $rows_dados['CRACHA_CONTROLE']; ?></td>
-                            <td id="data3"><?= $rows_dados['CRACHA_PROTOCOLO']; ?></td>
-                            <td id="data4"><?= $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
-                            <td id="data5"><?= $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
-                            <td id="data6"><?= $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
-                            <td id="data7"><?= $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
-                            <td id="data8"><?= $rows_dados['SALVAR_PASTA']; ?></td>
-=======
-                            <td <?php if ($malote['CRACHA_DATA_PEDIDO'] == "0001-01-01" or $rows_dados['CRACHA_DATA_PEDIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
-                            <td <?php if ($malote['CRACHA_CONTROLE'] == "0001-01-01" or $rows_dados['CRACHA_CONTROLE'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>
-                            <td <?php if ($malote['CRACHA_PROTOCOLO'] == "0001-01-01" or $rows_dados['CRACHA_PROTOCOLO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>
-                            <td <?php if ($malote['EMAIL_CADERNO_COMPASSO_SOLICITADO'] == "0001-01-01" or $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
-                            <td <?php if ($malote['EMAIL_CADERNO_COMPASSO_RECEBIDO'] == "0001-01-01" or $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
-                            <td <?php if ($malote['MALOTE_CADERNO_COMPASSO_CTPS'] == "0001-01-01" or $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
-                            <td <?php if ($malote['DOCUMENTOS_RECEBIDOS_ASSINADOS'] == "0001-01-01" or $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
-                            <td <?php if ($malote['SALVAR_PASTA'] == "0001-01-01" or $rows_dados['SALVAR_PASTA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['SALVAR_PASTA']; ?></td>
->>>>>>> parent of 3ae2ca9... Revert "Corrigindo Campos Vermelhos"
+                            <td <?php if ($malote['CRACHA_DATA_PEDIDO'] == "01-01-0101" or $rows_dados['CRACHA_DATA_PEDIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
+                            <td <?php if ($malote['CRACHA_CONTROLE'] == "0101-01-01" or $rows_dados['CRACHA_CONTROLE'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>
+                            <td <?php if ($malote['CRACHA_PROTOCOLO'] == "0101-01-01" or $rows_dados['CRACHA_PROTOCOLO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>
+                            <td <?php if ($malote['EMAIL_CADERNO_COMPASSO_SOLICITADO'] == "0101-01-01" or $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
+                            <td <?php if ($malote['EMAIL_CADERNO_COMPASSO_RECEBIDO'] == "0101-01-01" or $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
+                            <td <?php if ($malote['MALOTE_CADERNO_COMPASSO_CTPS'] == "0101-01-01" or $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
+                            <td <?php if ($malote['DOCUMENTOS_RECEBIDOS_ASSINADOS'] == "0101-01-01" or $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
+                            <td <?php if ($malote['SALVAR_PASTA'] == "0101-01-01" or $rows_dados['SALVAR_PASTA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['SALVAR_PASTA']; ?></td>
                             <td><a title="Boas Vindas" href='recepcao.php?id=<?= $id ?>' class="btn btn-default">Próximo</td>
                             <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
@@ -235,35 +224,6 @@ $campoV = 'class="txtVazio" ';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-    <script>
-        window.onload = function verifica() {
-            if (document.getElementById("campo").value == "") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "") {
-                $("#data2").addClass("dataVazia");
-            }
-            if (document.getElementById("campo3").value == "") {
-                $("#data3").addClass("dataVazia");
-            }
-            if (document.getElementById("campo4").value == "") {
-                $("#data4").addClass("dataVazia");
-            }
-            if (document.getElementById("campo5").value == "") {
-                $("#data5").addClass("dataVazia");
-            }
-            if (document.getElementById("campo6").value == "") {
-                $("#data6").addClass("dataVazia");
-            }
-            if (document.getElementById("campo7").value == "") {
-                $("#data7").addClass("dataVazia");
-            }
-            if (document.getElementById("campo8").value == "") {
-                $("#data8").addClass("dataVazia");
-            }
-        }
-    </script>
-
 </body>
 
 </html>
