@@ -182,10 +182,17 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
+<<<<<<< HEAD
                             <td id="data"><?= $rows_dados['ENVIO']; ?></td>
                             <td id="data2"><?= $rows_dados['RECEBIDO']; ?></td>
                             <td id="data4"><?= $rows_dados['PLANILHA_CONTAS']; ?></td>
                             <td id="data5"><?= $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
+=======
+                            <td <?php if ($form['ENVIO'] == "0001-01-01" or $rows_dados['ENVIO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['ENVIO']; ?></td>
+                            <td <?php if ($form['RECEBIDO'] == "0001-01-01" or $rows_dados['RECEBIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['RECEBIDO']; ?></td>
+                            <td <?php if ($form['PLANILHA_CONTAS'] == "0001-01-01" or $rows_dados['PLANILHA_CONTAS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
+                            <td <?php if ($form['FORM_COMPR_BANCARIO'] == "0001-01-01" or $rows_dados['FORM_COMPR_BANCARIO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
+>>>>>>> parent of 3ae2ca9... Revert "Corrigindo Campos Vermelhos"
                             <td <?php if ($rows_dados['AGENCIA'] == "") {
                                         echo ($campoV);
                                     } ?>><?= $rows_dados['AGENCIA']; ?></td>

@@ -189,6 +189,7 @@ $campoV = 'class="txtVazio" ';
                 <tbody>
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
+<<<<<<< HEAD
                             <td><?= $rows_dados['STATUS']; ?></td>
                             <td id="data"><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
                             <td id="data2"><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
@@ -198,6 +199,17 @@ $campoV = 'class="txtVazio" ';
                             <td id="data6"><?= $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
                             <td><?= $rows_dados['COMENTARIO']; ?></td>
                             <td id="data8"><?= $rows_dados['COMUNICAR_STATUS']; ?></td>
+=======
+                            <td><?php echo $rows_dados['STATUS']; ?></td>
+                            <td <?php if ($envioprop['ENQUADRAMENTO_REMUNERACAO_ENVIO'] == "0001-01-01" or $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
+                            <td <?php if ($envioprop['ENQUADRAMENTO_REMUNERACAO_RETORNO'] == "0001-01-01" or $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
+                            <td <?php if ($envioprop['ENQUADRAMENTO'] == "0001-01-01" or $rows_dados['ENQUADRAMENTO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>
+                            <td <?php if ($envioprop['ENVIO_PROPOSTA'] == "0001-01-01" or $rows_dados['ENVIO_PROPOSTA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>
+                            <td <?php if ($envioprop['COMUNICAR_PROPOSTA_ENVIADA'] == "0001-01-01" or $rows_dados['COMUNICAR_PROPOSTA_ENVIADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
+                            <td <?php if ($envioprop['ACEITE_RECUSA_CANDIDATO'] == "0001-01-01" or $rows_dados['ACEITE_RECUSA_CANDIDATO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
+                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>
+                            <td <?php if ($envioprop['COMUNICAR_STATUS'] == "0001-01-01" or $rows_dados['COMUNICAR_STATUS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
+>>>>>>> parent of 3ae2ca9... Revert "Corrigindo Campos Vermelhos"
 
                             <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="btn btn-default" href="gestao.php?id=<?= $id ?>"> Próximo </td>
