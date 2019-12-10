@@ -179,7 +179,7 @@ $campoV = 'class="txtVazio" ';
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th <?php if ($grupo == "Gestores") {
+                        <th <?php if ($grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
                                                             echo 'colspan="7"';
                                                         }else{
                                                             echo 'colspan="8"';
@@ -192,7 +192,7 @@ $campoV = 'class="txtVazio" ';
                         <th width='200px'>Sala</th>
                         <th>Layout Boas Vindas Mensal</th>
                         <th>Survey</th>
-                        <th <?php if ($grupo == "Gestores") {
+                        <th <?php if ($grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>></th>
                         <th></th>
@@ -211,7 +211,7 @@ $campoV = 'class="txtVazio" ';
                             <td <?php if ($rows_dados['SURVEY'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['SURVEY']; ?></td>
-                            <td <?php if ($grupo == "Gestores") {
+                            <td <?php if ($grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>                                                        
@@ -226,7 +226,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' value=<?= $boasVindasSala['BOAS_VINDAS_SALA'] ?>></td>
                             <td><input class='intable' id="campo4" type='date' name='LAYOUT_BOAS_VINDAS_MENSAL' value=<?= $layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] ?>></td>
                             <td><input class='intable' type='text' name='SURVEY' value=<?= $survey['SURVEY'] ?>></td>
-                            <td <?php if ($grupo == "Gestores") {
+                            <td <?php if ($grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>

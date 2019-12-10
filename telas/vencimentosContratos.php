@@ -20,6 +20,13 @@ if($grupo == "Gestores"){
     }
 }
 
+if($grupo == "Compasso - RH Integração"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
 if (!isset($id)) {
     $id = $_SESSION['id'];
 }
