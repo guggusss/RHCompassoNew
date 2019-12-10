@@ -669,10 +669,10 @@ if (isset($_POST['botao'])) {
                         <th scope="col" width='200px'>Administrativo + Flyback <br /> - Hotel</th>
                         <th scope="col" width='200px'>Comentários</th>
                         <th scope="col" width='150px'></th>
-                        <th scope="col" width='150px' <?php if ($grupo == "Suporte Interno") {
+                        <th scope="col" width='150px' <?php if ($grupo == "Suporte Interno" or "Gestores" or "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>></th>
-                        <th scope="col" width='100px' <?php if ($grupo == "Suporte Interno") {
+                        <th scope="col" width='100px' <?php if ($grupo == "Suporte Interno" or "Gestores" or "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>></th>
                     </tr>
@@ -714,12 +714,12 @@ if (isset($_POST['botao'])) {
                                 <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
                                 <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
                                 <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes </td>
-                                <td <?php if ($grupo == "Suporte Interno") {
+                                <td <?php if ($grupo == "Suporte Interno" or "Gestores") {
                                                 echo 'style="display: none;"';
                                             } ?>><a title="Editar" href="../alteraTelas/altera-form.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
                                                                                                                                                                                                                                                             echo 'style="display: none;"';
                                                                                                                                                                                                                                                         } ?>>Editar</span></a></td>
-                                <td <?php if ($grupo == "Suporte Interno") {
+                                <td <?php if ($grupo == "Suporte Interno" or "Gestores") {
                                                 echo 'style="display: none;"';
                                             } ?>><a title="Finalizar" href="../alteraTelas/altera-deleta.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
                                                                                                                                                                                                                                                                 echo 'style="display: none;"';
@@ -729,7 +729,7 @@ if (isset($_POST['botao'])) {
                             }
                         } ?>
 
-                            <tr <?php if ($grupo == "Suporte Interno") {
+                            <tr <?php if ($grupo == "Suporte Interno" or "Gestores" or "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>>
                                 
@@ -811,7 +811,7 @@ if (isset($_POST['botao'])) {
                 </tbody>
             </table>
             <section>
-                <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
+                <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno" or "Gestores" or "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>>Exportar para Excel</a>
             </section>
