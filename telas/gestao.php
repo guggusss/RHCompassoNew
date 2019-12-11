@@ -217,7 +217,7 @@ $campoV = 'class="txtVazio" ';
                             <?php unset($_GET['id']); ?>
                             <td <?php if ($grupo == "Gestores") {
                                                             echo 'style="display: none;"';
-                                                        } ?>><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
+                                                        } ?>><a title="Documentação" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
