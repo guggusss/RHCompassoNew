@@ -83,7 +83,7 @@ $buscaSta = buscaFuncionarios($conn, $id);
                     <form id='altera-func' method='POST' action='altera-funcionario.php'>
                         <input type='hidden' name="USUARIO_ID" value='<?php echo $funcionarios['USUARIO_ID'] ?>' />
                         <td><select name="status" class="intable" value="<?= $rows_dados['STATUS'] ?>" required>
-                                <option value="<?= $buscaSta['STATUS'] ?>"><?= $buscaSta['STATUS'] ?></option>
+                                <option value="<?= $buscaSta['STATUS'] ?>"></option>
                                 <option>SOLICITAÇÃO DE PROPOSTA</option>
                                 <option>AGUARDANDO APROVAÇÃO</option>
                                 <option>APROVADO DIRETORIA</option>
@@ -129,7 +129,7 @@ $buscaSta = buscaFuncionarios($conn, $id);
                         <td id='add-carga_horaria'><input class='intable' type="text" name="CARGA_HORARIA" value="<?= $funcionarios['CARGA_HORARIA']; ?>"></td>
                         <td id='add-horario'><input class='intable' type="text" name="HORARIO" value="<?= $funcionarios['HORARIO']; ?>"></td>
                         <td><select name="sexo" class="intable" value="<?= $rows_dados['SEXO'] ?>" required>
-                                <option value="<?= $buscaSta['SEXO'] ?>"><?= $buscaSta['SEXO'] ?></option>
+                                <option value="<?= $buscaSta['SEXO'] ?>"></option>
                                 <option>Não informou</option>
                                 <option>Masculino</option>
                                 <option>Feminino</option>
