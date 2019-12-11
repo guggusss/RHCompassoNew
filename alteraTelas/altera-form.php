@@ -16,6 +16,8 @@ $get_tipo = "SELECT DISTINCT ID_TIPO, NOME_TIPO, TIPO_ID FROM admissao_dominio a
 $return_tipo = mysqli_query($conn, $get_tipo);
 $get_captacao = "SELECT DISTINCT ID_CAPTACAO, NOME_PARAMETRO, CAPTACAO_ID FROM admissao_dominio as a RIGHT JOIN parametros_captacao as p on p.CAPTACAO_ID = a.ID_CAPTACAO";
 $return_captacao = mysqli_query($conn, $get_captacao);
+
+$buscaSta = buscaFuncionarios($conn, $id);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -81,7 +83,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                     <form id='altera-func' method='POST' action='altera-funcionario.php'>
                         <input type='hidden' name="USUARIO_ID" value='<?php echo $funcionarios['USUARIO_ID'] ?>' />
                         <td><select name="status" class="intable" value="<?= $rows_dados['STATUS'] ?>" required>
-                                <option value="" selected="selected"></option>
+                                <option value="<?= $buscaSta['STATUS'] ?>"><?= $buscaSta['STATUS'] ?></option>
                                 <option>SOLICITAÇÃO DE PROPOSTA</option>
                                 <option>AGUARDANDO APROVAÇÃO</option>
                                 <option>APROVADO DIRETORIA</option>
@@ -127,7 +129,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                         <td id='add-carga_horaria'><input class='intable' type="text" name="CARGA_HORARIA" value="<?= $funcionarios['CARGA_HORARIA']; ?>"></td>
                         <td id='add-horario'><input class='intable' type="text" name="HORARIO" value="<?= $funcionarios['HORARIO']; ?>"></td>
                         <td><select name="sexo" class="intable" value="<?= $rows_dados['SEXO'] ?>" required>
-                                <option value="" selected="selected"></option>
+                                <option value="<?= $buscaSta['SEXO'] ?>"><?= $buscaSta['SEXO'] ?></option>
                                 <option>Não informou</option>
                                 <option>Masculino</option>
                                 <option>Feminino</option>
