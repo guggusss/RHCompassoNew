@@ -327,8 +327,9 @@ if (isset($_POST['botao'])) {
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio' href='index.php'>Início</a>
-            <a class='nav filter pos'>Filtragem</a>
+            <a class='nav inicio-total' href='index.php'>Início</a>
+            <a class="nav inicio" data-toggle="modal" data-target="#myModal">Legendas</a>
+            <a class="nav filter pos" data-toggle="modal" data-target="#filtro">Filtragem</a>            
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
     </header>
@@ -336,12 +337,18 @@ if (isset($_POST['botao'])) {
         <section class='menu-inicial'>
             <h2 id='nome'>Plataforma Admissão</h2>
         </section>
-        <section class='inputs panel-body display campo-filtro estruct'>
-            <h2 id='Filtro'>Filtro</h2>
-            <fieldset>
-                <form id='form-filtrar' method="POST" action="<?= $_SERVER['PHP_SELF']; ?>">
-                    <div>
+        <div style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">                    
+                    <fieldset align="center">
+                    <h2 id='Filtro'>Filtro</h2>
+                    <form id='form-filtrar' method="POST" action="<?= $_SERVER['PHP_SELF']; ?>">
                         <div>
+                            <div>
                             <label for="status">Status</label>
                             <select name="status" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
@@ -590,7 +597,13 @@ if (isset($_POST['botao'])) {
                     </div>
                 </form>
             </fieldset>
-        </section>
+            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
         <section class='container estruct'>
             <div id='first-table' class=" passos">
                 <div class="stepwizard">
@@ -814,10 +827,9 @@ if (isset($_POST['botao'])) {
                 <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
                                                             echo 'style="display: none;"';
                                                         } ?>>Exportar para Excel</a>
+                                                                <?= file_get_contents("telasLegendas.html"); ?>
             </section>
-
         </section>
-        <?= file_get_contents("telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>

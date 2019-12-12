@@ -2,6 +2,8 @@
     height: 80px;
     }
 
+.modal .modal-dialog { width: 40%; }
+
 .menu-inicial {
     margin-top: 6em;
     background-color:rgb(50, 66, 114);
@@ -77,6 +79,13 @@ margin-left: auto;
     position:absolute;
     top: 0%;
     right: 19%;
+    display: block;
+}
+
+.inicio-total{
+    position:absolute;
+    top: 0%;
+    right: 29%;
     display: block;
 }
 
@@ -167,7 +176,7 @@ img {
     background-color: rgb(50, 66, 114);
     box-shadow: 0 0 .5em black;
     background-image: linear-gradient(to left, #fff, white 100% );
-    background-size: 75% 100%;
+    background-size: 64% 100%;
     background-repeat: no-repeat;
     border-bottom: .2em solid rgb(50, 66, 114);;
 }

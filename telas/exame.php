@@ -196,8 +196,8 @@ $campoV = 'class="txtVazio" ';
                     </tr>
                 </tbody>
             </table>
-        </section>
-        <?= file_get_contents("telasLegendas.html"); ?>
+            <?= file_get_contents("telasLegendas.html"); ?>
+        </section>        
     </main>
     <footer>
         <h2></h2>
