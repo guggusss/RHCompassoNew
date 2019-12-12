@@ -101,7 +101,6 @@ $campoV = 'class="txtVazio" ';
         <section class='menu-inicial'>
             <h2 align='center' id='nome'>Vencimentos Contratos</h2>
         </section>
-        </h3>
         <section class='container estruct'>
             <div class='menu-inicial1'>
                 <table class="fixado">
@@ -276,8 +275,9 @@ $campoV = 'class="txtVazio" ';
         </section>
         <h3>Se o campo Data Admissão foi alterado, clique para aplicar as modificações:
         <td><input type="button" class="btn btn-default" value="Recarregar" onClick="history.go(0)"></td>
-        <?= file_get_contents("telasLegendas.html"); ?>
+        </h3>          
     </main>
+    <?= file_get_contents("telasLegendas.html"); ?>
     <footer>        
         <h2></h2>
     </footer>
