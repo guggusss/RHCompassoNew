@@ -248,12 +248,13 @@ $campoV = 'class="txtVazio" ';
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                 </tbody>
-            </table>
-            <?= file_get_contents("telasLegendas.html"); ?>
+            </table>            
         </section>
         <?php if($usuario_atv == "INVÁLIDO"){ ?>
         <h3>Usuário, E-mail e Senha Acesso precisam ser preenchidos!</h3>
         <?php } ?>
+
+        <?= file_get_contents("telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>

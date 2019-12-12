@@ -220,9 +220,9 @@ $campoV = 'class="txtVazio" ';
                         </form>
                     </tr>
                 </tbody>
-            </table>
-            <?= file_get_contents("telasLegendas.html"); ?>
-        </section>        
+            </table>            
+        </section>
+        <?= file_get_contents("telasLegendas.html"); ?>        
     </main>
     <footer>
         <h2></h2>

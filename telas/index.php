@@ -826,10 +826,10 @@ if (isset($_POST['botao'])) {
             <section>
                 <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
                                                             echo 'style="display: none;"';
-                                                        } ?>>Exportar para Excel</a>
-                                                                <?= file_get_contents("telasLegendas.html"); ?>
+                                                        } ?>>Exportar para Excel</a>                                                                
             </section>
         </section>
+        <?= file_get_contents("telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>
