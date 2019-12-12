@@ -148,7 +148,7 @@ $campoV = 'class="txtVazio" ';
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
-                    <div class="passos stepwizard-row1 setup-panel">
+                    <div class="passos stepwizard-row2 setup-panel">
                         <div class="stepwizard-step col-md-auto">
                             <a title="Menu Principal" href="index.php" id="botao1" type="button" class="btn btn-default btn-circle">1</a>
                         </div>

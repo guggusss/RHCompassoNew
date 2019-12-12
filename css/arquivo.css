@@ -11,6 +11,10 @@
     display: table-row;
 }
 
+.stepwizard-row2 {
+    display: table-row;
+}
+
 .center-row{
     vertical-align: center !important;
 }
@@ -32,7 +36,7 @@
     bottom: 0;
     position: absolute;
     content:"  ";
-    width: 1565px;
+    width: 4000px;
     height: 2px;
     background-color: rgb(50, 66, 114);
     z-index: 0;
@@ -48,7 +52,18 @@
     bottom: 0;
     position: absolute;
     content:"  ";
-    width: 1565px;
+    width: 1940px;
+    height: 2px;
+    background-color: rgb(50, 66, 114);
+    z-index: 0;
+}
+
+.stepwizard-row2:before {
+    top: 2.4em;
+    bottom: 0;
+    position: absolute;
+    content:"  ";
+    width: 2041px;
     height: 2px;
     background-color: rgb(50, 66, 114);
     z-index: 0;
