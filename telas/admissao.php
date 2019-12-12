@@ -61,7 +61,12 @@ $campoV = 'class="txtVazio" ';
 <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
+<<<<<<< HEAD
             <a class='nav inicio' href='index.php'>Início</a>
+=======
+            <a class='nav inicio-total' href='index.php'>Início</a>
+          
+>>>>>>> parent of bb19348... Revertendo legendas
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
