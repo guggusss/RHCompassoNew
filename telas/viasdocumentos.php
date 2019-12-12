@@ -53,8 +53,7 @@ $campoV = 'class="txtVazio" ';
 <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio-total' href='index.php'>Início</a>
-            <a class="nav inicio" data-toggle="modal" data-target="#myModal">Legendas</a>
+            <a class='nav inicio' href='index.php'>Início</a>
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
