@@ -250,11 +250,11 @@ $campoV = 'class="txtVazio" ';
                         </form>
                 </tbody>
             </table>
-            <?= file_get_contents("telasLegendas.html"); ?>
-        </section>
-        <?php if($usuario_atv == "INVÁLIDO"){ ?>
+            <?php if($usuario_atv == "INVÁLIDO"){ ?>
         <h3>Usuário, E-mail e Senha Acesso precisam ser preenchidos!</h3>
         <?php } ?>
+            <?= file_get_contents("telasLegendas.html"); ?>
+        </section>        
     </main>
     <footer>
         <h2></h2>

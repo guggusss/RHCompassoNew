@@ -274,10 +274,10 @@ $campoV = 'class="txtVazio" ';
                         </form>
                 </tbody>
             </table>
+            <h3>Se o campo Data Admissão foi alterado, clique para aplicar as modificações:
+            <td><input type="button" class="btn btn-default" value="Recarregar" onClick="history.go(0)"></td>
             <?= file_get_contents("telasLegendas.html"); ?>
-        </section>
-        <h3>Se o campo Data Admissão foi alterado, clique para aplicar as modificações:
-        <td><input type="button" class="btn btn-default" value="Recarregar" onClick="history.go(0)"></td>
+        </section>        
     </main>
     <footer>        
         <h2></h2>
