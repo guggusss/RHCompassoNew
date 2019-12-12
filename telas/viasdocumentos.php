@@ -214,9 +214,9 @@ $campoV = 'class="txtVazio" ';
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                 </tbody>
-            </table>            
-        </section>
-        <?= file_get_contents("telasLegendas.html"); ?>        
+            </table>
+            <?= file_get_contents("telasLegendas.html"); ?>
+        </section>        
     </main>
     <footer>
         <h2></h2>

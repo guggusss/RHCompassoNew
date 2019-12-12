@@ -82,6 +82,14 @@ margin-left: auto;
     display: block;
 }
 
+.inicio-total{
+    position:absolute;
+    top: 0%;
+    right: 29%;
+    display: block;
+}
+
+
 a.disabled {
     pointer-events: none;
     cursor: default;
@@ -168,7 +176,7 @@ img {
     background-color: rgb(50, 66, 114);
     box-shadow: 0 0 .5em black;
     background-image: linear-gradient(to left, #fff, white 100% );
-    background-size: 75% 100%;
+    background-size: 64% 100%;
     background-repeat: no-repeat;
     border-bottom: .2em solid rgb(50, 66, 114);;
 }
@@ -195,7 +203,7 @@ img {
     display: none;
 }
 .container{
-    height: 500px;
+    height: 600px;
 }
 
 aside a {
