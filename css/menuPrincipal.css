@@ -359,3 +359,115 @@ width: 275px;
 .select2-container .select2-selection--multiple .select2-selection__rendered{
 display: block !important;
 }
+ab{
+  position: fixed;
+  bottom:100px;
+  right:34px;
+}
+
+.fab button{
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  background-color: rgb(160, 181, 241);
+  border: none;
+  box-shadow: 0 1px 5px rgba(0,0,0,.4);
+  font-size: 24px;
+  color: white;
+    
+  -webkit-transition: .2s ease-out;
+  -moz-transition: .2s ease-out;
+  transition: .2s ease-out;
+}
+
+.fab button.main{
+  position: absolute;
+  width: 160px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: rgb(50, 66, 114);
+  right: 35px;
+  bottom: 100px;
+  z-index: 20;
+}
+
+.fab button.main:before{
+  content: 'Legendas';
+  font-size:20px;
+}
+
+.fab ul{
+  position:absolute;
+  bottom:100px;
+  right: 35px;
+  padding:0;
+  padding-right:5px;
+  margin:0;
+  margin-left:20px;
+  list-style:none;
+  z-index:10;
+  
+  -webkit-transition: .2s ease-out;
+  -moz-transition: .2s ease-out;
+  transition: .2s ease-out;
+}
+
+.fab ul li{
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  margin-bottom: -10%;
+  opacity: 0;
+  
+  -webkit-transition: .3s ease-out;
+  -moz-transition: .3s ease-out;
+  transition: .3s ease-out;
+}
+
+.fab ul li label{
+  margin-right:10px;
+  white-space: nowrap;
+  display: block;
+  margin-top: 10px;
+  padding: 5px 8px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  border-radius:3px;
+  height: 20px;
+  font-size: 16px;
+  pointer-events: none;
+  opacity:0;
+  
+  -webkit-transition: .2s ease-out;
+  -moz-transition: .2s ease-out;
+  transition: .2s ease-out;
+}
+
+.fab button.main:active,
+.fab button.main:focus{
+  outline: none;
+  background-color: rgb(50, 66, 114);
+  box-shadow: 0 3px 8px rgba(0,0,0,.5);
+ }
+ 
+.fab button.main:active:before,
+.fab button.main:focus:before{
+  content: '↑';
+}
+
+.fab button.main:active + ul,
+.fab button.main:focus + ul{
+  bottom: 100px;
+}
+
+.fab button.main:active + ul li,
+.fab button.main:focus + ul li{
+  margin-bottom: 70px;
+  opacity: 1;
+}
+
+.fab button.main:active + ul li:hover label,
+.fab button.main:focus + ul li:hover label{
+  opacity: 1;
+}

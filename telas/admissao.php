@@ -62,7 +62,7 @@ $campoV = 'class="txtVazio" ';
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
             <a class='nav inicio-total' href='index.php'>Início</a>
-            <a class="nav inicio" data-toggle="modal" data-target="#myModal">Legendas</a>
+          
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
@@ -210,9 +210,14 @@ $campoV = 'class="txtVazio" ';
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
-
+                    
+                    <div class="fab"  ontouchstart="">
+  <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+  </button>
+</div>
                 </tbody>
             </table>
+
             <?= file_get_contents("telasLegendas.html"); ?>
         </section>
     </main>
