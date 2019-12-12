@@ -86,7 +86,7 @@ $campoV = 'class="txtVazio" ';
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 id='nome'>Plataforma Admissão Domínio Dados + Fichas de Cadastro</h2>
+            <h2 align='center' id='nome'>Plataforma Admissão Domínio Dados + Fichas de Cadastro</h2>
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>

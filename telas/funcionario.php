@@ -91,7 +91,7 @@ $campoV = 'class="txtVazio" ';
 
     <main>
         <section class='menu-inicial'>
-            <h2 id='nome'>Proposta de Contratação </h2>
+            <h2 align='center' id='nome'>Proposta de Contratação </h2>
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>
