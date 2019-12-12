@@ -334,7 +334,7 @@ if (isset($_POST['botao'])) {
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 id='nome'>Plataforma Admissão</h2>
+            <h2 align="center" id='nome'>Plataforma Admissão</h2>
         </section>
 
         

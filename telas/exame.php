@@ -101,7 +101,7 @@ $campoV = 'class="txtVazio" ';
 
     <main>
         <section class='menu-inicial'>
-            <h2 id='nome'>Exame Admissional</h2>
+            <h2 align="center" id='nome'>Exame Admissional</h2>
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>
