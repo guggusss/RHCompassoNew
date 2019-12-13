@@ -3,6 +3,7 @@ require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
+
 $listar = listar($conn);
 //if ($_GET['botaoLimpar']=='Limpar') {
 if (isset($_POST['botaoVolta'])) {
@@ -328,7 +329,6 @@ if (isset($_POST['botao'])) {
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
             <a class='nav inicio-total' href='index.php'>Início</a>
-            <a class="nav inicio" data-toggle="modal" data-target="#myModal">Legendas</a>
             <a class="nav filter pos" data-toggle="modal" data-target="#filtro">Filtragem</a>            
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
@@ -337,11 +337,15 @@ if (isset($_POST['botao'])) {
         <section class='menu-inicial'>
             <h2 align='center' id='nome'>Plataforma Admissão</h2>
         </section>
+        
         <div style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <style>
+                            .modal .modal-dialog { width: 68%; }
+                        </style>
                     </div>
                     <div class="modal-body">                    
                     <fieldset align="center">
@@ -827,10 +831,11 @@ if (isset($_POST['botao'])) {
                 <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
                                                             echo 'style="display: none;"';
                                                         } ?>>Exportar para Excel</a>
-                                                                <?= file_get_contents("telasLegendas.html"); ?>
+                                                                
             </section>
         </section>
     </main>
+    <?= file_get_contents("telasLegendas.html"); ?>
     <footer>
         <h2></h2>
     </footer>
