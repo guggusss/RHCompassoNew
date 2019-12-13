@@ -78,14 +78,14 @@ margin-left: auto;
 .inicio{
     position:absolute;
     top: 0%;
-    right: 19%;
+    right: 27%;
     display: block;
 }
 
 .inicio-total{
     position:absolute;
     top: 0%;
-    right: 29%;
+    right: 27%;
     display: block;
 }
 
@@ -98,7 +98,7 @@ a.disabled {
 .dropbtn{
     position:absolute;
     top: -55px;
-    right: 10%;
+    right: 15%;
     cursor: pointer;
 }
 
@@ -140,7 +140,7 @@ a.disabled {
 .pos{
     position:absolute;
     top: 0%;
-    right: 10%;
+    right: 15%;
     display: block;
 
 }

@@ -85,7 +85,7 @@ margin-left: auto;
 .inicio-total{
     position:absolute;
     top: 0%;
-    right: 19%;
+    right: 22%;
     display: block;
 }
 
@@ -139,9 +139,8 @@ a.disabled {
 .pos{
     position:absolute;
     top: 0%;
-    right: 10%;
+    right: 20%;
     display: block;
-
 }
 .nav{
     font-size: 18px;
