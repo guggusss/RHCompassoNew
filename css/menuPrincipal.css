@@ -548,7 +548,10 @@ ab{
     box-shadow: 0 3px 8px rgba(0,0,0,.5);
    }
    
-  
+  .fab button.main:active:before,
+   .fab button.main:focus:before{
+     content: 'Legendas';
+   }
   
   .fab button.main:active + ul,
   .fab button.main:focus + ul{
