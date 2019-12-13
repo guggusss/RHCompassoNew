@@ -337,9 +337,9 @@ if (isset($_POST['botao'])) {
             <h2 align="center" id='nome'>Plataforma Admissão</h2>
         </section>       
         
-        <div style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
+        <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div style="width: 70%;" class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
@@ -827,10 +827,13 @@ if (isset($_POST['botao'])) {
             </section>
 
         </section>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("telasLegendas.html"); ?>        
     </main>
     <footer>
-        <h2></h2>
+    <div class="fab"  ontouchstart="">
+                    <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+                    </button>
+                    </div>
     </footer>
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery.mask.js"></script>
@@ -885,10 +888,6 @@ if (isset($_POST['botao'])) {
             }
         }
     </script>
-    <style>
-        .modal .modal-dialog { width: 70%; }
-    </style>
-
 </body>
 
 </html>
