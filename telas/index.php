@@ -336,7 +336,6 @@ if (isset($_POST['botao'])) {
         <section class='menu-inicial'>
             <h2 align="center" id='nome'>Plataforma Admissão</h2>
         </section>
-
         
         <div style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
             <div class="modal-dialog">
@@ -734,7 +733,23 @@ if (isset($_POST['botao'])) {
                                             } ?>><a title="Editar" href="../alteraTelas/altera-form.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default">Editar</span></a></td>
                                 <td <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
                                                 echo 'style="display: none;"';
-                                            } ?>><a title="Finalizar" href="../alteraTelas/altera-deleta.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default">Excluir</span></a></td>
+                                            } ?>><a class="btn btn-default" data-toggle="modal" data-target="#del">Excluir</a></td>
+                                            
+        <div class="modal fade" id="del" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                    <h3>Tem certeza que deseja excluir?</h3>
+                    <div align="center">
+                    <a href="../alteraTelas/altera-deleta.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="botao btn btn-default btn-xs">Sim</span></a>
+                    <button type="button" data-dismiss="modal" class="botao btn btn-default btn-xs">Não</button>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
                                 </td>
                         <?php
                             }
