@@ -828,6 +828,9 @@ if (isset($_POST['botao'])) {
 
         </section>
         <?php echo file_get_contents("telasLegendas.html"); ?>
+        <iframe id="ytplayer" type="text/html" width="1%" height="4"
+src="https://www.youtube.com/embed/playlist?list=PL7odT97B5pLa-D40qMJNaLP4jvZ-HeDLO"
+frameborder="0" allowfullscreen>
     </main>
     <footer>
         <h2></h2>
