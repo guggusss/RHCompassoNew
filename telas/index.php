@@ -335,16 +335,7 @@ if (isset($_POST['botao'])) {
     <main>
         <section class='menu-inicial'>
             <h2 align="center" id='nome'>Plataforma Admissão</h2>
-        </section>
-
-        <div data-video="ZBT2aMzx2ww"  
-        data-autoplay="1"         
-        data-loop="1"             
-        id="youtube-audio">
-        </div>
-
-        <script src="https://www.youtube.com/iframe_api"></script>
-        <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>
+        </section>       
         
         <div style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
             <div class="modal-dialog">
