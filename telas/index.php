@@ -686,10 +686,10 @@ if (isset($_POST['botao'])) {
                         <th scope="col" width='200px'>Administrativo + Flyback <br /> - Hotel</th>
                         <th scope="col" width='200px'>Comentários</th>
                         <th scope="col" width='150px'></th>
-                        <th scope="col" width='150px' <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
+                        <th scope="col" width='150px' <?php if ($grupo == "Suporte Interno") {
                                                             echo 'style="display: none;"';
                                                         } ?>></th>
-                        <th scope="col" width='100px' <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
+                        <th scope="col" width='100px' <?php if ($grupo == "Suporte Interno") {
                                                             echo 'style="display: none;"';
                                                         } ?>></th>
                     </tr>
@@ -722,27 +722,31 @@ if (isset($_POST['botao'])) {
                                             } ?>><?= 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
                                 <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
-                                <td><?php echo $rows_dados['SOLICITANTE']; ?></td>
-                                <td><?php echo $rows_dados['CLIENTE']; ?></td>
-                                <td><?php echo $rows_dados['PROJETO']; ?></td>
-                                <td><?php echo $rows_dados['EMAIL']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
-                                <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes </td>
-                                <td <?php if ($grupo == "Suporte Interno" or $grupo ==  "Gestores" or $grupo == "Compasso - RH Integração") {
+                                            } ?>><?= 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
+                                <td><?= $rows_dados['SOLICITANTE']; ?></td>
+                                <td><?= $rows_dados['CLIENTE']; ?></td>
+                                <td><?= $rows_dados['PROJETO']; ?></td>
+                                <td><?= $rows_dados['EMAIL']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['POSICAO_COMENTARIO']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['ADMINISTRATIVO']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['COMENTARIOS']; ?></td>
+                                <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?= $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes </td>
+                                <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><a title="Editar" href="../alteraTelas/altera-form.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default">Editar</span></a></td>
-                                <td <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
+                                            } ?>><a title="Editar" href="../alteraTelas/altera-form.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
+                                                                                                                                                                                                                                                            echo 'style="display: none;"';
+                                                                                                                                                                                                                                                        } ?>>Editar</span></a></td>
+                                <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><a title="Finalizar" href="../alteraTelas/altera-deleta.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default">Excluir</span></a></td>
+                                            } ?>><a title="Finalizar" href="../alteraTelas/altera-deleta.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
+                                                                                                                                                                                                                                                                echo 'style="display: none;"';
+                                                                                                                                                                                                                                                            } ?>>Excluir</span></a></td>
                                 </td>
                         <?php
                             }
                         } ?>
 
-                            <tr <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
+                            <tr <?php if ($grupo == "Suporte Interno") {
                                                             echo 'style="display: none;"';
                                                         } ?>>
                                 
@@ -824,7 +828,7 @@ if (isset($_POST['botao'])) {
                 </tbody>
             </table>
             <section>
-                <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
+                <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
                                                             echo 'style="display: none;"';
                                                         } ?>>Exportar para Excel</a>
                                                                 
