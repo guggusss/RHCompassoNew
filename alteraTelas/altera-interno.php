@@ -1,6 +1,7 @@
 <?php
 include("../db/conexao.php");
 include("../update.php");
+include("../static/php/RemoveMascAndFormatDate.php");
 session_start();
 $id = $_SESSION['id'];
 
@@ -14,25 +15,6 @@ $EMAIL_INICIO_ATIVIDADES = $_POST['EMAIL_INICIO_ATIVIDADES'];
 $EMAIL_BOAS_VINDAS = $_POST['EMAIL_BOAS_VINDAS'];
 $ACESSOS = $_POST['ACESSOS'];
 
-if(empty($INTRANET_CADASTRO_USUARIO)) {
-    $INTRANET_CADASTRO_USUARIO = "01010101";
-}
-if(empty($KAIROS_CADASTRO_USUARIO)) {
-    $KAIROS_CADASTRO_USUARIO = "01010101";
-}
-if(empty($EMAIL_GESTOR_APOIO_SEDE)) {
-    $EMAIL_GESTOR_APOIO_SEDE = "01010101";
-}
-if(empty($EMAIL_INICIO_ATIVIDADES)) {
-    $EMAIL_INICIO_ATIVIDADES = "01010101";
-}
-if(empty($EMAIL_BOAS_VINDAS)) {
-    $EMAIL_BOAS_VINDAS = "01010101";
-}
-if(empty($ACESSOS)) {
-    $ACESSOS = "01010101";
-}
-
 if (interno($conn, $ID_USUARIO, $INTRANET_CADASTRO_USUARIO, $INTRANET_CADASTRO_SENHA, $KAIROS_CADASTRO_USUARIO, $KAIROS_CADASTRO_SENHA, $EMAIL_GESTOR_APOIO_SEDE, $EMAIL_INICIO_ATIVIDADES, $EMAIL_BOAS_VINDAS, $ACESSOS)) {
     
     include("../telas/salvoSucesso.php");
@@ -43,4 +25,4 @@ else
     include("../telas/naoSalvo.php");
 }
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/interno.php?id=<?= $id ?>"/>
+<meta http-equiv="refresh" content="1;  url=../telas/interno.php?id=<?php echo $id ?>"/>

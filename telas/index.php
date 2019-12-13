@@ -327,28 +327,21 @@ if (isset($_POST['botao'])) {
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio-total' href='index.php'>Início</a>
-            <a class="nav inicio" data-toggle="modal" data-target="#myModal">Legendas</a>
-            <a class="nav filter pos" data-toggle="modal" data-target="#filtro">Filtragem</a>            
+            <a class='nav inicio' href='index.php'>Início</a>
+            <a class='nav filter pos'>Filtragem</a>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 align='center' id='nome'>Plataforma Admissão</h2>
+            <h2 id='nome'>Plataforma Admissão</h2>
         </section>
-        <div style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">                    
-                    <fieldset align="center">
-                    <h2 id='Filtro'>Filtro</h2>
-                    <form id='form-filtrar' method="POST" action="<?= $_SERVER['PHP_SELF']; ?>">
+        <section class='inputs panel-body display campo-filtro estruct'>
+            <h2 id='Filtro'>Filtro</h2>
+            <fieldset>
+                <form id='form-filtrar' method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                    <div>
                         <div>
-                            <div>
                             <label for="status">Status</label>
                             <select name="status" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
@@ -373,7 +366,7 @@ if (isset($_POST['botao'])) {
                             <select id="sede" name="sede" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
                                 <?php foreach ($listar as $linha) : ?>
-                                    <option value="<?= $linha['SEDE_ID'] ?>"><?= $linha['NOME_SEDE'] ?></option>
+                                    <option value="<?= $linha['SEDE_ID'] ?>"><?php echo $linha['NOME_SEDE'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -597,13 +590,7 @@ if (isset($_POST['botao'])) {
                     </div>
                 </form>
             </fieldset>
-            </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+        </section>
         <section class='container estruct'>
             <div id='first-table' class=" passos">
                 <div class="stepwizard">
@@ -682,10 +669,10 @@ if (isset($_POST['botao'])) {
                         <th scope="col" width='200px'>Administrativo + Flyback <br /> - Hotel</th>
                         <th scope="col" width='200px'>Comentários</th>
                         <th scope="col" width='150px'></th>
-                        <th scope="col" width='150px' <?php if ($grupo == "Suporte Interno") {
+                        <th scope="col" width='150px' <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>></th>
-                        <th scope="col" width='100px' <?php if ($grupo == "Suporte Interno") {
+                        <th scope="col" width='100px' <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>></th>
                     </tr>
@@ -696,53 +683,49 @@ if (isset($_POST['botao'])) {
                         while ($rows_dados = mysqli_fetch_assoc($resultado)) {
                                 $SOMA = $rows_dados['REMUNERACAO_BASE'] + $rows_dados['GRATIFICACAO']; ?>
                             <tr style="vertical-align: right !important;">
-                                <td><?= $rows_dados['STATUS']; ?></td>
-                                <td><?= $rows_dados['NOME']; ?></td>
-                                <td><?= $rows_dados['DATA_ADMISSAO']; ?></td>
-                                <td><?= $rows_dados['NOME_SEDE']; ?></td>
-                                <td><?= $rows_dados['NOME_TIPO']; ?></td>
-                                <td><?= $rows_dados['NOME_PARAMETRO']; ?></td>
-                                <td><?= $rows_dados['CARGA_HORARIA']; ?></td>
-                                <td><?= $rows_dados['HORARIO']; ?></td>
-                                <td><?= $rows_dados['SEXO']; ?></td>
-                                <td><?= $rows_dados['FONE_CONTATO']; ?></td>
+                                <td><?php echo $rows_dados['STATUS']; ?></td>
+                                <td><?php echo $rows_dados['NOME']; ?></td>
+                                <td><?php echo $rows_dados['DATA_ADMISSAO']; ?></td>
+                                <td><?php echo $rows_dados['NOME_SEDE']; ?></td>
+                                <td><?php echo $rows_dados['NOME_TIPO']; ?></td>
+                                <td><?php echo $rows_dados['NOME_PARAMETRO']; ?></td>
+                                <td><?php echo $rows_dados['CARGA_HORARIA']; ?></td>
+                                <td><?php echo $rows_dados['HORARIO']; ?></td>
+                                <td><?php echo $rows_dados['SEXO']; ?></td>
+                                <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
                                 <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><?= $rows_dados['CARGO']; ?></td>
-                                <td><?= formatDateApresentation($rows_dados['LOG_REGISTRO_DIA_RH_ENVIA_DP']); ?></td>
+                                            } ?>><?php echo $rows_dados['CARGO']; ?></td>
+                                <td><?php echo formatDateApresentation($rows_dados['LOG_REGISTRO_DIA_RH_ENVIA_DP']); ?></td>
                                 <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><?= 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
+                                            } ?>><?php echo 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
                                 <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><?= 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
+                                            } ?>><?php echo 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
                                 <td <?php if ($grupo == "Suporte Interno") {
                                                 echo 'style="display: none;"';
-                                            } ?>><?= 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
-                                <td><?= $rows_dados['SOLICITANTE']; ?></td>
-                                <td><?= $rows_dados['CLIENTE']; ?></td>
-                                <td><?= $rows_dados['PROJETO']; ?></td>
-                                <td><?= $rows_dados['EMAIL']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['POSICAO_COMENTARIO']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['ADMINISTRATIVO']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['COMENTARIOS']; ?></td>
-                                <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?= $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes </td>
-                                <td <?php if ($grupo == "Suporte Interno") {
+                                            } ?>><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
+                                <td><?php echo $rows_dados['SOLICITANTE']; ?></td>
+                                <td><?php echo $rows_dados['CLIENTE']; ?></td>
+                                <td><?php echo $rows_dados['PROJETO']; ?></td>
+                                <td><?php echo $rows_dados['EMAIL']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
+                                <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes </td>
+                                <td <?php if ($grupo == "Suporte Interno" or $grupo ==  "Gestores" or $grupo == "Compasso - RH Integração") {
                                                 echo 'style="display: none;"';
-                                            } ?>><a title="Editar" href="../alteraTelas/altera-form.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
-                                                                                                                                                                                                                                                            echo 'style="display: none;"';
-                                                                                                                                                                                                                                                        } ?>>Editar</span></a></td>
-                                <td <?php if ($grupo == "Suporte Interno") {
+                                            } ?>><a title="Editar" href="../alteraTelas/altera-form.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default">Editar</span></a></td>
+                                <td <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
                                                 echo 'style="display: none;"';
-                                            } ?>><a title="Finalizar" href="../alteraTelas/altera-deleta.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
-                                                                                                                                                                                                                                                                echo 'style="display: none;"';
-                                                                                                                                                                                                                                                            } ?>>Excluir</span></a></td>
+                                            } ?>><a title="Finalizar" href="../alteraTelas/altera-deleta.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default">Excluir</span></a></td>
                                 </td>
                         <?php
                             }
                         } ?>
 
-                            <tr <?php if ($grupo == "Suporte Interno") {
+                            <tr <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>>
                                 
@@ -768,7 +751,7 @@ if (isset($_POST['botao'])) {
                                     <td><select id="add-sede" name='sede' class="selectadd intable" required>
                                             <option value="" selected="selected"></option>
                                             <?php foreach ($listar as $linha) : ?>
-                                                <option value="<?= $linha['SEDE_ID'] ?>"><?= $linha['NOME_SEDE'] ?></option>
+                                                <option value="<?= $linha['SEDE_ID'] ?>"><?php echo $linha['NOME_SEDE'] ?></option>
                                             <?php endforeach ?>
                                         </select></td>
                                     <td><select id="add-tipo" name='tipo' class="selectadd intable" onclick="validaCargo()" required>
@@ -824,12 +807,13 @@ if (isset($_POST['botao'])) {
                 </tbody>
             </table>
             <section>
-                <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {
+                <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
                                                             echo 'style="display: none;"';
                                                         } ?>>Exportar para Excel</a>
-                                                                <?= file_get_contents("telasLegendas.html"); ?>
             </section>
+
         </section>
+        <?php echo file_get_contents("telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>

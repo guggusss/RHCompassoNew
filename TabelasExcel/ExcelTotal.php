@@ -1,10 +1,10 @@
 <?php
 
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $output = '';
 if(isset($_POST["export"]))
 {
-    $connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+    $connect = mysqli_connect("localhost", "root", "", "bancorh");
     $sql = "SELECT *
     FROM admissao_dominio AS a
     LEFT JOIN propostas_contratacoes AS p

@@ -6,6 +6,27 @@ include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
 
+if($grupo == "Suporte Interno"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
+if($grupo == "Gestores"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
+if($grupo == "Compasso - RH Integração"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
 if (!isset($id)) {
     $id = $_SESSION['id'];
 }
@@ -53,23 +74,22 @@ $campoV = 'class="txtVazio" ';
 <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio-total' href='index.php'>Início</a>
-            <a class="nav inicio" data-toggle="modal" data-target="#myModal">Legendas</a>
+            <a class='nav inicio' href='index.php'>Início</a>
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?= $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?= $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?= $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?= $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?= $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?= $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?= $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?= $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?= $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?= $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?= $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?= $id ?>'>9. Acessos Liberado</a>
+                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
+                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
+                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
+                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
+                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
+                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
+                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
+                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
+                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
+                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
+                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
+                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
                 </div>
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
@@ -77,7 +97,7 @@ $campoV = 'class="txtVazio" ';
         </header>
     <main>
         <section class='menu-inicial'>
-            <h2 align='center' id='nome'>Vias Documentos funcionário</h2>
+            <h2 id='nome'>Vias Documentos funcionário</h2>
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>
@@ -93,9 +113,9 @@ $campoV = 'class="txtVazio" ';
                         <tbody>
                             <tr>
                                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
-                                    <th width='100px'><?= $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?= $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?= $rows_dados['DATA_ADMISSAO']; ?></th>
+                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
+                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
+                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
                                     <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
                                                             if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
                                                             if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
@@ -186,37 +206,37 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($malote['CRACHA_DATA_PEDIDO'] == "01-01-0101" or $rows_dados['CRACHA_DATA_PEDIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
-                            <td <?php if ($malote['CRACHA_CONTROLE'] == "0101-01-01" or $rows_dados['CRACHA_CONTROLE'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>
-                            <td <?php if ($malote['CRACHA_PROTOCOLO'] == "0101-01-01" or $rows_dados['CRACHA_PROTOCOLO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>
-                            <td <?php if ($malote['EMAIL_CADERNO_COMPASSO_SOLICITADO'] == "0101-01-01" or $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
-                            <td <?php if ($malote['EMAIL_CADERNO_COMPASSO_RECEBIDO'] == "0101-01-01" or $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
-                            <td <?php if ($malote['MALOTE_CADERNO_COMPASSO_CTPS'] == "0101-01-01" or $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
-                            <td <?php if ($malote['DOCUMENTOS_RECEBIDOS_ASSINADOS'] == "0101-01-01" or $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
-                            <td <?php if ($malote['SALVAR_PASTA'] == "0101-01-01" or $rows_dados['SALVAR_PASTA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['SALVAR_PASTA']; ?></td>
+                            <td id="data"><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
+                            <td id="data5"><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
+                            <td id="data6"><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
+                            <td id="data7"><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
+                            <td id="data8"><?php echo $rows_dados['SALVAR_PASTA']; ?></td>
                             <td><a title="Boas Vindas" href='recepcao.php?id=<?= $id ?>' class="btn btn-default">Próximo</td>
                             <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-vias.php">
-                            <input type="hidden" name="ID_USUARIO" value='<?= $funcionario['ID_USUARIO'] ?>'>
+                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="CRACHA_DATA_PEDIDO" value='<?= $emailsoli['CRACHA_DATA_PEDIDO'] ?>'></td>
-                            <td><input type='date' id="campo2" class='intable' name="CRACHA_CONTROLE" value='<?= $emailsoli['CRACHA_CONTROLE'] ?>'></td>
-                            <td><input type='date' id="campo3" class='intable' name="CRACHA_PROTOCOLO" value='<?= $emailsoli['CRACHA_PROTOCOLO'] ?>'></td>
-                            <td><input type='date' id="campo4" class='intable' name="EMAIL_CADERNO_COMPASSO_SOLICITADO" value='<?= $emailsoli['EMAIL_CADERNO_COMPASSO_SOLICITADO'] ?>'></td>
-                            <td><input type="date" id="campo5" class='intable' name="EMAIL_CADERNO_COMPASSO_RECEBIDO" value='<?= $emailreceb['EMAIL_CADERNO_COMPASSO_RECEBIDO'] ?>'></td>
-                            <td><input type="date" id="campo6" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" value='<?= $malote['MALOTE_CADERNO_COMPASSO_CTPS'] ?>'></td>
-                            <td><input type="date" id="campo7" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" value='<?= $docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS'] ?>'></td>
+                            <td><input type='date' id="campo" class='intable' name="CRACHA_DATA_PEDIDO" value=<?= $emailsoli['CRACHA_DATA_PEDIDO'] ?>></td>
+                            <td><input type='date' id="campo2" class='intable' name="CRACHA_CONTROLE" value=<?= $emailsoli['CRACHA_CONTROLE'] ?>></td>
+                            <td><input type='date' id="campo3" class='intable' name="CRACHA_PROTOCOLO" value=<?= $emailsoli['CRACHA_PROTOCOLO'] ?>></td>
+                            <td><input type='date' id="campo4" class='intable' name="EMAIL_CADERNO_COMPASSO_SOLICITADO" value=<?= $emailsoli['EMAIL_CADERNO_COMPASSO_SOLICITADO'] ?>></td>
+                            <td><input type="date" id="campo5" class='intable' name="EMAIL_CADERNO_COMPASSO_RECEBIDO" value=<?= $emailreceb['EMAIL_CADERNO_COMPASSO_RECEBIDO'] ?>></td>
+                            <td><input type="date" id="campo6" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" value=<?= $malote['MALOTE_CADERNO_COMPASSO_CTPS'] ?>></td>
+                            <td><input type="date" id="campo7" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" value=<?= $docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS'] ?>></td>
                             <td><input type="date" id="campo8" class='intable' name="SALVAR_PASTA" value="<?= $docreceb['SALVAR_PASTA'] ?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                 </tbody>
             </table>
-            <?= file_get_contents("telasLegendas.html"); ?>
-        </section>        
+        </section>
+        <?php echo file_get_contents("telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>
@@ -225,6 +245,35 @@ $campoV = 'class="txtVazio" ';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+        window.onload = function verifica() {
+            if (document.getElementById("campo").value == "") {
+                $("#data").addClass("dataVazia");
+            }
+            if (document.getElementById("campo2").value == "") {
+                $("#data2").addClass("dataVazia");
+            }
+            if (document.getElementById("campo3").value == "") {
+                $("#data3").addClass("dataVazia");
+            }
+            if (document.getElementById("campo4").value == "") {
+                $("#data4").addClass("dataVazia");
+            }
+            if (document.getElementById("campo5").value == "") {
+                $("#data5").addClass("dataVazia");
+            }
+            if (document.getElementById("campo6").value == "") {
+                $("#data6").addClass("dataVazia");
+            }
+            if (document.getElementById("campo7").value == "") {
+                $("#data7").addClass("dataVazia");
+            }
+            if (document.getElementById("campo8").value == "") {
+                $("#data8").addClass("dataVazia");
+            }
+        }
+    </script>
+
 </body>
 
 </html>

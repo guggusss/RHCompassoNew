@@ -1,6 +1,7 @@
 <?php
 include("../db/conexao.php");
 include("../update.php");
+include("../static/php/RemoveMascAndFormatDate.php");
 session_start();
 $id = $_SESSION['id'];
 
@@ -12,8 +13,6 @@ $EQUIPAMENTO = $_POST['EQUIPAMENTO'];
 $TRANSLADO = $_POST['TRANSLADO'];
 $EQUIPE = (isset($_POST['EQUIPE'])) ? $_POST['EQUIPE'] : array();
 
-
-
 if (suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $EQUIPE)) {
 
     include("../telas/salvoSucesso.php");
@@ -24,4 +23,4 @@ else
     include("../telas/naoSalvo.php");
 }
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/suporteinterno.php?id=<?= $id ?>"/>
+<meta http-equiv="refresh" content="1;  url=../telas/suporteinterno.php?id=<?php echo $id ?>"/>

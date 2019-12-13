@@ -1,6 +1,7 @@
 <?php
 include("../db/conexao.php");
 include("../update.php");
+include("../static/php/RemoveMascAndFormatDate.php");
 session_start();
 $id = $_SESSION['id'];
 
@@ -14,32 +15,6 @@ $EMAIL_CADERNO_COMPASSO_RECEBIDO = $_POST['EMAIL_CADERNO_COMPASSO_RECEBIDO'];
 $MALOTE_CADERNO_COMPASSO_CTPS = $_POST['MALOTE_CADERNO_COMPASSO_CTPS'];
 $DOCUMENTOS_RECEBIDOS_ASSINADOS = $_POST['DOCUMENTOS_RECEBIDOS_ASSINADOS'];
 $SALVAR_PASTA = $_POST['SALVAR_PASTA'];
-
-if(empty($CRACHA_DATA_PEDIDO)) {
-    $CRACHA_DATA_PEDIDO = "01010101";
-}
-if(empty($CRACHA_CONTROLE)) {
-    $CRACHA_CONTROLE = "01010101";
-}
-if(empty($CRACHA_PROTOCOLO)) {
-    $CRACHA_PROTOCOLO = "01010101";
-}
-if(empty($EMAIL_CADERNO_COMPASSO_SOLICITADO)) {
-    $EMAIL_CADERNO_COMPASSO_SOLICITADO = "01010101";
-}
-if(empty($EMAIL_CADERNO_COMPASSO_RECEBIDO)) {
-    $EMAIL_CADERNO_COMPASSO_RECEBIDO = "01010101";
-}
-if(empty($MALOTE_CADERNO_COMPASSO_CTPS)) {
-    $MALOTE_CADERNO_COMPASSO_CTPS = "01010101";
-}
-if(empty($DOCUMENTOS_RECEBIDOS_ASSINADOS)) {
-    $DOCUMENTOS_RECEBIDOS_ASSINADOS = "01010101";
-}
-if(empty($SALVAR_PASTA)) {
-    $SALVAR_PASTA = "01010101";
-}
-
 
 if (viasDocs($conn, $ID_USUARIO, $CRACHA_DATA_PEDIDO, $CRACHA_CONTROLE, $CRACHA_PROTOCOLO, $EMAIL_CADERNO_COMPASSO_SOLICITADO, $EMAIL_CADERNO_COMPASSO_RECEBIDO, $MALOTE_CADERNO_COMPASSO_CTPS, $DOCUMENTOS_RECEBIDOS_ASSINADOS, $SALVAR_PASTA)) {
 
@@ -62,4 +37,4 @@ else
     include("../telas/naoSalvo.php");
 }
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/viasdocumentos.php?id=<?= $id ?>"/>
+<meta http-equiv="refresh" content="1;  url=../telas/viasdocumentos.php?id=<?php echo $id ?>"/>

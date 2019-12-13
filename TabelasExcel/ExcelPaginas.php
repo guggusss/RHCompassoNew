@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT * FROM admissao_dominio as a
 LEFT JOIN parametros_captacao as p
 on a.ID_CAPTACAO = p.CAPTACAO_ID
@@ -122,7 +122,7 @@ $result = mysqli_query($connect, $sql);
 
 
 <?PHP
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, ENQUADRAMENTO_REMUNERACAO_ENVIO,
         ENQUADRAMENTO_REMUNERACAO_RETORNO,ENQUADRAMENTO,
         ENVIO_PROPOSTA,COMUNICAR_PROPOSTA_ENVIADA,
@@ -190,7 +190,7 @@ $result = mysqli_query($connect, $sql);
 </html>
 
 <?PHP
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, GESTOR,
         GESTOR_SABE, GESTOR_LOCAL,
         GESTOR_LOCAL_sABE, RECEPTOR_PESSOA,
@@ -256,7 +256,7 @@ $result = mysqli_query($connect, $sql);
 
 
 <?PHP
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, FORMULARIOS_ENVIADOS,
         FORMULARIOS_RECEBIDOS, DOCUMENTOS_FISICOS,
         CTPS_RECEBIDA,
@@ -332,7 +332,7 @@ $result = mysqli_query($connect, $sql);
 </html>
 
 <?php
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, QUALIFIC_CADASTRAL_CEP,
         CAD_ADM_PLATAFORMA_ADM_DIMIN, DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,
         TERMO_PSI, INCLUI_ADM_PROV,
@@ -401,7 +401,7 @@ $result = mysqli_query($connect, $sql);
 
 
 <?php
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, AGENDAMENTO_EXAM_ADM,
         ENVIO_FUNC_EXAME, EMAIL_RECEBIDO_EXAM,
         STATUS, PROJETO, NOME, COMENTARIO
@@ -464,7 +464,7 @@ $result = mysqli_query($connect, $sql);
 
 
 <?php
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, ENVIO,
         RECEBIDO, PLANILHA_CONTAS, FORM_COMPR_BANCARIO,
         STATUS, PROJETO, NOME
@@ -527,7 +527,7 @@ $result = mysqli_query($connect, $sql);
 
 
 <?php
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, EMAIL_SUP,
         USUARIO, SENHA,
         EQUIPAMENTO, TRANSLADO, EQUIPE,
@@ -595,7 +595,7 @@ $result = mysqli_query($connect, $sql);
 
 
 <?PHP
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, INTRANET_CADASTRO_USUARIO,
         INTRANET_CADASTRO_SENHA, KAIROS_CADASTRO_USUARIO,
         KAIROS_CADASTRO_SENHA, EMAIL_GESTOR_APOIO_SEDE,
@@ -679,7 +679,7 @@ $result = mysqli_query($connect, $sql);
 
 
 <?PHP
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, EMAIL_CADERNO_COMPASSO_SOLICITADO,
         EMAIL_CADERNO_COMPASSO_RECEBIDO, MALOTE_CADERNO_COMPASSO_CTPS,
         DOCUMENTOS_RECEBIDOS_ASSINADOS, SALVAR_PASTA, CRACHA_DATA_PEDIDO, CRACHA_CONTROLE, CRACHA_PROTOCOLO ,
@@ -763,7 +763,7 @@ $result = mysqli_query($connect, $sql);
 
 
 <?PHP
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, BOAS_VINDAS_INGR_AGENDADA, BOAS_VINDAS_INGR_REALIZADA,
         BOAS_VINDAS_SALA, LAYOUT_BOAS_VINDAS_MENSAL, SURVEY,
         STATUS, PROJETO, NOME
@@ -832,7 +832,7 @@ $result = mysqli_query($connect, $sql);
 </html>
 
 <?PHP
-$connect = mysqli_connect("mysql-server", "root", "password", "bancorh");
+$connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, ENVIO_SOLICITANTE_PRI,
         DATA_VENCIMENTO_PRI, RENOVACAO,
         ENVIO_SOLICITANTE_SEG, DATA_VENCIMENTO_SEG,

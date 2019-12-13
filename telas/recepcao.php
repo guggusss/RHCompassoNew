@@ -5,6 +5,14 @@ include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
+
+if($grupo == "Suporte Interno"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
 $id = $_GET['id'];
 if (!isset($id)) {
     $id = $_SESSION['id'];
@@ -66,23 +74,22 @@ $campoV = 'class="txtVazio" ';
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio-total' href='index.php'>Início</a>
-            <a class="nav inicio" data-toggle="modal" data-target="#myModal">Legendas</a>
+            <a class='nav inicio' href='index.php'>Início</a>
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?= $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?= $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?= $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?= $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?= $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?= $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?= $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?= $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?= $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?= $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?= $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?= $id ?>'>9. Acessos Liberado</a>
+                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
+                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
+                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
+                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
+                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
+                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
+                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
+                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
+                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
+                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
+                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
+                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
                 </div>
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
@@ -91,7 +98,7 @@ $campoV = 'class="txtVazio" ';
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 align='center' id='nome'>Boas Vindas</h2>
+            <h2 id='nome'>Boas Vindas</h2>
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>
@@ -107,9 +114,9 @@ $campoV = 'class="txtVazio" ';
                         <tbody>
                             <tr>
                                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
-                                    <th width='100px'><?= $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?= $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?= $rows_dados['DATA_ADMISSAO']; ?></th>
+                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
+                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
+                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
                                     <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
                                                             if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
                                                             if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
@@ -138,31 +145,31 @@ $campoV = 'class="txtVazio" ';
                         <div title="Gestão" class="stepwizard-step col-md-auto">
                             <a href="gestao.php?id=<?= $id ?>" id="botao3" type="button" class="btn btn-default btn-circle">3</a>
                         </div>
-                        <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
+                        <div title="Documentação" class="stepwizard-step col-md-auto">
                             <a href="documentacao.php?id=<?= $id ?>" id="botao4" type="button" class="btn btn-default btn-circle ">4</a>
                         </div>
-                        <div title="Documentação" class="stepwizard-step col-md-auto">
+                        <div title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
                             <a href="admissao.php?id=<?= $id ?>" type="button" id="botao5" class="btn btn-default btn-circle">5</a>
                         </div>
-                        <div title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
+                        <div title="Exame Admissional" class="stepwizard-step col-md-auto">
                             <a href="exame.php?id=<?= $id ?>" type="button" id="botao6" class="btn btn-default btn-circle">6</a>
                         </div>
-                        <div title="Exame Admissional" class="stepwizard-step col-md-auto">
+                        <div title="Dados Bancários" class="stepwizard-step col-md-auto">
                             <a href="bancarios.php?id=<?= $id ?>" type="button" id="botao7" class="btn btn-default btn-circle">7</a>
                         </div>
-                        <div title="Dados Bancários" class="stepwizard-step col-md-auto">
+                        <div title="Suporte Interno" class="stepwizard-step col-md-auto">
                             <a href="suporteinterno.php?id=<?= $id ?>" type="button" id="botao8" class="btn btn-default btn-circle">8</a>
                         </div>
-                        <div title="Suporte Interno" class="stepwizard-step col-md-auto">
+                        <div title="Interno" class="stepwizard-step col-md-auto">
                             <a href="interno.php?id=<?= $id ?>" id="botao9" type="button" class="btn btn-default btn-circle">9</a>
                         </div>
-                        <div title="Interno" class="stepwizard-step col-md-auto">
+                        <div title="Vias Documentos funcionários" class="stepwizard-step col-md-auto">
                             <a href="viasdocumentos.php?id=<?= $id ?>" id="botao10" type="button" class="btn btn-default btn-circle">10</a>
                         </div>
-                        <div title="Vias Documentos funcionários" class="stepwizard-step col-md-auto">
+                        <div title="Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php?id=<?= $id ?>" id="botao11" type="button" class="btn btn-success btn-circle">11</a>
                         </div>
-                        <div title="Boas Vindas" class="stepwizard-step col-md-auto">
+                        <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
                             <a href="vencimentosContratos.php?id=<?= $id ?>" id="botao12" type="button" class="btn btn-default btn-circle">12</a>
                         </div>
                     </div>
@@ -172,7 +179,11 @@ $campoV = 'class="txtVazio" ';
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th colspan='8'>Boas Vindas Compasso</th>
+                        <th <?php if ($grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
+                                                            echo 'colspan="7"';
+                                                        }else{
+                                                            echo 'colspan="8"';
+                                                        } ?>>Boas Vindas Compasso</th>
                     </tr>
                     <tr>
                         <th width='200px'>Status</th>
@@ -181,7 +192,9 @@ $campoV = 'class="txtVazio" ';
                         <th width='200px'>Sala</th>
                         <th>Layout Boas Vindas Mensal</th>
                         <th>Survey</th>
-                        <th></th>
+                        <th <?php if ($grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -189,16 +202,18 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_AGENDADA'] == "" or $rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == "") { echo ($campoV);} ?>><?= $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
-                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_REALIZADA'] == "" or $rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == "") { echo ($campoV);} ?>><?= $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_AGENDADA'] == "" or $rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_REALIZADA'] == "" or $rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
                             <td <?php if ($rows_dados['BOAS_VINDAS_SALA'] == "") {
                                         echo ($campoV);
-                                    } ?>><?= $rows_dados['BOAS_VINDAS_SALA']; ?></td>
-                            <td <?php if ($layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] == "" or $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") { echo ($campoV);} ?>><?= $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
+                                    } ?>><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] == "" or $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
                             <td <?php if ($rows_dados['SURVEY'] == "") {
                                         echo ($campoV);
-                                    } ?>><?= $rows_dados['SURVEY']; ?></td>
-                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?= $id ?>"> Próximo </td>
+                                    } ?>><?php echo $rows_dados['SURVEY']; ?></td>
+                            <td <?php if ($grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>                                                        
                         </tr>
                     <?php } ?>
@@ -206,19 +221,21 @@ $campoV = 'class="txtVazio" ';
                         <form method="POST" action="../alteraTelas/altera-recepcao.php">
                             <input type='hidden' name="ID_USUARIO" value=<?= $funcionario['ID_USUARIO'] ?>>
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input class='intable' id="campo" type='date' name='BOAS_VINDAS_INGR_AGENDADA' value='<?= $boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA'] ?>'></td>
-                            <td><input class='intable' id="campo2" type='date' name='BOAS_VINDAS_INGR_REALIZADA' value='<?= $boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA'] ?>'></td>
-                            <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' value='<?= $boasVindasSala['BOAS_VINDAS_SALA'] ?>'></td>
-                            <td><input class='intable' id="campo4" type='date' name='LAYOUT_BOAS_VINDAS_MENSAL' value='<?= $layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] ?>'></td>
-                            <td><input class='intable' type='text' name='SURVEY' value='<?= $survey['SURVEY'] ?>'></td>
-                            <td></td>
+                            <td><input class='intable' id="campo" type='date' name='BOAS_VINDAS_INGR_AGENDADA' value=<?= $boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA'] ?>></td>
+                            <td><input class='intable' id="campo2" type='date' name='BOAS_VINDAS_INGR_REALIZADA' value=<?= $boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA'] ?>></td>
+                            <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' value=<?= $boasVindasSala['BOAS_VINDAS_SALA'] ?>></td>
+                            <td><input class='intable' id="campo4" type='date' name='LAYOUT_BOAS_VINDAS_MENSAL' value=<?= $layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] ?>></td>
+                            <td><input class='intable' type='text' name='SURVEY' value=<?= $survey['SURVEY'] ?>></td>
+                            <td <?php if ($grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>
             </table>
-            <?= file_get_contents("telasLegendas.html"); ?>
-        </section>        
+        </section>
+        <?php echo file_get_contents("telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>
@@ -249,9 +266,9 @@ $campoV = 'class="txtVazio" ';
         let grupo = "<?= $grupo ?>";
         window.onload = () => {
             if (grupo == "Compasso - RH Integração") {
-                desbilitaStepWizard(2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+                desbilitaStepWizard(2, 3, 4, 5, 6, 7, 8, 9, 10, 12);
             } else if (grupo == "Gestores") {
-                desbilitaStepWizard(2, 4, 5, 6, 7, 8, 9, 10, 11);
+                desbilitaStepWizard(2, 4, 5, 6, 7, 8, 9, 10, 12);
             }
         }
     </script>

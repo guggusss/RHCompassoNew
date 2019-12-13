@@ -6,6 +6,20 @@ include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
 
+if($grupo == "Suporte Interno"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
+if($grupo == "Compasso - RH Integração"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
 $id = $_GET['id'];
 $_SESSION['id'] = $id;
 
@@ -57,23 +71,22 @@ $campoV = 'class="txtVazio" ';
 <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio-total' href='index.php'>Início</a>
-            <a class="nav inicio" data-toggle="modal" data-target="#myModal">Legendas</a>
+            <a class='nav inicio' href='index.php'>Início</a>
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?= $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?= $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?= $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?= $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?= $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?= $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?= $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?= $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?= $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?= $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?= $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?= $id ?>'>9. Acessos Liberado</a>
+                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
+                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
+                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
+                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
+                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
+                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
+                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
+                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
+                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
+                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
+                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
+                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
                 </div>
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
@@ -83,7 +96,7 @@ $campoV = 'class="txtVazio" ';
 
     <main>
         <section class='menu-inicial'>
-            <h2 align='center' id='nome'>Gestão</h2>
+            <h2 id='nome'>Gestão</h2>
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>
@@ -99,9 +112,9 @@ $campoV = 'class="txtVazio" ';
                         <tbody>
                             <tr>
                                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
-                                    <th width='100px'><?= $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?= $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?= $rows_dados['DATA_ADMISSAO']; ?></th>
+                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
+                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
+                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
                                     <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
                                                             if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
                                                             if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
@@ -163,7 +176,11 @@ $campoV = 'class="txtVazio" ';
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th colspan='8'>Gestão</th>
+                        <th <?php if ($grupo == "Gestores") {
+                                                            echo 'colspan="7"';
+                                                        }else{
+                                                            echo 'colspan="8"';
+                                                        } ?>>Gestão</th>
                     </tr>
                     <tr>
                         <th>Status</th>
@@ -172,7 +189,9 @@ $campoV = 'class="txtVazio" ';
                         <th>Gestor local</th>
                         <th>Gestor local sabe?</th>
                         <th>Quem do projeto receberá a pessoa?</th>
-                        <th></th>
+                        <th <?php if ($grupo == "Gestores") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -182,27 +201,29 @@ $campoV = 'class="txtVazio" ';
                             <td><?= $status['STATUS']; ?></td>
                             <td <?php if ($rows_dados['GESTOR'] == "") {
                                         echo ($campoV);
-                                    } ?>><?= $rows_dados['GESTOR']; ?></td>
+                                    } ?>><?php echo $rows_dados['GESTOR']; ?></td>
                             <td <?php if ($rows_dados['GESTOR_SABE'] == "") {
                                         echo ($campoV);
-                                    } ?>><?= $rows_dados['GESTOR_SABE']; ?></td>
+                                    } ?>><?php echo $rows_dados['GESTOR_SABE']; ?></td>
                             <td <?php if ($rows_dados['GESTOR_LOCAL'] == "") {
                                         echo ($campoV);
-                                    } ?>><?= $rows_dados['GESTOR_LOCAL']; ?></td>
+                                    } ?>><?php echo $rows_dados['GESTOR_LOCAL']; ?></td>
                             <td <?php if ($rows_dados['GESTOR_LOCAL_sABE'] == "") {
                                         echo ($campoV);
-                                    } ?>><?= $rows_dados['GESTOR_LOCAL_sABE']; ?></td>
+                                    } ?>><?php echo $rows_dados['GESTOR_LOCAL_sABE']; ?></td>
                             <td <?php if ($rows_dados['RECEPTOR_PESSOA'] == "") {
                                         echo ($campoV);
-                                    } ?>><?= $rows_dados['RECEPTOR_PESSOA']; ?></td>
+                                    } ?>><?php echo $rows_dados['RECEPTOR_PESSOA']; ?></td>
                             <?php unset($_GET['id']); ?>
-                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
+                            <td <?php if ($grupo == "Gestores") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>><a title="Documentação" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-gestor.php?id=<?= $id ?>">
-                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='text' class='intable' name="GESTOR" value="<?= $gestor['GESTOR'] ?>"></td>
                             <td><select class="intable" name="GESTOR_SABE">
@@ -243,14 +264,16 @@ $campoV = 'class="txtVazio" ';
                                     ?>
                                 </select></td>
                             <td><input type="text" class='intable' name="RECEPTOR_PESSOA" value="<?= $receptor['RECEPTOR_PESSOA'] ?>"></td>
-                            <td></td>
+                            <td <?php if ($grupo == "Gestores") {
+                                                            echo 'style="display: none;"';
+                                                        } ?>></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>
             </table>
-            <?= file_get_contents("telasLegendas.html"); ?>
-        </section>        
+        </section>
+        <?php echo file_get_contents("telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>

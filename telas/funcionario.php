@@ -6,6 +6,27 @@ include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
 
+if($grupo == "Suporte Interno"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
+if($grupo == "Gestores"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
+if($grupo == "Compasso - RH Integração"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:../index.php');
+        exit;
+    }
+}
+
 $id = $_GET['id'];
 $_SESSION['id'] = $id;
 
@@ -65,23 +86,22 @@ $campoV = 'class="txtVazio" ';
 <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio-total' href='index.php'>Início</a>
-            <a class="nav inicio" data-toggle="modal" data-target="#myModal">Legendas</a>
+            <a class='nav inicio' href='index.php'>Início</a>
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?= $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?= $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?= $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?= $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?= $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?= $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?= $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?= $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?= $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?= $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?= $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?= $id ?>'>9. Acessos Liberado</a>
+                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
+                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
+                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
+                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
+                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
+                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
+                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
+                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
+                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
+                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
+                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
+                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
                 </div>
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
@@ -91,7 +111,7 @@ $campoV = 'class="txtVazio" ';
 
     <main>
         <section class='menu-inicial'>
-            <h2 align='center' id='nome'>Proposta de Contratação </h2>
+            <h2 id='nome'>Proposta de Contratação </h2>
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>
@@ -107,9 +127,9 @@ $campoV = 'class="txtVazio" ';
                         <tbody>
                             <tr>
                                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
-                                    <th width='100px'><?= $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?= $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?= $rows_dados['DATA_ADMISSAO']; ?></th>
+                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
+                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
+                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
                                     <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
                                                             if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
                                                             if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
@@ -188,17 +208,17 @@ $campoV = 'class="txtVazio" ';
                     </tr>
                 </thead>
                 <tbody>
-                <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
+                    <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?php echo $rows_dados['STATUS']; ?></td>
-                            <td <?php if ($envioprop['ENQUADRAMENTO_REMUNERACAO_ENVIO'] == "0101-01-01" or $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
-                            <td <?php if ($envioprop['ENQUADRAMENTO_REMUNERACAO_RETORNO'] == "0101-01-01" or $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
-                            <td <?php if ($envioprop['ENQUADRAMENTO'] == "0101-01-01" or $rows_dados['ENQUADRAMENTO'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>
-                            <td <?php if ($envioprop['ENVIO_PROPOSTA'] == "0101-01-01" or $rows_dados['ENVIO_PROPOSTA'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>
-                            <td <?php if ($envioprop['COMUNICAR_PROPOSTA_ENVIADA'] == "0101-01-01" or $rows_dados['COMUNICAR_PROPOSTA_ENVIADA'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
-                            <td <?php if ($envioprop['ACEITE_RECUSA_CANDIDATO'] == "0101-01-01" or $rows_dados['ACEITE_RECUSA_CANDIDATO'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
+                            <td id="data"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>
+                            <td id="data5"><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
+                            <td id="data6"><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
                             <td><?php echo $rows_dados['COMENTARIO']; ?></td>
-                            <td <?php if ($envioprop['COMUNICAR_STATUS'] == "0101-01-01" or $rows_dados['COMUNICAR_STATUS'] == "" or "01010101") { echo ($campoV);} ?>><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
+                            <td id="data8"><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
 
                             <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="btn btn-default" href="gestao.php?id=<?= $id ?>"> Próximo </td>
@@ -207,24 +227,24 @@ $campoV = 'class="txtVazio" ';
                     <?php  } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-proposta.php">
-                            <input type="hidden" name="ID_USUARIO" value=<?= $funcionario['ID_USUARIO'] ?>>
+                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value='<?= $recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO'] ?>'></td>
-                            <td><input type="date" id="campo2" class='intable' name="ENQUADRAMENTO_REMUNERACAO_RETORNO" value='<?= $deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO'] ?>'></td>
-                            <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value='<?= $enquadramento['ENQUADRAMENTO'] ?>'></td>
-                            <td><input type="date" id="campo4" class='intable' name="ENVIO_PROPOSTA" value='<?= $envioprop['ENVIO_PROPOSTA'] ?>'></td>
-                            <td><input type="date" id="campo5" class='intable' name="COMUNICAR_PROPOSTA_ENVIADA" value='<?= $comunicarprop['COMUNICAR_PROPOSTA_ENVIADA'] ?>'></td>
-                            <td><input type="date" id="campo6" class='intable' name="ACEITA_RECUSA_CANDIDATO" value='<?= $candidato['ACEITE_RECUSA_CANDIDATO'] ?>'></td>
-                            <td><input type="text" id="campo7" class='intable' name="COMENTARIO" value='<?= $comentario['COMENTARIO'] ?>'></td>
-                            <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" value='<?= $comunicar['COMUNICAR_STATUS'] ?>'></td>
+                            <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value=<?= $recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO'] ?>></td>
+                            <td><input type="date" id="campo2" class='intable' name="ENQUADRAMENTO_REMUNERACAO_RETORNO" value=<?= $deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO'] ?>></td>
+                            <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value=<?= $enquadramento['ENQUADRAMENTO'] ?>></td>
+                            <td><input type="date" id="campo4" class='intable' name="ENVIO_PROPOSTA" value=<?= $envioprop['ENVIO_PROPOSTA'] ?>></td>
+                            <td><input type="date" id="campo5" class='intable' name="COMUNICAR_PROPOSTA_ENVIADA" value=<?= $comunicarprop['COMUNICAR_PROPOSTA_ENVIADA'] ?>></td>
+                            <td><input type="date" id="campo6" class='intable' name="ACEITA_RECUSA_CANDIDATO" value=<?= $candidato['ACEITE_RECUSA_CANDIDATO'] ?>></td>
+                            <td><input type="text" id="campo7" class='intable' name="COMENTARIO" value=<?= $comentario['COMENTARIO'] ?>></td>
+                            <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" value=<?= $comunicar['COMUNICAR_STATUS'] ?>></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>
                         </form>
                     </tr>
                 </tbody>
             </table>
-            <?= file_get_contents("telasLegendas.html"); ?>
-        </section>        
+        </section>
+        <?php echo file_get_contents("telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>
