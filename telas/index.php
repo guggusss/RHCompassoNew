@@ -328,31 +328,29 @@ if (isset($_POST['botao'])) {
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio-total' href='index.php'>Início</a>
-            <a class="nav filter pos" data-toggle="modal" data-target="#filtro">Filtragem</a>            
+            <a class='nav inicio' href='index.php'>Início</a>
+            <a class="nav filter pos" data-toggle="modal" data-target="#filtro">Filtragem</a>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 align='center' id='nome'>Plataforma Admissão</h2>
-        </section>
+            <h2 align="center" id='nome'>Plataforma Admissão</h2>
+        </section>       
         
-        <div style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
+        <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div style="width: 70%;" class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <style>
-                            .modal .modal-dialog { width: 63%; }
-                        </style>
                     </div>
                     <div class="modal-body">                    
                     <fieldset align="center">
                     <h2 id='Filtro'>Filtro</h2>
                     <form id='form-filtrar' method="POST" action="<?= $_SERVER['PHP_SELF']; ?>">
+                    <div>
                         <div>
-                            <div>
+                        <div>
                             <label for="status">Status</label>
                             <select name="status" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
@@ -834,13 +832,13 @@ if (isset($_POST['botao'])) {
                                                                 
             </section>
         </section>
-        <div class="fab"  ontouchstart="">
-             <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
-            </button>
-        </div>
+        <?php echo file_get_contents("telasLegendas.html"); ?>        
     </main>
     <footer>
-        <h2></h2>
+    <div class="fab"  ontouchstart="">
+                    <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+                    </button>
+                    </div>
     </footer>
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery.mask.js"></script>
@@ -895,7 +893,6 @@ if (isset($_POST['botao'])) {
             }
         }
     </script>
-
 </body>
 
 </html>

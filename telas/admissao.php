@@ -223,16 +223,16 @@ $campoV = 'class="txtVazio" ';
                             <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value=<?= $rows_dados['COMENTARIO'] ?>></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
-                        </form>
-                    </tr>
-
-                </tbody>
-            </table>
+                        </form>                        
+                    </tr>                    
+                </tbody>                
+            </table>            
         </section>
+        <?php echo file_get_contents("telasLegendas.html"); ?>
         <div class="fab"  ontouchstart="">
-             <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
-            </button>
-        </div>
+                    <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+                    </button>
+                    </div>
     </main>
     <footer>
         <h2></h2>

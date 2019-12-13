@@ -110,7 +110,7 @@ $campoV = 'class="txtVazio" ';
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 id='nome'>Suporte Interno</h2>
+            <h2 align="center" id='nome'>Suporte Interno</h2>
 
         </section>
         <section class='container estruct'>
@@ -148,7 +148,7 @@ $campoV = 'class="txtVazio" ';
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
-                    <div class="passos stepwizard-row1 setup-panel">
+                    <div class="passos stepwizard-row2 setup-panel">
                         <div class="stepwizard-step col-md-auto">
                             <a title="Menu Principal" href="index.php" id="botao1" type="button" class="btn btn-default btn-circle">1</a>
                         </div>
@@ -269,7 +269,11 @@ $campoV = 'class="txtVazio" ';
         <?php if($usuario_atv == "INVÁLIDO"){ ?>
         <h3>Usuário, E-mail e Senha Acesso precisam ser preenchidos!</h3>
         <?php } ?>
-        
+        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <div class="fab"  ontouchstart="">
+                    <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+                    </button>
+                    </div>        
     </main>
     <footer>
         <h2></h2>

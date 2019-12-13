@@ -120,7 +120,7 @@ $campoV = 'class="txtVazio" ';
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 id='nome'>Vencimentos Contratos</h2>
+            <h2 align="center" id='nome'>Vencimentos Contratos</h2>
         </section>
         </h3>
         <section class='container estruct'>
@@ -299,11 +299,11 @@ $campoV = 'class="txtVazio" ';
         <td><input type="button" class="btn btn-default" value="Recarregar" onClick="history.go(0)"></td>
     </main>
     <footer>
-        <h2></h2>
+        <?php echo file_get_contents("telasLegendas.html"); ?>
         <div class="fab"  ontouchstart="">
-             <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
-            </button>
-        </div>
+                    <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+                    </button>
+                    </div>
     </footer>
     
     <script src="../js/jquery.js"></script>

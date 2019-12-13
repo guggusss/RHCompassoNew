@@ -107,7 +107,7 @@ $campoV = 'class="txtVazio" ';
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 id='nome'>Dados bancários</h2>
+            <h2 align="center" id='nome'>Dados bancários</h2>
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>
@@ -243,10 +243,11 @@ $campoV = 'class="txtVazio" ';
                 </tbody>
             </table>
         </section>
+        <?php echo file_get_contents("telasLegendas.html"); ?>
         <div class="fab"  ontouchstart="">
-             <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
-            </button>
-        </div>
+                    <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+                    </button>
+                    </div>
     </main>
     <footer>
         <h2></h2>
