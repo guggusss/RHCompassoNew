@@ -78,7 +78,7 @@ margin-left: auto;
 .inicio{
     position:absolute;
     top: 0%;
-    right: 18%;
+    right: 19%;
     display: block;
 }
 
@@ -90,7 +90,7 @@ a.disabled {
 .dropbtn{
     position:absolute;
     top: -55px;
-    right: 9%;
+    right: 10%;
     cursor: pointer;
 }
 
@@ -132,7 +132,7 @@ a.disabled {
 .pos{
     position:absolute;
     top: 0%;
-    right: 15%;
+    right: 10%;
     display: block;
 
 }
@@ -168,7 +168,7 @@ img {
     background-color: rgb(50, 66, 114);
     box-shadow: 0 0 .5em black;
     background-image: linear-gradient(to left, #fff, white 100% );
-    background-size: 64% 100%;
+    background-size: 75% 100%;
     background-repeat: no-repeat;
     border-bottom: .2em solid rgb(50, 66, 114);;
 }
@@ -290,7 +290,7 @@ img {
   
   .fab button.main:active + ul li,
   .fab button.main:focus + ul li{
-    margin-bottom: 70px;
+    margin-bottom: 10px;
     opacity: 1;
   }
   
@@ -303,10 +303,7 @@ img {
     display: none;
 }
 .container{
-    height: 600px;
-}
-
-aside a {
+    height: 565px}xside a {
     color: white;
     font-family: "Open Sans Condensed", "Arial", sans-serif;
 }
@@ -461,7 +458,7 @@ display: block !important;
 }
 ab{
     position: fixed;
-    bottom:100px;
+    bottom:10px;
     right:34px;
   }
   
@@ -488,7 +485,7 @@ ab{
     border-radius: 30px;
     background-color: rgb(50, 66, 114);
     right: 35px;
-    bottom: 100px;
+    bottom: 10px;
     z-index: 20;
   }
   
@@ -499,7 +496,7 @@ ab{
   
   .fab ul{
     position:absolute;
-    bottom:100px;
+    bottom:10px;
     right: 35px;
     padding:0;
     padding-right:5px;
@@ -555,12 +552,12 @@ ab{
   
   .fab button.main:active + ul,
   .fab button.main:focus + ul{
-    bottom: 100px;
+    bottom: 10px;
   }
   
   .fab button.main:active + ul li,
   .fab button.main:focus + ul li{
-    margin-bottom: 70px;
+    margin-bottom: 10px;
     opacity: 1;
   }
   
