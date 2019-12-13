@@ -145,7 +145,7 @@ $campoV = 'class="txtVazio" ';
                         </tbody>
                 </table>
             </div>
-            <div style="height: 100px;"></div>
+            <div style="height: 140px;"></div>
             <div class="passos">
                 <div class="stepwizard">
                     <div class="passos stepwizard-row2 setup-panel">

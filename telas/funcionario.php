@@ -113,7 +113,7 @@ $campoV = 'class="txtVazio" ';
         <section class='menu-inicial'>
             <h2 align="center" id='nome'>Proposta de Contratação </h2>
         </section>
-        <section class='container estruct'>
+        <section align="center" class='container estruct'>
             <div class='menu-inicial1'>
                 <table class='fixado'>
                     <thead>
@@ -144,7 +144,7 @@ $campoV = 'class="txtVazio" ';
                         </tbody>
                 </table>
             </div>
-            <div style="height: 100px;"></div>
+            <div style="height: 140px;"></div>
             <div class="passos">
                 <div class="stepwizard">
                     <div class="passos stepwizard-row1 setup-panel">
