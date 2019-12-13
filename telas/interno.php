@@ -244,8 +244,11 @@ $campoV = 'class="txtVazio" ';
                     </tr>
                 </tbody>
             </table>
+            <div class="fab"  ontouchstart="">
+             <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+            </button>
+        </div>
         </section>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>

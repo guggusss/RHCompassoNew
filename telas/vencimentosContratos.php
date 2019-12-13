@@ -299,9 +299,13 @@ $campoV = 'class="txtVazio" ';
         <td><input type="button" class="btn btn-default" value="Recarregar" onClick="history.go(0)"></td>
     </main>
     <footer>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
         <h2></h2>
+        <div class="fab"  ontouchstart="">
+             <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+            </button>
+        </div>
     </footer>
+    
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>

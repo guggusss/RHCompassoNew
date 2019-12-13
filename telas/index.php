@@ -344,7 +344,7 @@ if (isset($_POST['botao'])) {
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <style>
-                            .modal .modal-dialog { width: 68%; }
+                            .modal .modal-dialog { width: 63%; }
                         </style>
                     </div>
                     <div class="modal-body">                    
@@ -834,8 +834,11 @@ if (isset($_POST['botao'])) {
                                                                 
             </section>
         </section>
+        <div class="fab"  ontouchstart="">
+             <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+            </button>
+        </div>
     </main>
-    <?= file_get_contents("telasLegendas.html"); ?>
     <footer>
         <h2></h2>
     </footer>

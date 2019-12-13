@@ -261,12 +261,14 @@ $campoV = 'class="txtVazio" ';
                         </form>
                 </tbody>
             </table>
-
+            <div class="fab"  ontouchstart="">
+             <button data-toggle="modal" data-target="#myModal" id="opcao2" class="main" >
+            </button>
+        </div>
         </section>
         <?php if($usuario_atv == "INVÁLIDO"){ ?>
         <h3>Usuário, E-mail e Senha Acesso precisam ser preenchidos!</h3>
         <?php } ?>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
         
     </main>
     <footer>
