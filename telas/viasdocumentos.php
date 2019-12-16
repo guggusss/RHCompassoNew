@@ -215,13 +215,43 @@ $campoV = 'class="txtVazio" ';
                             <td id="data7"><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
                             <td id="data8"><?php echo $rows_dados['SALVAR_PASTA']; ?></td>
                             <td><a title="Boas Vindas" href='recepcao.php?id=<?= $id ?>' class="btn btn-default">Próximo</td>
-                            <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs" data-toggle="modal" data-target="#altera2">Editar</button></span></button></td>
                         </tr>
-                    <?php } ?>
-                    <tr class='funcionario atualiza'>
-                        <form method="POST" action="../alteraTelas/altera-vias.php">
-                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
-                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
+                    <?php } ?>                   
+                </tbody>
+            </table>
+            <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="altera2" role="dialog">                    
+                    <div class="modal-dialog">
+                    <div style="width: 100%;" class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <section class="container-modal">
+                    <div class="modal-body">
+                    <table id='first-table'>
+                    <thead>
+                    <tr>                    
+                        <th colspan='3'>Crachá + Cordão + Roller</th>
+                        <th colspan='2'>E-mail Adm Caderno Compasso </th>
+                        <th></th>
+                        <th></th>
+                        <th></th>                        
+                    </tr>
+                    <tr>                        
+                        <th>Pedido do crachá</th>
+                        <th>Controle</th>
+                        <th>Protocolo</th>
+                        <th>E-mail Solicitado </th>
+                        <th>Recebido</th>
+                        <th>Malote (Caderno) + <br />CTPS (Controle RH)</th>
+                        <th>Recebido após assinatura Escanear Docs</th>
+                        <th>Salvar na Pasta</th>                                                                    
+                    </tr>
+                </thead>
+                    <tbody>               
+                    <form method="POST" action="../alteraTelas/altera-vias.php">
+                    <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
+                    <input type="hidden" class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'>
                             <td><input type='date' id="campo" class='intable' name="CRACHA_DATA_PEDIDO" value=<?= $emailsoli['CRACHA_DATA_PEDIDO'] ?>></td>
                             <td><input type='date' id="campo2" class='intable' name="CRACHA_CONTROLE" value=<?= $emailsoli['CRACHA_CONTROLE'] ?>></td>
                             <td><input type='date' id="campo3" class='intable' name="CRACHA_PROTOCOLO" value=<?= $emailsoli['CRACHA_PROTOCOLO'] ?>></td>
@@ -230,11 +260,17 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="date" id="campo6" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" value=<?= $malote['MALOTE_CADERNO_COMPASSO_CTPS'] ?>></td>
                             <td><input type="date" id="campo7" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" value=<?= $docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS'] ?>></td>
                             <td><input type="date" id="campo8" class='intable' name="SALVAR_PASTA" value="<?= $docreceb['SALVAR_PASTA'] ?>"></td>
-                            <td></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
-                        </form>
-                </tbody>
-            </table>
+                    </tbody>                    
+                    </table>                                  
+                    </div>
+                    </section>
+                     <div class="modal-footer">
+                     <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>                                       
+                </div>
+                </form>
+            </div>
+        </div>        
+    </div>        
         </section>
         <?php echo file_get_contents("telasLegendas.html"); ?>
         <div class="fab"  ontouchstart="">

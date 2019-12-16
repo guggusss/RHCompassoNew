@@ -235,7 +235,7 @@ $campoV = 'class="txtVazio" ';
                             <td <?php if ($rows_dados['EFETIVACAO'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['EFETIVACAO']; ?></td>                            
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs" data-toggle="modal" data-target="#altera2">Editar</button></span></button></td>
                             <td>
                                 <form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class="btn btn-default"></form>
                             </td>
@@ -243,12 +243,33 @@ $campoV = 'class="txtVazio" ';
 
                         </tr>
                     <?php } ?>
-                    <tr class='funcionario atualiza'>
-                        <form method="POST" action="../alteraTelas/altera-vencimento.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
-                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input style="display: none" type='date' id="campo" class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?= $envio_Pri['ENVIO_SOLICITANTE_PRI'] ?>"></td>
-                            <td><input style="display: none" type='date' id="campo2" class='intable' name="DATA_VENCIMENTO_PRI" value="<?= $envio_Pri['DATA_VENCIMENTO_PRI'] ?>"></td>
+                </tbody>
+            </table>
+            <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="altera2" role="dialog">                    
+                    <div class="modal-dialog">
+                    <div style="width: 50%;" class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <section class="container-modal">
+                    <div class="modal-body">
+                    <table>
+                    <thead>
+                    <tr>
+                        <th colspan='1'>1°Alerta Vencimento   45 dias <p>10DD</th>
+                        <th colspan='1'>2°Alerta Vencimento   90 dias <p>20DD</th>                        
+                    </tr>
+                    <tr>             
+                        <th>Renovação <p>S = Sim N = Não</th>                    
+                        <th>Efetivção <p>S = Sim N = Não</th>                                           
+                    </tr>
+                </thead>
+                    <tbody>               
+                    <form method="POST" action="../alteraTelas/altera-vencimento.php">
+                    <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                    <input type="hidden" class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
+                    <input style="display: none" type='date' id="campo" class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?= $envio_Pri['ENVIO_SOLICITANTE_PRI'] ?>">
+                    <input style="display: none" type='date' id="campo2" class='intable' name="DATA_VENCIMENTO_PRI" value="<?= $envio_Pri['DATA_VENCIMENTO_PRI'] ?>">
                             <td><select class="intable" name="RENOVACAO">
                                     <?php
                                     if ($renovacao['RENOVACAO'] == NULL) { ?>
@@ -267,8 +288,8 @@ $campoV = 'class="txtVazio" ';
                                     }
                                     ?>
                                 </select></td>
-                            <td><input style="display: none" type='date' id="campo3" class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?= $envio_seg['ENVIO_SOLICITANTE_SEG'] ?>"></td>
-                            <td><input style="display: none" type='date' id='campo4' class='intable' name="DATA_VENCIMENTO_SEG" value="<?= $data_venc_seg['DATA_VENCIMENTO_SEG'] ?>"></td>
+                    <input style="display: none" type='date' id="campo3" class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?= $envio_seg['ENVIO_SOLICITANTE_SEG'] ?>">
+                    <input style="display: none" type='date' id='campo4' class='intable' name="DATA_VENCIMENTO_SEG" value="<?= $data_venc_seg['DATA_VENCIMENTO_SEG'] ?>">
                             <td><select class="intable" name="EFETIVACAO">
                                     <?php
                                     if ($efetivacao['EFETIVACAO'] == NULL) { ?>
@@ -287,13 +308,17 @@ $campoV = 'class="txtVazio" ';
                                     }
                                     ?>
                                 </select></td>
-                                <td></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
-
-
-                        </form>
-                </tbody>
-            </table>
+                    </tbody>                    
+                    </table>                                  
+                    </div>
+                    </section>
+                     <div class="modal-footer">
+                     <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>                                       
+                </div>
+                </form>
+            </div>
+        </div>        
+    </div>          
         </section>
         <h3>Se o campo Data Admissão foi alterado, clique para aplicar as modificações:
         <td><input type="button" class="btn btn-default" value="Recarregar" onClick="history.go(0)"></td>

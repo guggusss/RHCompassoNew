@@ -222,13 +222,36 @@ $campoV = 'class="txtVazio" ';
 
                             <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="btn btn-default" href="gestao.php?id=<?= $id ?>"> Próximo </td>
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs" data-toggle="modal" data-target="#altera">Editar</button></span></button></td>
                         </tr>
-                    <?php  } ?>
-                    <tr class='funcionario atualiza'>
+                    <?php  } ?>                    
+                </tbody>
+            </table>
+            <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="altera" role="dialog">                    
+                    <div class="modal-dialog">
+                    <div style="width: 100%;" class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <section class="container-modal">
+                    <div class="modal-body">
+                    <table id='first-table'>
+                    <thead>
+                    <tr>
+                        <th>Enquadramento remuneração envio</th>
+                        <th>Enquadramento remuneração retorno</th>
+                        <th width='220px'>Enquadramento<br />(Validação Ex Funcionário)</th>
+                        <th>Envio da Proposta</th>
+                        <th>Comunicar proposta enviada Solicitante</th>
+                        <th>Aceite/recusa candidato</th>
+                        <th width='300px'>Comentário</th>
+                        <th>Comunicar Status da Proposta ao Solicitante</th>                                                
+                    </tr>
+                </thead>
+                    <tbody>               
                         <form method="POST" action="../alteraTelas/altera-proposta.php">
                             <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
-                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
+                            <input type="hidden" class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'>                        
                             <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value=<?= $recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO'] ?>></td>
                             <td><input type="date" id="campo2" class='intable' name="ENQUADRAMENTO_REMUNERACAO_RETORNO" value=<?= $deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO'] ?>></td>
                             <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value=<?= $enquadramento['ENQUADRAMENTO'] ?>></td>
@@ -237,12 +260,17 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="date" id="campo6" class='intable' name="ACEITA_RECUSA_CANDIDATO" value=<?= $candidato['ACEITE_RECUSA_CANDIDATO'] ?>></td>
                             <td><input type="text" id="campo7" class='intable' name="COMENTARIO" value=<?= $comentario['COMENTARIO'] ?>></td>
                             <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" value=<?= $comunicar['COMUNICAR_STATUS'] ?>></td>
-                            <td></td>
-                            <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>
-                        </form>
-                    </tr>
-                </tbody>
-            </table>
+                    </tbody>                    
+                    </table>                                  
+                    </div>
+                    </section>
+                     <div class="modal-footer">
+                     <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>                                       
+                </div>
+                </form>
+            </div>
+        </div>        
+    </div>
         </section>
         <?php echo file_get_contents("telasLegendas.html"); ?>
         <div class="fab"  ontouchstart="">

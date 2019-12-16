@@ -207,26 +207,52 @@ $campoV = 'class="txtVazio" ';
                             <td id="data5"><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
                             <td><?php echo $rows_dados['COMENTARIO']; ?></td>
                             <td><a title="Exame Admissional" id="proximo" class="btn btn-default" href="exame.php?id=<?= $id ?>"> Próximo </td>
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs" data-toggle="modal" data-target="#altera2">Editar</button></span></button></td>
 
                         </tr>
                     <?php } ?>
-                    <tr class='funcionario atualiza'>
-                        <form method="POST" action="../alteraTelas/altera-admissao.php">
+                    </tbody>
+            </table>            
+                    <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="altera2" role="dialog">                    
+                    <div class="modal-dialog">
+                    <div style="width: 100%;" class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <section class="container-modal">
+                    <div class="modal-body">
+                    <table id='first-table'>
+                    <thead>
+                    <tr>
+                        <th>Qualificação Cadastral e CEP</th>
+                        <th>Cadastrada Admissão<br /> Plataforma Domínio</th>
+                        <th>Documentos Recebidos Plataforma<br /> Domínio + Validação CBO</th>
+                        <th>Termo PSI</th>
+                        <th>Incluir Admissão na Provisória</th>
+                        <th>Comentarios</th>                                              
+                    </tr>
+                </thead>
+                    <tbody>               
+                    <form method="POST" action="../alteraTelas/altera-admissao.php">
                             <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
-                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
+                            <input type="hidden" class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'>
                             <td><input type='date' id="campo" class='intable' name="QUALIFIC_CADASTRAL_CEP" value=<?= $quali['QUALIFIC_CADASTRAL_CEP'] ?>></td>
                             <td><input type="date" id="campo2" class='intable' name="CAD_ADM_PLATAFORMA_ADM_DIMIN" value=<?= $cad['CAD_ADM_PLATAFORMA_ADM_DIMIN'] ?>></td>
                             <td><input type="date" id="campo3" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" value=<?= $doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO'] ?>></td>
                             <td><input type="date" id="campo4" class='intable' name="TERMO_PSI" value=<?= $termo['TERMO_PSI'] ?>></td>
                             <td><input type="date" id="campo5" class='intable' name="INCLUI_ADM_PROV" value=<?= $inclui['INCLUI_ADM_PROV'] ?>></td>
                             <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value=<?= $rows_dados['COMENTARIO'] ?>></td>
-                            <td></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
-                        </form>                        
-                    </tr>                    
-                </tbody>                
-            </table>            
+                    </tbody>                    
+                    </table>                                  
+                    </div>
+                    </section>
+                     <div class="modal-footer">
+                     <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>                                       
+                </div>
+                </form>
+            </div>
+        </div>        
+    </div>           
         </section>
         <?php echo file_get_contents("telasLegendas.html"); ?>
         <div class="fab"  ontouchstart="">

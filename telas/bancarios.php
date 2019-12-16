@@ -217,13 +217,35 @@ $campoV = 'class="txtVazio" ';
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['TIPO_CONTA']; ?></td>
                             <td><a title="Suporte Interno" id="proximo" class="  btn btn-default" href="suporteinterno.php?id=<?= $id ?>"> Próximo </td>
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs" data-toggle="modal" data-target="#altera2">Editar</button></span></button></td>
                         </tr>
-                    <?php } ?>
-                    <tr class='funcionario atualiza'>
-                        <form method="POST" action="../alteraTelas/altera-bancario.php">
-                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
-                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
+                    <?php } ?>                    
+                </tbody>
+            </table>
+            <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="altera2" role="dialog">                    
+                    <div class="modal-dialog">
+                    <div style="width: 100%;" class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <section class="container-modal">
+                    <div class="modal-body">
+                    <table id='first-table'>
+                    <thead>
+                    <tr>
+                        <th>Envio</th>
+                        <th>Recebido</th>
+                        <th>Cadastro Intranet</th>
+                        <th>Formulário + Comprovante Bancário</th>
+                        <th>Agência (Bancária)</th>
+                        <th>Número da Conta</th>
+                        <th>Tipo de Conta</th>                                             
+                    </tr>
+                </thead>
+                    <tbody>               
+                    <form method="POST" action="../alteraTelas/altera-bancario.php">
+                    <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
+                    <input type="hidden" class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'>
                             <td><input type='date' id="campo" class='intable' name="ENVIO" value=<?= $envio['ENVIO'] ?>></td>
                             <td><input type="date" id="campo2" class='intable' name="RECEBIDO" value=<?= $recebido['RECEBIDO'] ?>></td>
                             <td><input type="date" id="campo4" class='intable' name="PLANILHA_CONTAS" value=<?= $planilha['PLANILHA_CONTAS'] ?>></td>
@@ -236,12 +258,17 @@ $campoV = 'class="txtVazio" ';
                                     <option>Poupança</option>
                                     <option>Salario</option>
                                 </select></td>
-                            <td></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
-                        </form>
-                    </tr>
-                </tbody>
-            </table>
+                    </tbody>                    
+                    </table>                                  
+                    </div>
+                    </section>
+                     <div class="modal-footer">
+                     <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>                                       
+                </div>
+                </form>
+            </div>
+        </div>        
+    </div>
         </section>
         <?php echo file_get_contents("telasLegendas.html"); ?>
         <div class="fab"  ontouchstart="">

@@ -199,23 +199,47 @@ $campoV = 'class="txtVazio" ';
                             <td id="data3"><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
                             <td><?php echo $rows_dados['COMENTARIO']; ?></td>
                             <td><a title="Dados Bancáriso" id="proximo" class="  btn btn-default" href="bancarios.php?id=<?= $id ?>"> Próximo </td>
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs" data-toggle="modal" data-target="#altera2">Editar</button></span></button></td>
                         </tr>
-                    <?php } ?>
-                    <tr class='funcionario atualiza'>
-                        <form method="POST" action="../alteraTelas/altera-exame.php">
-                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
-                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
+                    <?php } ?>                    
+                </tbody>
+            </table>
+            <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="altera2" role="dialog">                    
+                    <div class="modal-dialog">
+                    <div style="width: 100%;" class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <section class="container-modal">
+                    <div class="modal-body">
+                    <table id='first-table'>
+                    <thead>
+                    <tr>
+                        <th>Agendamento</th>
+                        <th>Envio para funcionário</th>
+                        <th>Recebido por e-mail ASO assinado</th>
+                        <th scope="col" width='200px'>Comentários</th>                                            
+                    </tr>
+                </thead>
+                    <tbody>               
+                    <form method="POST" action="../alteraTelas/altera-exame.php">
+                    <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
+                    <input type="hidden" class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'>
                             <td><input type='date' id="campo" class='intable' name="AGENDAMENTO_EXAM_ADM" value=<?= $agend['AGENDAMENTO_EXAM_ADM'] ?>></td>
                             <td><input type="date" id="campo2" class='intable' name="ENVIO_FUNC_EXAME" value=<?= $envio['ENVIO_FUNC_EXAME'] ?>></td>
                             <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM" value=<?= $email['EMAIL_RECEBIDO_EXAM'] ?>></td>
                             <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value=<?= $rows_dados['COMENTARIO'] ?>></td>
-                            <td></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
-                        </form>
-                    </tr>
-                </tbody>
-            </table>
+                    </tbody>                    
+                    </table>                                  
+                    </div>
+                    </section>
+                     <div class="modal-footer">
+                     <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>                                       
+                </div>
+                </form>
+            </div>
+        </div>        
+    </div>
         </section>
         <?php echo file_get_contents("telasLegendas.html"); ?>
         <div class="fab"  ontouchstart="">

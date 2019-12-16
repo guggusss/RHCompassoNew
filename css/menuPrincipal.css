@@ -306,6 +306,10 @@ img {
     height: 555px;
 }
 
+.container-modal{
+  height: 255px;
+}
+
 aside a {
     color: white;
     font-family: "Open Sans Condensed", "Arial", sans-serif;
@@ -372,6 +376,16 @@ h3{
 .container::-webkit-scrollbar { width:10px; background:#e3e0d6; } /* configurando scroll */
 .container::-webkit-scrollbar-track { border-radius: 10px; background: rgba(202, 210, 255, 0.726); }
 .container::-webkit-scrollbar-thumb { border-radius: 10px; background: rgb(50, 66, 114);  }
+
+.container-modal{
+  border: 2em solid white;
+
+}
+
+.container-modal{overflow:auto; } /* limitando altura do box */
+.container-modal::-webkit-scrollbar { width:10px; background:#e3e0d6; } /* configurando scroll */
+.container-modal::-webkit-scrollbar-track { border-radius: 10px; background: rgba(202, 210, 255, 0.726); }
+.container-modal::-webkit-scrollbar-thumb { border-radius: 10px; background: rgb(50, 66, 114);  }
 
 .legendas{
     text-align: center;
