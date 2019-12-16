@@ -225,13 +225,13 @@ $campoV = 'class="txtVazio" ';
             </table>
             <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="altera2" role="dialog">                    
                     <div class="modal-dialog">
-                    <div style="width: 100%;" class="modal-content">
+                    <div style="width: 80%;" class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <section class="container-modal">
                     <div class="modal-body">
-                    <table id='first-table'>
+                    <table>
                     <thead>
                     <tr>
                     <th colspan="2">E-mail formulários Admissão</th>

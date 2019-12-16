@@ -255,7 +255,7 @@ $campoV = 'class="txtVazio" ';
                     </div>
                     <section class="container-modal">
                     <div class="modal-body">
-                    <table id='first-table'>
+                    <table>
                     <thead>
                     <tr>                        
                         <th width='330px'>E-mail</th>
