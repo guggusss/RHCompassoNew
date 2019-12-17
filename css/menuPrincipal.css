@@ -2,7 +2,7 @@
     height: 80px;
     }
 
-.modal .modal-dialog { width: 40%; }
+.modal .modal-dialog { width: 40%;top:285px; }
 
 .menu-inicial {
     margin-top: 6em;
