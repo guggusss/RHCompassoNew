@@ -2,7 +2,7 @@
     height: 80px;
     }
 
-.modal .modal-dialog { width: 40%;top:285px; }
+.modal .modal-dialog { width: 40%; padding-top: 245px;}
 
 .menu-inicial {
     margin-top: 6em;
@@ -307,7 +307,7 @@ img {
 }
 
 .container-modal{
-  height: 232px;
+  height: 232px;  
 }
 
 aside a {
@@ -379,7 +379,6 @@ h3{
 
 .container-modal{
   border: 2em solid white;
-
 }
 
 .container-modal{overflow:auto; } /* limitando altura do box */

@@ -337,8 +337,8 @@ if (isset($_POST['botao'])) {
             <h2 align="center" id='nome'>Plataforma Admissão</h2>
         </section>       
         
-        <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
-            <div class="modal-dialog">
+        <div align="center" style="color: black; font-size: 14px; padding-top: 0px;" class="modal fade" id="filtro" role="dialog">
+            <div style="padding-top: 0px;" class="modal-dialog">
                 <div style="width: 70%;" class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
