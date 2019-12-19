@@ -97,7 +97,7 @@ $campoV = 'class="txtVazio" ';
         </header>
     <main>
         <section class='menu-inicial'>
-            <h2 align="center" id='nome'>Vias Documentos funcionário</h2>
+            <h2  id='nome'>Vias Documentos funcionário</h2>
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>

@@ -1,7 +1,6 @@
 <?php
 include("../db/conexao.php");
 include("../update.php");
-include("../static/php/RemoveMascAndFormatDate.php");
 session_start();
 $id = $_SESSION['id'];
 
@@ -11,6 +10,8 @@ $GESTOR_SABE = $_POST['GESTOR_SABE'];
 $GESTOR_LOCAL = $_POST['GESTOR_LOCAL'];
 $GESTOR_LOCAL_sABE = $_POST['GESTOR_LOCAL_sABE'];
 $RECEPTOR_PESSOA = $_POST['RECEPTOR_PESSOA'];
+
+
 
 if (gestao($conn, $ID_USUARIO, $GESTOR, $GESTOR_SABE, $GESTOR_LOCAL, $GESTOR_LOCAL_sABE, $RECEPTOR_PESSOA)) {
 
@@ -23,4 +24,4 @@ else
 }
 
 ?>
-<meta http-equiv="refresh" content="1;  url=../telas/gestao.php?id=<?php echo $id ?>"/>
+<meta http-equiv="refresh" content="1;  url=../telas/gestao.php?id=<?= $id ?>"/>

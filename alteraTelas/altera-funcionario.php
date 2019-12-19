@@ -1,6 +1,5 @@
 <?php
 include("../db/conexao.php");
-include("../static/php/RemoveMascAndFormatDate.php");
 include_once("../update.php");
 
 $STATUS = $_POST['status'];
@@ -27,6 +26,11 @@ $ADMINISTRATIVO = $_POST['ADMINISTRATIVO'];
 $COMENTARIOS = $_POST['COMENTARIOS'];
 $REMUNERACAO_BASE = str_replace(',', '.', preg_replace('#[^\d\,]#is', '', $REMUNERACAO_BASE));
 $GRATIFICACAO = str_replace(',', '.', preg_replace('#[^\d\,]#is', '', $GRATIFICACAO));
+
+
+
+
+
 
 if (funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HORARIA, $HORARIO, $NOME, $SEXO, $FONE_CONTATO, $DATA_ADMISSAO, $CARGO, $SOLICITANTE, $LOG_REGISTRO_DIA_RH_ENVIA_DP, $REMUNERACAO_BASE, $GRATIFICACAO, $CLIENTE, $PROJETO, $EMAIL, $ADMINISTRATIVO, $POSICAO_COMENTARIO, $COMENTARIOS) && status($conn, $USUARIO_ID, $STATUS)) {
 

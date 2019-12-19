@@ -2,7 +2,6 @@
 session_start();
 include("../db/conexao.php");
 include("../update.php");
-include("../static/php/RemoveMascAndFormatDate.php");
 
 
 if (!isset($id)) {

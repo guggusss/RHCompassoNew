@@ -3,7 +3,7 @@ require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
-
+ 
 $listar = listar($conn);
 
 if($grupo == "Suporte Interno"){
@@ -87,7 +87,7 @@ $campoV = 'class="txtVazio" ';
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
+                    <a href='../emails/body-email/admissaoPOA.php?id={{id}}'>5. Documentos Admissão POA</a>
                     <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
                     <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
                     <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
@@ -107,7 +107,7 @@ $campoV = 'class="txtVazio" ';
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 align="center" id='nome'>Dados bancários</h2>
+            <h2 id='nome'>Dados bancários</h2>
         </section>
         <section class='container estruct'>
             <div class='menu-inicial1'>

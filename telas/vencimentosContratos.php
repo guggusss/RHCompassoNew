@@ -120,7 +120,7 @@ $campoV = 'class="txtVazio" ';
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 align="center" id='nome'>Vencimentos Contratos</h2>
+            <h2  id='nome'>Vencimentos Contratos</h2>
         </section>
         </h3>
         <section class='container estruct'>
