@@ -335,7 +335,7 @@ if (isset($_POST['botao'])) {
     </header>
     <main>
         <section class='menu-inicial'>
-            <h2 align="center" id='nome'>Plataforma Admissão</h2>
+            <h2 id='nome'>Plataforma Admissão</h2>
         </section>       
         
         <div align="center" style="color: black; font-size: 14px;" class="modal fade" id="filtro" role="dialog">
