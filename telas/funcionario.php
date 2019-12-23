@@ -1,4 +1,4 @@
-<?php
+<?php ///essa pag é o proposta///
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
