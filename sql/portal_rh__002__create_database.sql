@@ -1,4 +1,4 @@
-Create DATABASE `bancorh`;
+Create DATABASE if not EXISTS `bancorh`;
 
 CREATE TABLE if not EXISTS `parametros_captacao` (
  `CAPTACAO_ID` int(11),

@@ -1,0 +1,105 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: php-git-sync-$ENV
+  namespace: $NAMESPACE
+  labels:
+    app: php-git-sync
+spec:
+  selector:
+    matchLabels:
+      app: php-git-sync
+  template:
+    metadata:
+      labels:
+        app: php-git-sync
+    spec:
+      initContainers:
+      - name: git-sync
+        image: k8s.gcr.io/git-sync-amd64:v2.0.6
+        imagePullPolicy: Always
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: shared-data-git
+          mountPath: /git
+        env:
+        - name: GIT_SYNC_REPO
+          # value: https://bitbucket.org/compassouoldiveo/sistemas-internos.rh.admissao/src/master/
+          value: $BIT_REPO
+        - name: GIT_SYNC_BRANCH
+          value: $BIT_BRANCH
+        - name: GIT_SYNC_DEST
+          value: git-sync
+        - name: GIT_SYNC_ONE_TIME
+          value: "true"
+        - name: GIT_SYNC_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: git-intranet
+              key: username
+        - name: GIT_SYNC_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: git-intranet
+              key: password
+        - name: HOME
+          value: /tmp
+      - name: copy-files
+        image: busybox
+        securityContext:
+          privileged: true
+        command:
+          - sh
+          - -c
+          - >
+            sleep 10;
+            cp -ar /git/git-sync/* /stage/;
+        volumeMounts:
+        - name: shared-data-git
+          mountPath: /git
+        - name: shared-stage
+          mountPath: /stage
+      containers:
+      - name: php
+        image: php:7.2-apache
+        command:
+          - sh
+          - -c
+          - >
+            docker-entrypoint.sh;
+        ports:
+        - containerPort: 9000
+        volumeMounts:
+        - name: docker-entrypoint
+          mountPath: /usr/local/bin/docker-entrypoint.sh
+          subPath: docker-entrypoint.sh
+        - name: shared-stage
+          mountPath: /var/www/html
+        - name: dbconfig
+          mountPath: /var/www/html/db/conexao.php
+          subPath: conexao.php
+      volumes:
+      - name: docker-entrypoint
+        configMap:
+          name: docker-entrypoint
+          defaultMode: 0544
+      - name: shared-stage
+        emptyDir: {}
+      - name: shared-data-git
+        emptyDir: {}
+      - name: dbconfig
+        configMap:
+          name: db-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-git-sync-svc
+spec:
+  type: ClusterIP
+  ports:
+    - port: 9000
+      targetPort: 9000
+  selector:
+    app: php-git-sync

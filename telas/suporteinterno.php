@@ -7,19 +7,7 @@ include("../update.php");
 include("../emails/defineNomeDoGrupoDeEmail.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 
-if($grupo == "Compasso - RH Integração"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
 
-if($grupo == "Gestores"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
 
 $listar = listar($conn);
 

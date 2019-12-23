@@ -6,20 +6,6 @@ include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
 
-if($grupo == "Suporte Interno"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Compasso - RH Integração"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
 $id = $_GET['id'];
 $_SESSION['id'] = $id;
 
@@ -176,11 +162,7 @@ $campoV = 'class="txtVazio" ';
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th <?php if ($grupo == "Gestores") {
-                                                            echo 'colspan="7"';
-                                                        }else{
-                                                            echo 'colspan="8"';
-                                                        } ?>>Gestão</th>
+                        <th colspan='8'>Gestão</th>
                     </tr>
                     <tr>
                         <th>Status</th>
@@ -189,9 +171,7 @@ $campoV = 'class="txtVazio" ';
                         <th>Gestor local</th>
                         <th>Gestor local sabe?</th>
                         <th>Quem do projeto receberá a pessoa?</th>
-                        <th <?php if ($grupo == "Gestores") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>></th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -215,9 +195,7 @@ $campoV = 'class="txtVazio" ';
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['RECEPTOR_PESSOA']; ?></td>
                             <?php unset($_GET['id']); ?>
-                            <td <?php if ($grupo == "Gestores") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>><a title="Documentação" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
+                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
@@ -264,9 +242,7 @@ $campoV = 'class="txtVazio" ';
                                     ?>
                                 </select></td>
                             <td><input type="text" class='intable' name="RECEPTOR_PESSOA" value="<?= $receptor['RECEPTOR_PESSOA'] ?>"></td>
-                            <td <?php if ($grupo == "Gestores") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>

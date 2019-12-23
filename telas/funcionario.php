@@ -1,31 +1,10 @@
-<?php ///essa pag é o proposta///
+<?php
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
-
-if($grupo == "Suporte Interno"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Gestores"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Compasso - RH Integração"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
 
 $id = $_GET['id'];
 $_SESSION['id'] = $id;
