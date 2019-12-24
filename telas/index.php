@@ -778,7 +778,7 @@ if (isset($_POST['botao'])) {
                                             <option>Feminino</option>
                                             <option>Não definido</option>
                                         </select></td>
-                                    <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\)[\s][0-9]{0-1}[0-9]{4}-[0-9]{4}" name="fone_contato" id="telefone" maxlength="15" required></td>
+                                    <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" name="fone_contato" id="telefone" maxlength="15" required></td>
                                     <td id="add-cargo" <?php if ($grupo == "Suporte Interno") {
                                                             echo 'style="display: none;"';
                                                         } ?>><input class='intable' type="text" name="cargo"></td>
