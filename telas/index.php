@@ -789,10 +789,10 @@ if (isset($_POST['botao'])) {
                                     <td id='add-log-registro-dia-rh-envia-dp'><input class='intable' type="date" name="LOG_REGISTRO_DIA_RH_ENVIA_DP"></td>
                                     <td id="add-remuneracao" <?php if ($grupo == "Suporte Interno") {
                                                                     echo 'style="display: none;"';
-                                                                } ?>><input class='intable' type="number" step=".01" name="remuneracao_base" min="0"></td>
+                                                                } ?>><input class='intable' type="number" step=".01" name="remuneracao_base" min="0" value="0"></td>
                                     <td id="add-gratificacao" <?php if ($grupo == "Suporte Interno") {
                                                                     echo 'style="display: none;"';
-                                                                } ?>><input class='intable' type="number" step=".01" name="gratificacao" min="0"></td>
+                                                                } ?>><input class='intable' type="number" step=".01" name="gratificacao" min="0" value="0"></td>
                                     <td <?php if ($grupo == "Suporte Interno") {
                                             echo 'style="display: none;"';
                                         } ?>></td>
