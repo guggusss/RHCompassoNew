@@ -16,7 +16,7 @@ ldap_set_option($link, LDAP_OPT_PROTOCOL_VERSION, 3);
 ldap_set_option($link, LDAP_OPT_REFERRALS, 0);
 
 $r = @ldap_bind($link, $usuario . '@' . $dominio, $senha) or die (header("location:./login.php?erro=fail"));
-$usuario = "jessica.ferreira";
+
 if(!$r) 
 { ?><meta http-equiv="refresh" content="1;  url=./login.php?erro=fail"/><?php }
 
