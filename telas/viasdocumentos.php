@@ -65,10 +65,10 @@ $campoV = 'class="txtVazio" ';
                     <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
                     <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
                     <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/admissaoBH.php?id=<?php echo $id ?>'>5.8 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/admissaoJAG.php?id=<?php echo $id ?>'>5.9 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/admissaoRJ.php?id=<?php echo $id ?>'>5.1.1 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/admissaoCAX.php?id=<?php echo $id ?>'>5.1.2 Documentos de Admissão REC</a>
+                    <a href='../emails/body-email/admissaoBH.php?id=<?php echo $id ?>'>5.8 Documentos de Admissão Belo Horizonte</a>
+                    <a href='../emails/body-email/admissaoJAG.php?id=<?php echo $id ?>'>5.9 Documentos de Admissão Jaguarão</a>
+                    <a href='../emails/body-email/admissaoRJ.php?id=<?php echo $id ?>'>5.1.1 Documentos de Admissão Rio de Janeiro</a>
+                    <a href='../emails/body-email/admissaoCAX.php?id=<?php echo $id ?>'>5.1.2 Documentos de Admissão Caxias do Sul </a>
                     <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
                     <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
                     <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
