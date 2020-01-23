@@ -1,0 +1,1 @@
+ALTER TABLE `sede`(`SEDE_ID`, `NOME_SEDE`) VALUES ('1', 'CWB'), ('2', 'ERE'), ('3', 'PF'), ('4', 'POA'), ('5', 'RG'), ('6', 'SP'), ('7', 'FLN'), ('8', 'XAP'), ('9', 'REC'), ('10', 'CAX'), ('11', 'RJ'), ('12', 'JAG'), ('13', 'BH');
