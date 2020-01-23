@@ -137,31 +137,31 @@ $campoV = 'class="txtVazio" ';
                         <div title="Gestão" class="stepwizard-step col-md-auto">
                             <a href="gestao.php?id=<?= $id ?>" id="botao3" type="button" class="btn btn-default btn-circle">3</a>
                         </div>
-                        <div title="Documentação" class="stepwizard-step col-md-auto">
+                        <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
                             <a href="documentacao.php?id=<?= $id ?>" id="botao4" type="button" class="btn btn-default btn-circle ">4</a>
                         </div>
-                        <div title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
+                        <div title="Documentação" class="stepwizard-step col-md-auto">
                             <a href="admissao.php?id=<?= $id ?>" type="button" id="botao5" class="btn btn-default btn-circle">5</a>
                         </div>
-                        <div title="Exame Admissional" class="stepwizard-step col-md-auto">
+                        <div title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
                             <a href="exame.php?id=<?= $id ?>" type="button" id="botao6" class="btn btn-default btn-circle">6</a>
                         </div>
-                        <div title="Dados Bancários" class="stepwizard-step col-md-auto">
+                        <div title="Exame Admissional" class="stepwizard-step col-md-auto">
                             <a href="bancarios.php?id=<?= $id ?>" type="button" id="botao7" class="btn btn-default btn-circle">7</a>
                         </div>
-                        <div title="Suporte Interno" class="stepwizard-step col-md-auto">
+                        <div title="Dados Bancários" class="stepwizard-step col-md-auto">
                             <a href="suporteinterno.php?id=<?= $id ?>" type="button" id="botao8" class="btn btn-default btn-circle">8</a>
                         </div>
-                        <div title="Interno" class="stepwizard-step col-md-auto">
+                        <div title="Suporte Interno" class="stepwizard-step col-md-auto">
                             <a href="interno.php?id=<?= $id ?>" id="botao9" type="button" class="btn btn-default btn-circle">9</a>
                         </div>
-                        <div title="Vias Documentos funcionários" class="stepwizard-step col-md-auto">
+                        <div title="Interno" class="stepwizard-step col-md-auto">
                             <a href="viasdocumentos.php?id=<?= $id ?>" id="botao10" type="button" class="btn btn-default btn-circle">10</a>
                         </div>
-                        <div title="Boas Vindas" class="stepwizard-step col-md-auto">
+                        <div title="Vias Documentos funcionários" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php?id=<?= $id ?>" id="botao11" type="button" class="btn btn-success btn-circle">11</a>
                         </div>
-                        <div title="Vencimentos Contratos" class="stepwizard-step col-md-auto">
+                        <div title="Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="vencimentosContratos.php?id=<?= $id ?>" id="botao12" type="button" class="btn btn-default btn-circle">12</a>
                         </div>
                     </div>
