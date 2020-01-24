@@ -795,7 +795,7 @@ if (isset($_POST['botao'])) {
                                                                 } ?>><input class='intable' type="number" step=".01" name="gratificacao" id="add_gratificacao" min="0" value="0" onchange="myFunction()"></td>
                                     <td id="add-resultado" <?php if ($grupo == "Suporte Interno") {
                                             echo 'style="display: none;"';
-                                        } ?>><input class='intable' type="number" placeholder="" name="result" id="res" onchange="myFunction(formatarMoeda(this,'.',',',event)" disabled>
+                                        } ?>><input class='intable' type="number" placeholder="" name="result" id="res" onchange="myFunction()" disabled>
                                         </td>
                                            
                                         
