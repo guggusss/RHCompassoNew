@@ -12,9 +12,8 @@ $SENHA = $_POST['SENHA'];
 $EQUIPAMENTO = $_POST['EQUIPAMENTO'];
 $TRANSLADO = $_POST['TRANSLADO'];
 $EQUIPE = (isset($_POST['EQUIPE'])) ? $_POST['EQUIPE'] : array();
-$COMENTARIO = $_POST['COMENTARIO'];
 
-if (suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $EQUIPE,$COMENTARIO)) {
+if (suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $EQUIPE)) {
 
     include("../telas/salvoSucesso.php");
 } 
