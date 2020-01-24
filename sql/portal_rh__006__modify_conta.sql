@@ -1,1 +1,5 @@
 INSERT INTO `sede`(`SEDE_ID`, `NOME_SEDE`) VALUES  ('10', 'CAX'), ('11', 'RJ'), ('12', 'JAG'), ('13', 'BH');
+ALTER TABLE `bancarios` ADD `COMENTARIO` VARCHAR(45);
+ALTER TABLE `interno` ADD `COMENTARIO` VARCHAR(45);
+ALTER TABLE `suporte_interno` ADD `COMENTARIO` VARCHAR(45);
+ALTER TABLE `vias_documentos_funcionarios` ADD `COMENTARIO` VARCHAR(45);
