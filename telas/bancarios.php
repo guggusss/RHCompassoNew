@@ -14,18 +14,18 @@ $resultado1 = mysqli_query($conn, "SELECT ID_USUARIO, NOME, ID_SEDE, DATE_FORMAT
 $conn1 = mysqli_num_rows($resultado1);
 
 
-$resultado = mysqli_query($conn, "SELECT `ID_DADOS_BANCARIOS`, `ID_USUARIO`, DATE_FORMAT(ENVIO,'%d/%m/%Y') as ENVIO, DATE_FORMAT(RECEBIDO,'%d/%m/%Y') as RECEBIDO, DATE_FORMAT(PLANILHA_CONTAS,'%d/%m/%Y') as PLANILHA_CONTAS, DATE_FORMAT(FORM_COMPR_BANCARIO,'%d/%m/%Y') as FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA, COMENTARIO
+$resultado = mysqli_query($conn, "SELECT `ID_DADOS_BANCARIOS`, `ID_USUARIO`, DATE_FORMAT(ENVIO,'%d/%m/%Y') as ENVIO, DATE_FORMAT(RECEBIDO,'%d/%m/%Y') as RECEBIDO, DATE_FORMAT(PLANILHA_CONTAS,'%d/%m/%Y') as PLANILHA_CONTAS, DATE_FORMAT(FORM_COMPR_BANCARIO,'%d/%m/%Y') as FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA
 FROM `bancarios` as b LEFT JOIN admissao_dominio as a on b.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
- 
+
 if ($count == 1) {
     $resultado = mysqli_query($conn, "SELECT `ID_DADOS_BANCARIOS`, `ID_USUARIO`, DATE_FORMAT(ENVIO,'%d/%m/%Y') as ENVIO, DATE_FORMAT(RECEBIDO,'%d/%m/%Y') as RECEBIDO, DATE_FORMAT(PLANILHA_CONTAS,'%d/%m/%Y') as PLANILHA_CONTAS, DATE_FORMAT(FORM_COMPR_BANCARIO,'%d/%m/%Y') as FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA
-   , `COMENTARIO` FROM `bancarios` as b LEFT JOIN admissao_dominio as a on b.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+    FROM `bancarios` as b LEFT JOIN admissao_dominio as a on b.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 } else {
-    mysqli_query($conn, "INSERT INTO `bancarios`(`ID_DADOS_BANCARIOS`, `ID_USUARIO`, `ENVIO`, `RECEBIDO`, `PLANILHA_CONTAS`, `FORM_COMPR_BANCARIO`, `AGENCIA`, `NUMERO_CONTA`, `TIPO_CONTA`, `COMENTARIO`) VALUES (NULL,$id,NULL,NULL,NULL,NULL, NULL, NULL, NULL)");
+    mysqli_query($conn, "INSERT INTO `bancarios`(`ID_DADOS_BANCARIOS`, `ID_USUARIO`, `ENVIO`, `RECEBIDO`, `PLANILHA_CONTAS`, `FORM_COMPR_BANCARIO`, `AGENCIA`, `NUMERO_CONTA`, `TIPO_CONTA`) VALUES (NULL,$id,NULL,NULL,NULL,NULL, NULL, NULL, NULL)");
 
     $resultado = mysqli_query($conn, "SELECT `ID_DADOS_BANCARIOS`, `ID_USUARIO`, DATE_FORMAT(ENVIO,'%d/%m/%Y') as ENVIO, DATE_FORMAT(RECEBIDO,'%d/%m/%Y') as RECEBIDO, DATE_FORMAT(PLANILHA_CONTAS,'%d/%m/%Y') as PLANILHA_CONTAS, DATE_FORMAT(FORM_COMPR_BANCARIO,'%d/%m/%Y') as FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA
-   , `COMENTARIO` FROM `bancarios` as b LEFT JOIN admissao_dominio as a on b.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+    FROM `bancarios` as b LEFT JOIN admissao_dominio as a on b.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
 $status = buscaFuncionarios($conn, $id);
@@ -182,7 +182,6 @@ $campoV = 'class="txtVazio" ';
                         <th>Agência (Bancária)</th>
                         <th>Número da Conta</th>
                         <th>Tipo de Conta</th>
-                        <th>Comentarios</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -204,7 +203,6 @@ $campoV = 'class="txtVazio" ';
                             <td <?php if ($rows_dados['TIPO_CONTA'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['TIPO_CONTA']; ?></td>
-                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>   
                             <td><a title="Suporte Interno" id="proximo" class="  btn btn-default" href="suporteinterno.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
@@ -225,7 +223,6 @@ $campoV = 'class="txtVazio" ';
                                     <option>Poupança</option>
                                     <option>Salario</option>
                                 </select></td>
-                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value=<?= $rows_dados['COMENTARIO'] ?>></td>   
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
