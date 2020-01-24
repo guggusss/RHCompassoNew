@@ -115,7 +115,12 @@ $campoV = 'class="txtVazio" ';
                                                             if($rows_dados['ID_SEDE'] == "6"){echo "SP";}
                                                             if($rows_dados['ID_SEDE'] == "7"){echo "FLN";}
                                                             if($rows_dados['ID_SEDE'] == "8"){echo "XAP";}
-                                                            if($rows_dados['ID_SEDE'] == "9"){echo "REC";}?></th>
+                                                            if($rows_dados['ID_SEDE'] == "9"){echo "REC";}
+                                                            if($rows_dados['ID_SEDE'] == "10"){echo "CAX";}
+                                                            if($rows_dados['ID_SEDE'] == "11"){echo "RJ";}
+                                                            if($rows_dados['ID_SEDE'] == "12"){echo "JAG";}
+                                                            if($rows_dados['ID_SEDE'] == "13"){echo "BH";}
+                                                            ?></th>
                                 <?php  } ?>
                             </tr>
                         </tbody>
