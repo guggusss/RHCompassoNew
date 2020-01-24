@@ -787,15 +787,20 @@ if (isset($_POST['botao'])) {
                                                             echo 'style="display: none;"';
                                                         } ?>><input class='intable' type="text" name="cargo"></td>
                                     <td id='add-log-registro-dia-rh-envia-dp'><input class='intable' type="date" name="LOG_REGISTRO_DIA_RH_ENVIA_DP"></td>
-                                    <td id="add-remuneracao" <?php if ($grupo == "Suporte Interno") {
+                                    <td id="add-remuneracao"  <?php if ($grupo == "Suporte Interno") {
                                                                     echo 'style="display: none;"';
-                                                                } ?>><input class='intable' type="number" step=".01" name="remuneracao_base" min="0" value="0"></td>
+                                                                } ?>><input class='intable' type="number" step=".01" name="remuneracao_base" id="add_remuneracao" min="0" value="0" onchange="myFunction()"></td>
                                     <td id="add-gratificacao" <?php if ($grupo == "Suporte Interno") {
                                                                     echo 'style="display: none;"';
-                                                                } ?>><input class='intable' type="number" step=".01" name="gratificacao" min="0" value="0"></td>
-                                    <td <?php if ($grupo == "Suporte Interno") {
+                                                                } ?>><input class='intable' type="number" step=".01" name="gratificacao" id="add_gratificacao" min="0" value="0" onchange="myFunction()"></td>
+                                    <td id="add-resultado" <?php if ($grupo == "Suporte Interno") {
                                             echo 'style="display: none;"';
-                                        } ?>></td>
+                                        } ?>><input class='intable' type="number" placeholder="" name="result" id="res" onchange="myFunction(formatarMoeda(this,'.',',',event)" disabled>
+                                        </td>
+                                           
+                                        
+                                 </td>
+
                                     <td id='add-solicitante'><input class='intable' type="text" name="solicitante" required></td>
                                     <td id='add-cliente'><input class='intable' type="text" name="cliente" required></td>
                                     <td id='add-projeto'><input class='intable' type="text" name="projeto" required></td>
@@ -875,6 +880,20 @@ if (isset($_POST['botao'])) {
             }
         }
     </script>
+    
+        <script>
+            
+            function myFunction() {
+        var x = parseFloat(document.getElementById("add_remuneracao").value);
+        var y = parseFloat(document.getElementById("add_gratificacao").value);
+        var soma = x+y;
+        document.getElementById("res").value = soma;
+        
+      }
+
+        
+
+        </script>
 
 </body>
 
