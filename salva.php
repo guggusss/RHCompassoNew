@@ -27,7 +27,6 @@ $cliente = $_POST["cliente"];
 $projeto = $_POST["projeto"];
 $email = $_POST["EMAIL"];
 $posicao_comentario = $_POST["posicao_comentario"];
-$comentarios = $_POST["comentarios"];
 $administrativo = $_POST["administrativo"];
 $comentarios = $_POST["comentarios"];
 
