@@ -74,12 +74,13 @@ $campoV = 'class="txtVazio" ';
                     <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
                     <a href='../emails/body-email/admissaoBH.php?id=<?php echo $id ?>'>5.8 Documentos de Admissão BH</a>
                     <a href='../emails/body-email/admissaoJAG.php?id=<?php echo $id ?>'>5.9 Documentos de Admissão JAG</a>
-                    <a href='../emails/body-email/admissaoRJ.php?id=<?php echo $id ?>'>5.1.1 Documentos de Admissão RJ</a>
-                    <a href='../emails/body-email/admissaoCAX.php?id=<?php echo $id ?>'>5.1.2 Documentos de Admissão CAX </a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
+                    <a href='../emails/body-email/admissaoRJ.php?id=<?php echo $id ?>'>5.10 Documentos de Admissão RJ</a>
+                    <a href='../emails/body-email/admissaoCAX.php?id=<?php echo $id ?>'>5.11 Documentos de Admissão CAX </a>
+                    <a href='../emails/body-email/admissaoXAP.php?id=<?php echo $id ?>'>5.12 Documentos de Admissão XAP </a>
+                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>6. ALERTA - 1ª Experiência expira em 45 dias</a>
+                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>6.1 ALERTA - 2ª Experiência expira em 90 dias</a>
+                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>7. Novo Acesso</a>
+                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>8. Acessos Liberado</a>
                 </div>
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
