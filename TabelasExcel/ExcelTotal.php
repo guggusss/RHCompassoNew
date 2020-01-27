@@ -296,14 +296,14 @@ if(isset($_POST["export"]))
          <td>'.$row["EMAIL_INICIO_ATIVIDADES"].'</td>
          <td>'.$row['EMAIL_BOAS_VINDAS'].'</td>
          <td>'.$row["ACESSOS"].'</td>
-         <td>'.$row["OBSERVAÇÕES"].'</td>
+         <td>'.$row["INTERNO_OBS"].'</td>
          <td>'.$row["POSICAO_COMENTARIO"].'</td>
          <td>'.$row['EMAIL_CADERNO_COMPASSO_SOLICITADO'].'</td>
          <td>'.$row["EMAIL_CADERNO_COMPASSO_RECEBIDO"].'</td>
          <td>'.$row['MALOTE_CADERNO_COMPASSO_CTPS'].'</td>
          <td>'.$row["DOCUMENTOS_RECEBIDOS_ASSINADOS"].'</td>
          <td>'.$row["SALVAR_PASTA"].'</td>
-         <td>'.$row["OBSERVAÇÕES"].'</td>
+         <td>'.$row["VIAS_DOCUMENTOS_OBS"].'</td>
          <td>'.$row['CRACHA_DATA_PEDIDO'].'</td>
          <td>'.$row["CRACHA_CONTROLE"].'</td>
          <td>'.$row['CRACHA_PROTOCOLO'].'</td>
