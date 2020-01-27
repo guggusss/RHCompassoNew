@@ -300,22 +300,9 @@ $campoV = 'class="txtVazio" ';
     <script src="../js/calculaVencimento.js">
         calculaVencimento();
     </script>
-    <script>
-        window.onload = function verifica() {
-            if (document.getElementById("campo").value == "") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "") {
-                $("#data2").addClass("dataVazia");
-            }
-            if (document.getElementById("campo3").value == "") {
-                $("#data3").addClass("dataVazia");
-            }
-            if (document.getElementById("campo4").value == "") {
-                $("#data4").addClass("dataVazia");
-            }
+       <script src="../js/campo-destaque.js"></script>
             <?php calculo($conn, $status, $id); ?>
-        }
+        
     </script>
 </body>
 

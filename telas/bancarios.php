@@ -220,8 +220,8 @@ $campoV = 'class="txtVazio" ';
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="ENVIO" value="<?= $envio['ENVIO'] ?>"></td>
                             <td><input type="date" id="campo2" class='intable' name="RECEBIDO" value="<?= $recebido['RECEBIDO'] ?>"></td>
-                            <td><input type="date" id="campo4" class='intable' name="PLANILHA_CONTAS" value="<?= $planilha['PLANILHA_CONTAS'] ?>"></td>
-                            <td><input type="date" id="campo5" class='intable' name="FORM_COMPR_BANCARIO" value="<?= $form['FORM_COMPR_BANCARIO'] ?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="PLANILHA_CONTAS" value="<?= $planilha['PLANILHA_CONTAS'] ?>"></td>
+                            <td><input type="date" id="campo4" class='intable' name="FORM_COMPR_BANCARIO" value="<?= $form['FORM_COMPR_BANCARIO'] ?>"></td>
                             <td><input type="text" class='intable' name="AGENCIA" value="<?= $agencia['AGENCIA']?>" maxlength="4"></td>
                             <td><input type="text" class='intable' name="NUMERO_CONTA" value="<?= $numero_conta['NUMERO_CONTA']?>" maxlength="9"></td>
                             <td><select name="TIPO_CONTA" class="intable" value="<?= $tipo_conta['TIPO_CONTA'] ?>">
@@ -247,25 +247,9 @@ $campoV = 'class="txtVazio" ';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-    <script>
-        window.onload = function verifica() {
-            if (document.getElementById("campo").value == "") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "") {
-                $("#data2").addClass("dataVazia");
-            }
-            /*/if(document.getElementById("campo3").value == ""){
-                $("#data3").addClass("dataVazia");
-            }/*/
-            if (document.getElementById("campo4").value == "") {
-                $("#data4").addClass("dataVazia");
-            }
-            if (document.getElementById("campo5").value == "") {
-                $("#data5").addClass("dataVazia");
-            }
-        }
-    </script>
+    <script src="../js/campo-destaque.js"></script>
+        
+    
 </body>
 
 </html>

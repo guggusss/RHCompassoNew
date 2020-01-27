@@ -97,7 +97,7 @@ $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'
   */
   </script>
 </body>
-<script type="text/javascript">
+<script>
   $("#enviar").on("click", function() {
     let divBody = document.getElementById("bodyEmail");
     let divInput = $("#inputBody");

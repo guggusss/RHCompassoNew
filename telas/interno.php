@@ -105,24 +105,7 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                                <?php while ($rows_dados = mysqli_fetch_assoc($resultadoBarr)) {  ?>
-                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
-                                    <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
-                                                            if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
-                                                            if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
-                                                            if($rows_dados['ID_SEDE'] == "4"){echo "POA";}
-                                                            if($rows_dados['ID_SEDE'] == "5"){echo "RG";}
-                                                            if($rows_dados['ID_SEDE'] == "6"){echo "SP";}
-                                                            if($rows_dados['ID_SEDE'] == "7"){echo "FLN";}
-                                                            if($rows_dados['ID_SEDE'] == "8"){echo "XAP";}
-                                                            if($rows_dados['ID_SEDE'] == "9"){echo "REC";}
-                                                            if($rows_dados['ID_SEDE'] == "10"){echo "CAX";}
-                                                            if($rows_dados['ID_SEDE'] == "11"){echo "RJ";}
-                                                            if($rows_dados['ID_SEDE'] == "12"){echo "JAG";}
-                                                            if($rows_dados['ID_SEDE'] == "13"){echo "BH";}?></th>
-                                <?php  } ?>
+                            <?php include("extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
@@ -249,28 +232,8 @@ $campoV = 'class="txtVazio" ';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-    <script>
-        window.onload = function verifica() {
-            if (document.getElementById("campo").value == "") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "") {
-                $("#data2").addClass("dataVazia");
-            }
-            if (document.getElementById("campo3").value == "") {
-                $("#data3").addClass("dataVazia");
-            }
-            if (document.getElementById("campo4").value == "") {
-                $("#data4").addClass("dataVazia");
-            }
-            if (document.getElementById("campo5").value == "") {
-                $("#data5").addClass("dataVazia");
-            }
-            if (document.getElementById("campo6").value == "") {
-                $("#data6").addClass("dataVazia");
-            }
-        }
-    </script>
+    <script src="../js/campo-destaque.js"></script>
+
 </body>
 
 </html>

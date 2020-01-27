@@ -238,21 +238,14 @@ $campoV = 'class="txtVazio" ';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script src="../js/campo-destaque.js"></script>
     <script>
         window.onload = function verifica() {
             let variavel = "<?= $deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO'] ?>";
             if (!variavel == "") {
                 $("#botao3, #botao4, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);
             }
-            if (document.getElementById("campo").value == "") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "") {
-                $("#data2").addClass("dataVazia");
-            }
-            if (document.getElementById("campo3").value == "") {
-                $("#data3").addClass("dataVazia");
-            }
+           
         }
     </script>
     <script src='../js/desabilitaStepWizard.js'></script>

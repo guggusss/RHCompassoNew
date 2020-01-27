@@ -222,22 +222,8 @@ $exame_obs = buscaexame($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-    <script>
-        window.onload = function verifica() {
-            if (document.getElementById("campo").value == "") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "") {
-                $("#data2").addClass("dataVazia");
-            }
-            if (document.getElementById("campo3").value == "") {
-                $("#data3").addClass("dataVazia");
-            }
-            /*/if(document.getElementById("campo4").value == ""){
-                $("#data4").addClass("dataVazia");
-            }/*/
-        }
-    </script>
+    <script src="../js/campo-destaque.js"></script>
+
 
 </body>
 
