@@ -6,7 +6,7 @@ if(isset($_POST["export"]))
 {
  $query = "SELECT ID_USUARIO, AGENDAMENTO_EXAM_ADM,
             ENVIO_FUNC_EXAME, EMAIL_RECEBIDO_EXAM,
-            STATUS, PROJETO, NOME, COMENTARIO
+            STATUS, PROJETO, NOME, COMENTARIO, EXAME_OBS
             from exame_admissional as p 
             LEFT JOIN admissao_dominio as a 
             on p.ID_USUARIO = a.USUARIO_ID 
@@ -24,6 +24,7 @@ $result = mysqli_query($connect, $query);
             <th width= "150px">Envio para Funcionário</th>
             <th width= "150px">Recebido por e-mail ASO assinado</th>
             <th width= "150px">Comentários</th>
+            <th width= "150px">Observações</th>
             <th width= "150px">Projeto</th>
         </tr>            
   ';
@@ -37,6 +38,7 @@ $result = mysqli_query($connect, $query);
             <td>'.$row['ENVIO_FUNC_EXAME'].'</td>
             <td>'.$row["EMAIL_RECEBIDO_EXAM"].'</td>
             <td>'.$row["COMENTARIO"].'</td>
+            <td>'.$row["EXAME_OBS"].'</td>
             <td>'.$row["PROJETO"].'</td>
         </tr> 
         ';  

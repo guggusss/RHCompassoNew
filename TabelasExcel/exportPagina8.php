@@ -8,7 +8,7 @@ if(isset($_POST["export"]))
  $query = "SELECT ID_USUARIO, ENVIO,
             RECEBIDO,
             PLANILHA_CONTAS, FORM_COMPR_BANCARIO, AGENCIA, NUMERO_CONTA, TIPO_CONTA,
-            STATUS, PROJETO, NOME
+            STATUS, PROJETO, NOME, BANCARIOS_OBS
             from bancarios as p
             LEFT JOIN admissao_dominio as a
             on p.ID_USUARIO = a.USUARIO_ID
@@ -29,6 +29,7 @@ $result = mysqli_query($connect, $query);
             <th width= "150px">Agência</th>
             <th width= "150px">Conta</th>
             <th width= "150px">Tipo da Conta</th>
+            <th width= "150px">Observações</th>
             <th width= "150px">Projeto</th>
         </tr>
   ';
@@ -45,6 +46,7 @@ $result = mysqli_query($connect, $query);
             <td>'.$row['AGENCIA'].'</td>
             <td>'.$row['NUMERO_CONTA'].'</td>
             <td>'.$row['TIPO_CONTA'].'</td>
+            <td>'.$row['BANCARIOS_OBS'].'</td>
             <td>'.$row['PROJETO'].'</td>
         </tr>
         ';

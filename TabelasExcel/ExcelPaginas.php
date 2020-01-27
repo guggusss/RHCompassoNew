@@ -404,7 +404,7 @@ $result = mysqli_query($connect, $sql);
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, AGENDAMENTO_EXAM_ADM,
         ENVIO_FUNC_EXAME, EMAIL_RECEBIDO_EXAM,
-        STATUS, PROJETO, NOME, COMENTARIO
+        STATUS, PROJETO, NOME, COMENTARIO, EXAME_OBS
         from exame_admissional as p
         LEFT JOIN admissao_dominio as a
         on p.ID_USUARIO = a.USUARIO_ID
@@ -434,6 +434,7 @@ $result = mysqli_query($connect, $sql);
         <th>Envio para Funcionário</th>
         <th>Recebido por e-mail ASO assinado</th>
         <th>Comentários</th>
+        <th>Observações</th>
         <th width='150px'>Projeto</th>
 
         <?php
@@ -446,6 +447,7 @@ $result = mysqli_query($connect, $sql);
          <td>' . $row['ENVIO_FUNC_EXAME'] . '</td>
          <td>' . $row["EMAIL_RECEBIDO_EXAM"] . '</td>
          <td>' . $row["COMENTARIO"] . '</td>
+         <td>' . $row["EXAME_OBS"] . '</td>
          <td>' . $row["PROJETO"] . '</td>
        </tr>
         ';
@@ -467,7 +469,7 @@ $result = mysqli_query($connect, $sql);
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, ENVIO,
         RECEBIDO, PLANILHA_CONTAS, FORM_COMPR_BANCARIO,
-        STATUS, PROJETO, NOME
+        STATUS, PROJETO, NOME, BANCARIOS_OBS
         from bancarios as p
         LEFT JOIN admissao_dominio as a
         on p.ID_USUARIO = a.USUARIO_ID
@@ -497,6 +499,7 @@ $result = mysqli_query($connect, $sql);
         <th>Recebido</th>
         <th>Cadastro Intranet</th>
         <th>Formuário + comprovante bancário</th>
+        <th>Observações</th>
         <th width='150px'>Projeto</th>
 
         <?php
@@ -509,6 +512,7 @@ $result = mysqli_query($connect, $sql);
          <td>' . $row['RECEBIDO'] . '</td>
          <td>' . $row['PLANILHA_CONTAS'] . '</td>
          <td>' . $row['FORM_COMPR_BANCARIO'] . '</td>
+         <td>' . $row['BANCARIOS_OBS'] . '</td>
          <td>' . $row["PROJETO"] . '</td>
        </tr>
         ';

@@ -169,6 +169,7 @@ if(isset($_POST["export"]))
                             <th>Envio para Funcionário</th>
                             <th>Recebido por e-mail ASO assinado</th>
                             <th>Comentários</th>
+                            <th>Observações</th>
                             <th>Envio</th>
                             <th>Recebido</th>
                             <th>Cadastro Intranet</th>
@@ -176,6 +177,7 @@ if(isset($_POST["export"]))
                             <th>Agência</th>
                             <th>Conta</th>
                             <th>Tipo da Conta</th>
+                            <th>Observações</th>
                             <th>Email</th>
                             <th>Usuário</th>
                             <th>Senha de acesso</th>
@@ -276,6 +278,7 @@ if(isset($_POST["export"]))
          <td>'.$row['ENVIO_FUNC_EXAME'].'</td>
          <td>'.$row["EMAIL_RECEBIDO_EXAM"].'</td>
          <td>'.$row["COMENTARIO"].'</td>
+         <td>'.$row["EXAME_OBS"].'</td>
          <td>'.$row["ENVIO"].'</td>
          <td>'.$row['RECEBIDO'].'</td>
          <td>'.$row['PLANILHA_CONTAS'].'</td>
@@ -283,6 +286,7 @@ if(isset($_POST["export"]))
          <td>'.$row['AGENCIA'].'</td>
          <td>'.$row['NUMERO_CONTA'].'</td>
          <td>'.$row['TIPO_CONTA'].'</td>
+         <td>'.$row['BANCARIOS_OBS'].'</td>
          <td>'.$row["EMAIL_SUP"].'</td>
          <td>'.$row['USUARIO'].'</td>
          <td>'.$row["SENHA"].'</td>
