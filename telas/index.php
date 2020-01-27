@@ -3,11 +3,7 @@ require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
-
 $listar = listar($conn);
-$listarTipo = listarTipo($conn);
-$listarCap = listarCap($conn);
-
 //if ($_GET['botaoLimpar']=='Limpar') {
 if (isset($_POST['botaoVolta'])) {
     ?>    
@@ -378,18 +374,21 @@ if (isset($_POST['botao'])) {
                             <label for="tipo">Tipo</label>
                             <select id="tipo" name="tipo" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
-                                <?php foreach ($listarTipo as $linha) : ?>
-                                    <option value="<?= $linha['TIPO_ID'] ?>"><?php echo $linha['NOME_TIPO'] ?></option>
-                                <?php endforeach ?>
+                                <option value="1">CLT</option>
+                                <option value="2">CC</option>
+                                <option value="3">HO</option>
+                                <option value="4">TEMP</option>
+                                <option value="5">APDZ</option>
                             </select>
                         </div>
                         <div>
                             <label for="captacao">Captação</label>
                             <select id="captacao" name="captacao" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
-                                <?php foreach ($listarCap as $linha) : ?>
-                                    <option value="<?= $linha['CAPTACAO_ID'] ?>"><?php echo $linha['NOME_PARAMETRO'] ?></option>
-                                <?php endforeach ?>
+                                <option value="1">Ex-Funcionário</option>
+                                <option value="2">Ex-Bolsista</option>
+                                <option value="3">Ex-Estágiario</option>
+                                <option value="4">NOVO</option>
                             </select>
                         </div>
                         <div>
@@ -761,15 +760,18 @@ if (isset($_POST['botao'])) {
                                         </select></td>
                                     <td><select id="add-tipo" name='tipo' class="selectadd intable" onclick="validaCargo()" required>
                                             <option value="" selected="selected"></option>
-                                            <?php foreach ($listarTipo as $linha) : ?>
-                                    <option value="<?= $linha['TIPO_ID'] ?>"><?php echo $linha['NOME_TIPO'] ?></option>
-                                <?php endforeach ?>
+                                            <option value="1">CLT</option>
+                                            <option value="2">CC</option>
+                                            <option value="3">HO</option>
+                                            <option value="4">TEMP</option>
+                                            <option value="5">APDZ</option>
                                         </select></td>
                                     <td><select id="add-captacao" name='captacao' class="selectadd intable" required>
                                             <option value="" selected="selected"></option>
-                                            <?php foreach ($listarCap as $linha) : ?>
-                                    <option value="<?= $linha['CAPTACAO_ID'] ?>"><?php echo $linha['NOME_PARAMETRO'] ?></option>
-                                <?php endforeach ?>
+                                            <option value="1">Ex-Funcionario</option>
+                                            <option value="2">Ex-Bolsista</option>
+                                            <option value="3">Ex-Estagiario</option>
+                                            <option value="4">Novo</option>
                                         </select></td>
                                     <td id='add-carga_horaria'><input id="campo-carga_horaria" class='intable' type="text" name="carga_horaria" required></td>
                                     <td id='add-horario'><input class='intable' type="text" name="horario" required></td>

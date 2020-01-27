@@ -9,18 +9,6 @@
 			return $resultado;
 		}
 
-		function listarTipo($conn){
-			$query = "SELECT * from tipo";
-			$resultado = mysqli_query($conn, $query);
-			return $resultado;
-		}
-
-		function listarCap($conn){
-			$query = "SELECT * from parametros_captacao";
-			$resultado = mysqli_query($conn, $query);
-			return $resultado;
-		}
-		
 		//retorna a sede especifica de um funcionario
 		function buscaSedeFuncionario($conn, $id){
 			$query = "SELECT nome_sede from sede where sede_id = '{$id}'";
