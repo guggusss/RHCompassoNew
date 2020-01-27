@@ -213,15 +213,15 @@ $campoV = 'class="txtVazio" ';
                     <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-vias.php">
-                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
+                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="CRACHA_DATA_PEDIDO" value=<?= $emailsoli['CRACHA_DATA_PEDIDO'] ?>></td>
-                            <td><input type='date' id="campo2" class='intable' name="CRACHA_CONTROLE" value=<?= $emailsoli['CRACHA_CONTROLE'] ?>></td>
-                            <td><input type='date' id="campo3" class='intable' name="CRACHA_PROTOCOLO" value=<?= $emailsoli['CRACHA_PROTOCOLO'] ?>></td>
-                            <td><input type='date' id="campo4" class='intable' name="EMAIL_CADERNO_COMPASSO_SOLICITADO" value=<?= $emailsoli['EMAIL_CADERNO_COMPASSO_SOLICITADO'] ?>></td>
-                            <td><input type="date" id="campo5" class='intable' name="EMAIL_CADERNO_COMPASSO_RECEBIDO" value=<?= $emailreceb['EMAIL_CADERNO_COMPASSO_RECEBIDO'] ?>></td>
-                            <td><input type="date" id="campo6" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" value=<?= $malote['MALOTE_CADERNO_COMPASSO_CTPS'] ?>></td>
-                            <td><input type="date" id="campo7" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" value=<?= $docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS'] ?>></td>
+                            <td><input type='date' id="campo" class='intable' name="CRACHA_DATA_PEDIDO" value="<?= $emailsoli['CRACHA_DATA_PEDIDO'] ?>"></td>
+                            <td><input type='date' id="campo2" class='intable' name="CRACHA_CONTROLE" value="<?= $emailsoli['CRACHA_CONTROLE'] ?>"></td>
+                            <td><input type='date' id="campo3" class='intable' name="CRACHA_PROTOCOLO" value="<?= $emailsoli['CRACHA_PROTOCOLO'] ?>"></td>
+                            <td><input type='date' id="campo4" class='intable' name="EMAIL_CADERNO_COMPASSO_SOLICITADO" value="<?= $emailsoli['EMAIL_CADERNO_COMPASSO_SOLICITADO'] ?>"></td>
+                            <td><input type="date" id="campo5" class='intable' name="EMAIL_CADERNO_COMPASSO_RECEBIDO" value="<?= $emailreceb['EMAIL_CADERNO_COMPASSO_RECEBIDO'] ?>"></td>
+                            <td><input type="date" id="campo6" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" value="<?= $malote['MALOTE_CADERNO_COMPASSO_CTPS'] ?>"></td>
+                            <td><input type="date" id="campo7" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" value="<?= $docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS'] ?>"></td>
                             <td><input type="date" id="campo8" class='intable' name="SALVAR_PASTA" value="<?= $docreceb['SALVAR_PASTA'] ?>"></td>
                             <td><input class='intable' name="VIAS_DOCUMENTOS_OBS" value="<?= $docreceb['VIAS_DOCUMENTOS_OBS'] ?>"></td>
                             <td></td>
