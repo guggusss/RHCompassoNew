@@ -29,6 +29,9 @@ if ($count == 1) {
     DATE_FORMAT(TERMO_PSI,'%d/%m/%Y') as TERMO_PSI,DATE_FORMAT(INCLUI_ADM_PROV,'%d/%m/%Y') as INCLUI_ADM_PROV, `COMENTARIO` FROM `admissao` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
+$resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
+$connBarr = mysqli_num_rows($resultadoBarr);
+
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
 $quali = buscaadmissao($conn, $id);
@@ -104,7 +107,7 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                                <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
+                                <?php while ($rows_dados = mysqli_fetch_assoc($resultadoBarr)) {  ?>
                                     <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
                                     <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
                                     <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
