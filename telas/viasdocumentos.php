@@ -15,17 +15,17 @@ $conn1 = mysqli_num_rows($resultado1);
 
 
 $resultado = mysqli_query($conn, "SELECT DATE_FORMAT(CRACHA_DATA_PEDIDO,'%d/%m/%Y') as CRACHA_DATA_PEDIDO,`ID_USUARIO` , DATE_FORMAT(CRACHA_CONTROLE,'%d/%m/%Y') as CRACHA_CONTROLE, DATE_FORMAT(CRACHA_PROTOCOLO,'%d/%m/%Y') as CRACHA_PROTOCOLO, DATE_FORMAT(VIAS_DOCUMENTOS_FUNCIONARIO_ID,'%d/%m/%Y') as VIAS_DOCUMENTOS_FUNCIONARIO_ID, DATE_FORMAT(EMAIL_CADERNO_COMPASSO_SOLICITADO,'%d/%m/%Y') as EMAIL_CADERNO_COMPASSO_SOLICITADO, DATE_FORMAT(EMAIL_CADERNO_COMPASSO_RECEBIDO,'%d/%m/%Y') as EMAIL_CADERNO_COMPASSO_RECEBIDO,
- DATE_FORMAT(MALOTE_CADERNO_COMPASSO_CTPS,'%d/%m/%Y') as MALOTE_CADERNO_COMPASSO_CTPS,DATE_FORMAT(DOCUMENTOS_RECEBIDOS_ASSINADOS,'%d/%m/%Y') as DOCUMENTOS_RECEBIDOS_ASSINADOS,DATE_FORMAT(SALVAR_PASTA,'%d/%m/%Y') as SALVAR_PASTA FROM `vias_documentos_funcionarios` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+ DATE_FORMAT(MALOTE_CADERNO_COMPASSO_CTPS,'%d/%m/%Y') as MALOTE_CADERNO_COMPASSO_CTPS,DATE_FORMAT(DOCUMENTOS_RECEBIDOS_ASSINADOS,'%d/%m/%Y') as DOCUMENTOS_RECEBIDOS_ASSINADOS,DATE_FORMAT(SALVAR_PASTA,'%d/%m/%Y') as SALVAR_PASTA, VIAS_DOCUMENTOS_OBS FROM `vias_documentos_funcionarios` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 
 if ($count == 1) {
     $resultado = mysqli_query($conn, "SELECT DATE_FORMAT(CRACHA_DATA_PEDIDO,'%d/%m/%Y') as CRACHA_DATA_PEDIDO,`ID_USUARIO` , DATE_FORMAT(CRACHA_CONTROLE,'%d/%m/%Y') as CRACHA_CONTROLE, DATE_FORMAT(CRACHA_PROTOCOLO,'%d/%m/%Y') as CRACHA_PROTOCOLO, DATE_FORMAT(VIAS_DOCUMENTOS_FUNCIONARIO_ID,'%d/%m/%Y') as VIAS_DOCUMENTOS_FUNCIONARIO_ID, DATE_FORMAT(EMAIL_CADERNO_COMPASSO_SOLICITADO,'%d/%m/%Y') as EMAIL_CADERNO_COMPASSO_SOLICITADO, DATE_FORMAT(EMAIL_CADERNO_COMPASSO_RECEBIDO,'%d/%m/%Y') as EMAIL_CADERNO_COMPASSO_RECEBIDO,
-    DATE_FORMAT(MALOTE_CADERNO_COMPASSO_CTPS,'%d/%m/%Y') as MALOTE_CADERNO_COMPASSO_CTPS,DATE_FORMAT(DOCUMENTOS_RECEBIDOS_ASSINADOS,'%d/%m/%Y') as DOCUMENTOS_RECEBIDOS_ASSINADOS,DATE_FORMAT(SALVAR_PASTA,'%d/%m/%Y') as SALVAR_PASTA FROM `vias_documentos_funcionarios` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+    DATE_FORMAT(MALOTE_CADERNO_COMPASSO_CTPS,'%d/%m/%Y') as MALOTE_CADERNO_COMPASSO_CTPS,DATE_FORMAT(DOCUMENTOS_RECEBIDOS_ASSINADOS,'%d/%m/%Y') as DOCUMENTOS_RECEBIDOS_ASSINADOS,DATE_FORMAT(SALVAR_PASTA,'%d/%m/%Y') as SALVAR_PASTA, VIAS_DOCUMENTOS_OBS FROM `vias_documentos_funcionarios` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 } else {
-    mysqli_query($conn, "INSERT INTO `vias_documentos_funcionarios`(`CRACHA_DATA_PEDIDO`, `CRACHA_CONTROLE`, `CRACHA_PROTOCOLO`,`VIAS_DOCUMENTOS_FUNCIONARIO_ID`, `ID_USUARIO`, `EMAIL_CADERNO_COMPASSO_SOLICITADO`, `EMAIL_CADERNO_COMPASSO_RECEBIDO`, `MALOTE_CADERNO_COMPASSO_CTPS`, `DOCUMENTOS_RECEBIDOS_ASSINADOS`, `SALVAR_PASTA`) VALUES (NULL,NULL,NULL,NULL, $id,NULL,NULL,NULL,NULL,NULL)");
+    mysqli_query($conn, "INSERT INTO `vias_documentos_funcionarios`(`CRACHA_DATA_PEDIDO`, `CRACHA_CONTROLE`, `CRACHA_PROTOCOLO`,`VIAS_DOCUMENTOS_FUNCIONARIO_ID`, `ID_USUARIO`, `EMAIL_CADERNO_COMPASSO_SOLICITADO`, `EMAIL_CADERNO_COMPASSO_RECEBIDO`, `MALOTE_CADERNO_COMPASSO_CTPS`, `DOCUMENTOS_RECEBIDOS_ASSINADOS`, `SALVAR_PASTA`, `VIAS_DOCUMENTOS_OBS`) VALUES (NULL,NULL,NULL,NULL, $id,NULL,NULL,NULL,NULL,NULL,NULL)");
 
     $resultado = mysqli_query($conn, "SELECT DATE_FORMAT(CRACHA_DATA_PEDIDO,'%d/%m/%Y') as CRACHA_DATA_PEDIDO,`ID_USUARIO` , DATE_FORMAT(CRACHA_CONTROLE,'%d/%m/%Y') as CRACHA_CONTROLE, DATE_FORMAT(CRACHA_PROTOCOLO,'%d/%m/%Y') as CRACHA_PROTOCOLO, DATE_FORMAT(VIAS_DOCUMENTOS_FUNCIONARIO_ID,'%d/%m/%Y') as VIAS_DOCUMENTOS_FUNCIONARIO_ID, DATE_FORMAT(EMAIL_CADERNO_COMPASSO_SOLICITADO,'%d/%m/%Y') as EMAIL_CADERNO_COMPASSO_SOLICITADO, DATE_FORMAT(EMAIL_CADERNO_COMPASSO_RECEBIDO,'%d/%m/%Y') as EMAIL_CADERNO_COMPASSO_RECEBIDO,
-    DATE_FORMAT(MALOTE_CADERNO_COMPASSO_CTPS,'%d/%m/%Y') as MALOTE_CADERNO_COMPASSO_CTPS,DATE_FORMAT(DOCUMENTOS_RECEBIDOS_ASSINADOS,'%d/%m/%Y') as DOCUMENTOS_RECEBIDOS_ASSINADOS,DATE_FORMAT(SALVAR_PASTA,'%d/%m/%Y') as SALVAR_PASTA FROM `vias_documentos_funcionarios` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+    DATE_FORMAT(MALOTE_CADERNO_COMPASSO_CTPS,'%d/%m/%Y') as MALOTE_CADERNO_COMPASSO_CTPS,DATE_FORMAT(DOCUMENTOS_RECEBIDOS_ASSINADOS,'%d/%m/%Y') as DOCUMENTOS_RECEBIDOS_ASSINADOS,DATE_FORMAT(SALVAR_PASTA,'%d/%m/%Y') as SALVAR_PASTA, VIAS_DOCUMENTOS_OBS FROM `vias_documentos_funcionarios` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
 $resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
@@ -177,6 +177,7 @@ $campoV = 'class="txtVazio" ';
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                     <tr>
                         <th>Status</th>
@@ -188,6 +189,7 @@ $campoV = 'class="txtVazio" ';
                         <th>Malote (Caderno) + <br />CTPS (Controle RH)</th>
                         <th>Recebido após assinatura Escanear Docs</th>
                         <th>Salvar na Pasta</th>
+                        <th>Observações</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -204,6 +206,7 @@ $campoV = 'class="txtVazio" ';
                             <td id="data6"><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
                             <td id="data7"><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
                             <td id="data8"><?php echo $rows_dados['SALVAR_PASTA']; ?></td>
+                            <td><?php echo $rows_dados['VIAS_DOCUMENTOS_OBS']; ?></td>
                             <td><a title="Boas Vindas" href='recepcao.php?id=<?= $id ?>' class="btn btn-default">Próximo</td>
                             <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
@@ -220,6 +223,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="date" id="campo6" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" value=<?= $malote['MALOTE_CADERNO_COMPASSO_CTPS'] ?>></td>
                             <td><input type="date" id="campo7" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" value=<?= $docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS'] ?>></td>
                             <td><input type="date" id="campo8" class='intable' name="SALVAR_PASTA" value="<?= $docreceb['SALVAR_PASTA'] ?>"></td>
+                            <td><input class='intable' name="VIAS_DOCUMENTOS_OBS" value="<?= $docreceb['VIAS_DOCUMENTOS_OBS'] ?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>

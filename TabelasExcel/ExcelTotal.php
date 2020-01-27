@@ -190,6 +190,7 @@ if(isset($_POST["export"]))
                             <th>E-mail início das atividades</th>
                             <th>E-mail Boas Vindas</th>
                             <th>Acessos</th>
+                            <th>Observações</th>
                             <th>Data</th>
                             <th>Comentário UOL</th>
                             <th>E-mail = Solicitado</th>
@@ -197,6 +198,7 @@ if(isset($_POST["export"]))
                             <th>Malote (Caderno) + CTPS (Controle RH)</th>
                             <th>Recebido após assinatura Escanear Docs</th> 
                             <th>Salvar na Pasta</th>
+                            <th>Observações</th>
                             <th>Data do pedido do crachá</th>
                             <th>controle</th>
                             <th>protocolo</th>
@@ -294,12 +296,14 @@ if(isset($_POST["export"]))
          <td>'.$row["EMAIL_INICIO_ATIVIDADES"].'</td>
          <td>'.$row['EMAIL_BOAS_VINDAS'].'</td>
          <td>'.$row["ACESSOS"].'</td>
+         <td>'.$row["INTERNO_OBS"].'</td>
          <td>'.$row["POSICAO_COMENTARIO"].'</td>
          <td>'.$row['EMAIL_CADERNO_COMPASSO_SOLICITADO'].'</td>
          <td>'.$row["EMAIL_CADERNO_COMPASSO_RECEBIDO"].'</td>
          <td>'.$row['MALOTE_CADERNO_COMPASSO_CTPS'].'</td>
          <td>'.$row["DOCUMENTOS_RECEBIDOS_ASSINADOS"].'</td>
          <td>'.$row["SALVAR_PASTA"].'</td>
+         <td>'.$row["VIAS_DOCUMENTOS_OBS"].'</td>
          <td>'.$row['CRACHA_DATA_PEDIDO'].'</td>
          <td>'.$row["CRACHA_CONTROLE"].'</td>
          <td>'.$row['CRACHA_PROTOCOLO'].'</td>
