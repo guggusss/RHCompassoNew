@@ -2632,7 +2632,7 @@ Binary files a/Atividades.xlsx and /dev/null differ
 [m
  </body>[m
  <script type="text/javascript" src="../js/enviarEmail.js"></script>[m
- <script type="text/javascript">[m
+ <script>[m
 [36m@@ -206,9 +114,9 @@[m [molho.mousedown(function() {[m
  olho.mouseup(function() {[m
    senha.attr("type", "password");[m
@@ -5337,7 +5337,7 @@ Binary files a/Atividades.xlsx and /dev/null differ
 [m
  </body>[m
  <script type="text/javascript" src="../js/enviarEmail.js"></script>[m
- <script type="text/javascript">[m
+ <script>[m
 [36m@@ -530,7 +455,7 @@[m [molho.mousedown(function() {[m
  olho.mouseup(function() {[m
    senha.attr("type", "password");[m
@@ -10775,7 +10775,7 @@ Binary files a/Atividades.xlsx and /dev/null differ
 [m
  </body>[m
  <script type="text/javascript" src="../js/enviarEmail.js"></script>[m
- <script type="text/javascript">[m
+ <script>[m
 [36m@@ -527,7 +454,7 @@[m [molho.mousedown(function() {[m
  olho.mouseup(function() {[m
    senha.attr("type", "password");[m
@@ -12123,7 +12123,7 @@ Binary files a/Atividades.xlsx and /dev/null differ
 [m
  </body>[m
  <script type="text/javascript" src="../js/enviarEmail.js"></script>[m
- <script type="text/javascript">[m
+ <script>[m
 [36m@@ -525,7 +454,7 @@[m [molho.mousedown(function() {[m
  olho.mouseup(function() {[m
    senha.attr("type", "password");[m
@@ -12325,7 +12325,7 @@ Binary files a/Atividades.xlsx and /dev/null differ
 [31m-</form>[m
  </body>[m
  <script type="text/javascript" src="../js/enviarEmail.js"></script>[m
- <script type="text/javascript">[m
+ <script>[m
 [36m@@ -147,7 +71,7 @@[m [molho.mousedown(function() {[m
  olho.mouseup(function() {[m
    senha.attr("type", "password");[m
@@ -12560,7 +12560,7 @@ Binary files a/Atividades.xlsx and /dev/null differ
 [m
  </body>[m
  <script type="text/javascript" src="../js/enviarEmail.js"></script>[m
- <script type="text/javascript">[m
+ <script>[m
 [36m@@ -158,7 +80,7 @@[m [molho.mousedown(function() {[m
  olho.mouseup(function() {[m
    senha.attr("type", "password");[m
@@ -12797,7 +12797,7 @@ Binary files a/Atividades.xlsx and /dev/null differ
 [31m-</form>[m
  </body>[m
  <script type="text/javascript" src="../js/enviarEmail.js"></script>[m
- <script type="text/javascript">[m
+ <script>[m
 [36m@@ -161,7 +82,7 @@[m [molho.mousedown(function() {[m
  olho.mouseup(function() {[m
    senha.attr("type", "password");[m
@@ -17176,7 +17176,7 @@ uporteInterno.js[m
 [m
 [32m+[m[32m    ?>[m[41m
 [m
-[32m+[m[32m    <script type="text/javascript">[m[41m
+[32m+[m[32m    <script>[m[41m
 [m
 [32m+[m[32m    function mascara(o,f){[m[41m
 [m
@@ -17224,7 +17224,7 @@ uporteInterno.js[m
 [m
 [32m+[m[32m    </script>[m[41m
 [m
-[32m+[m[32m    <script type="text/javascript">[m[41m
+[32m+[m[32m    <script>[m[41m
 [m
 [32m+[m[32m    function valida_horas(edit){[m[41m
 [m
