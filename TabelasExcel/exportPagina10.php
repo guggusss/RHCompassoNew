@@ -8,7 +8,7 @@ if(isset($_POST["export"]))
             INTRANET_CADASTRO_SENHA, KAIROS_CADASTRO_USUARIO,
             KAIROS_CADASTRO_SENHA, EMAIL_GESTOR_APOIO_SEDE,
             EMAIL_INICIO_ATIVIDADES, EMAIL_BOAS_VINDAS,
-            ACESSOS,STATUS, PROJETO, NOME 
+            ACESSOS, INTERNO_OBS, STATUS, PROJETO, NOME 
             from interno as p 
             LEFT JOIN admissao_dominio as a 
             on p.ID_USUARIO = a.USUARIO_ID 
@@ -39,6 +39,7 @@ $result = mysqli_query($connect, $query);
                 <th width= "150px">E-mail início das atividades</th>
                 <th width= "150px">E-mail Boas Vindas</th>
                 <th width= "150px">Acessos</th>
+                <th width= "150px">Observações</th>
                 <th width= "150px">projeto</th>
             </tr>        
   ';
@@ -56,6 +57,7 @@ $result = mysqli_query($connect, $query);
             <td>'.$row["EMAIL_INICIO_ATIVIDADES"].'</td>
             <td>'.$row['EMAIL_BOAS_VINDAS'].'</td>
             <td>'.$row["ACESSOS"].'</td>
+            <td>'.$row["INTERNO_OBS"].'</td>
             <td>'.$row["PROJETO"].'</td>
         </tr> 
         ';  

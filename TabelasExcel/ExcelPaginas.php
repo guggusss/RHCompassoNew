@@ -600,7 +600,7 @@ $sql = "SELECT ID_USUARIO, INTRANET_CADASTRO_USUARIO,
         INTRANET_CADASTRO_SENHA, KAIROS_CADASTRO_USUARIO,
         KAIROS_CADASTRO_SENHA, EMAIL_GESTOR_APOIO_SEDE,
         EMAIL_INICIO_ATIVIDADES, EMAIL_BOAS_VINDAS,
-        ACESSOS, STATUS, PROJETO, NOME
+        ACESSOS, INTERNO_OBS, STATUS, PROJETO, NOME
         from interno as p
         LEFT JOIN admissao_dominio as a
         on p.ID_USUARIO = a.USUARIO_ID
@@ -632,6 +632,7 @@ $result = mysqli_query($connect, $sql);
           <th colspan='3'>E-mail</th>
           <th></th>
           <th></th>
+          <th></th>
         </tr>
         <tr>
           <th>STATUS</th>
@@ -644,6 +645,7 @@ $result = mysqli_query($connect, $sql);
           <th>E-mail início das atividades</th>
           <th>E-mail Boas Vindas</th>
           <th>Acessos</th>
+          <th>Observações</th>
           <th width='150px'>projeto</th>
         </tr>
 
@@ -661,6 +663,7 @@ $result = mysqli_query($connect, $sql);
          <td>' . $row["EMAIL_INICIO_ATIVIDADES"] . '</td>
          <td>' . $row['EMAIL_BOAS_VINDAS'] . '</td>
          <td>' . $row["ACESSOS"] . '</td>
+         <td>' . $row["INTERNO_OBS"] . '</td>
          <td>' . $row["PROJETO"] . '</td>
        </tr>
         ';
@@ -682,7 +685,7 @@ $result = mysqli_query($connect, $sql);
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT ID_USUARIO, EMAIL_CADERNO_COMPASSO_SOLICITADO,
         EMAIL_CADERNO_COMPASSO_RECEBIDO, MALOTE_CADERNO_COMPASSO_CTPS,
-        DOCUMENTOS_RECEBIDOS_ASSINADOS, SALVAR_PASTA, CRACHA_DATA_PEDIDO, CRACHA_CONTROLE, CRACHA_PROTOCOLO ,
+        DOCUMENTOS_RECEBIDOS_ASSINADOS, SALVAR_PASTA, VIAS_DOCUMENTOS_OBS, CRACHA_DATA_PEDIDO, CRACHA_CONTROLE, CRACHA_PROTOCOLO ,
         STATUS, PROJETO, NOME
         from vias_documentos_funcionarios  as p
         LEFT JOIN admissao_dominio as a
@@ -716,6 +719,7 @@ $result = mysqli_query($connect, $sql);
           <th></th>
           <th></th>
           <th></th>
+          <th></th>
         </tr>
         <tr>
           <th>STATUS</th>
@@ -728,6 +732,7 @@ $result = mysqli_query($connect, $sql);
           <th>Malote (Caderno) + CTPS (Controle RH)</th>
           <th>Recebido após assinatura Escanear Docs</th>
           <th>Salvar na Pasta</th>
+          <th>Observações</th>
           <th width='150px'>Projeto</th>
         </tr>
 
@@ -745,6 +750,7 @@ $result = mysqli_query($connect, $sql);
          <td>' . $row['MALOTE_CADERNO_COMPASSO_CTPS'] . '</td>
          <td>' . $row["DOCUMENTOS_RECEBIDOS_ASSINADOS"] . '</td>
          <td>' . $row["SALVAR_PASTA"] . '</td>
+         <td>' . $row["VIAS_DOCUMENTOS_OBS"] . '</td>
          <td>' . $row["PROJETO"] . '</td>
        </tr>
         ';
