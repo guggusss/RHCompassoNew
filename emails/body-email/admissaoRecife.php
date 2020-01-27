@@ -441,7 +441,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
     </div>
   </div>
 </body>
-<script>
+<script type="text/javascript">
   $("#enviar").on("click", function() {
     let divBody = document.getElementById("bodyEmail");
     let divInput = $("#inputBody");

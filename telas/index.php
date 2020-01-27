@@ -835,7 +835,7 @@ if (isset($_POST['botao'])) {
     <?php
     include('../validacoes/login/permissoes.php');
     ?>
-    <script>
+    <script type="text/javascript">
         function mascara(o, f) {
             v_obj = o
             v_fun = f
@@ -862,7 +862,7 @@ if (isset($_POST['botao'])) {
             }
         }
     </script>
-    <script>
+    <script type="text/javascript">
         function valida_horas(edit) {
             if (event.keyCode < 48 || event.keyCode > 57) {
                 event.returnValue = false;
