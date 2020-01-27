@@ -24,6 +24,9 @@ if ($count == 1) {
     $resultado = mysqli_query($conn, "SELECT `ID_GESTOR`, `ID_USUARIO`, `GESTOR`, `GESTOR_SABE`, `GESTOR_LOCAL`, `GESTOR_LOCAL_sABE`, `RECEPTOR_PESSOA` FROM `gestao` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
+$resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
+$connBarr = mysqli_num_rows($resultadoBarr);
+
 $status = buscaFuncionarios($conn, $id);
 $gestor = buscagestao($conn, $id);
 $gestor_sabe = buscagestao($conn, $id);
@@ -102,7 +105,7 @@ $campoV = 'class="txtVazio" ';
                     </thead>
                         <tbody>
                             <tr>
-                                <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
+                                <?php while ($rows_dados = mysqli_fetch_assoc($resultadoBarr)) {  ?>
                                     <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
                                     <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
                                     <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>

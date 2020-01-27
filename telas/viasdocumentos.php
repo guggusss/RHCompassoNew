@@ -28,6 +28,8 @@ if ($count == 1) {
     DATE_FORMAT(MALOTE_CADERNO_COMPASSO_CTPS,'%d/%m/%Y') as MALOTE_CADERNO_COMPASSO_CTPS,DATE_FORMAT(DOCUMENTOS_RECEBIDOS_ASSINADOS,'%d/%m/%Y') as DOCUMENTOS_RECEBIDOS_ASSINADOS,DATE_FORMAT(SALVAR_PASTA,'%d/%m/%Y') as SALVAR_PASTA FROM `vias_documentos_funcionarios` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
+$resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
+$connBarr = mysqli_num_rows($resultadoBarr);
 
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
@@ -96,7 +98,7 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                                <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
+                                <?php while ($rows_dados = mysqli_fetch_assoc($resultadoBarr)) {  ?>
                                     <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
                                     <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
                                     <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
