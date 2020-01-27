@@ -47,6 +47,7 @@ $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
+$bancarios_obs = buscaBancario($conn, $id);
 $campoV = 'class="txtVazio" ';
 ?>
 <!DOCTYPE html>
@@ -229,7 +230,7 @@ $campoV = 'class="txtVazio" ';
                                     <option>Poupança</option>
                                     <option>Salario</option>
                                 </select></td>
-                                <td id='add-observacao'><input class='intable' type="text" name="BANCARIOS_OBS" value=<?= $rows_dados['BANCARIOS_OBS'] ?>></td>
+                                <td><input type="text" class='intable' name="BANCARIOS_OBS" value="<?= $bancarios_obs['BANCARIOS_OBS']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>

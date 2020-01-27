@@ -41,6 +41,7 @@ $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $campoV = 'class="txtVazio" ';
+$exame_obs = buscaexame($conn, $id);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -203,7 +204,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="date" id="campo2" class='intable' name="ENVIO_FUNC_EXAME" value=<?= $envio['ENVIO_FUNC_EXAME'] ?>></td>
                             <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM" value=<?= $email['EMAIL_RECEBIDO_EXAM'] ?>></td>
                             <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value=<?= $rows_dados['COMENTARIO'] ?>></td>
-                            <td id='add-observacao'><input class='intable' type="text" name="EXAME_OBS" value=<?= $rows_dados['EXAME_OBS'] ?>></td>
+                            <td id='exame_obs'><input class='intable' type="text" name="EXAME_OBS" value=<?= $exame_obs['EXAME_OBS'] ?>></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
