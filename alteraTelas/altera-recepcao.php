@@ -14,12 +14,12 @@ $SURVEY = $_POST['SURVEY'];
 
 if (recepcao($conn, $ID_USUARIO, $BOAS_VINDAS_INGR_AGENDADA, $BOAS_VINDAS_INGR_REALIZADA, $BOAS_VINDAS_SALA, $LAYOUT_BOAS_VINDAS_MENSAL, $SURVEY)) {
 
-    include("../telas/salvoSucesso.php");
+    include("../telas/includes/salvoSucesso.php");
 } 
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");
+    include("../telas/includes/naoSalvo.php");
 }
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/recepcao.php?id=<?php echo $id ?>"/>

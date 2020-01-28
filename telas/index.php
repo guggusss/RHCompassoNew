@@ -822,7 +822,7 @@ if (isset($_POST['botao'])) {
             </section>
 
         </section>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>

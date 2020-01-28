@@ -30,11 +30,11 @@ $GRATIFICACAO = str_replace(',', '.', preg_replace('#[^\d\,]#is', '', $GRATIFICA
 
 if (funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HORARIA, $HORARIO, $NOME, $SEXO, $FONE_CONTATO, $DATA_ADMISSAO, $CARGO, $SOLICITANTE, $LOG_REGISTRO_DIA_RH_ENVIA_DP, $REMUNERACAO_BASE, $GRATIFICACAO, $CLIENTE, $PROJETO, $EMAIL, $ADMINISTRATIVO, $POSICAO_COMENTARIO, $COMENTARIOS) && status($conn, $USUARIO_ID, $STATUS)) {
 
-    include("../telas/salvoSucesso.php");
+    include("../telas/includes/salvoSucesso.php");
 
     } else {
     $msg = mysqli_error($conn); 
-    include("../telas/naoSalvo.php");
+    include("../telas/includes/naoSalvo.php");
 }
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/index.php"/>

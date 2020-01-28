@@ -15,12 +15,12 @@ $EFETIVACAO = $_POST['EFETIVACAO'];
 
 if (vencimentos($conn, $ID_USUARIO, $ENVIO_SOLICITANTE_PRI, $DATA_VENCIMENTO_PRI, $RENOVACAO, $ENVIO_SOLICITANTE_SEG, $EFETIVACAO, $DATA_VENCIMENTO_SEG)) {
 
-   include("../telas/salvoSucesso.php");
+    include("../telas/includes/salvoSucesso.php");
 } 
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");
+    include("../telas/includes/naoSalvo.php");
 }
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/vencimentosContratos.php?id=<?php echo $id ?>"/>

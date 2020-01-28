@@ -15,12 +15,12 @@ $EXAME_OBS = $_POST['EXAME_OBS'];
 
 if (exame($conn, $ID_USUARIO, $AGENDAMENTO_EXAM_ADM, $ENVIO_FUNC_EXAME, $EMAIL_RECEBIDO_EXAM, $COMENTARIO, $EXAME_OBS)) {
 
-    include("../telas/salvoSucesso.php");
+    include("../telas/includes/salvoSucesso.php");
 } 
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");
+    include("../telas/includes/naoSalvo.php");
 }
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/exame.php?id=<?php echo $id ?>"/>

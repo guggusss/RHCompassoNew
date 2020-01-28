@@ -123,7 +123,7 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                                <?php include("extensao.php"); ?>
+                                <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
@@ -249,7 +249,7 @@ $campoV = 'class="txtVazio" ';
         <?php if($usuario_atv == "INVÁLIDO"){ ?>
         <h3>Usuário, E-mail e Senha Acesso precisam ser preenchidos!</h3>
         <?php } ?>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("includes/telasLegendas.html"); ?>
         
     </main>
     <footer>

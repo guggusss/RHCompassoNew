@@ -110,7 +110,7 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                            <?php include("extensao.php"); ?>
+                            <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
@@ -212,7 +212,7 @@ $campoV = 'class="txtVazio" ';
                 </tbody>
             </table>
         </section>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>
@@ -222,7 +222,5 @@ $campoV = 'class="txtVazio" ';
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src="../js/campo-destaque.js"></script>
-
 </body>
-
 </html>

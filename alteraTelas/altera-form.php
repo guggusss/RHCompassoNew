@@ -156,7 +156,7 @@ $return_captacao = mysqli_query($conn, $get_captacao);
                 </tbody>
             </table>
         </section>
-        <?php echo file_get_contents("../telas/telasLegendas.html"); ?>
+        <?php echo file_get_contents("../telas/includes/telasLegendas.html"); ?>
     </main>
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

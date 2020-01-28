@@ -123,7 +123,7 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                                <?php include("extensao.php"); ?>
+                                <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
@@ -273,7 +273,7 @@ $campoV = 'class="txtVazio" ';
         <td><input type="button" class="btn btn-default" value="Recarregar" onClick="history.go(0)"></td>
     </main>
     <footer>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("includes/telasLegendas.html"); ?>
         <h2></h2>
     </footer>
     <script src="../js/jquery.js"></script>

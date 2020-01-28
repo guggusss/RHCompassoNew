@@ -105,7 +105,7 @@ $exame_obs = buscaexame($conn, $id);
                         <thead>
                         <tbody>
                             <tr>
-                            <?php include("extensao.php"); ?>
+                            <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
@@ -196,7 +196,7 @@ $exame_obs = buscaexame($conn, $id);
                 </tbody>
             </table>
         </section>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
     <footer>
         <h2></h2>

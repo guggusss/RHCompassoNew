@@ -30,12 +30,12 @@ if (viasDocs($conn, $ID_USUARIO, $CRACHA_DATA_PEDIDO, $CRACHA_CONTROLE, $CRACHA_
         $STATUS = 'EM ANDAMENTO';
         status($conn, $ID_USUARIO, $STATUS);
     }
-    include("../telas/salvoSucesso.php");
+    include("../telas/includes/salvoSucesso.php");
 } 
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");
+    include("../telas/includes/naoSalvo.php");
 }
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/viasdocumentos.php?id=<?php echo $id ?>"/>

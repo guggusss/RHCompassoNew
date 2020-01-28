@@ -15,12 +15,12 @@ $EQUIPE = (isset($_POST['EQUIPE'])) ? $_POST['EQUIPE'] : array();
 
 if (suporte($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $EQUIPE)) {
 
-    include("../telas/salvoSucesso.php");
+    include("../telas/includes/salvoSucesso.php");
 } 
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");
+    include("../telas/includes/naoSalvo.php");
 }
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/suporteinterno.php?id=<?php echo $id ?>"/>
