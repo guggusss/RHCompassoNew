@@ -181,8 +181,8 @@ $campoV = 'class="txtVazio" ';
                             <td><?= $status['STATUS'] ?></td>
                             <td id="data"><?php echo $rows_dados['ENVIO']; ?></td>
                             <td id="data2"><?php echo $rows_dados['RECEBIDO']; ?></td>
-                            <td id="data4"><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
-                            <td id="data5"><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
                             <td <?php if ($rows_dados['AGENCIA'] == "") {
                                         echo ($campoV);
                                     } ?>><?php echo $rows_dados['AGENCIA']; ?></td>
