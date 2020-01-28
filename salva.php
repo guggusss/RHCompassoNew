@@ -37,12 +37,8 @@ $sql = "INSERT INTO `admissao_dominio` ( `STATUS`,`ID_SEDE`,`ID_TIPO`,`ID_CAPTAC
 
 $execQuery = mysqli_query($conn, $sql);
 
-if ($execQuery == "") {		
-	$msg = mysqli_error($conn);
-	$output .= '';
-	header('Content-Type: application/xls');
-	header('Content-Disposition: attachment; filename=LogErro.xls');
-	echo $output;?>
+if ($execQuery == "") {
+	$msg = mysqli_error($conn);?>
 	<head>
 		<meta charset="UTF-8">
 		<title>RH Contratações</title>
