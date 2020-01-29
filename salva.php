@@ -38,7 +38,10 @@ $sql = "INSERT INTO `admissao_dominio` ( `STATUS`,`ID_SEDE`,`ID_TIPO`,`ID_CAPTAC
 $execQuery = mysqli_query($conn, $sql);
 
 if ($execQuery == "") {
-	$msg = mysqli_error($conn);?>
+	$msg = mysqli_error($conn);
+	$dir = __DIR__."/log.txt";
+	$today = date("F j, Y, g:i a");
+	file_put_contents($dir, $msg." ".$today." || ", FILE_APPEND);?>
 	<head>
 		<meta charset="UTF-8">
 		<title>RH Contratações</title>
