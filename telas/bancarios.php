@@ -172,7 +172,7 @@ $campoV = 'class="txtVazio" ';
                                     <option>Poupança</option>
                                     <option>Salario</option>
                                 </select></td>
-                                <td><input type="text" class='intable' name="BANCARIOS_OBS" value="<?= $bancarios_obs['BANCARIOS_OBS']?>"></td>
+                                <td ><input id='bancarios_obs' type="text" class='intable' name="BANCARIOS_OBS" value="<?= $bancarios_obs['BANCARIOS_OBS']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>

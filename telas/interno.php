@@ -174,7 +174,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input type='date' id="campo4" class='intable' name="EMAIL_INICIO_ATIVIDADES" value="<?= $emailinic['EMAIL_INICIO_ATIVIDADES'] ?>"></td>
                             <td><input class='intable' id="campo5" type="date" name="EMAIL_BOAS_VINDAS" value="<?= $emailboas['EMAIL_BOAS_VINDAS'] ?>"></td>
                             <td><input type='date' id="campo6" class='intable' name="ACESSOS" value="<?= $acessos['ACESSOS'] ?>"></td>
-                            <td><input class='intable' name="INTERNO_OBS" value="<?= $acessos['INTERNO_OBS'] ?>"></td>
+                            <td><input class='intable' id='interno_obs' name="INTERNO_OBS" value="<?= $acessos['INTERNO_OBS'] ?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>

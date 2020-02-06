@@ -166,7 +166,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="date" id="campo6" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" value="<?= $malote['MALOTE_CADERNO_COMPASSO_CTPS'] ?>"></td>
                             <td><input type="date" id="campo7" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" value="<?= $docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS'] ?>"></td>
                             <td><input type="date" id="campo8" class='intable' name="SALVAR_PASTA" value="<?= $docreceb['SALVAR_PASTA'] ?>"></td>
-                            <td><input class='intable' name="VIAS_DOCUMENTOS_OBS" value="<?= $docreceb['VIAS_DOCUMENTOS_OBS'] ?>"></td>
+                            <td><input id='docreceb' class='intable' name="VIAS_DOCUMENTOS_OBS" value="<?= $docreceb['VIAS_DOCUMENTOS_OBS'] ?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
