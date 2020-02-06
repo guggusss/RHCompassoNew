@@ -31,6 +31,7 @@
                     <a href='../emails/body-email/admissaoRJ.php?id=<?php echo $id ?>'>5.10 Documentos de Admissão RJ</a>
                     <a href='../emails/body-email/admissaoCAX.php?id=<?php echo $id ?>'>5.11 Documentos de Admissão CAX </a>
                     <a href='../emails/body-email/admissaoXAP.php?id=<?php echo $id ?>'>5.12 Documentos de Admissão XAP </a>
+                    <a href='../emails/body-email/admissaoPET.php?id=<?php echo $id ?>'>5.12 Documentos de Admissão PET </a>
                     <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
                     <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
                     <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
