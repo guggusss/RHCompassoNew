@@ -204,8 +204,18 @@ include("header.php"); ?>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src='../js/desabilitaStepWizard.js'></script>
-    <script src='../js/validaGestor.js'></script>
+    <script>
+    let grupo = "<?= $grupo ?>";
+window.onload = () => {
+    if (grupo == "Gestores") {
+        desbilitaStepWizard(2, 4, 5, 6, 7, 8, 9, 10, 11);
+        $("#proximo").prop("disabled", true);
+        $("#proximo").attr("disabled", true);
+        $("#proximo").attr("href", "#");
+    }
 
+}
+</script>
 </body>
 
 </html>
