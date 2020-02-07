@@ -1,1 +1,0 @@
-INSERT INTO `sede`(`SEDE_ID`, `NOME_SEDE`) VALUES  ('14', 'PET');
