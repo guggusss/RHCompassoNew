@@ -152,7 +152,7 @@ include("header.php"); ?>
                             <td id="data6"><?= $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
                             <td><?= $rows_dados['COMENTARIO']; ?></td>
                             <td id="data8"><?= $rows_dados['COMUNICAR_STATUS']; ?></td>
-
+                            <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="btn btn-default" href="gestao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
