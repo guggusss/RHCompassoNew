@@ -143,15 +143,15 @@ $campoV = 'class="txtVazio" ';
                 <tbody>
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
-                            <td><?php echo $rows_dados['STATUS']; ?></td>
-                            <td id="data"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>
-                            <td id="data4"><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>
-                            <td id="data5"><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
-                            <td id="data6"><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
-                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>
-                            <td id="data8"><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
+                            <td><?= $rows_dados['STATUS']; ?></td>
+                            <td id="data"><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
+                            <td id="data2"><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
+                            <td id="data3"><?= $rows_dados['ENQUADRAMENTO']; ?></td>
+                            <td id="data4"><?= $rows_dados['ENVIO_PROPOSTA']; ?></td>
+                            <td id="data5"><?= $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
+                            <td id="data6"><?= $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
+                            <td><?= $rows_dados['COMENTARIO']; ?></td>
+                            <td id="data8"><?= $rows_dados['COMUNICAR_STATUS']; ?></td>
 
                             <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="btn btn-default" href="gestao.php?id=<?= $id ?>"> Próximo </td>
@@ -160,7 +160,7 @@ $campoV = 'class="txtVazio" ';
                     <?php  } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-proposta.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value="<?= $recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO'] ?>"></td>
                             <td><input type="date" id="campo2" class='intable' name="ENQUADRAMENTO_REMUNERACAO_RETORNO" value="<?= $deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO'] ?>"></td>
