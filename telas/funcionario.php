@@ -193,6 +193,7 @@ include("header.php"); ?>
     <script src='../js/validaGrupo.js'></script>
     <script src='../js/desabilitaStepWizard.js'></script>
     <script src="../js/campo-destaque.js"></script>
+    <script src='../js/validaDepartamento.js'></script>
 
 </body>
 
