@@ -49,8 +49,7 @@ $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $bancarios_obs = buscaBancario($conn, $id);
 $campoV = 'class="txtVazio" ';
-?>
-<?php include("header.php"); ?>
+include("header.php"); ?>
 
     <main>
         <section class='menu-inicial'>
@@ -69,7 +68,7 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                            <?php include("includes/extensao.php"); ?>   
+                                <?php include("includes/extensao.php"); ?>   
                             </tr>
                         </tbody>
                 </table>
@@ -117,6 +116,7 @@ $campoV = 'class="txtVazio" ';
                     </div>
                 </div>
             </div>
+
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
@@ -135,30 +135,25 @@ $campoV = 'class="txtVazio" ';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
+                    <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) { ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td id="data"><?php echo $rows_dados['ENVIO']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['RECEBIDO']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
-                            <td id="data4"><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
-                            <td <?php if ($rows_dados['AGENCIA'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['AGENCIA']; ?></td>
-                            <td <?php if ($rows_dados['NUMERO_CONTA'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['NUMERO_CONTA']; ?></td>
-                            <td <?php if ($rows_dados['TIPO_CONTA'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['TIPO_CONTA']; ?></td>
-                                    <td><?php echo $rows_dados['BANCARIOS_OBS']; ?></td>
+                            <td id="data"><?= $rows_dados['ENVIO']; ?></td>
+                            <td id="data2"><?= $rows_dados['RECEBIDO']; ?></td>
+                            <td id="data3"><?= $rows_dados['PLANILHA_CONTAS']; ?></td>
+                            <td id="data4"><?= $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
+                            <td <?php if ($rows_dados['AGENCIA'] == "") {echo ($campoV);} ?>><?= $rows_dados['AGENCIA']; ?></td>
+                            <td <?php if ($rows_dados['NUMERO_CONTA'] == "") {echo ($campoV);} ?>><?= $rows_dados['NUMERO_CONTA']; ?></td>
+                            <td <?php if ($rows_dados['TIPO_CONTA'] == "") {echo ($campoV);} ?>><?= $rows_dados['TIPO_CONTA']; ?></td>
+                            <td><?= $rows_dados['BANCARIOS_OBS']; ?></td>
+
                             <td><a title="Suporte Interno" id="proximo" class="  btn btn-default" href="suporteinterno.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-                        </tr>
-                    <?php } ?>
+                        </tr><?php } ?>
+
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-bancario.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="ENVIO" value="<?= $envio['ENVIO'] ?>"></td>
                             <td><input type="date" id="campo2" class='intable' name="RECEBIDO" value="<?= $recebido['RECEBIDO'] ?>"></td>
@@ -174,6 +169,7 @@ $campoV = 'class="txtVazio" ';
                                 </select></td>
                                 <td ><input id='bancarios_obs' type="text" class='intable' name="BANCARIOS_OBS" value="<?= $bancarios_obs['BANCARIOS_OBS']?>"></td>
                             <td></td>
+                            
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
@@ -182,16 +178,17 @@ $campoV = 'class="txtVazio" ';
         </section>
         <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
+
     <footer>
         <h2></h2>
     </footer>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src="../js/campo-destaque.js"></script>
         
-    
 </body>
 
 </html>

@@ -18,24 +18,24 @@
             <div class="dropdown">
                 <a class="dropbtn nav">Emails <span class='caret'></span></a>
                 <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5.0 Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>                  
-                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/admissaoBH.php?id=<?php echo $id ?>'>5.8 Documentos de Admissão BH</a>
-                    <a href='../emails/body-email/admissaoJAG.php?id=<?php echo $id ?>'>5.9 Documentos de Admissão JAG</a>
-                    <a href='../emails/body-email/admissaoRJ.php?id=<?php echo $id ?>'>5.10 Documentos de Admissão RJ</a>
-                    <a href='../emails/body-email/admissaoCAX.php?id=<?php echo $id ?>'>5.11 Documentos de Admissão CAX </a>
-                    <a href='../emails/body-email/admissaoXAP.php?id=<?php echo $id ?>'>5.12 Documentos de Admissão XAP </a>
-                    <a href='../emails/body-email/admissaoPET.php?id=<?php echo $id ?>'>5.13 Documentos de Admissão PET </a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
+                    <a href='../emails/body-email/admissaoPOA.php?id=<?= $id ?>'>5.0 Documentos Admissão POA</a>
+                    <a href='../emails/body-email/admissaoRG.php?id=<?= $id ?>'>5.1 Documentos Admissão RG</a>
+                    <a href='../emails/body-email/admissaoPF.php?id=<?= $id ?>'>5.2 Documentos de Admissão PF</a>                  
+                    <a href='../emails/body-email/admissaoERE.php?id=<?= $id ?>'>5.3 Documentos de Admissão ERE</a>
+                    <a href='../emails/body-email/admissaoCWB.php?id=<?= $id ?>'>5.4 Documentos de Admissão CWB</a>
+                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?= $id ?>'>5.5 Documentos de Admissão SP</a>
+                    <a href='../emails/body-email/admissaoFNL.php?id=<?= $id ?>'>5.6 Documentos de Admissão FLN</a>
+                    <a href='../emails/body-email/admissaoRecife.php?id=<?= $id ?>'>5.7 Documentos de Admissão REC</a>
+                    <a href='../emails/body-email/admissaoBH.php?id=<?= $id ?>'>5.8 Documentos de Admissão BH</a>
+                    <a href='../emails/body-email/admissaoJAG.php?id=<?= $id ?>'>5.9 Documentos de Admissão JAG</a>
+                    <a href='../emails/body-email/admissaoRJ.php?id=<?= $id ?>'>5.10 Documentos de Admissão RJ</a>
+                    <a href='../emails/body-email/admissaoCAX.php?id=<?= $id ?>'>5.11 Documentos de Admissão CAX </a>
+                    <a href='../emails/body-email/admissaoXAP.php?id=<?= $id ?>'>5.12 Documentos de Admissão XAP </a>
+                    <a href='../emails/body-email/admissaoPET.php?id=<?= $id ?>'>5.13 Documentos de Admissão PET </a>
+                    <a href='../emails/body-email/primeiro-alerta.php?id=<?= $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
+                    <a href='../emails/body-email/segundo-alerta.php?id=<?= $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
+                    <a href='../emails/body-email/novo-acesso.php?id=<?= $id ?>'>8. Novo Acesso</a>
+                    <a href='../emails/body-email/acesso-liberado.php?id=<?= $id ?>'>9. Acessos Liberado</a>
                 </div>
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>

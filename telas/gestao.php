@@ -43,9 +43,7 @@ $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $efetivacao = buscavencimentos($conn, $id);
 $campoV = 'class="txtVazio" ';
-?>
-
-<?php include("header.php"); ?>
+include("header.php"); ?>
 
     <main>
         <section class='menu-inicial'>
@@ -62,6 +60,7 @@ $campoV = 'class="txtVazio" ';
                             <th width='170px'>Sede</th>
                         </tr>
                     </thead>
+
                         <tbody>
                             <tr>
                             <?php include("includes/extensao.php"); ?>
@@ -69,6 +68,7 @@ $campoV = 'class="txtVazio" ';
                         </tbody>
                 </table>
             </div>
+
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
@@ -112,6 +112,7 @@ $campoV = 'class="txtVazio" ';
                     </div>
                 </div>
             </div>
+
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
@@ -129,72 +130,60 @@ $campoV = 'class="txtVazio" ';
                         <th></th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS']; ?></td>
-                            <td <?php if ($rows_dados['GESTOR'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['GESTOR']; ?></td>
-                            <td <?php if ($rows_dados['GESTOR_SABE'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['GESTOR_SABE']; ?></td>
-                            <td <?php if ($rows_dados['GESTOR_LOCAL'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['GESTOR_LOCAL']; ?></td>
-                            <td <?php if ($rows_dados['GESTOR_LOCAL_sABE'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['GESTOR_LOCAL_sABE']; ?></td>
-                            <td <?php if ($rows_dados['RECEPTOR_PESSOA'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['RECEPTOR_PESSOA']; ?></td>
-                            <?php unset($_GET['id']); ?>
+                            <td <?php if ($rows_dados['GESTOR'] == "") {echo ($campoV);} ?>><?= $rows_dados['GESTOR']; ?></td>
+                            <td <?php if ($rows_dados['GESTOR_SABE'] == "") {echo ($campoV);} ?>><?= $rows_dados['GESTOR_SABE']; ?></td>
+                            <td <?php if ($rows_dados['GESTOR_LOCAL'] == "") {echo ($campoV);} ?>><?= $rows_dados['GESTOR_LOCAL']; ?></td>
+                            <td <?php if ($rows_dados['GESTOR_LOCAL_sABE'] == "") {echo ($campoV);} ?>><?= $rows_dados['GESTOR_LOCAL_sABE']; ?></td>
+                            <td <?php if ($rows_dados['RECEPTOR_PESSOA'] == "") {echo ($campoV);} ?>><?= $rows_dados['RECEPTOR_PESSOA']; ?></td>
                             <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-                        </tr>
-                    <?php  } ?>
+                        </tr><?php  } ?>
+
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-gestor.php?id=<?= $id ?>">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='text' class='intable' name="GESTOR" value="<?= $gestor['GESTOR'] ?>"></td>
+                           
                             <td><select class="intable" name="GESTOR_SABE">
-                                    <?php
-                                    if ($gestor_sabe['GESTOR_SABE'] == NULL) { ?>
+                                <?php if ($gestor_sabe['GESTOR_SABE'] == NULL) { ?>
                                         <option value="<?= $gestor_sabe['GESTOR_SABE'] ?>"><?= $gestor_sabe['GESTOR_SABE'] ?></option>
                                         <option value="Sim">Sim</option>
                                         <option value="Não">Não</option>
-                                    <?php
-                                    } elseif ($gestor_sabe['GESTOR_SABE'] == "Sim") { ?>
+
+                                <?php } elseif ($gestor_sabe['GESTOR_SABE'] == "Sim") { ?>
                                         <option value="<?= $gestor_sabe['GESTOR_SABE'] ?>"><?= $gestor_sabe['GESTOR_SABE'] ?></option>
                                         <option value="Não">Não</option>
-                                    <?php
-                                    } else { ?>
+
+                                <?php } else { ?>
                                         <option value="<?= $gestor_sabe['GESTOR_SABE'] ?>"><?= $gestor_sabe['GESTOR_SABE'] ?></option>
-                                        <option value="Sim">Sim</option>
-                                    <?php
-                                    }
-                                    ?>
+                                        <option value="Sim">Sim</option><?php } ?>
                                 </select></td>
+
                             <td><input type="text" class='intable' name="GESTOR_LOCAL" value="<?= $gestor_local['GESTOR_LOCAL'] ?>"></td>
                             <td><select class="intable" name="GESTOR_LOCAL_sABE">
-                                    <?php
-                                    if ($gestorL_sabe['GESTOR_LOCAL_sABE'] == NULL) { ?>
+
+                                    <?php if ($gestorL_sabe['GESTOR_LOCAL_sABE'] == NULL) { ?>
                                         <option value="<?= $gestorL_sabe['GESTOR_LOCAL_sABE'] ?>"><?= $gestorL_sabe['GESTOR_LOCAL_sABE'] ?></option>
                                         <option value="Sim">Sim</option>
                                         <option value="Não">Não</option>
-                                    <?php
-                                    } elseif ($gestorL_sabe['GESTOR_LOCAL_sABE'] == "Sim") { ?>
+
+                                    <?php } elseif ($gestorL_sabe['GESTOR_LOCAL_sABE'] == "Sim") { ?>
                                         <option value="<?= $gestor_sabe['GESTOR_LOCAL_sABE'] ?>"><?= $gestor_sabe['GESTOR_LOCAL_sABE'] ?></option>
                                         <option value="Não">Não</option>
-                                    <?php
-                                    } else { ?>
+                                    <?php } else { ?>
+
                                         <option value="<?= $gestor_sabe['GESTOR_LOCAL_sABE'] ?>"><?= $gestor_sabe['GESTOR_LOCAL_sABE'] ?></option>
                                         <option value="Sim">Sim</option>
-                                    <?php
-                                    }
-                                    ?>
+                                    <?php } ?>
+
                                 </select></td>
+
                             <td><input type="text" class='intable' name="RECEPTOR_PESSOA" value="<?= $receptor['RECEPTOR_PESSOA'] ?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
@@ -205,26 +194,18 @@ $campoV = 'class="txtVazio" ';
         </section>
         <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
+
     <footer>
         <h2></h2>
     </footer>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src='../js/desabilitaStepWizard.js'></script>
-    <script>
-        let grupo = "<?= $grupo ?>";
-        window.onload = () => {
-            if (grupo == "Gestores") {
-                desbilitaStepWizard(2, 4, 5, 6, 7, 8, 9, 10, 11);
-                $("#proximo").prop("disabled", true);
-                $("#proximo").attr("disabled", true);
-                $("#proximo").attr("href", "#");
-            }
+    <script src='../js/validaGestor.js'></script>
 
-        }
-    </script>
 </body>
 
 </html>

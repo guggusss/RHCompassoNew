@@ -52,8 +52,7 @@ $receptor = buscagestao($conn, $id);
 $translado = buscasuporte($conn, $id);
 $deacordo = buscaProposta($conn, $id);
 $campoV = 'class="txtVazio" ';
-?>
-<?php include("header.php"); ?>
+include("header.php"); ?>
 
     <main>
         <section class='menu-inicial'>
@@ -72,11 +71,12 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                            <?php include("includes/extensao.php"); ?>
+                                <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
             </div>
+
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
@@ -121,6 +121,7 @@ $campoV = 'class="txtVazio" ';
                     </div>
                 </div>
             </div>
+
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
@@ -138,23 +139,22 @@ $campoV = 'class="txtVazio" ';
                         <th></th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
+
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_AGENDADA'] == "" or $rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
-                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_REALIZADA'] == "" or $rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
-                            <td <?php if ($rows_dados['BOAS_VINDAS_SALA'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
-                            <td <?php if ($layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] == "" or $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") { echo ($campoV);} ?>><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
-                            <td <?php if ($rows_dados['SURVEY'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['SURVEY']; ?></td>
+                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_AGENDADA'] == "" or $rows_dados['BOAS_VINDAS_INGR_AGENDADA'] == "") { echo ($campoV);} ?>><?= $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['BOAS_VINDAS_INGR_REALIZADA'] == "" or $rows_dados['BOAS_VINDAS_INGR_REALIZADA'] == "") { echo ($campoV);} ?>><?= $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
+                            <td <?php if ($rows_dados['BOAS_VINDAS_SALA'] == "") {echo ($campoV);} ?>><?= $rows_dados['BOAS_VINDAS_SALA']; ?></td>
+                            <td <?php if ($layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL'] == "" or $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL'] == "") { echo ($campoV);} ?>><?= $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
+                            <td <?php if ($rows_dados['SURVEY'] == "") {echo ($campoV);} ?>><?= $rows_dados['SURVEY']; ?></td>
+
                             <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="vencimentosContratos.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>                                                        
-                        </tr>
-                    <?php } ?>
+                        </tr><?php } ?>
+
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-recepcao.php">
                             <input type='hidden' name="ID_USUARIO" value=<?= $funcionario['ID_USUARIO'] ?>>
@@ -173,9 +173,13 @@ $campoV = 'class="txtVazio" ';
         </section>
         <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
+
     <footer>
         <h2></h2>
     </footer>
+
+    </body>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
@@ -201,6 +205,5 @@ $campoV = 'class="txtVazio" ';
             }
         }
     </script>
-</body>
 
 </html>

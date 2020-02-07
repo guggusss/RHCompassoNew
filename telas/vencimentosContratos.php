@@ -61,8 +61,7 @@ $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $campoV = 'class="txtVazio" ';
-?>
-<?php include("header.php"); ?>
+include("header.php"); ?>
 
     <main>
         <section class='menu-inicial'>
@@ -157,17 +156,15 @@ $campoV = 'class="txtVazio" ';
                 <tbody>
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
+
                             <td><?= $status['STATUS'] ?></td>
-                            <td id="data"><?php echo $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>
-                            <td <?php if ($rows_dados['RENOVACAO'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['RENOVACAO']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
-                            <td id="data4"><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
-                            <td <?php if ($rows_dados['EFETIVACAO'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['EFETIVACAO']; ?></td>                            
+                            <td id="data"><?= $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>
+                            <td id="data2"><?= $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>
+                            <td <?php if ($rows_dados['RENOVACAO'] == "") {echo ($campoV);} ?>><?= $rows_dados['RENOVACAO']; ?></td>
+                            <td id="data3"><?= $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
+                            <td id="data4"><?= $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
+                            <td <?php if ($rows_dados['EFETIVACAO'] == "") {echo ($campoV);} ?>><?= $rows_dados['EFETIVACAO']; ?></td>    
+
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                             <td>
                                 <form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class="btn btn-default"></form>
@@ -178,7 +175,7 @@ $campoV = 'class="txtVazio" ';
                     <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-vencimento.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input style="display: none" type='date' id="campo" class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?= $envio_Pri['ENVIO_SOLICITANTE_PRI'] ?>"></td>
                             <td><input style="display: none" type='date' id="campo2" class='intable' name="DATA_VENCIMENTO_PRI" value="<?= $envio_Pri['DATA_VENCIMENTO_PRI'] ?>"></td>
@@ -235,6 +232,8 @@ $campoV = 'class="txtVazio" ';
         <?php echo file_get_contents("includes/telasLegendas.html"); ?>
         <h2></h2>
     </footer>
+    </body>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
@@ -246,6 +245,6 @@ $campoV = 'class="txtVazio" ';
             <?php calculo($conn, $status, $id); ?>
         
     </script>
-</body>
+
 
 </html>

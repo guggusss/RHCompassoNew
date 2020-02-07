@@ -42,9 +42,7 @@ $emailinic = buscainterno($conn, $id);
 $acessos = buscainterno($conn, $id);
 $campoV = 'class="txtVazio" ';
 /* $usuarios = mysql_fetch_assoc($resultado); */
-
-?>
-<?php include("header.php"); ?>
+include("header.php"); ?>
 
 
     <main>
@@ -145,37 +143,35 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td id="data"><?php echo $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>
-                            <td <?php if ($rows_dados['INTRANET_CADASTRO_SENHA'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['INTRANET_CADASTRO_SENHA']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>
-                            <td <?php if ($rows_dados['KAIROS_CADASTRO_SENHA'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['KAIROS_CADASTRO_SENHA']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>
-                            <td id="data4"><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
-                            <td id="data5"><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
-                            <td id="data6"><?php echo $rows_dados['ACESSOS']; ?></td>
-                            <td><?php echo $rows_dados['INTERNO_OBS']; ?></td>
+                            <td id="data"><?= $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>
+                            <td <?php if($rows_dados['INTRANET_CADASTRO_SENHA'] == "") {echo ($campoV);} ?>><?= $rows_dados['INTRANET_CADASTRO_SENHA']; ?></td>
+                            <td id="data2"><?= $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>
+                            <td <?php if($rows_dados['KAIROS_CADASTRO_SENHA'] == "") {  echo ($campoV);} ?>><?= $rows_dados['KAIROS_CADASTRO_SENHA']; ?></td>
+                            <td id="data3"><?= $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>
+                            <td id="data4"><?= $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
+                            <td id="data5"><?= $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
+                            <td id="data6"><?= $rows_dados['ACESSOS']; ?></td>
+                            <td><?= $rows_dados['INTERNO_OBS']; ?></td>
+
                             <td><a title="Vias Documentos Funcionários" id="proximo" class="  btn btn-default" href="viasdocumentos.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-                        </tr>
-                    <?php } ?>
+                        </tr><?php } ?>
+
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-interno.php">
-                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
-                            <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="INTRANET_CADASTRO_USUARIO" value="<?= $intranetusu['INTRANET_CADASTRO_USUARIO'] ?>"></td>
-                            <td><input type="text" class='intable' name="INTRANET_CADASTRO_SENHA" value="<?= $intranetsen['INTRANET_CADASTRO_SENHA'] ?>"></td>
-                            <td><input type="date" id="campo2" class='intable' name="KAIROS_CADASTRO_USUARIO" value="<?= $kairosusu['KAIROS_CADASTRO_USUARIO'] ?>"></td>
-                            <td><input type="text" class='intable' name="KAIROS_CADASTRO_SENHA" value="<?= $kairossen['KAIROS_CADASTRO_SENHA'] ?>"></td>
-                            <td><input type="date" id="campo3" class='intable' name="EMAIL_GESTOR_APOIO_SEDE" value="<?= $emailges['EMAIL_GESTOR_APOIO_SEDE'] ?>"></td>
-                            <td><input type='date' id="campo4" class='intable' name="EMAIL_INICIO_ATIVIDADES" value="<?= $emailinic['EMAIL_INICIO_ATIVIDADES'] ?>"></td>
-                            <td><input class='intable' id="campo5" type="date" name="EMAIL_BOAS_VINDAS" value="<?= $emailboas['EMAIL_BOAS_VINDAS'] ?>"></td>
-                            <td><input type='date' id="campo6" class='intable' name="ACESSOS" value="<?= $acessos['ACESSOS'] ?>"></td>
-                            <td><input class='intable' id='interno_obs' name="INTERNO_OBS" value="<?= $acessos['INTERNO_OBS'] ?>"></td>
+                            <input type="hidden" name="ID_USUARIO" value=<?= $funcionario['ID_USUARIO'] ?>>
+                            <td><input class='intable' readonly name="STATUS"                                    value='<?= $status['STATUS'] ?>'></td>
+                            <td><input type='date' id="campo"  class='intable'  name="INTRANET_CADASTRO_USUARIO" value="<?= $intranetusu['INTRANET_CADASTRO_USUARIO'] ?>"></td>
+                            <td><input type="text" class='intable' name="INTRANET_CADASTRO_SENHA"                value="<?= $intranetsen['INTRANET_CADASTRO_SENHA'] ?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name="KAIROS_CADASTRO_USUARIO"    value="<?= $kairosusu['KAIROS_CADASTRO_USUARIO'] ?>"></td>
+                            <td><input type="text" class='intable' name="KAIROS_CADASTRO_SENHA"                  value="<?= $kairossen['KAIROS_CADASTRO_SENHA'] ?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="EMAIL_GESTOR_APOIO_SEDE"    value="<?= $emailges['EMAIL_GESTOR_APOIO_SEDE'] ?>"></td>
+                            <td><input type='date' id="campo4" class='intable' name="EMAIL_INICIO_ATIVIDADES"    value="<?= $emailinic['EMAIL_INICIO_ATIVIDADES'] ?>"></td>
+                            <td><input type="date" id="campo5" class='intable' name="EMAIL_BOAS_VINDAS"          value="<?= $emailboas['EMAIL_BOAS_VINDAS'] ?>"></td>
+                            <td><input type='date' id="campo6" class='intable' name="ACESSOS"                    value="<?= $acessos['ACESSOS'] ?>"></td>
+                            <td><input class='intable' id='interno_obs' name="INTERNO_OBS"                       value="<?= $acessos['INTERNO_OBS'] ?>"></td>
                             <td></td>
+
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
@@ -184,6 +180,7 @@ $campoV = 'class="txtVazio" ';
         </section>
         <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
+
     <footer>
         <h2></h2>
     </footer>

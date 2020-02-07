@@ -6,7 +6,8 @@ include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
 
-if (!isset($id)) {
+if (!isset($id)) 
+{
     $id = $_SESSION['id'];
 }
 
@@ -19,10 +20,13 @@ $resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, DATE_F
                                   FROM `documentacao` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 
-if ($count == 1) {
+if ($count == 1) 
+{
     $resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, DATE_FORMAT(FORMULARIOS_ENVIADOS,'%d/%m/%Y') as FORMULARIOS_ENVIADOS, DATE_FORMAT(FORMULARIOS_RECEBIDOS,'%d/%m/%Y') as FORMULARIOS_RECEBIDOS , DATE_FORMAT(DOCUMENTOS_FISICOS,'%d/%m/%Y') as DOCUMENTOS_FISICOS, DATE_FORMAT(CTPS_RECEBIDA,'%d/%m/%Y') as CTPS_RECEBIDA, COMENTARIO
                                       FROM `documentacao` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
-} else {
+}
+else 
+{
     mysqli_query($conn, "INSERT INTO `documentacao`(`DOCUMENTACAO_ID`, `ID_USUARIO`, `FORMULARIOS_ENVIADOS`, `FORMULARIOS_RECEBIDOS`, `DOCUMENTOS_FISICOS`, `CTPS_RECEBIDA`, `COMENTARIO`) VALUES (NULL,$id,NULL,NULL,NULL,NULL,NULL)");
 
     $resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, DATE_FORMAT(FORMULARIOS_ENVIADOS,'%d/%m/%Y') as FORMULARIOS_ENVIADOS, DATE_FORMAT(FORMULARIOS_RECEBIDOS,'%d/%m/%Y') as FORMULARIOS_RECEBIDOS , DATE_FORMAT(DOCUMENTOS_FISICOS,'%d/%m/%Y') as DOCUMENTOS_FISICOS, DATE_FORMAT(CTPS_RECEBIDA,'%d/%m/%Y') as CTPS_RECEBIDA, COMENTARIO
@@ -31,7 +35,6 @@ if ($count == 1) {
 
 $resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
 $connBarr = mysqli_num_rows($resultadoBarr);
-
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
 $formEnv = buscadocs($conn, $id);
@@ -48,9 +51,7 @@ $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $campoV = 'class="txtVazio" ';
 /* $usuarios = mysql_fetch_assoc($resultado); */
-?>
-<?php include("header.php"); ?>
-
+include("header.php"); ?>
 
     <main>
         <section class='menu-inicial'>
@@ -69,11 +70,12 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                            <?php include("includes/extensao.php"); ?>
+                                <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
             </div>
+
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
@@ -118,6 +120,7 @@ $campoV = 'class="txtVazio" ';
                     </div>
                 </div>
             </div>
+
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
@@ -130,6 +133,7 @@ $campoV = 'class="txtVazio" ';
                         <th></th>
                         <th></th>
                     </tr>
+
                     <tr>
                         <th width='200px'>Status</th>
                         <th>Formulários Enviados</th>
@@ -141,23 +145,24 @@ $campoV = 'class="txtVazio" ';
                         <th></th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-
-                            <td id="data"><?php echo $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
-                            <td id="data4"><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
-                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>
+                            <td id="data"><?= $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>
+                            <td id="data2"><?= $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
+                            <td id="data3"><?= $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
+                            <td id="data4"><?= $rows_dados['CTPS_RECEBIDA']; ?></td>
+                            <td><?= $rows_dados['COMENTARIO']; ?></td>
+                            
                             <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="btn btn-default" href="admissao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-                        </tr>
-                    <?php } ?>
+                        </tr><?php } ?>
+
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-documentacao.php">
-                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
+                            <input type="hidden" name="ID_USUARIO" value=<?= $funcionario['ID_USUARIO'] ?>>
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="FORMULARIOS_ENVIADOS" value="<?= $formEnv['FORMULARIOS_ENVIADOS'] ?>"></td>
                             <td><input type="date" id="campo2" class='intable' name="FORMULARIOS_RECEBIDOS" value="<?= $formRec['FORMULARIOS_RECEBIDOS'] ?>"></td>
@@ -165,6 +170,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="date" id="campo4" class='intable' name="CTPS_RECEBIDA" value="<?= $ctps['CTPS_RECEBIDA'] ?>"></td>
                             <td><input type="text" class='intable' name="COMENTARIO" value="<?= $ctps['COMENTARIO'] ?>"></td>
                             <td></td>
+
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
@@ -173,13 +179,16 @@ $campoV = 'class="txtVazio" ';
         </section>
         <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
+
     <footer>
         <h2></h2>
     </footer>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src="../js/campo-destaque.js"></script>
+
 </body>
 </html>

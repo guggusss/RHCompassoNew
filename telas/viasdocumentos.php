@@ -38,8 +38,7 @@ $emailreceb = buscavias($conn, $id);
 $malote = buscavias($conn, $id);
 $docreceb = buscavias($conn, $id);
 $campoV = 'class="txtVazio" ';
-?>
-<?php include("header.php"); ?>
+include("header.php"); ?>
 
     <main>
         <section class='menu-inicial'>
@@ -141,22 +140,22 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td id="data"><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>
-                            <td id="data4"><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
-                            <td id="data5"><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
-                            <td id="data6"><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
-                            <td id="data7"><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
-                            <td id="data8"><?php echo $rows_dados['SALVAR_PASTA']; ?></td>
-                            <td><?php echo $rows_dados['VIAS_DOCUMENTOS_OBS']; ?></td>
+                            <td id="data"><?= $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
+                            <td id="data2"><?= $rows_dados['CRACHA_CONTROLE']; ?></td>
+                            <td id="data3"><?= $rows_dados['CRACHA_PROTOCOLO']; ?></td>
+                            <td id="data4"><?= $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
+                            <td id="data5"><?= $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
+                            <td id="data6"><?= $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
+                            <td id="data7"><?= $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
+                            <td id="data8"><?= $rows_dados['SALVAR_PASTA']; ?></td>
+                            <td><?= $rows_dados['VIAS_DOCUMENTOS_OBS']; ?></td>
                             <td><a title="Boas Vindas" href='recepcao.php?id=<?= $id ?>' class="btn btn-default">Próximo</td>
                             <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-vias.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="CRACHA_DATA_PEDIDO" value="<?= $emailsoli['CRACHA_DATA_PEDIDO'] ?>"></td>
                             <td><input type='date' id="campo2" class='intable' name="CRACHA_CONTROLE" value="<?= $emailsoli['CRACHA_CONTROLE'] ?>"></td>

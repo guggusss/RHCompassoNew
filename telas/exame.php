@@ -43,14 +43,13 @@ $emailsoli = buscavias($conn, $id);
 $campoV = 'class="txtVazio" ';
 $comentario = buscaexame($conn, $id);
 $exame_obs = buscaexame($conn, $id);
-?>
-<?php include("header.php"); ?>
-
+include("header.php"); ?>
 
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Exame Admissional</h2>
         </section>
+        
         <section class='container estruct'>
             <div class='menu-inicial1'>
                 <table class="fixado">
@@ -61,14 +60,16 @@ $exame_obs = buscaexame($conn, $id);
                             <th width='170px'>Data de Admissao</th>
                             <th width='170px'>Sede</th>
                         </tr>
+
                         <thead>
                         <tbody>
                             <tr>
-                            <?php include("includes/extensao.php"); ?>
+                                <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
             </div>
+
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
@@ -112,6 +113,7 @@ $exame_obs = buscaexame($conn, $id);
                     </div>
                 </div>
             </div>
+
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
@@ -130,18 +132,19 @@ $exame_obs = buscaexame($conn, $id);
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td id="data"><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
-                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>
-                            <td><?php echo $rows_dados['EXAME_OBS']; ?></td>
+                            <td id="data"><?= $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
+                            <td id="data2"><?= $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
+                            <td id="data3"><?= $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
+                            <td><?= $rows_dados['COMENTARIO']; ?></td>
+                            <td><?= $rows_dados['EXAME_OBS']; ?></td>
+
                             <td><a title="Dados Bancáriso" id="proximo" class="  btn btn-default" href="bancarios.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-                        </tr>
-                    <?php } ?>
+                        </tr><?php } ?>
+
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-exame.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="AGENDAMENTO_EXAM_ADM" value="<?= $agend['AGENDAMENTO_EXAM_ADM'] ?>"></td>
                             <td><input type="date" id="campo2" class='intable' name="ENVIO_FUNC_EXAME" value="<?= $envio['ENVIO_FUNC_EXAME'] ?>"></td>
@@ -149,6 +152,7 @@ $exame_obs = buscaexame($conn, $id);
                             <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value="<?= $comentario['COMENTARIO'] ?>"></td>
                             <td id='exame_obs'><input class='intable' type="text" name="EXAME_OBS" value="<?= $exame_obs['EXAME_OBS'] ?>"></td>
                             <td></td>
+
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
@@ -157,15 +161,16 @@ $exame_obs = buscaexame($conn, $id);
         </section>
         <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
+    
     <footer>
         <h2></h2>
     </footer>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src="../js/campo-destaque.js"></script>
-
 
 </body>
 
