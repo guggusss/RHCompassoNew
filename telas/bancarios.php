@@ -142,9 +142,9 @@ include("header.php"); ?>
                             <td id="data2"><?= $rows_dados['RECEBIDO']; ?></td>
                             <td id="data3"><?= $rows_dados['PLANILHA_CONTAS']; ?></td>
                             <td id="data4"><?= $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
-                            <td id="data5"><?= $rows_dados['AGENCIA']; ?></td>
-                            <td id="data6"><?= $rows_dados['NUMERO_CONTA']; ?></td>
-                            <td id="data7"><?= $rows_dados['TIPO_CONTA']; ?></td>
+                            <td <?php if ($rows_dados['AGENCIA'] == "") {echo ($campoV);} ?>><?= $rows_dados['AGENCIA']; ?></td>
+                            <td <?php if ($rows_dados['NUMERO_CONTA'] == "") {echo ($campoV);} ?>><?= $rows_dados['NUMERO_CONTA']; ?></td>
+                            <td <?php if ($rows_dados['TIPO_CONTA'] == "") {echo ($campoV);} ?>><?= $rows_dados['TIPO_CONTA']; ?></td>
                             <td><?= $rows_dados['BANCARIOS_OBS']; ?></td>
 
                             <td><a title="Suporte Interno" id="proximo" class="  btn btn-default" href="suporteinterno.php?id=<?= $id ?>"> Próximo </td>
@@ -159,9 +159,9 @@ include("header.php"); ?>
                             <td><input type="date" id="campo2" class='intable' name="RECEBIDO" value="<?= $recebido['RECEBIDO'] ?>"></td>
                             <td><input type="date" id="campo3" class='intable' name="PLANILHA_CONTAS" value="<?= $planilha['PLANILHA_CONTAS'] ?>"></td>
                             <td><input type="date" id="campo4" class='intable' name="FORM_COMPR_BANCARIO" value="<?= $form['FORM_COMPR_BANCARIO'] ?>"></td>
-                            <td><input type="text" id="campo5" class='intable' name="AGENCIA" value="<?= $agencia['AGENCIA']?>" maxlength="4"></td>
-                            <td><input type="text" id="campo6" class='intable' name="NUMERO_CONTA" value="<?= $numero_conta['NUMERO_CONTA']?>" maxlength="9"></td>
-                            <td><select type="selectbox" id="campo7" class="intable" name="TIPO_CONTA" value="<?= $tipo_conta['TIPO_CONTA'] ?>">
+                            <td><input type="text" class='intable' name="AGENCIA" value="<?= $agencia['AGENCIA']?>" maxlength="4"></td>
+                            <td><input type="text" class='intable' name="NUMERO_CONTA" value="<?= $numero_conta['NUMERO_CONTA']?>" maxlength="9"></td>
+                            <td><select name="TIPO_CONTA" class="intable" value="<?= $tipo_conta['TIPO_CONTA'] ?>">
                                     <option value="" selected="selected"></option>
                                     <option>Corrente</option>
                                     <option>Poupança</option>
@@ -169,7 +169,7 @@ include("header.php"); ?>
                                 </select></td>
                                 <td ><input id='bancarios_obs' type="text" class='intable' name="BANCARIOS_OBS" value="<?= $bancarios_obs['BANCARIOS_OBS']?>"></td>
                             <td></td>
-
+                            
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
