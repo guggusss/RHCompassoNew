@@ -155,7 +155,7 @@ include("header.php"); ?>
                             <td id="data3"><?= $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
                             <td id="data4"><?= $rows_dados['CTPS_RECEBIDA']; ?></td>
                             <td><?= $rows_dados['COMENTARIO']; ?></td>
-                            
+
                             <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="btn btn-default" href="admissao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr><?php } ?>
@@ -183,6 +183,7 @@ include("header.php"); ?>
     <footer>
         <h2></h2>
     </footer>
+    </body>
 
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -190,5 +191,4 @@ include("header.php"); ?>
     <script src="../js/filter.js"></script>
     <script src="../js/campo-destaque.js"></script>
 
-</body>
 </html>
