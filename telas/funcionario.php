@@ -51,9 +51,7 @@ $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $campoV = 'class="txtVazio" ';
-?>
-<?php include("header.php"); ?>
-
+include("header.php"); ?>
 
     <main>
         <section class='menu-inicial'>
@@ -70,6 +68,7 @@ $campoV = 'class="txtVazio" ';
                             <th width='170px'>Sede</th>
                         </tr>
                     </thead>
+
                         <tbody>
                             <tr>
                             <?php include("includes/extensao.php"); ?>
@@ -77,6 +76,7 @@ $campoV = 'class="txtVazio" ';
                         </tbody>
                 </table>
             </div>
+
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
@@ -153,7 +153,6 @@ $campoV = 'class="txtVazio" ';
                             <td><?= $rows_dados['COMENTARIO']; ?></td>
                             <td id="data8"><?= $rows_dados['COMUNICAR_STATUS']; ?></td>
 
-                            <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="btn btn-default" href="gestao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
@@ -171,6 +170,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="text" id="campo7" class='intable' name="COMENTARIO" value="<?= $comentario['COMENTARIO'] ?>"></td>
                             <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" value='<?= $comunicar['COMUNICAR_STATUS'] ?>'></td>
                             <td></td>
+
                             <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>
                         </form>
                     </tr>
@@ -182,6 +182,8 @@ $campoV = 'class="txtVazio" ';
     <footer>
         <h2></h2>
     </footer>
+    </body>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
@@ -226,7 +228,6 @@ $campoV = 'class="txtVazio" ';
 
         }
     </script>
-</body>
 
 </html>
 <!-- 
