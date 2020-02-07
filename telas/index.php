@@ -978,7 +978,8 @@ else
         var x = parseFloat(document.getElementById("add_remuneracao").value);
         var y = parseFloat(document.getElementById("add_gratificacao").value);
         var soma = x+y;
-        document.getElementById("res").value = soma;
+        document.getElementById("res").value = soma.toFixed(2);
+        
 }
 </script>
 </html>
