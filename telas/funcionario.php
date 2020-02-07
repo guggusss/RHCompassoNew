@@ -17,13 +17,10 @@ $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(ENQUADRAMENTO_R
 DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS, PROJETO from propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 
-if ($count == 1) 
-{
+if ($count == 1) {
     $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(ENQUADRAMENTO_REMUNERACAO_ENVIO,'%d/%m/%Y') as ENQUADRAMENTO_REMUNERACAO_ENVIO , DATE_FORMAT(ENQUADRAMENTO_REMUNERACAO_RETORNO,'%d/%m/%Y') as ENQUADRAMENTO_REMUNERACAO_RETORNO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
     DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS from propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
-} 
-else 
-{
+} else {
     mysqli_query($conn, "INSERT INTO `propostas_contratacoes` (`PROPOSTA_ID`, `ID_USUARIO`, `ENQUADRAMENTO_REMUNERACAO_ENVIO`, `ENQUADRAMENTO_REMUNERACAO_RETORNO`, `ENQUADRAMENTO`, `ENVIO_PROPOSTA`, `COMUNICAR_PROPOSTA_ENVIADA`, `ACEITE_RECUSA_CANDIDATO`, `COMENTARIO`, `COMUNICAR_STATUS`) VALUES (NULL, '$id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)");
 
     $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(ENQUADRAMENTO_REMUNERACAO_ENVIO,'%d/%m/%Y') as ENQUADRAMENTO_REMUNERACAO_ENVIO , DATE_FORMAT(ENQUADRAMENTO_REMUNERACAO_RETORNO,'%d/%m/%Y') as ENQUADRAMENTO_REMUNERACAO_RETORNO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
@@ -31,8 +28,8 @@ else
 }
 
 $resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
-
 $connBarr = mysqli_num_rows($resultadoBarr);
+
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
 $funcionarios = buscaFuncionarios($conn, $id);
@@ -54,7 +51,9 @@ $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $campoV = 'class="txtVazio" ';
-include("header.php"); ?>
+?>
+<?php include("header.php"); ?>
+
 
     <main>
         <section class='menu-inicial'>
@@ -73,12 +72,11 @@ include("header.php"); ?>
                     </thead>
                         <tbody>
                             <tr>
-                                <?php include("includes/extensao.php"); ?>
+                            <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
             </div>
-
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
@@ -145,23 +143,24 @@ include("header.php"); ?>
                 <tbody>
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
-                            <td><?= $rows_dados['STATUS']; ?></td>
-                            <td id="data"><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
-                            <td id="data2"><?= $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
-                            <td id="data3"><?= $rows_dados['ENQUADRAMENTO']; ?></td>
-                            <td id="data4"><?= $rows_dados['ENVIO_PROPOSTA']; ?></td>
-                            <td id="data5"><?= $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
-                            <td id="data6"><?= $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
-                            <td><?= $rows_dados['COMENTARIO']; ?></td>
-                            <td id="data8"><?= $rows_dados['COMUNICAR_STATUS']; ?></td>
+                            <td><?php echo $rows_dados['STATUS']; ?></td>
+                            <td id="data"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_ENVIO']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['ENQUADRAMENTO_REMUNERACAO_RETORNO']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>
+                            <td id="data5"><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
+                            <td id="data6"><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
+                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>
+                            <td id="data8"><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
 
+                            <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="btn btn-default" href="gestao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-                        </tr><?php  } ?>
-
+                        </tr>
+                    <?php  } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-proposta.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='date' id="campo" class='intable' name="ENQUADRAMENTO_REMUNERACAO_ENVIO" value="<?= $recebida['ENQUADRAMENTO_REMUNERACAO_ENVIO'] ?>"></td>
                             <td><input type="date" id="campo2" class='intable' name="ENQUADRAMENTO_REMUNERACAO_RETORNO" value="<?= $deacordo['ENQUADRAMENTO_REMUNERACAO_RETORNO'] ?>"></td>
@@ -180,21 +179,53 @@ include("header.php"); ?>
         </section>
         <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
-
     <footer>
         <h2></h2>
     </footer>
-
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src='../js/desabilitaStepWizard.js'></script>
-    <script src='../js/validaGrupo.js'></script>
-    <script src='../js/desabilitaStepWizard.js'></script>
-    <script src="../js/campo-destaque.js"></script>
-    <script src='../js/validaDepartamento.js'></script>
+    <script>
+        window.onload = function verifica() {
+            let grupo = "<?= $grupo; ?>";
+            /*/console.log(grupo);/*/
+            let isDepartamentoRH = false;
+            if (grupo == "Departamento de Recursos Humanos") {
+                desbilitaStepWizard(3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+                $("#proximo").attr("disabled", true);
+                $("#botao12").prop("disabled", true);
+                $("#botao12").css("pointer-events", "none");
+            } else {
+                if (!document.getElementById("campo").value == "" && !document.getElementById("campo2").value == "" && !document.getElementById("campo3").value == "" && !document.getElementById("campo4").value == "" && !document.getElementById("campo5").value == "" && !document.getElementById("campo6").value == "" && !document.getElementById("campo8").value == "") {
+                    $("#gestao, #proximo, #botao, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);
+                }
+                if (document.getElementById("campo").value == "") {
+                    $("#data").addClass("dataVazia");
+                }
+                if (document.getElementById("campo2").value == "") {
+                    $("#data2").addClass("dataVazia");
+                }
+                if (document.getElementById("campo3").value == "") {
+                    $("#data3").addClass("dataVazia");
+                }
+                if (document.getElementById("campo4").value == "") {
+                    $("#data4").addClass("dataVazia");
+                }
+                if (document.getElementById("campo5").value == "") {
+                    $("#data5").addClass("dataVazia");
+                }
+                if (document.getElementById("campo6").value == "") {
+                    $("#data6").addClass("dataVazia");
+                }
+                if (document.getElementById("campo8").value == "") {
+                    $("#data8").addClass("dataVazia");
+                }
+            }
 
+        }
+    </script>
 </body>
 
 </html>
