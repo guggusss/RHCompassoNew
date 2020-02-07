@@ -431,7 +431,7 @@ else
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
-            <a class='nav inicio' href='index.php'>Início</a>
+            <a class='nav inicio' onclick="seguranca()" href='index.php'>Início</a>
             <a class='nav filter pos'>Filtragem</a>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
@@ -982,4 +982,36 @@ else
         
 }
 </script>
+
+<script>
+  function seguranca(){
+    var o_0 = {};
+o_0.isOdd = function(thing, normal) {
+       return thing !== normal;
+   };o_0.isANinja = function (element) {
+  return element.style.visibility === 'hidden';
+};
+o_0.isNot = function (thing) {
+  return thing === 'not';
+};o_0.whatIsThis = function (thing) {
+  return 'n\'t';
+};       o_0.isMagical = function (thing) {
+  thing *= 0;
+  if (!thing) {    return true;
+  }  return false;
+};
+o_0.isOver9000 = function (value) {
+  return value > 9000;};o_0.isNegative = function (thing) {
+  var terms = ['bad', 'negative'];
+  if (thing.length) {    for (var i = 0; i < terms.length; i += 1) {
+      if (thing.indexOf(terms[i]) >= 0) {
+        return true;      }
+    }    return false;
+  }  if (thing < 0) {
+    return true;  }
+  return false;};
+o_0.undefined = function () {
+  return undefined;};
+  }         </script>
+
 </html>
