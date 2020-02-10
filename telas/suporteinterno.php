@@ -1,13 +1,21 @@
 <?php
 
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+  }
+ 
+$logado = $_SESSION['login'];
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../db/serverLDAP.php");
 include("../update.php");
 include("../emails/defineNomeDoGrupoDeEmail.php");
 include("../static/php/RemoveMascAndFormatDate.php");
-
-
 
 $listar = listar($conn);
 
