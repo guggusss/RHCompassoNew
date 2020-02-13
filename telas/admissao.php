@@ -1,5 +1,15 @@
 <?php
-include("header.php");
+
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+  }
+ 
+$logado = $_SESSION['login'];
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -50,8 +60,8 @@ $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $comentario = buscaadmissao($conn, $id);
-$campoV = 'class="txtVazio" ';?>
-
+$campoV = 'class="txtVazio" ';
+include("header.php"); ?>
 
     <main>
 

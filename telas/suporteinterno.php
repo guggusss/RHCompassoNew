@@ -1,7 +1,15 @@
 <?php
 
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+  }
  
-include("header.php"); 
+$logado = $_SESSION['login'];
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../db/serverLDAP.php");
@@ -56,7 +64,7 @@ $emailsoli = buscavias($conn, $id);
 $campoV = 'class="txtVazio" ';
 /*$usuario_atv = buscasuporte($conn, $id); */
 /*$usuarios = mysql_fetch_assoc($resultado); */
-?>
+include("header.php"); ?>
 
     <link rel="stylesheet" href="../css/geraSenha.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
