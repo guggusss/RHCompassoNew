@@ -1,15 +1,5 @@
-<?php
-
-session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-{
-  unset($_SESSION['login']);
-  unset($_SESSION['senha']);
-  header('location:index.php');
-  }
- 
-$logado = $_SESSION['login'];
-
+<?php 
+include("header.php"); 
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -63,7 +53,7 @@ $receptor = buscagestao($conn, $id);
 $translado = buscasuporte($conn, $id);
 $deacordo = buscaProposta($conn, $id);
 $campoV = 'class="txtVazio" ';
-include("header.php"); ?>
+?>
 
     <main>
         <section class='menu-inicial'>
