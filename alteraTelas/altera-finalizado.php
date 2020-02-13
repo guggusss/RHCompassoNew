@@ -26,7 +26,7 @@ if (status($conn, $ID_USUARIO, $STATUS)) {
 } 
 else {
     $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");   
+    include("../telas/includes/naoSalvo.php");
 }
 ?>
 <meta http-equiv='refresh' content='1;  url=../telas/index.php'/>

@@ -14,15 +14,16 @@ $EMAIL_GESTOR_APOIO_SEDE = $_POST['EMAIL_GESTOR_APOIO_SEDE'];
 $EMAIL_INICIO_ATIVIDADES = $_POST['EMAIL_INICIO_ATIVIDADES'];
 $EMAIL_BOAS_VINDAS = $_POST['EMAIL_BOAS_VINDAS'];
 $ACESSOS = $_POST['ACESSOS'];
+$OBS = $_POST['INTERNO_OBS'];
 
-if (interno($conn, $ID_USUARIO, $INTRANET_CADASTRO_USUARIO, $INTRANET_CADASTRO_SENHA, $KAIROS_CADASTRO_USUARIO, $KAIROS_CADASTRO_SENHA, $EMAIL_GESTOR_APOIO_SEDE, $EMAIL_INICIO_ATIVIDADES, $EMAIL_BOAS_VINDAS, $ACESSOS)) {
+if (interno($conn, $ID_USUARIO, $INTRANET_CADASTRO_USUARIO, $INTRANET_CADASTRO_SENHA, $KAIROS_CADASTRO_USUARIO, $KAIROS_CADASTRO_SENHA, $EMAIL_GESTOR_APOIO_SEDE, $EMAIL_INICIO_ATIVIDADES, $EMAIL_BOAS_VINDAS, $ACESSOS, $OBS)) {
     
-    include("../telas/salvoSucesso.php");
+    include("../telas/includes/salvoSucesso.php");
 } 
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");
+    include("../telas/includes/naoSalvo.php");
 }
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/interno.php?id=<?php echo $id ?>"/>

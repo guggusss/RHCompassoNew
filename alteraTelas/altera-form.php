@@ -83,20 +83,20 @@ $buscaSta = buscaFuncionarios($conn, $id);
                     <form id='altera-func' method='POST' action='altera-funcionario.php'>
                         <input type='hidden' name="USUARIO_ID" value='<?php echo $funcionarios['USUARIO_ID'] ?>' />
                         <td><select name="status" class="intable" value="<?= $rows_dados['STATUS'] ?>" required>
-                                <option value="<?= $buscaSta['STATUS'] ?>"></option>
-                                <option>SOLICITAÇÃO DE PROPOSTA</option>
-                                <option>AGUARDANDO APROVAÇÃO</option>
-                                <option>APROVADO DIRETORIA</option>
-                                <option>EM VALIDAÇÃO</option>
-                                <option>NEGOCIAÇÃO</option>
-                                <option>PROPOSTA ENVIADA</option>
-                                <option>PROPOSTA ACEITA</option>
-                                <option>EM ANDAMENTO</option>
-                                <option>PROPOSTA INVÁLIDA</option>
-                                <option>EM CONTRATO</option>
-                                <option>RETORNO DOCS</option>
-                                <option>DESISTENCIA</option>
-                                <option>RECUSADO</option>
+                                <option value="<?= $buscaSta['STATUS'] ?>"><?= $buscaSta['STATUS'] ?></option>
+                                <option <?php if($buscaSta['STATUS'] == "SOLICITAÇÃO DE PROPOSTA") { echo 'style="display: none;"'; } ?>>SOLICITAÇÃO DE PROPOSTA</option>
+                                <option <?php if($buscaSta['STATUS'] == "AGUARDANDO APROVAÇÃO") { echo 'style="display: none;"'; } ?>>AGUARDANDO APROVAÇÃO</option>
+                                <option <?php if($buscaSta['STATUS'] == "APROVADO DIRETORIA") { echo 'style="display: none;"'; } ?>>APROVADO DIRETORIA</option>
+                                <option <?php if($buscaSta['STATUS'] == "EM VALIDAÇÃO") { echo 'style="display: none;"'; } ?>>EM VALIDAÇÃO</option>
+                                <option <?php if($buscaSta['STATUS'] == "NEGOCIAÇÃO") { echo 'style="display: none;"'; } ?>>NEGOCIAÇÃO</option>
+                                <option <?php if($buscaSta['STATUS'] == "PROPOSTA ENVIADA") { echo 'style="display: none;"'; } ?>>PROPOSTA ENVIADA</option>
+                                <option <?php if($buscaSta['STATUS'] == "PROPOSTA ACEITA") { echo 'style="display: none;"'; } ?>>PROPOSTA ACEITA</option>
+                                <option <?php if($buscaSta['STATUS'] == "EM ANDAMENTO") { echo 'style="display: none;"'; } ?>>EM ANDAMENTO</option>
+                                <option <?php if($buscaSta['STATUS'] == "PROPOSTA INVÁLIDA") { echo 'style="display: none;"'; } ?>>PROPOSTA INVÁLIDA</option>
+                                <option <?php if($buscaSta['STATUS'] == "EM CONTRATO") { echo 'style="display: none;"'; } ?>>EM CONTRATO</option>
+                                <option <?php if($buscaSta['STATUS'] == "RETORNO DOCS") { echo 'style="display: none;"'; } ?>>RETORNO DOCS</option>
+                                <option <?php if($buscaSta['STATUS'] == "DESISTENCIA") { echo 'style="display: none;"'; } ?>>DESISTENCIA</option>
+                                <option <?php if($buscaSta['STATUS'] == "RECUSADO") { echo 'style="display: none;"'; } ?>>RECUSADO</option>
                             </select></td>
                         <td id='add-nome'><input class='intable' type="text" name="NOME" value="<?= $funcionarios['NOME']; ?>"></td>
                         <td id='add-admissao'><input class='intable' type="date" name="DATA_ADMISSAO" value="<?= $funcionarios['DATA_ADMISSAO']; ?>"></td>
@@ -129,11 +129,11 @@ $buscaSta = buscaFuncionarios($conn, $id);
                         <td id='add-carga_horaria'><input class='intable' type="text" name="CARGA_HORARIA" value="<?= $funcionarios['CARGA_HORARIA']; ?>"></td>
                         <td id='add-horario'><input class='intable' type="text" name="HORARIO" value="<?= $funcionarios['HORARIO']; ?>"></td>
                         <td><select name="sexo" class="intable" value="<?= $rows_dados['SEXO'] ?>" required>
-                                <option value="<?= $buscaSta['SEXO'] ?>"></option>
-                                <option>Não informou</option>
-                                <option>Masculino</option>
-                                <option>Feminino</option>
-                                <option>Não definido</option>
+                                <option value="<?= $buscaSta['SEXO'] ?>"><?= $buscaSta['SEXO'] ?></option>
+                                <option <?php if($buscaSta['SEXO'] == "Não informou") { echo 'style="display: none;"'; } ?> >Não informou</option>
+                                <option <?php if($buscaSta['SEXO'] == "Masculino") { echo 'style="display: none;"'; } ?> >Masculino</option>
+                                <option <?php if($buscaSta['SEXO'] == "Feminino") { echo 'style="display: none;"'; } ?> >Feminino</option>
+                                <option <?php if($buscaSta['SEXO'] == "Não definido") { echo 'style="display: none;"'; } ?> >Não definido</option>
                             </select></td>
                         <td id='add-fone'><input class='intable' type="tel" name="FONE_CONTATO" value="<?= $funcionarios['FONE_CONTATO']; ?>"></td>
                         <td id="add-cargo" <?php if ($grupo == "Suporte Interno") {
@@ -158,7 +158,7 @@ $buscaSta = buscaFuncionarios($conn, $id);
                 </tbody>
             </table>
         </section>
-        <?php echo file_get_contents("../telas/telasLegendas.html"); ?>
+        <?php echo file_get_contents("../telas/includes/telasLegendas.html"); ?>
     </main>
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

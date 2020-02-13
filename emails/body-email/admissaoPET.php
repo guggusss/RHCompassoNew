@@ -3,7 +3,6 @@ require_once('../../validacoes/email/email.php');
 include('../../db/conexao.php');
 include('../../update.php');
 $id = $_GET['id'];
-
 $nome = buscaFuncionarios($conn, $id);
 $data = buscadocs($conn, $id);
 
@@ -11,7 +10,6 @@ $dataN = $data['FORMULARIOS_ENVIADOS'];
 $dataF = date_create($dataN);
 date_modify($dataF, '+ 1 day');
 $NewDate =  date_format($dataF, 'd/m/Y');
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,24 +19,25 @@ $NewDate =  date_format($dataF, 'd/m/Y');
   <meta charset="utf-8">
   <script src="../../js/jquery.js"></script>
   <script src="../../js/seleciona.js"></script>
-
   <link rel="stylesheet" href="../css/site.css">
   <link rel="stylesheet" href="../css/admissao.css">
   <link rel="stylesheet" href="../css/rodape.css">
-  <title>Admissão RG</title>
+  <title>Admissão CAX</title>
 </head>
 
 <body>
   <?php include("../headerEmail/header.php") ?>
   <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
     <div id="selecionaPagina">
+
       <header>
-        <p id='title'>Boa tarde, <strong class='sublinhe'><?= $nome['NOME']; ?></strong></p>
+        <p id='title'>Boa tarde, <strong class='sublinhe'><?= $nome['NOME'] ?></strong></p>
         <p><strong class='cor'>Seja bem vindo ao time!!</strong></p>
         <p id='title'>Por gentileza, preencha e nos devolva através deste e-mail os formulários, em anexo <strong class='sublinhe'>
             <font color='red'><?= $NewDate ?>, às 12h</font>
           </strong> , conforme especificações abaixo:</p>
       </header>
+
       <table border="0" cellspacing="0" cellpadding="0" style="width: 1044.5pt; border-collapse: collapse; transform: scale(0.918822, 0.918822); transform-origin: left top;" min-scale="0.9188218390804598">
         <tbody>
           <tr style="height:35.25pt;">
@@ -431,13 +430,12 @@ $NewDate =  date_format($dataF, 'd/m/Y');
           </tr>
         </tbody>
       </table>
-      <p id='title'>Entregar as vias impressas da documentação acima destacada <strong class='sublinhe'>
-          <font color='red'> até xxxxxxx às 12h</font>
-        </strong>, aos cuidados de Fábio Gibon – Rua General Câmara, 435 – Centro - Rio Grande/RS. </p>
+      <p id='title'>Entregar as vias impressas da documentação acima destacada <strong class='sublinhe' color='red'> até xxxxxxx (RH preenche manual) às 12h, RH preenche manualmente o local para entrega </font></strong></p>
       <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
         <span style="background-color:yellow;">Caso a documentação e a Carteira de Trabalho não sejam entregues na data acima destacada, será necessário a alteração da data de admissão.</span> </p>
       <p id='title'> Assim que tivermos a data para seu exame admissional lhe informaremos.</p>
       <p id='title'>Por gentileza confirmar o recebimento deste e-mail</p>
+
     </div>
   </div>
 </body>

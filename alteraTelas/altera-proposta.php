@@ -21,12 +21,12 @@ $id = $ID_USUARIO;
 
 if (Proposta($conn, $ID_USUARIO, $ENQUADRAMENTO_REMUNERACAO_ENVIO, $ENQUADRAMENTO_REMUNERACAO_RETORNO, $ENQUADRAMENTO, $ENVIO_PROPOSTA, $COMUNICAR_PROPOSTA_ENVIADA, $ACEITA_RECUSA_CANDIDATO, $COMENTARIO, $COMUNICAR_STATUS) && status($conn, $ID_USUARIO, $STATUS)) {
      
-    include("../telas/salvoSucesso.php");
+    include("../telas/includes/salvoSucesso.php");
 } 
 else 
 {
     $msg = mysqli_error($conn);
-    include("../telas/naoSalvo.php");
+    include("../telas/includes/naoSalvo.php");
 }
 ?>
 <meta http-equiv="refresh" content="1;  url=../telas/funcionario.php?id=<?php echo $id ?>"/>

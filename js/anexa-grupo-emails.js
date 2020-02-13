@@ -9,6 +9,10 @@ function anexaGrupo() {
           { id: "Equipe REC", text: "Equipe REC" },
           { id: "Equipe RG", text: "Equipe RG" },
           { id: "Equipe SP", text: "Equipe SP" },
+          { id: "Equipe CAX", text: "Equipe CAX" },
+          { id: "Equipe RJ", text: "Equipe RJ" },
+          { id: "Equipe JAG", text: "Equipe JAG" },
+          { id: "Equipe BH", text: "Equipe BH" },
           { id: "Equipe OUL DIVEO", text: "Equipe OUL DIVEO" },
           { id: "Equipe US", text: "Equipe US" },
           { id: "Equipe XAP", text: "Equipe XAP"}];

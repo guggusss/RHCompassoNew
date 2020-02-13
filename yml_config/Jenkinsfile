@@ -1,0 +1,31 @@
+pipeline {
+  environment {
+    // Usados no deployment yaml
+    ENV = 'dev'
+    NAMESPACE = 'compasso-rh-dev'
+    BIT_REPO = 'https://bitbucket.org/compassouoldiveo/sistemas-internos.rh.admissao'
+    BIT_BRANCH = 'develop'
+  }
+
+  agent {
+    label 'master'
+  }
+
+  stages {
+    
+    // stage ('Flyway'){
+    //     steps{
+    //         script{
+    //             flywayrunner commandLineArgs: '-sqlMigrationPrefix=portal_rh__ -table=compasso_rh_version', credentialsId: 'rh-mysql-flyway', flywayCommand: 'migrate', installationName: 'Flyway-5.2.4', locations: "filesystem:${WORKSPACE}", url: 'jdbc:mysql://192.168.0.144:31111/bancorh'
+    //         }
+    //     }
+    // }
+
+    stage('Deploying to Kubernetes') {
+        steps {
+            kubernetesDeploy(kubeconfigId: 'vcare2-k8s', configs: 'yml_config/rh-php-git-sync-docker-entrypoint-dev.yml', enableConfigSubstitution: true)
+        }
+    }
+  }
+
+}

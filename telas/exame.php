@@ -1,31 +1,21 @@
 <?php
+
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+  }
+ 
+$logado = $_SESSION['login'];
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
-
-if($grupo == "Suporte Interno"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Gestores"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Compasso - RH Integração"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
 
 if (!isset($id)) {
     $id = $_SESSION['id'];
@@ -35,19 +25,22 @@ $resultado1 = mysqli_query($conn, "SELECT ID_USUARIO, NOME, ID_SEDE, DATE_FORMAT
 $conn1 = mysqli_num_rows($resultado1);
 
 
-$resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, `COMENTARIO`
+$resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, `COMENTARIO`, `EXAME_OBS`
 FROM `exame_admissional` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 
 if ($count == 1) {
-    $resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, `COMENTARIO`
+    $resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, `COMENTARIO`, `EXAME_OBS`
     FROM `exame_admissional` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 } else {
-    mysqli_query($conn, "INSERT INTO `exame_admissional`(`ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, `AGENDAMENTO_EXAM_ADM`, `ENVIO_FUNC_EXAME`, `EMAIL_RECEBIDO_EXAM`, `COMENTARIO`) VALUES (NULL, $id,NULL,NULL,NULL,NULL)");
+    mysqli_query($conn, "INSERT INTO `exame_admissional`(`ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, `AGENDAMENTO_EXAM_ADM`, `ENVIO_FUNC_EXAME`, `EMAIL_RECEBIDO_EXAM`, `COMENTARIO`, `EXAME_OBS`) VALUES (NULL, $id,NULL,NULL,NULL,NULL,NULL)");
 
-    $resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, `COMENTARIO`
+    $resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, `COMENTARIO`, `EXAME_OBS`
     FROM `exame_admissional` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
+
+$resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
+$connBarr = mysqli_num_rows($resultadoBarr);
 
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
@@ -59,50 +52,15 @@ $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $campoV = 'class="txtVazio" ';
-?>
-<!DOCTYPE html>
-<html lang="pt">
-
-<head>
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
-    <link rel="stylesheet" href="../css/menuPrincipal.css">
-</head>
-<body>
-<header class="site-header">
-        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
-        <nav>
-            <a class='nav inicio' href='index.php'>Início</a>
-            <div class="dropdown">
-                <a class="dropbtn nav">Emails <span class='caret'></span></a>
-                <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
-                </div>
-            </div>
-            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
-        </nav>
-
-    </header>
+$comentario = buscaexame($conn, $id);
+$exame_obs = buscaexame($conn, $id);
+include("header.php"); ?>
 
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Exame Admissional</h2>
         </section>
+        
         <section class='container estruct'>
             <div class='menu-inicial1'>
                 <table class="fixado">
@@ -113,27 +71,16 @@ $campoV = 'class="txtVazio" ';
                             <th width='170px'>Data de Admissao</th>
                             <th width='170px'>Sede</th>
                         </tr>
+
                         <thead>
                         <tbody>
                             <tr>
-                                <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
-                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
-                                    <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
-                                                            if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
-                                                            if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
-                                                            if($rows_dados['ID_SEDE'] == "4"){echo "POA";}
-                                                            if($rows_dados['ID_SEDE'] == "5"){echo "RG";}
-                                                            if($rows_dados['ID_SEDE'] == "6"){echo "SP";}
-                                                            if($rows_dados['ID_SEDE'] == "7"){echo "FLN";}
-                                                            if($rows_dados['ID_SEDE'] == "8"){echo "XAP";}
-                                                            if($rows_dados['ID_SEDE'] == "9"){echo "REC";}?></th>
-                                <?php  } ?>
+                                <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
             </div>
+
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
@@ -177,6 +124,7 @@ $campoV = 'class="txtVazio" ';
                     </div>
                 </div>
             </div>
+
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
@@ -186,6 +134,7 @@ $campoV = 'class="txtVazio" ';
                         <th>Envio para funcionário</th>
                         <th>Recebido por e-mail ASO assinado</th>
                         <th scope="col" width='200px'>Comentários</th>
+                        <th scope="col" width='200px'>Observações</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -194,54 +143,45 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td id="data"><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
-                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>
+                            <td id="data"><?= $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
+                            <td id="data2"><?= $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
+                            <td id="data3"><?= $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
+                            <td><?= $rows_dados['COMENTARIO']; ?></td>
+                            <td><?= $rows_dados['EXAME_OBS']; ?></td>
+
                             <td><a title="Dados Bancáriso" id="proximo" class="  btn btn-default" href="bancarios.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-                        </tr>
-                    <?php } ?>
+                        </tr><?php } ?>
+
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-exame.php">
-                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="AGENDAMENTO_EXAM_ADM" value=<?= $agend['AGENDAMENTO_EXAM_ADM'] ?>></td>
-                            <td><input type="date" id="campo2" class='intable' name="ENVIO_FUNC_EXAME" value=<?= $envio['ENVIO_FUNC_EXAME'] ?>></td>
-                            <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM" value=<?= $email['EMAIL_RECEBIDO_EXAM'] ?>></td>
-                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value=<?= $rows_dados['COMENTARIO'] ?>></td>
+                            <td><input type='date' id="campo" class='intable' name="AGENDAMENTO_EXAM_ADM" value="<?= $agend['AGENDAMENTO_EXAM_ADM'] ?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name="ENVIO_FUNC_EXAME" value="<?= $envio['ENVIO_FUNC_EXAME'] ?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM" value="<?= $email['EMAIL_RECEBIDO_EXAM'] ?>"></td>
+                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value="<?= $comentario['COMENTARIO'] ?>"></td>
+                            <td id='exame_obs'><input class='intable' type="text" name="EXAME_OBS" value="<?= $exame_obs['EXAME_OBS'] ?>"></td>
                             <td></td>
+
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>
             </table>
         </section>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
+    
     <footer>
         <h2></h2>
     </footer>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-    <script>
-        window.onload = function verifica() {
-            if (document.getElementById("campo").value == "") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "") {
-                $("#data2").addClass("dataVazia");
-            }
-            if (document.getElementById("campo3").value == "") {
-                $("#data3").addClass("dataVazia");
-            }
-            /*/if(document.getElementById("campo4").value == ""){
-                $("#data4").addClass("dataVazia");
-            }/*/
-        }
-    </script>
+    <script src="../js/campo-destaque.js"></script>
 
 </body>
 

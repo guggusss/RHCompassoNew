@@ -1,24 +1,21 @@
 <?php
+
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+  }
+ 
+$logado = $_SESSION['login'];
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
-
-if($grupo == "Suporte Interno"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Compasso - RH Integração"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
 
 $id = $_GET['id'];
 $_SESSION['id'] = $id;
@@ -38,6 +35,9 @@ if ($count == 1) {
     $resultado = mysqli_query($conn, "SELECT `ID_GESTOR`, `ID_USUARIO`, `GESTOR`, `GESTOR_SABE`, `GESTOR_LOCAL`, `GESTOR_LOCAL_sABE`, `RECEPTOR_PESSOA` FROM `gestao` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
+$resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
+$connBarr = mysqli_num_rows($resultadoBarr);
+
 $status = buscaFuncionarios($conn, $id);
 $gestor = buscagestao($conn, $id);
 $gestor_sabe = buscagestao($conn, $id);
@@ -54,45 +54,7 @@ $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $efetivacao = buscavencimentos($conn, $id);
 $campoV = 'class="txtVazio" ';
-?>
-<!DOCTYPE html>
-<html lang="pt">
-
-<head>
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
-    <link rel="stylesheet" href="../css/menuPrincipal.css">
-</head>
-<body>
-<header class="site-header">
-        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
-        <nav>
-            <a class='nav inicio' href='index.php'>Início</a>
-            <div class="dropdown">
-                <a class="dropbtn nav">Emails <span class='caret'></span></a>
-                <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
-                </div>
-            </div>
-            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
-        </nav>
-
-    </header>
+include("header.php"); ?>
 
     <main>
         <section class='menu-inicial'>
@@ -109,26 +71,15 @@ $campoV = 'class="txtVazio" ';
                             <th width='170px'>Sede</th>
                         </tr>
                     </thead>
+
                         <tbody>
                             <tr>
-                                <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
-                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
-                                    <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
-                                                            if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
-                                                            if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
-                                                            if($rows_dados['ID_SEDE'] == "4"){echo "POA";}
-                                                            if($rows_dados['ID_SEDE'] == "5"){echo "RG";}
-                                                            if($rows_dados['ID_SEDE'] == "6"){echo "SP";}
-                                                            if($rows_dados['ID_SEDE'] == "7"){echo "FLN";}
-                                                            if($rows_dados['ID_SEDE'] == "8"){echo "XAP";}
-                                                            if($rows_dados['ID_SEDE'] == "9"){echo "REC";}?></th>
-                                <?php  } ?>
+                            <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
             </div>
+
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
@@ -172,15 +123,12 @@ $campoV = 'class="txtVazio" ';
                     </div>
                 </div>
             </div>
+
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th <?php if ($grupo == "Gestores") {
-                                                            echo 'colspan="7"';
-                                                        }else{
-                                                            echo 'colspan="8"';
-                                                        } ?>>Gestão</th>
+                        <th colspan='8'>Gestão</th>
                     </tr>
                     <tr>
                         <th>Status</th>
@@ -189,112 +137,96 @@ $campoV = 'class="txtVazio" ';
                         <th>Gestor local</th>
                         <th>Gestor local sabe?</th>
                         <th>Quem do projeto receberá a pessoa?</th>
-                        <th <?php if ($grupo == "Gestores") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>></th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS']; ?></td>
-                            <td <?php if ($rows_dados['GESTOR'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['GESTOR']; ?></td>
-                            <td <?php if ($rows_dados['GESTOR_SABE'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['GESTOR_SABE']; ?></td>
-                            <td <?php if ($rows_dados['GESTOR_LOCAL'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['GESTOR_LOCAL']; ?></td>
-                            <td <?php if ($rows_dados['GESTOR_LOCAL_sABE'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['GESTOR_LOCAL_sABE']; ?></td>
-                            <td <?php if ($rows_dados['RECEPTOR_PESSOA'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['RECEPTOR_PESSOA']; ?></td>
-                            <?php unset($_GET['id']); ?>
-                            <td <?php if ($grupo == "Gestores") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>><a title="Documentação" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
+                            <td <?php if ($rows_dados['GESTOR'] == "") {echo ($campoV);} ?>><?= $rows_dados['GESTOR']; ?></td>
+                            <td <?php if ($rows_dados['GESTOR_SABE'] == "") {echo ($campoV);} ?>><?= $rows_dados['GESTOR_SABE']; ?></td>
+                            <td <?php if ($rows_dados['GESTOR_LOCAL'] == "") {echo ($campoV);} ?>><?= $rows_dados['GESTOR_LOCAL']; ?></td>
+                            <td <?php if ($rows_dados['GESTOR_LOCAL_sABE'] == "") {echo ($campoV);} ?>><?= $rows_dados['GESTOR_LOCAL_sABE']; ?></td>
+                            <td <?php if ($rows_dados['RECEPTOR_PESSOA'] == "") {echo ($campoV);} ?>><?= $rows_dados['RECEPTOR_PESSOA']; ?></td>
+                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-                        </tr>
-                    <?php  } ?>
+                        </tr><?php  } ?>
+
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-gestor.php?id=<?= $id ?>">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input type='text' class='intable' name="GESTOR" value="<?= $gestor['GESTOR'] ?>"></td>
+                           
                             <td><select class="intable" name="GESTOR_SABE">
-                                    <?php
-                                    if ($gestor_sabe['GESTOR_SABE'] == NULL) { ?>
+                                <?php if ($gestor_sabe['GESTOR_SABE'] == NULL) { ?>
                                         <option value="<?= $gestor_sabe['GESTOR_SABE'] ?>"><?= $gestor_sabe['GESTOR_SABE'] ?></option>
                                         <option value="Sim">Sim</option>
                                         <option value="Não">Não</option>
-                                    <?php
-                                    } elseif ($gestor_sabe['GESTOR_SABE'] == "Sim") { ?>
+
+                                <?php } elseif ($gestor_sabe['GESTOR_SABE'] == "Sim") { ?>
                                         <option value="<?= $gestor_sabe['GESTOR_SABE'] ?>"><?= $gestor_sabe['GESTOR_SABE'] ?></option>
                                         <option value="Não">Não</option>
-                                    <?php
-                                    } else { ?>
+
+                                <?php } else { ?>
                                         <option value="<?= $gestor_sabe['GESTOR_SABE'] ?>"><?= $gestor_sabe['GESTOR_SABE'] ?></option>
-                                        <option value="Sim">Sim</option>
-                                    <?php
-                                    }
-                                    ?>
+                                        <option value="Sim">Sim</option><?php } ?>
                                 </select></td>
+
                             <td><input type="text" class='intable' name="GESTOR_LOCAL" value="<?= $gestor_local['GESTOR_LOCAL'] ?>"></td>
                             <td><select class="intable" name="GESTOR_LOCAL_sABE">
-                                    <?php
-                                    if ($gestorL_sabe['GESTOR_LOCAL_sABE'] == NULL) { ?>
+
+                                    <?php if ($gestorL_sabe['GESTOR_LOCAL_sABE'] == NULL) { ?>
                                         <option value="<?= $gestorL_sabe['GESTOR_LOCAL_sABE'] ?>"><?= $gestorL_sabe['GESTOR_LOCAL_sABE'] ?></option>
                                         <option value="Sim">Sim</option>
                                         <option value="Não">Não</option>
-                                    <?php
-                                    } elseif ($gestorL_sabe['GESTOR_LOCAL_sABE'] == "Sim") { ?>
+
+                                    <?php } elseif ($gestorL_sabe['GESTOR_LOCAL_sABE'] == "Sim") { ?>
                                         <option value="<?= $gestor_sabe['GESTOR_LOCAL_sABE'] ?>"><?= $gestor_sabe['GESTOR_LOCAL_sABE'] ?></option>
                                         <option value="Não">Não</option>
-                                    <?php
-                                    } else { ?>
+                                    <?php } else { ?>
+
                                         <option value="<?= $gestor_sabe['GESTOR_LOCAL_sABE'] ?>"><?= $gestor_sabe['GESTOR_LOCAL_sABE'] ?></option>
                                         <option value="Sim">Sim</option>
-                                    <?php
-                                    }
-                                    ?>
+                                    <?php } ?>
+
                                 </select></td>
+
                             <td><input type="text" class='intable' name="RECEPTOR_PESSOA" value="<?= $receptor['RECEPTOR_PESSOA'] ?>"></td>
-                            <td <?php if ($grupo == "Gestores") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>
             </table>
         </section>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
+
     <footer>
         <h2></h2>
     </footer>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src='../js/desabilitaStepWizard.js'></script>
     <script>
-        let grupo = "<?= $grupo ?>";
-        window.onload = () => {
-            if (grupo == "Gestores") {
-                desbilitaStepWizard(2, 4, 5, 6, 7, 8, 9, 10, 11);
-                $("#proximo").prop("disabled", true);
-                $("#proximo").attr("disabled", true);
-                $("#proximo").attr("href", "#");
-            }
+    let grupo = "<?= $grupo ?>";
+window.onload = () => {
+    if (grupo == "Gestores") {
+        desbilitaStepWizard(2, 4, 5, 6, 7, 8, 9, 10, 11);
+        $("#proximo").prop("disabled", true);
+        $("#proximo").attr("disabled", true);
+        $("#proximo").attr("href", "#");
+    }
 
-        }
-    </script>
+}
+</script>
 </body>
 
 </html>

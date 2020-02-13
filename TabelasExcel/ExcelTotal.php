@@ -169,6 +169,7 @@ if(isset($_POST["export"]))
                             <th>Envio para Funcionário</th>
                             <th>Recebido por e-mail ASO assinado</th>
                             <th>Comentários</th>
+                            <th>Observações</th>
                             <th>Envio</th>
                             <th>Recebido</th>
                             <th>Cadastro Intranet</th>
@@ -176,6 +177,7 @@ if(isset($_POST["export"]))
                             <th>Agência</th>
                             <th>Conta</th>
                             <th>Tipo da Conta</th>
+                            <th>Observações</th>
                             <th>Email</th>
                             <th>Usuário</th>
                             <th>Senha de acesso</th>
@@ -190,6 +192,7 @@ if(isset($_POST["export"]))
                             <th>E-mail início das atividades</th>
                             <th>E-mail Boas Vindas</th>
                             <th>Acessos</th>
+                            <th>Observações</th>
                             <th>Data</th>
                             <th>Comentário UOL</th>
                             <th>E-mail = Solicitado</th>
@@ -197,6 +200,7 @@ if(isset($_POST["export"]))
                             <th>Malote (Caderno) + CTPS (Controle RH)</th>
                             <th>Recebido após assinatura Escanear Docs</th> 
                             <th>Salvar na Pasta</th>
+                            <th>Observações</th>
                             <th>Data do pedido do crachá</th>
                             <th>controle</th>
                             <th>protocolo</th>
@@ -274,6 +278,7 @@ if(isset($_POST["export"]))
          <td>'.$row['ENVIO_FUNC_EXAME'].'</td>
          <td>'.$row["EMAIL_RECEBIDO_EXAM"].'</td>
          <td>'.$row["COMENTARIO"].'</td>
+         <td>'.$row["EXAME_OBS"].'</td>
          <td>'.$row["ENVIO"].'</td>
          <td>'.$row['RECEBIDO'].'</td>
          <td>'.$row['PLANILHA_CONTAS'].'</td>
@@ -281,6 +286,7 @@ if(isset($_POST["export"]))
          <td>'.$row['AGENCIA'].'</td>
          <td>'.$row['NUMERO_CONTA'].'</td>
          <td>'.$row['TIPO_CONTA'].'</td>
+         <td>'.$row['BANCARIOS_OBS'].'</td>
          <td>'.$row["EMAIL_SUP"].'</td>
          <td>'.$row['USUARIO'].'</td>
          <td>'.$row["SENHA"].'</td>
@@ -294,12 +300,14 @@ if(isset($_POST["export"]))
          <td>'.$row["EMAIL_INICIO_ATIVIDADES"].'</td>
          <td>'.$row['EMAIL_BOAS_VINDAS'].'</td>
          <td>'.$row["ACESSOS"].'</td>
+         <td>'.$row["INTERNO_OBS"].'</td>
          <td>'.$row["POSICAO_COMENTARIO"].'</td>
          <td>'.$row['EMAIL_CADERNO_COMPASSO_SOLICITADO'].'</td>
          <td>'.$row["EMAIL_CADERNO_COMPASSO_RECEBIDO"].'</td>
          <td>'.$row['MALOTE_CADERNO_COMPASSO_CTPS'].'</td>
          <td>'.$row["DOCUMENTOS_RECEBIDOS_ASSINADOS"].'</td>
          <td>'.$row["SALVAR_PASTA"].'</td>
+         <td>'.$row["VIAS_DOCUMENTOS_OBS"].'</td>
          <td>'.$row['CRACHA_DATA_PEDIDO'].'</td>
          <td>'.$row["CRACHA_CONTROLE"].'</td>
          <td>'.$row['CRACHA_PROTOCOLO'].'</td>

@@ -1,264 +1,376 @@
 <?php
+
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+  }
+ 
+$logado = $_SESSION['login'];
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 $listar = listar($conn);
 //if ($_GET['botaoLimpar']=='Limpar') {
-if (isset($_POST['botaoVolta'])) {
-    ?>    
-    <meta http-equiv="refresh" content="0;  url=index.php"/>
-<?php 
-    
+if (isset($_POST['botaoVolta'])) 
+{ ?><meta http-equiv="refresh" content="0;  url=index.php"/><?php 
 }
 //if ($_GET['botao']=='Filtrar') {
-if (isset($_POST['botaoVolta'])) {
-    ?>    
-    <meta http-equiv="refresh" content="0;  url=index.php"/>
-<?php
-}
+if (isset($_POST['botaoVolta'])) 
+{ ?><meta http-equiv="refresh" content="0;  url=index.php"/><?php }
+
 //if ($_GET['botao']=='Filtrar') {
-if (isset($_POST['botao'])) {
+if (isset($_POST['botao'])) 
+{
 
     $where = array();
 
-    if (!empty($_POST['status'])) {
+    if (!empty($_POST['status'])) 
+    {
         $status = $_POST['status'];
         $where[] = " `STATUS` = '{$status}'";
     }
-    if (!empty($_POST['sede'])) {
+    if (!empty($_POST['sede'])) 
+    {
         $sede = $_POST['sede'];
         $where[] = " `ID_SEDE` = '{$sede}'";
     }
-    if (!empty($_POST['tipo'])) {
+    if (!empty($_POST['tipo'])) 
+    {
         $tipo = $_POST['tipo'];
         $where[] = " `ID_TIPO` = '{$tipo}'";
     }
-    if (!empty($_POST['captacao'])) {
+    if (!empty($_POST['captacao'])) 
+    {
         $captacao = $_POST['captacao'];
         $where[] = " `ID_CAPTACAO` = '{$captacao}'";
     }
-    if (!empty($_POST['solicitante'])) {
+    if (!empty($_POST['solicitante'])) 
+    {
         $solicitante = $_POST['solicitante'];
         $where[] = " `SOLICITANTE` = '{$solicitante}'";
     }
-    if (!empty($_POST['cliente'])) {
+    if (!empty($_POST['cliente'])) 
+    {
         $cliente = $_POST['cliente'];
         $where[] = " `CLIENTE` = '{$cliente}'";
     }
-    if (!empty($_POST['projeto'])) {
+    if (!empty($_POST['projeto'])) 
+    {
         $projeto = $_POST['projeto'];
         $where[] = " `PROJETO` = '{$projeto}'";
     }
-    if (!empty($_POST['data_admissao'])) {
+    if (!empty($_POST['data_admissao'])) 
+    {
         $data_admissao = $_POST['data_admissao'];
         $where[] = " `DATA_ADMISSAO` = '{$data_admissao}'";
     }
-    if (!empty($_POST['vencimento'])) {
+    if (!empty($_POST['vencimento'])) 
+    {
         $vencimento = $_POST['vencimento'];
         $where[] = " `DATA_VENCIMENTO_PRI` = '{$vencimento}'";
     }
-    if (!empty($_POST['vencimentos'])) {
+    if (!empty($_POST['vencimentos'])) 
+    {
         $vencimentos = $_POST['vencimentos'];
         $where[] = " `DATA_VENCIMENTO_SEG` = '{$vencimentos}'";
     }
 
-    if (!empty($_POST['envio_solicitante45'])) {
+    if (!empty($_POST['envio_solicitante45'])) 
+    {
         $envio_solicitante45 = $_POST['envio_solicitante45'];
         $where[] = " `ENVIO_SOLICITANTE_PRI` = '{$envio_solicitante45}'";
     }
 
-    if (!empty($_POST['envio_solicitante90'])) {
+    if (!empty($_POST['envio_solicitante90'])) 
+    {
         $envio_solicitante90 = $_POST['envio_solicitante90'];
         $where[] = " `ENVIO_SOLICITANTE_SEG` = '{$envio_solicitante90}'";
     }
 
-    if (isset($_POST['formularios_enviados_check'])) {
+    if (isset($_POST['formularios_enviados_check'])) 
+    {
         $where[] = " `formularios_enviados` IS NULL";
-    } elseif (!empty($_POST['formularios_enviados'])) {
+    }
+    elseif (!empty($_POST['formularios_enviados'])) 
+    {
         $formularios_enviados = $_POST['formularios_enviados'];
         $where[] = " `formularios_enviados` = '{$formularios_enviados}'";
     }
-    if (isset($_POST['formularios_recebidos_check'])) {
+    if (isset($_POST['formularios_recebidos_check'])) 
+    {
         $where[] = " `formularios_recebidos` IS NULL";
-    } elseif (!empty($_POST['formularios_recebidos'])) {
+    } 
+    elseif (!empty($_POST['formularios_recebidos'])) 
+    {
         $formularios_recebidos = $_POST['formularios_recebidos'];
         $where[] = " `formularios_recebidos` = '{$formularios_recebidos}'";
     }
-    if (isset($_POST['documentos_fisicos_check'])) {
+    if (isset($_POST['documentos_fisicos_check'])) 
+    {
         $where[] = " `documentos_fisicos` IS NULL";
-    } elseif (!empty($_POST['documentos_fisicos'])) {
+    } 
+    elseif (!empty($_POST['documentos_fisicos'])) 
+    {
         $documentos_fisicos = $_POST['documentos_fisicos'];
         $where[] = " `documentos_fisicos` = '{$documentos_fisicos}'";
     }
-    if (isset($_POST['ctps_check'])) {
+    if (isset($_POST['ctps_check'])) 
+    {
         $where[] = " `ctps_recebida` IS NULL";
-    } elseif (!empty($_POST['ctps'])) {
+    }
+    elseif (!empty($_POST['ctps'])) 
+    {
         $ctps = $_POST['ctps'];
         $where[] = " `ctps_recebida` = '{$ctps}'";
     }
-    if (isset($_POST['qualific_check'])) {
+    if (isset($_POST['qualific_check'])) 
+    {
         $where[] = " `QUALIFIC_CADASTRAL_CEP` IS NULL";
-    } elseif (!empty($_POST['qualific'])) {
+    } 
+    elseif (!empty($_POST['qualific'])) 
+    {
         $qualific = $_POST['qualific'];
         $where[] = " `QUALIFIC_CADASTRAL_CEP` = '{$qualific}'";
     }
-    if (isset($_POST['cad_adm_check'])) {
+    if (isset($_POST['cad_adm_check'])) 
+    {
         $where[] = " `CAD_ADM_PLATAFORMA_ADM_DIMIN` IS NULL";
-    } elseif (!empty($_POST['cad_adm'])) {
+    } 
+    elseif (!empty($_POST['cad_adm'])) 
+    {
         $cad_adm = $_POST['cad_adm'];
         $where[] = " `CAD_ADM_PLATAFORMA_ADM_DIMIN` = '{$cad_adm}'";
     }
-    if (isset($_POST['doc_rec_check'])) {
+    if (isset($_POST['doc_rec_check'])) 
+    {
         $where[] = " `DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO` IS NULL";
-    } elseif (!empty($_POST['doc_rec'])) {
+    } 
+    elseif (!empty($_POST['doc_rec'])) 
+    {
         $doc_rec = $_POST['doc_rec'];
         $where[] = " `DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO` = '{$doc_rec}'";
     }
     if (isset($_POST['termo_psi_check'])) {
         $where[] = " `TERMO_PSI` IS NULL";
-    } elseif (!empty($_POST['termo_psi'])) {
+    }
+     elseif (!empty($_POST['termo_psi'])) 
+     {
         $termo_psi = $_POST['termo_psi'];
         $where[] = " `TERMO_PSI` = '{$termo_psi}'";
     }
-    if (isset($_POST['inclui_adm_check'])) {
+    if (isset($_POST['inclui_adm_check'])) 
+    {
         $where[] = " `INCLUI_ADM_PROV` IS NULL";
-    } elseif (!empty($_POST['inclui_adm'])) {
+    } 
+    elseif (!empty($_POST['inclui_adm'])) 
+    {
         $inclui_adm = $_POST['inclui_adm'];
         $where[] = " `INCLUI_ADM_PROV` = '{$inclui_adm}'";
     }
-    if (isset($_POST['agendamento_exam_check'])) {
+    if (isset($_POST['agendamento_exam_check'])) 
+    {
         $where[] = " `AGENDAMENTO_EXAM_ADM` IS NULL";
-    } elseif (!empty($_POST['agendamento_exam'])) {
+    } 
+    elseif (!empty($_POST['agendamento_exam'])) 
+    {
         $agendamento_exam = $_POST['agendamento_exam'];
         $where[] = " `AGENDAMENTO_EXAM_ADM` = '{$agendamento_exam}'";
     }
-    if (isset($_POST['envio_func_check'])) {
+    if (isset($_POST['envio_func_check'])) 
+    {
         $where[] = " `EMAIL_RECEBIDO_EXAM` IS NULL";
-    } elseif (!empty($_POST['envio_func'])) {
+    } 
+    elseif (!empty($_POST['envio_func'])) 
+    {
         $envio_func = $_POST['envio_func'];
         $where[] = " `EMAIL_RECEBIDO_EXAM` = '{$envio_func}'";
     }
-    if (isset($_POST['email_exame_check'])) {
+    if (isset($_POST['email_exame_check'])) 
+    {
         $where[] = " `ENVIO_FUNC_EXAME` IS NULL";
-    } elseif (!empty($_POST['email_exame'])) {
+    } 
+    elseif (!empty($_POST['email_exame'])) 
+    {
         $email_exame = $_POST['email_exame'];
         $where[] = " `ENVIO_FUNC_EXAME` = '{$email_exame}'";
     }
-    if (isset($_POST['anexar_aso_check'])) {
+    if (isset($_POST['anexar_aso_check'])) 
+    {
         $where[] = " `ANEXAR_ASO` IS NULL";
-    } elseif (!empty($_POST['anexar_aso'])) {
+    } 
+    elseif (!empty($_POST['anexar_aso'])) 
+    {
         $anexar_aso = $_POST['anexar_aso'];
         $where[] = " `ANEXAR_ASO` = '{$anexar_aso}'";
     }
-    if (isset($_POST['envio_check'])) {
+    if (isset($_POST['envio_check'])) 
+    {
         $where[] = " `ENVIO` IS NULL";
-    } elseif (!empty($_POST['envio'])) {
+    } 
+    elseif (!empty($_POST['envio'])) 
+    {
         $envio = $_POST['envio'];
         $where[] = " `ENVIO` = '{$envio}'";
     }
-    if (isset($_POST['recebido_check'])) {
+    if (isset($_POST['recebido_check'])) 
+    {
         $where[] = " `RECEBIDO` IS NULL";
-    } elseif (!empty($_POST['recebido'])) {
+    } 
+    elseif (!empty($_POST['recebido'])) 
+    {
         $recebido = $_POST['recebido'];
         $where[] = " `RECEBIDO` = '{$recebido}'";
     }
-    if (isset($_POST['anexar_recebido_check'])) {
+    if (isset($_POST['anexar_recebido_check'])) 
+    {
         $where[] = " `ANEXAR_COMPR_DOMIN` IS NULL";
-    } elseif (!empty($_POST['anexar_recebido'])) {
+    } 
+    elseif (!empty($_POST['anexar_recebido'])) 
+    {
         $anexar_recebido = $_POST['anexar_recebido'];
         $where[] = " `ANEXAR_COMPR_DOMIN` = '{$anexar_recebido}'";
     }
-    if (isset($_POST['planilha_contas_check'])) {
+    if (isset($_POST['planilha_contas_check'])) 
+    {
         $where[] = " `PLANILHA_CONTAS` IS NULL";
-    } elseif (!empty($_POST['planilha_contas'])) {
+    } 
+    elseif (!empty($_POST['planilha_contas'])) 
+    {
         $planilha_contas = $_POST['planilha_contas'];
         $where[] = " `PLANILHA_CONTAS` = '{$planilha_contas}'";
     }
-    if (isset($_POST['form_compro_check'])) {
+    if (isset($_POST['form_compro_check'])) 
+    {
         $where[] = " `FORM_COMPR_BANCARIO` IS NULL";
-    } elseif (!empty($_POST['form_compro'])) {
+    } 
+    elseif (!empty($_POST['form_compro'])) 
+    {
         $form_compro = $_POST['form_compro'];
         $where[] = " `FORM_COMPR_BANCARIO` = '{$form_compro}'";
     }
-    if (isset($_POST['intra_data_check'])) {
+    if (isset($_POST['intra_data_check'])) 
+    {
         $where[] = " `INTRANET_CADASTRO_USUARIO` IS NULL";
-    } elseif (!empty($_POST['intra_data'])) {
+    } 
+    elseif (!empty($_POST['intra_data'])) 
+    {
         $intra_data = $_POST['intra_data'];
         $where[] = " `INTRANET_CADASTRO_USUARIO` = '{$intra_data}'";
     }
-    if (isset($_POST['kairos_data_check'])) {
+    if (isset($_POST['kairos_data_check'])) 
+    {
         $where[] = " `KAIROS_CADASTRO_USUARIO` IS NULL";
-    } elseif (!empty($_POST['kairos_data'])) {
+    } 
+    elseif (!empty($_POST['kairos_data'])) 
+    {
         $kairos_data = $_POST['kairos_data'];
         $where[] = " `KAIROS_CADASTRO_USUARIO` = '{$kairos_data}'";
     }
-    if (isset($_POST['email_gestor_check'])) {
+    if (isset($_POST['email_gestor_check'])) 
+    {
         $where[] = " `EMAIL_GESTOR_APOIO_SEDE` IS NULL";
-    } elseif (!empty($_POST['email_gestor'])) {
+    } 
+    elseif (!empty($_POST['email_gestor'])) 
+    {
         $email_gestor = $_POST['email_gestor'];
         $where[] = " `EMAIL_GESTOR_APOIO_SEDE` = '{$email_gestor}'";
     }
-    if (isset($_POST['email_inicio_check'])) {
+    if (isset($_POST['email_inicio_check'])) 
+    {
         $where[] = " `EMAIL_INICIO_ATIVIDADES` IS NULL";
-    } elseif (!empty($_POST['email_inicio'])) {
+    } 
+    elseif (!empty($_POST['email_inicio'])) 
+    {
         $email_inicio = $_POST['email_inicio'];
         $where[] = " `EMAIL_INICIO_ATIVIDADES` = '{$email_inicio}'";
     }
-    if (isset($_POST['email_boas_check'])) {
+    if (isset($_POST['email_boas_check'])) 
+    {
         $where[] = " `EMAIL_BOAS_VINDAS` IS NULL";
-    } elseif (!empty($_POST['email_boas'])) {
+    } 
+    elseif (!empty($_POST['email_boas'])) 
+    {
         $email_boas = $_POST['email_boas'];
         $where[] = " `EMAIL_BOAS_VINDAS` = '{$email_boas}'";
     }
-    if (isset($_POST['acessos_check'])) {
+    if (isset($_POST['acessos_check'])) 
+    {
         $where[] = " `ACESSOS` IS NULL";
-    } elseif (!empty($_POST['acessos'])) {
+    } 
+    elseif (!empty($_POST['acessos'])) 
+    {
         $acessos = $_POST['acessos'];
         $where[] = " `ACESSOS` = '{$acessos}'";
     }
-    if (isset($_POST['cracha_pedido_check'])) {
+    if (isset($_POST['cracha_pedido_check'])) 
+    {
         $where[] = " `ACESSOS` IS NULL";
-    } elseif (!empty($_POST['cracha_pedido'])) {
+    } 
+    elseif (!empty($_POST['cracha_pedido'])) 
+    {
         $cracha_pedido = $_POST['cracha_pedido'];
         $where[] = " `CRACHA_DATA_PEDIDO` = '{$cracha_pedido}'";
     }
-    if (isset($_POST['cracha_controle_check'])) {
+    if (isset($_POST['cracha_controle_check'])) 
+    {
         $where[] = " `CRACHA_CONTROLE` IS NULL";
-    } elseif (!empty($_POST['cracha_controle'])) {
+    } 
+    elseif (!empty($_POST['cracha_controle'])) 
+    {
         $cracha_controle = $_POST['cracha_controle'];
         $where[] = " `CRACHA_CONTROLE` = '{$cracha_controle}'";
     }
-    if (isset($_POST['cracha_protocolo_check'])) {
+    if (isset($_POST['cracha_protocolo_check'])) 
+    {
         $where[] = " `CRACHA_PROTOCOLO` IS NULL";
-    } elseif (!empty($_POST['cracha_protocolo'])) {
+    } 
+    elseif (!empty($_POST['cracha_protocolo'])) 
+    {
         $cracha_protocolo = $_POST['cracha_protocolo'];
         $where[] = " `CRACHA_PROTOCOLO` = '{$cracha_protocolo}'";
     }
-    if (isset($_POST['email_caderno_check'])) {
+    if (isset($_POST['email_caderno_check'])) 
+    {
         $where[] = " `EMAIL_CADERNO_COMPASSO_SOLICITADO` IS NULL";
-    } elseif (!empty($_POST['email_caderno'])) {
+    } 
+    elseif (!empty($_POST['email_caderno'])) 
+    {
         $email_caderno = $_POST['email_caderno'];
         $where[] = " `EMAIL_CADERNO_COMPASSO_SOLICITADO` = '{$email_caderno}'";
     }
-    if (isset($_POST['email_r_check'])) {
+    if (isset($_POST['email_r_check'])) 
+    {
         $where[] = " `EMAIL_CADERNO_COMPASSO_RECEBIDO` IS NULL";
-    } elseif (!empty($_POST['email_r'])) {
+    } 
+    elseif (!empty($_POST['email_r'])) 
+    {
         $email_r = $_POST['email_r'];
         $where[] = " `EMAIL_CADERNO_COMPASSO_RECEBIDO` = '{$email_r}'";
     }
-    if (isset($_POST['malote_check'])) {
+    if (isset($_POST['malote_check'])) 
+    {
         $where[] = " `MALOTE_CADERNO_COMPASSO_CTPS` IS NULL";
-    } elseif (!empty($_POST['malote'])) {
+    } 
+    elseif (!empty($_POST['malote'])) 
+    {
         $malote = $_POST['malote'];
         $where[] = " `MALOTE_CADERNO_COMPASSO_CTPS` = '{$malote}'";
     }
-    if (isset($_POST['assinados_check'])) {
+    if (isset($_POST['assinados_check'])) 
+    {
         $where[] = " `DOCUMENTOS_RECEBIDOS_ASSINADOS` IS NULL";
-    } elseif (!empty($_POST['assinados'])) {
+    } 
+    elseif (!empty($_POST['assinados'])) 
+    {
         $assinados = $_POST['assinados'];
         $where[] = " `DOCUMENTOS_RECEBIDOS_ASSINADOS` = '{$assinados}'";
     }
+
     $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO
         FROM admissao_dominio as a
         LEFT JOIN parametros_captacao as p
@@ -284,7 +396,9 @@ if (isset($_POST['botao'])) {
     if (sizeof($where))
         $sql .= ' WHERE ' . implode(' AND ', $where);
     $resultado = mysqli_query($conn, $sql);
-} else {
+}
+else 
+{
     $resultado = mysqli_query($conn, "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO
                                         FROM admissao_dominio as a
                                         LEFT JOIN parametros_captacao as p
@@ -323,6 +437,7 @@ if (isset($_POST['botao'])) {
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
 </head>
+
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -332,6 +447,7 @@ if (isset($_POST['botao'])) {
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
     </header>
+
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Plataforma Admissão</h2>
@@ -339,7 +455,7 @@ if (isset($_POST['botao'])) {
         <section class='inputs panel-body display campo-filtro estruct'>
             <h2 id='Filtro'>Filtro</h2>
             <fieldset>
-                <form id='form-filtrar' method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <form id='form-filtrar' method="POST" action="<?= $_SERVER['PHP_SELF']; ?>">
                     <div>
                         <div>
                             <label for="status">Status</label>
@@ -361,12 +477,13 @@ if (isset($_POST['botao'])) {
                                 <option value="FINALIZADO">FINALIZADO</option>
                             </select>
                         </div>
+
                         <div>
                             <label for="sede">Sede</label>
                             <select id="sede" name="sede" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
                                 <?php foreach ($listar as $linha) : ?>
-                                    <option value="<?= $linha['SEDE_ID'] ?>"><?php echo $linha['NOME_SEDE'] ?></option>
+                                    <option value="<?= $linha['SEDE_ID'] ?>"><?= $linha['NOME_SEDE'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -381,6 +498,7 @@ if (isset($_POST['botao'])) {
                                 <option value="5">APDZ</option>
                             </select>
                         </div>
+
                         <div>
                             <label for="captacao">Captação</label>
                             <select id="captacao" name="captacao" class="form-control campo-filter">
@@ -391,6 +509,7 @@ if (isset($_POST['botao'])) {
                                 <option value="4">NOVO</option>
                             </select>
                         </div>
+
                         <div>
                             <label for="solicitante">Solicitante</label>
                             <input type="text" id='solicitante' name="solicitante" class="form-control campo-filter" data-action="filter" data-filters="#dev-table" placeholder="Solicitante" />
@@ -591,6 +710,7 @@ if (isset($_POST['botao'])) {
                 </form>
             </fieldset>
         </section>
+
         <section class='container estruct'>
             <div id='first-table' class=" passos">
                 <div class="stepwizard">
@@ -634,6 +754,7 @@ if (isset($_POST['botao'])) {
                     </div>
                 </div>
             </div>
+
             <table class="table table-bordered" id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
@@ -648,19 +769,11 @@ if (isset($_POST['botao'])) {
                         <th scope="col" width='150px'>Horário</th>
                         <th scope="col" width='200px'>Sexo</th>
                         <th scope="col" width='150px'>Fone</th>
-                        <th scope="col" width='200px' <?php if ($grupo == "Suporte Interno") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>>Cargo</th>
+                        <th scope="col" width='200px' <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>>Cargo</th>
                         <th scope="col" width='110px'>Log Registro Dia RH Envia DP</th>
-                        <th scope="col" width='120px' <?php if ($grupo == "Suporte Interno") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>>Remuneração Base</th>
-                        <th scope="col" width='100px' <?php if ($grupo == "Suporte Interno") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>>Gratificação</th>
-                        <th scope="col" width='120px' <?php if ($grupo == "Suporte Interno") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>>Remuneração Total</th>
+                        <th scope="col" width='120px' <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>>Remuneração Base</th>
+                        <th scope="col" width='100px' <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>>Gratificação</th>
+                        <th scope="col" width='120px' <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>>Remuneração Total</th>
                         <th scope="col" width='200px'>Solicitante</th>
                         <th scope="col" width='150px'>Cliente</th>
                         <th scope="col" width='150px'>Projeto</th>
@@ -669,68 +782,51 @@ if (isset($_POST['botao'])) {
                         <th scope="col" width='200px'>Administrativo + Flyback <br /> - Hotel</th>
                         <th scope="col" width='200px'>Comentários</th>
                         <th scope="col" width='150px'></th>
-                        <th scope="col" width='150px' <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>></th>
-                        <th scope="col" width='100px' <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>></th>
+                        <th scope="col" width='150px' <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>></th>
+                        <th scope="col" width='100px' <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>></th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <?php
                     if ($resultado) {
                         while ($rows_dados = mysqli_fetch_assoc($resultado)) {
                                 $SOMA = $rows_dados['REMUNERACAO_BASE'] + $rows_dados['GRATIFICACAO']; ?>
                             <tr style="vertical-align: right !important;">
-                                <td><?php echo $rows_dados['STATUS']; ?></td>
-                                <td><?php echo $rows_dados['NOME']; ?></td>
-                                <td><?php echo $rows_dados['DATA_ADMISSAO']; ?></td>
-                                <td><?php echo $rows_dados['NOME_SEDE']; ?></td>
-                                <td><?php echo $rows_dados['NOME_TIPO']; ?></td>
-                                <td><?php echo $rows_dados['NOME_PARAMETRO']; ?></td>
-                                <td><?php echo $rows_dados['CARGA_HORARIA']; ?></td>
-                                <td><?php echo $rows_dados['HORARIO']; ?></td>
-                                <td><?php echo $rows_dados['SEXO']; ?></td>
-                                <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
-                                <td <?php if ($grupo == "Suporte Interno") {
-                                                echo 'style="display: none;"';
-                                            } ?>><?php echo $rows_dados['CARGO']; ?></td>
-                                <td><?php echo formatDateApresentation($rows_dados['LOG_REGISTRO_DIA_RH_ENVIA_DP']); ?></td>
-                                <td <?php if ($grupo == "Suporte Interno") {
-                                                echo 'style="display: none;"';
-                                            } ?>><?php echo 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
-                                <td <?php if ($grupo == "Suporte Interno") {
-                                                echo 'style="display: none;"';
-                                            } ?>><?php echo 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
-                                <td <?php if ($grupo == "Suporte Interno") {
-                                                echo 'style="display: none;"';
-                                            } ?>><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
-                                <td><?php echo $rows_dados['SOLICITANTE']; ?></td>
-                                <td><?php echo $rows_dados['CLIENTE']; ?></td>
-                                <td><?php echo $rows_dados['PROJETO']; ?></td>
-                                <td><?php echo $rows_dados['EMAIL']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
-                                <td style="overflow:hidden; text-overflow: ellipsis;"><?php echo $rows_dados['COMENTARIOS']; ?></td>
-                                <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes </td>
-                                <td <?php if ($grupo == "Suporte Interno" or $grupo ==  "Gestores" or $grupo == "Compasso - RH Integração") {
-                                                echo 'style="display: none;"';
-                                            } ?>><a title="Editar" href="../alteraTelas/altera-form.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default">Editar</span></a></td>
-                                <td <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
-                                                echo 'style="display: none;"';
-                                            } ?>><a title="Finalizar" href="../alteraTelas/altera-deleta.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default">Excluir</span></a></td>
-                                </td>
-                        <?php
-                            }
-                        } ?>
+                                <td><?= $rows_dados['STATUS']; ?></td>
+                                <td><?= $rows_dados['NOME']; ?></td>
+                                <td><?= $rows_dados['DATA_ADMISSAO']; ?></td>
+                                <td><?= $rows_dados['NOME_SEDE']; ?></td>
+                                <td><?= $rows_dados['NOME_TIPO']; ?></td>
+                                <td><?= $rows_dados['NOME_PARAMETRO']; ?></td>
+                                <td><?= $rows_dados['CARGA_HORARIA']; ?></td>
+                                <td><?= $rows_dados['HORARIO']; ?></td>
+                                <td><?= $rows_dados['SEXO']; ?></td>
+                                <td><?= $rows_dados['FONE_CONTATO']; ?></td>
 
-                            <tr <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>>
-                                
+                                <td <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>><?= $rows_dados['CARGO']; ?></td>
+                                <td><?php echo formatDateApresentation($rows_dados['LOG_REGISTRO_DIA_RH_ENVIA_DP']); ?></td>
+                                <td <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>><?php echo 'R$' . number_format($rows_dados['REMUNERACAO_BASE'], 2, ',', '.'); ?></td>
+                                <td <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>><?php echo 'R$' . number_format($rows_dados['GRATIFICACAO'], 2, ',', '.'); ?></td>
+                                <td <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>><?php echo 'R$' . number_format($SOMA, 2, ',', '.'); ?></td>
+                               
+                                <td><?= $rows_dados['SOLICITANTE']; ?></td>
+                                <td><?= $rows_dados['CLIENTE']; ?></td>
+                                <td><?= $rows_dados['PROJETO']; ?></td>
+                                <td><?= $rows_dados['EMAIL']; ?></td>
+
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['POSICAO_COMENTARIO']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['ADMINISTRATIVO']; ?></td>
+                                <td style="overflow:hidden; text-overflow: ellipsis;"><?= $rows_dados['COMENTARIOS']; ?></td>
+                                <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?= $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes </td>
+                                <td <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>><a title="Editar" href="../alteraTelas/altera-form.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>>Editar</span></a></td>
+                                <td <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>><a title="Finalizar" href="../alteraTelas/altera-deleta.php?id=<?= $rows_dados['USUARIO_ID'] ?>" type="button" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>>Excluir</span></a></td>
+                                </td><?php } } ?>
+
+                            <tr <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>>
                             <form id='form-add' method="POST" action="../salva.php">
                             <?/*/ verifica se salvou ou nao /*/?>
+                                   
                                     <td><select name="status" class="intable" value="<?= $rows_dados['STATUS'] ?>" required>
                                             <option>SOLICITAÇÃO DE PROPOSTA</option>
                                             <option>AGUARDANDO APROVAÇÃO</option>
@@ -746,14 +842,17 @@ if (isset($_POST['botao'])) {
                                             <option>DESISTENCIA</option>
                                             <option>RECUSADO</option>
                                         </select></td>
+
                                     <td id='add-nome'><input class='intable' type="text" name="nome" required></td>
                                     <td id='add-admissao'><input class='intable' type="date" name="data_admissao" required></td>
+                                    
                                     <td><select id="add-sede" name='sede' class="selectadd intable" required>
                                             <option value="" selected="selected"></option>
                                             <?php foreach ($listar as $linha) : ?>
-                                                <option value="<?= $linha['SEDE_ID'] ?>"><?php echo $linha['NOME_SEDE'] ?></option>
+                                                <option value="<?= $linha['SEDE_ID'] ?>"><?= $linha['NOME_SEDE'] ?></option>
                                             <?php endforeach ?>
                                         </select></td>
+
                                     <td><select id="add-tipo" name='tipo' class="selectadd intable" onclick="validaCargo()" required>
                                             <option value="" selected="selected"></option>
                                             <option value="1">CLT</option>
@@ -762,6 +861,7 @@ if (isset($_POST['botao'])) {
                                             <option value="4">TEMP</option>
                                             <option value="5">APDZ</option>
                                         </select></td>
+
                                     <td><select id="add-captacao" name='captacao' class="selectadd intable" required>
                                             <option value="" selected="selected"></option>
                                             <option value="1">Ex-Funcionario</option>
@@ -769,8 +869,10 @@ if (isset($_POST['botao'])) {
                                             <option value="3">Ex-Estagiario</option>
                                             <option value="4">Novo</option>
                                         </select></td>
+
                                     <td id='add-carga_horaria'><input id="campo-carga_horaria" class='intable' type="text" name="carga_horaria" required></td>
                                     <td id='add-horario'><input class='intable' type="text" name="horario" required></td>
+
                                     <td><select name="sexo" class="intable" value="<?= $rows_dados['SEXO'] ?>" required>
                                             <option value="" selected="selected"></option>
                                             <option>Não informou</option>
@@ -778,20 +880,15 @@ if (isset($_POST['botao'])) {
                                             <option>Feminino</option>
                                             <option>Não definido</option>
                                         </select></td>
+
                                     <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" name="fone_contato" id="telefone" maxlength="15" required></td>
-                                    <td id="add-cargo" <?php if ($grupo == "Suporte Interno") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>><input class='intable' type="text" name="cargo"></td>
+                                    <td id="add-cargo" <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>><input class='intable' type="text" name="cargo"></td>
                                     <td id='add-log-registro-dia-rh-envia-dp'><input class='intable' type="date" name="LOG_REGISTRO_DIA_RH_ENVIA_DP"></td>
-                                    <td id="add-remuneracao" <?php if ($grupo == "Suporte Interno") {
-                                                                    echo 'style="display: none;"';
-                                                                } ?>><input class='intable' type="number" step=".01" name="remuneracao_base" min="0"></td>
-                                    <td id="add-gratificacao" <?php if ($grupo == "Suporte Interno") {
-                                                                    echo 'style="display: none;"';
-                                                                } ?>><input class='intable' type="number" step=".01" name="gratificacao" min="0"></td>
-                                    <td <?php if ($grupo == "Suporte Interno") {
-                                            echo 'style="display: none;"';
-                                        } ?>></td>
+                                    <td id="add-remuneracao"  <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>><input class='intable' type="number" step=".01" name="remuneracao_base" id="add_remuneracao" min="0" value="0" onchange="myFunction()"></td>
+                                    <td id="add-gratificacao" <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>><input class='intable' type="number" step=".01" name="gratificacao" id="add_gratificacao" min="0" value="0" onchange="myFunction()"></td>
+                                    <td id="add-resultado" <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>><input class='intable' type="number" placeholder="" name="result" id="res" onchange="myFunction()" disabled></td>
+                                 </td>
+
                                     <td id='add-solicitante'><input class='intable' type="text" name="solicitante" required></td>
                                     <td id='add-cliente'><input class='intable' type="text" name="cliente" required></td>
                                     <td id='add-projeto'><input class='intable' type="text" name="projeto" required></td>
@@ -806,18 +903,24 @@ if (isset($_POST['botao'])) {
                             </tr>
                 </tbody>
             </table>
+
             <section>
-                <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno" or $grupo == "Gestores" or $grupo == "Compasso - RH Integração") {
-                                                            echo 'style="display: none;"';
-                                                        } ?>>Exportar para Excel</a>
+                <a title="Exportar telas p/Excel" name="botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default" <?php if ($grupo == "Suporte Interno") {echo 'style="display: none;"';} ?>>Exportar para Excel</a>
             </section>
 
         </section>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
+
     <footer>
         <h2></h2>
     </footer>
+
+    <?php
+    include('../validacoes/login/permissoes.php');
+    ?>
+    </body>
+
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery.mask.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -825,53 +928,69 @@ if (isset($_POST['botao'])) {
     <script src="../js/filter.js"></script>
     <script src="../js/validaCargo.js"></script>
     <script src='../js/desabilitaStepWizard.js'></script>
-    <?php
-    include('../validacoes/login/permissoes.php');
-    ?>
-    <script type="text/javascript">
-        function mascara(o, f) {
-            v_obj = o
-            v_fun = f
-            setTimeout("execmascara()", 1)
-        }
+<script>
+    function mascara(o, f) 
+    {
+        v_obj = o
+        v_fun = f
+        setTimeout("execmascara()", 1)
+    }
 
-        function execmascara() {
+    function execmascara() 
+        {
             v_obj.value = v_fun(v_obj.value)
         }
 
-        function mtel(v) {
+    function mtel(v) 
+        {
             v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
             v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
             v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
             return v;
         }
 
-        function id(el) {
+    function id(el) 
+        {
             return document.getElementById(el);
         }
-        window.onload = function() {
-            id('telefone').onkeyup = function() {
+        window.onload = function() 
+        {
+            id('telefone').onkeyup = function() 
+            {
                 mascara(this, mtel);
             }
         }
     </script>
-    <script type="text/javascript">
-        function valida_horas(edit) {
-            if (event.keyCode < 48 || event.keyCode > 57) {
+
+<script>
+    function valida_horas(edit) 
+    {
+        if (event.keyCode < 48 || event.keyCode > 57) 
+            {
                 event.returnValue = false;
             }
-            if (edit.value.length == 2) {
+        if (edit.value.length == 2) 
+            {
                 edit.value += ":";
             }
-            if (edit.value.length == 5) {
+        if (edit.value.length == 5) 
+            {
                 edit.value += " - ";
             }
-            if (edit.value.length == 10) {
+        if (edit.value.length == 10) 
+            {
                 edit.value += ":";
             }
-        }
-    </script>
+    }
+</script>
 
-</body>
-
+<script>
+    function myFunction() {
+        var x = parseFloat(document.getElementById("add_remuneracao").value);
+        var y = parseFloat(document.getElementById("add_gratificacao").value);
+        var soma = x+y;
+        document.getElementById("res").value = soma.toFixed(2);
+        
+}
+</script>
 </html>

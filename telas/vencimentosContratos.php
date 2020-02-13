@@ -1,31 +1,21 @@
 <?php
+
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+  }
+ 
+$logado = $_SESSION['login'];
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
-
-if($grupo == "Suporte Interno"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Gestores"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Compasso - RH Integração"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
 
 if (!isset($id)) {
     $id = $_SESSION['id'];
@@ -65,6 +55,9 @@ if ($count == 1) {
     $resultado = mysqli_query($conn, "SELECT `ID_VENCIMENTO`, `ID_USUARIO`, DATE_FORMAT(ENVIO_SOLICITANTE_PRI,'%d/%m/%Y') as ENVIO_SOLICITANTE_PRI, DATE_FORMAT(DATA_VENCIMENTO_PRI,'%d/%m/%Y') as DATA_VENCIMENTO_PRI, `RENOVACAO`, DATE_FORMAT(ENVIO_SOLICITANTE_SEG,'%d/%m/%Y') as ENVIO_SOLICITANTE_SEG, DATE_FORMAT(DATA_VENCIMENTO_SEG,'%d/%m/%Y') as DATA_VENCIMENTO_SEG, `EFETIVACAO` FROM `vencimentos` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
+$resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
+$connBarr = mysqli_num_rows($resultadoBarr);
+
 $funcionario = buscavencimentos($conn, $id);
 $envio_Pri = buscavencimentos($conn, $id);
 $renovacao = buscavencimentos($conn, $id);
@@ -79,45 +72,8 @@ $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $campoV = 'class="txtVazio" ';
-?>
-<!DOCTYPE html>
-<html lang="pt">
+include("header.php"); ?>
 
-<head>
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
-    <link rel="stylesheet" href="../css/menuPrincipal.css">
-</head>
-<body>
-<header class="site-header">
-        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
-        <nav>
-            <a class='nav inicio' href='index.php'>Início</a>
-            <div class="dropdown">
-                <a class="dropbtn nav">Emails <span class='caret'></span></a>
-                <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
-                </div>
-            </div>
-            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
-        </nav>
-
-    </header>
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Vencimentos Contratos</h2>
@@ -136,20 +92,7 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                                <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
-                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
-                                    <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
-                                                            if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
-                                                            if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
-                                                            if($rows_dados['ID_SEDE'] == "4"){echo "POA";}
-                                                            if($rows_dados['ID_SEDE'] == "5"){echo "RG";}
-                                                            if($rows_dados['ID_SEDE'] == "6"){echo "SP";}
-                                                            if($rows_dados['ID_SEDE'] == "7"){echo "FLN";}
-                                                            if($rows_dados['ID_SEDE'] == "8"){echo "XAP";}
-                                                            if($rows_dados['ID_SEDE'] == "9"){echo "REC";}?></th>
-                                <?php  } ?>
+                                <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
@@ -224,17 +167,15 @@ $campoV = 'class="txtVazio" ';
                 <tbody>
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
+
                             <td><?= $status['STATUS'] ?></td>
-                            <td id="data"><?php echo $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>
-                            <td <?php if ($rows_dados['RENOVACAO'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['RENOVACAO']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
-                            <td id="data4"><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
-                            <td <?php if ($rows_dados['EFETIVACAO'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['EFETIVACAO']; ?></td>                            
+                            <td id="data"><?= $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>
+                            <td id="data2"><?= $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>
+                            <td <?php if ($rows_dados['RENOVACAO'] == "") {echo ($campoV);} ?>><?= $rows_dados['RENOVACAO']; ?></td>
+                            <td id="data3"><?= $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
+                            <td id="data4"><?= $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
+                            <td <?php if ($rows_dados['EFETIVACAO'] == "") {echo ($campoV);} ?>><?= $rows_dados['EFETIVACAO']; ?></td>    
+
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                             <td>
                                 <form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class="btn btn-default"></form>
@@ -245,7 +186,7 @@ $campoV = 'class="txtVazio" ';
                     <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-vencimento.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td><input style="display: none" type='date' id="campo" class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?= $envio_Pri['ENVIO_SOLICITANTE_PRI'] ?>"></td>
                             <td><input style="display: none" type='date' id="campo2" class='intable' name="DATA_VENCIMENTO_PRI" value="<?= $envio_Pri['DATA_VENCIMENTO_PRI'] ?>"></td>
@@ -299,9 +240,11 @@ $campoV = 'class="txtVazio" ';
         <td><input type="button" class="btn btn-default" value="Recarregar" onClick="history.go(0)"></td>
     </main>
     <footer>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("includes/telasLegendas.html"); ?>
         <h2></h2>
     </footer>
+    </body>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
@@ -309,23 +252,10 @@ $campoV = 'class="txtVazio" ';
     <script src="../js/calculaVencimento.js">
         calculaVencimento();
     </script>
-    <script>
-        window.onload = function verifica() {
-            if (document.getElementById("campo").value == "") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "") {
-                $("#data2").addClass("dataVazia");
-            }
-            if (document.getElementById("campo3").value == "") {
-                $("#data3").addClass("dataVazia");
-            }
-            if (document.getElementById("campo4").value == "") {
-                $("#data4").addClass("dataVazia");
-            }
+       <script src="../js/campo-destaque.js"></script>
             <?php calculo($conn, $status, $id); ?>
-        }
+        
     </script>
-</body>
+
 
 </html>

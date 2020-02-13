@@ -1,4 +1,15 @@
 <?php
+
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+  }
+ 
+$logado = $_SESSION['login'];
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -6,29 +17,8 @@ include("../static/php/RemoveMascAndFormatDate.php");
 
 $listar = listar($conn);
 
-if($grupo == "Suporte Interno"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Gestores"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Compasso - RH Integração"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-
-if (!isset($id)) {
+if (!isset($id)) 
+{
     $id = $_SESSION['id'];
 }
 
@@ -40,16 +30,22 @@ $resultado = mysqli_query($conn, "SELECT `ID_PLATAFORMA_ADM_DOMIN`, `ID_USUARIO`
  DATE_FORMAT(TERMO_PSI,'%d/%m/%Y') as TERMO_PSI,DATE_FORMAT(INCLUI_ADM_PROV,'%d/%m/%Y') as INCLUI_ADM_PROV, `COMENTARIO` FROM `admissao` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 
-if ($count == 1) {
+if ($count == 1) 
+{
     $resultado = mysqli_query($conn, "SELECT `ID_PLATAFORMA_ADM_DOMIN`, `ID_USUARIO`, DATE_FORMAT(QUALIFIC_CADASTRAL_CEP,'%d/%m/%Y') as QUALIFIC_CADASTRAL_CEP, DATE_FORMAT(CAD_ADM_PLATAFORMA_ADM_DIMIN,'%d/%m/%Y') as CAD_ADM_PLATAFORMA_ADM_DIMIN,  DATE_FORMAT(DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,'%d/%m/%Y') as DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,
     DATE_FORMAT(TERMO_PSI,'%d/%m/%Y') as TERMO_PSI,DATE_FORMAT(INCLUI_ADM_PROV,'%d/%m/%Y') as INCLUI_ADM_PROV, `COMENTARIO` FROM `admissao` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
-} else {
+} 
+else 
+{
     mysqli_query($conn, "INSERT INTO `admissao`(`ID_PLATAFORMA_ADM_DOMIN`, `ID_USUARIO`, `QUALIFIC_CADASTRAL_CEP`, `CAD_ADM_PLATAFORMA_ADM_DIMIN`, `DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO`, `TERMO_PSI`, `INCLUI_ADM_PROV`, `COMENTARIO`) VALUES (NULL,$id,NULL,NULL,NULL,NULL,NULL,NULL)");
 
     $resultado = mysqli_query($conn, "SELECT `ID_PLATAFORMA_ADM_DOMIN`, `ID_USUARIO`, DATE_FORMAT(QUALIFIC_CADASTRAL_CEP,'%d/%m/%Y') as QUALIFIC_CADASTRAL_CEP, DATE_FORMAT(CAD_ADM_PLATAFORMA_ADM_DIMIN,'%d/%m/%Y') as CAD_ADM_PLATAFORMA_ADM_DIMIN,  DATE_FORMAT(DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,'%d/%m/%Y') as DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,
     DATE_FORMAT(TERMO_PSI,'%d/%m/%Y') as TERMO_PSI,DATE_FORMAT(INCLUI_ADM_PROV,'%d/%m/%Y') as INCLUI_ADM_PROV, `COMENTARIO` FROM `admissao` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
+$resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
+
+$connBarr = mysqli_num_rows($resultadoBarr);
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
 $quali = buscaadmissao($conn, $id);
@@ -63,81 +59,37 @@ $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
+$comentario = buscaadmissao($conn, $id);
 $campoV = 'class="txtVazio" ';
-?>
-<!DOCTYPE html>
-<html lang="pt">
+include("header.php"); ?>
 
-<head>
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
-    <link rel="stylesheet" href="../css/menuPrincipal.css">
-</head>
-<body>
-<header class="site-header">
-        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
-        <nav>
-            <a class='nav inicio' href='index.php'>Início</a>
-            <div class="dropdown">
-                <a class="dropbtn nav">Emails <span class='caret'></span></a>
-                <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
-                </div>
-            </div>
-            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
-        </nav>
-
-    </header>
     <main>
+
         <section class='menu-inicial'>
             <h2 id='nome'>Plataforma Admissão Domínio Dados + Fichas de Cadastro</h2>
         </section>
+        
         <section class='container estruct'>
             <div class='menu-inicial1'>
                 <table class="fixado">
                     <thead>
+
                         <tr id='titulo-table1s'>
                             <th width='170px'>Status</th>
                             <th width='170px'>Nome</th>
                             <th width='170px'>Data de Admissao</th>
                             <th width='170px'>Sede</th>
                         </tr>
+
                         <thead>
                         <tbody>
                             <tr>
-                                <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
-                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
-                                    <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
-                                                            if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
-                                                            if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
-                                                            if($rows_dados['ID_SEDE'] == "4"){echo "POA";}
-                                                            if($rows_dados['ID_SEDE'] == "5"){echo "RG";}
-                                                            if($rows_dados['ID_SEDE'] == "6"){echo "SP";}
-                                                            if($rows_dados['ID_SEDE'] == "7"){echo "FLN";}
-                                                            if($rows_dados['ID_SEDE'] == "8"){echo "XAP";}
-                                                            if($rows_dados['ID_SEDE'] == "9"){echo "REC";}?></th>
-                                <?php  } ?>
+                                <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
             </div>
+
             <div style="height: 100px;"></div>
             <div class="passos">
                 <div class="stepwizard">
@@ -181,6 +133,7 @@ $campoV = 'class="txtVazio" ';
                     </div>
                 </div>
             </div>
+
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
@@ -196,31 +149,32 @@ $campoV = 'class="txtVazio" ';
                         <th></th>
                     </tr>
                 </thead>
+                
                 <tbody>
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td id="data"><?php echo $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>
-                            <td id="data2"><?php echo $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>
-                            <td id="data3"><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
-                            <td id="data4"><?php echo $rows_dados['TERMO_PSI']; ?></td>
-                            <td id="data5"><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
-                            <td><?php echo $rows_dados['COMENTARIO']; ?></td>
+                            <td id="data"><?= $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>
+                            <td id="data2"><?= $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>
+                            <td id="data3"><?= $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
+                            <td id="data4"><?= $rows_dados['TERMO_PSI']; ?></td>
+                            <td id="data5"><?= $rows_dados['INCLUI_ADM_PROV']; ?></td>
+                            <td><?= $rows_dados['COMENTARIO']; ?></td>
+
                             <td><a title="Exame Admissional" id="proximo" class="btn btn-default" href="exame.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
+                        </tr><?php } ?>
 
-                        </tr>
-                    <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-admissao.php">
-                            <input type="hidden" name="ID_USUARIO" value=<?php echo $funcionario['ID_USUARIO'] ?>>
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="QUALIFIC_CADASTRAL_CEP" value=<?= $quali['QUALIFIC_CADASTRAL_CEP'] ?>></td>
-                            <td><input type="date" id="campo2" class='intable' name="CAD_ADM_PLATAFORMA_ADM_DIMIN" value=<?= $cad['CAD_ADM_PLATAFORMA_ADM_DIMIN'] ?>></td>
-                            <td><input type="date" id="campo3" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" value=<?= $doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO'] ?>></td>
-                            <td><input type="date" id="campo4" class='intable' name="TERMO_PSI" value=<?= $termo['TERMO_PSI'] ?>></td>
-                            <td><input type="date" id="campo5" class='intable' name="INCLUI_ADM_PROV" value=<?= $inclui['INCLUI_ADM_PROV'] ?>></td>
-                            <td id='add-comentario'><input class='intable' type="text" name="COMENTARIO" value=<?= $rows_dados['COMENTARIO'] ?>></td>
+                            <td><input type='date' id="campo" class='intable' name="QUALIFIC_CADASTRAL_CEP" value="<?= $quali['QUALIFIC_CADASTRAL_CEP'] ?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name="CAD_ADM_PLATAFORMA_ADM_DIMIN" value="<?= $cad['CAD_ADM_PLATAFORMA_ADM_DIMIN'] ?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" value="<?= $doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO'] ?>"></td>
+                            <td><input type="date" id="campo4" class='intable' name="TERMO_PSI" value="<?= $termo['TERMO_PSI'] ?>"></td>
+                            <td><input type="date" id="campo5" class='intable' name="INCLUI_ADM_PROV" value="<?= $inclui['INCLUI_ADM_PROV'] ?>"></td>
+                            <td id='COMENTARIO'><input class='intable' type="text" name="COMENTARIO" value="<?= $comentario['COMENTARIO'] ?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -229,34 +183,18 @@ $campoV = 'class="txtVazio" ';
                 </tbody>
             </table>
         </section>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php echo file_get_contents("includes/telasLegendas.html"); ?>
     </main>
+
     <footer>
         <h2></h2>
     </footer>
+
     <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-    <script>
-        window.onload = function verifica() {
-            if (document.getElementById("campo").value == "") {
-                $("#data").addClass("dataVazia");
-            }
-            if (document.getElementById("campo2").value == "") {
-                $("#data2").addClass("dataVazia");
-            }
-            if (document.getElementById("campo3").value == "") {
-                $("#data3").addClass("dataVazia");
-            }
-            if (document.getElementById("campo4").value == "") {
-                $("#data4").addClass("dataVazia");
-            }
-            if (document.getElementById("campo5").value == "") {
-                $("#data5").addClass("dataVazia");
-            }
-        }
-    </script>
+    <script src="../js/campo-destaque.js"></script>
 
 </body>
 

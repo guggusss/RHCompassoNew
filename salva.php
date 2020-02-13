@@ -27,7 +27,6 @@ $cliente = $_POST["cliente"];
 $projeto = $_POST["projeto"];
 $email = $_POST["EMAIL"];
 $posicao_comentario = $_POST["posicao_comentario"];
-$comentarios = $_POST["comentarios"];
 $administrativo = $_POST["administrativo"];
 $comentarios = $_POST["comentarios"];
 
@@ -39,7 +38,10 @@ $sql = "INSERT INTO `admissao_dominio` ( `STATUS`,`ID_SEDE`,`ID_TIPO`,`ID_CAPTAC
 $execQuery = mysqli_query($conn, $sql);
 
 if ($execQuery == "") {
-	$msg = mysqli_error($conn); ?>
+	$msg = mysqli_error($conn);
+	$dir = __DIR__."/log.txt";
+	$today = date("F j, Y, g:i a");
+	file_put_contents($dir, $msg." ".$today." || ", FILE_APPEND);?>
 	<head>
 		<meta charset="UTF-8">
 		<title>RH Contratações</title>
@@ -47,22 +49,22 @@ if ($execQuery == "") {
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/arquivo.css">
-	</head>
-	<h2 class="text-danger">Ocorreu um erro ao salvar:<?= $msg ?></h2>
-	<meta http-equiv="refresh" content="3;  url=telas/index.php"/>
+	</head> 
+	<h2 class="text-danger">Ocorreu um erro ao salvar. <?= $msg ?></h2>
+	<meta http-equiv="refresh" content="5;  url=telas/index.php"/>
+	
 <?php
 }
 else{
 	echo "<head>
-        <meta charset='UTF-8'>
-        <title>RH Contratações</title>
-        <link rel='stylesheet' href='css/reset.css'>
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-        <link rel='stylesheet' href='css/bootstrap.min.css'>
-        <link rel='stylesheet' href='css/arquivo.css'>
-    </head>
-    <h1 class='text-success'>Salvo com sucesso!</h1>";
-}
-?>    
-    <meta http-equiv="refresh" content="1;  url=telas/index.php"/>
-<?php 
+	<meta charset='UTF-8'>
+	<title>RH Contratações</title>
+	<link rel='stylesheet' href='css/reset.css'>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+	<link rel='stylesheet' href='css/bootstrap.min.css'>
+	<link rel='stylesheet' href='css/arquivo.css'>
+	</head>
+	<h1 class='text-success'>Salvo com sucesso!</h1>";
+	?><meta http-equiv="refresh" content="1; url=telas/index.php"/><?php
+	}
+	

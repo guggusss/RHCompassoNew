@@ -1,25 +1,21 @@
 <?php
 
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+  }
+ 
+$logado = $_SESSION['login'];
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../db/serverLDAP.php");
 include("../update.php");
 include("../emails/defineNomeDoGrupoDeEmail.php");
 include("../static/php/RemoveMascAndFormatDate.php");
-
-if($grupo == "Compasso - RH Integração"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
-
-if($grupo == "Gestores"){
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header('location:../index.php');
-        exit;
-    }
-}
 
 $listar = listar($conn);
 
@@ -46,6 +42,9 @@ if ($count == 1) {
     $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
+$resultadoBarr = mysqli_query($conn, "SELECT USUARIO_ID, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM admissao_dominio as a where USUARIO_ID = '$id'");
+$connBarr = mysqli_num_rows($resultadoBarr);
+
 $sede1 = buscaSedeFuncionario($conn, $status['ID_SEDE']);
 $cargo1 = buscaCargoFuncionario($conn, $id, $id);
 $grupDeEmail1 = grupoEmail2($cargo1['CARGO'], $sede1['nome_sede']);
@@ -65,49 +64,14 @@ $emailsoli = buscavias($conn, $id);
 $campoV = 'class="txtVazio" ';
 /*$usuario_atv = buscasuporte($conn, $id); */
 /*$usuarios = mysql_fetch_assoc($resultado); */
-?>
-<!DOCTYPE html>
+include("header.php"); ?>
 
-<html lang="pt">
-<head>
     <link rel="stylesheet" href="../css/geraSenha.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-    <meta charset="UTF-8">
-    <title>RH Contratações</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/arquivo.css">
-    <link rel="stylesheet" href="../css/menuPrincipal.css">
-</head>
-<body>
-    <header class="site-header">
-        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
-        <nav>
-            <a class='nav inicio' href='index.php'>Início</a>
-            <div class="dropdown">
-                <a class="dropbtn nav">Emails <span class='caret'></span></a>
-                <div class="dropdown-content">
-                    <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id ?>'>5. Documentos Admissão POA</a>
-                    <a href='../emails/body-email/admissaoRG.php?id=<?php echo $id ?>'>5.1 Documentos Admissão RG</a>
-                    <a href='../emails/body-email/admissaoPF.php?id=<?php echo $id ?>'>5.2 Documentos de Admissão PF</a>
-                    <a href='../emails/body-email/admissaoERE.php?id=<?php echo $id ?>'>5.3 Documentos de Admissão ERE</a>
-                    <a href='../emails/body-email/admissaoCWB.php?id=<?php echo $id ?>'>5.4 Documentos de Admissão CWB</a>
-                    <a href='../emails/body-email/admissaoSP_RJ.php?id=<?php echo $id ?>'>5.5 Documentos de Admissão SP e RJ</a>
-                    <a href='../emails/body-email/admissaoFNL.php?id=<?php echo $id ?>'>5.6 Documentos de Admissão FLN</a>
-                    <a href='../emails/body-email/admissaoRecife.php?id=<?php echo $id ?>'>5.7 Documentos de Admissão REC</a>
-                    <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id ?>'>7. ALERTA - 1ª Experiência expira em 45 dias</a>
-                    <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id ?>'>7.1 ALERTA - 2ª Experiência expira em 90 dias</a>
-                    <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id ?>'>8. Novo Acesso</a>
-                    <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id ?>'>9. Acessos Liberado</a>
-                </div>
-            </div>
-            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
-        </nav>
+    
 
-    </header>
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Suporte Interno</h2>
@@ -127,20 +91,7 @@ $campoV = 'class="txtVazio" ';
                         <thead>
                         <tbody>
                             <tr>
-                                <?php while ($rows_dados = mysqli_fetch_assoc($resultado1)) {  ?>
-                                    <th width='100px'><?php echo $rows_dados['STATUS']; ?></th>
-                                    <th width='100px'><?php echo $rows_dados['NOME']; ?></th>
-                                    <th width='170px'><?php echo $rows_dados['DATA_ADMISSAO']; ?></th>
-                                    <th width='170px'><?php if($rows_dados['ID_SEDE'] == "1"){echo "CWB";} 
-                                                            if($rows_dados['ID_SEDE'] == "2"){echo "ERE";}
-                                                            if($rows_dados['ID_SEDE'] == "3"){echo "PF";}
-                                                            if($rows_dados['ID_SEDE'] == "4"){echo "POA";}
-                                                            if($rows_dados['ID_SEDE'] == "5"){echo "RG";}
-                                                            if($rows_dados['ID_SEDE'] == "6"){echo "SP";}
-                                                            if($rows_dados['ID_SEDE'] == "7"){echo "FLN";}
-                                                            if($rows_dados['ID_SEDE'] == "8"){echo "XAP";}
-                                                            if($rows_dados['ID_SEDE'] == "9"){echo "REC";}?></th>
-                                <?php  } ?>
+                                <?php include("includes/extensao.php"); ?>
                             </tr>
                         </tbody>
                 </table>
@@ -208,46 +159,35 @@ $campoV = 'class="txtVazio" ';
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?= $status['STATUS'] ?></td>
-                            <td <?php if ($rows_dados['USUARIO'] and $rows_dados['SENHA'] and $rows_dados['EMAIL_SUP'] != NULL) {
-                                                                                                    $usuario_atv = "ATIVO";
-                                                                                                }else{
-                                                                                                    $usuario_atv = "INVÁLIDO";
-                                                                                                    echo ($campoV);
-                                                                                                } 
-                                                                                                
-                                                                                                if(buscasuporteExiste($conn, $rows_dados['USUARIO']) > 1) {
-                                                                                                    $usuario_atv = "USUÁRIO E/OU E-MAIL JÁ EXISTE";
-                                                                                                    echo ($campoV);                                                                                                    
-                                                                                                }elseif(buscasuporteExisteEmail($conn, $rows_dados['EMAIL_SUP']) > 1) {
-                                                                                                    $usuario_atv = "USUÁRIO E/OU E-MAIL JÁ EXISTE";
-                                                                                                    echo ($campoV);                                                                                                    
-                                                                                                } ?>> <?php echo $usuario_atv ?> </td>
-                            <td <?php if ($rows_dados['EMAIL_SUP'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['EMAIL_SUP']; ?></td>
-                            <td <?php if ($rows_dados['USUARIO'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['USUARIO']; ?></td>
-                            <td <?php if ($rows_dados['SENHA'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['SENHA']; ?></td>
-                            <td <?php if ($rows_dados['EQUIPAMENTO'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
-                            <td <?php if ($rows_dados['TRANSLADO'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $rows_dados['TRANSLADO']; ?></td>
-                            <td <?php if ($rows_dados['EQUIPE'] == "") {
-                                        echo ($campoV);
-                                    } ?>><?php echo $grupDeEmail1.$rows_dados['EQUIPE']; ?></td>
+                            <td 
+                            <?php if ($rows_dados['USUARIO'] and $rows_dados['SENHA'] and $rows_dados['EMAIL_SUP'] != NULL) 
+                            { 
+                                $usuario_atv = "ATIVO";} else 
+                                {
+                                    $usuario_atv = "INVÁLIDO";  echo ($campoV); 
+                                } 
+                            if(buscasuporteExiste($conn, $rows_dados['USUARIO']) > 1) 
+                            {
+                                $usuario_atv = "USUÁRIO E/OU E-MAIL JÁ EXISTE"; echo ($campoV);                                                                                                    
+                            }
+                            elseif (buscasuporteExisteEmail($conn, $rows_dados['EMAIL_SUP']) > 1) 
+                            { 
+                                $usuario_atv = "USUÁRIO E/OU E-MAIL JÁ EXISTE"; echo ($campoV);                                                                                                    
+                            } ?>> <?= $usuario_atv ?> </td>
+                            <td <?php if ($rows_dados['EMAIL_SUP'] == "") { echo ($campoV); } ?>><?= $rows_dados['EMAIL_SUP']; ?></td>
+                            <td <?php if ($rows_dados['USUARIO'] == "") {echo ($campoV);} ?>><?= $rows_dados['USUARIO']; ?></td>
+                            <td <?php if ($rows_dados['SENHA'] == "") {echo ($campoV);} ?>><?= $rows_dados['SENHA']; ?></td>
+                            <td <?php if ($rows_dados['EQUIPAMENTO'] == "") {echo ($campoV);} ?>><?= $rows_dados['EQUIPAMENTO']; ?></td>
+                            <td <?php if ($rows_dados['TRANSLADO'] == "") {echo ($campoV);} ?>><?= $rows_dados['TRANSLADO']; ?></td>
+                            <td <?php if ($rows_dados['EQUIPE'] == "") {echo ($campoV);} ?>><?= $grupDeEmail1.$rows_dados['EQUIPE']; ?></td>
+
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php?id=<?= $id ?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
+                        </tr><?php } ?>
 
-                        </tr>
-                    <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-suporte.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO'] ?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?= $funcionario['ID_USUARIO'] ?>">
                             <td><input class='intable' readonly name="STATUS" value='<?= $status['STATUS'] ?>'></td>
                             <td></td>
                             <td><input type='email' class='intable' name="EMAIL_SUP" value="<?= $mail['EMAIL_SUP'] ?>"></td>
@@ -256,6 +196,7 @@ $campoV = 'class="txtVazio" ';
                             <td><input type="text" class='intable' name="EQUIPAMENTO" value="<?= $equipamento['EQUIPAMENTO'] ?>"></td>
                             <td><input type="text" class='intable' name="TRANSLADO" id="campo"  value="<?= $translado['TRANSLADO'] ?>"></td>
                             <td><select multiple"" onclick="anexaGrupo()" class="intable" name="EQUIPE[]" id="books"></select></td>
+
                             <td><input type="button" name="botao-ok" value="Gerar senha" onclick="funcao()" id="senhaUsuario"></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -265,23 +206,26 @@ $campoV = 'class="txtVazio" ';
         </section>
         <?php if($usuario_atv == "INVÁLIDO"){ ?>
         <h3>Usuário, E-mail e Senha Acesso precisam ser preenchidos!</h3>
-        <?php } ?>
-        <?php echo file_get_contents("telasLegendas.html"); ?>
+        <?php } echo file_get_contents("includes/telasLegendas.html"); ?>
         
     </main>
     <footer>
         <h2></h2>
     </footer>
+    </body>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src="../js/anexa-grupo-emails.js"></script>
     <script src="../js/geraSenha.js"></script>
     <script src='../js/desabilitaStepWizard.js'></script>
+
     <script>
         let grupo = "<?= $grupo ?>";
         /*/console.log(grupo);/*/
-        window.onload = () => {
+        window.onload = () => 
+        {
             if (grupo == "Suporte Interno") {
                 desbilitaStepWizard(2, 3, 4, 5, 6, 7, 8, 10, 11, 12);
                 $("#proximo").prop("disabled", true);
@@ -291,7 +235,8 @@ $campoV = 'class="txtVazio" ';
 
         }
         //função para ver se tem usuarios iguais
-        function ExisteUsuario($u) {
+        function ExisteUsuario($u) 
+        {
 
             $cmd = "SELECT * FROM `suporte_interno` WHERE `USUARIO`='$usuario'";
             $result = mysql_query($cmd);
@@ -304,6 +249,6 @@ $campoV = 'class="txtVazio" ';
             }
         }
     </script>
-</body>
+
 
 </html>
