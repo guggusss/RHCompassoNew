@@ -12,7 +12,7 @@
 </head>
 <body>
 <header class="site-header">
-        <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
+<img class="site-logo" src="http://www.compasso.com.br/wp-content/uploads/2020/02/LogoCompasso-preto.png" alt="Compasso Tecnologia">
         <nav>
             <a class='nav inicio' href='index.php'>Início</a>
             <div class="dropdown">

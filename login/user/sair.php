@@ -4,7 +4,8 @@ session_start();
 unset($_SESSION['InfoUser']);
 ldap_close($link);
 session_destroy();
+header("Location: login.php"); exit;
 // Modificado:
     
 ?>
-<meta http-equiv="refresh" content="0;  url=login.php"/>
+
