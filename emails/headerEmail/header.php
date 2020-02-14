@@ -40,8 +40,15 @@
       </li>
       <li>
         <button type="submit" id="enviar" class="button3">Enviar</button>
+        <input type="button" class="button3" value="Voltar" onclick="voltar()"></input>        
       </li>
     </ul>
     <input type="hidden" name="body" id="inputBody" value="">
   </form>
 </div>
+
+<script>
+function voltar() {
+  window.history.back();
+}
+</script>
