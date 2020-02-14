@@ -1,12 +1,16 @@
 <?php session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['usuario']) == true))
 {
-  unset($_SESSION['login']);
+  unset($_SESSION['usuario']);
   unset($_SESSION['senha']);
   header('location:index.php');
   }
  
-$logado = $_SESSION['login'];
+$logado = $_SESSION['usuario'];
+
+$id = $_GET['id'];
+$_SESSION['id'] = $id;
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">

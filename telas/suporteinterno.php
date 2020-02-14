@@ -1,15 +1,32 @@
+  
 <?php
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../db/serverLDAP.php");
 include("../update.php");
 include("../emails/defineNomeDoGrupoDeEmail.php");
 include("../static/php/RemoveMascAndFormatDate.php");
+include("header.php"); 
+if($grupo == "Compasso - RH Integração"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:index.php');
+        exit;
+    }
+}
+
+if($grupo == "Gestores"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:index.php');
+        exit;
+    }
+}
 
 $listar = listar($conn);
 
 $id = $_GET['id'];
 $_SESSION['id'] = $id;
+
 
 $suporte = buscasuporte($conn, $id);
 $testeGrupoEmail = $suporte['EQUIPE'];
@@ -53,7 +70,7 @@ $emailsoli = buscavias($conn, $id);
 $campoV = 'class="txtVazio" ';
 /*$usuario_atv = buscasuporte($conn, $id); */
 /*$usuarios = mysql_fetch_assoc($resultado); */
-include("header.php"); ?>
+?>
 
     <link rel="stylesheet" href="../css/geraSenha.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

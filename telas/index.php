@@ -1,8 +1,16 @@
-<?php
+<?php session_start();
+if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['usuario']) == true))
+{
+  unset($_SESSION['usuario']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+  }
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
+
 $listar = listar($conn);
 //if ($_GET['botaoLimpar']=='Limpar') {
 if (isset($_POST['botaoVolta'])) 

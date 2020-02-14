@@ -3,8 +3,29 @@ require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
-
+include("header.php"); 
 $listar = listar($conn);
+
+if($grupo == "Suporte Interno"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:index.php');
+        exit;
+    }
+}
+
+if($grupo == "Gestores"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:index.php');
+        exit;
+    }
+}
+
+if($grupo == "Compasso - RH Integração"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:index.php');
+        exit;
+    }
+}
 
 if (!isset($id)) {
     $id = $_SESSION['id'];
@@ -43,7 +64,7 @@ $emailsoli = buscavias($conn, $id);
 $campoV = 'class="txtVazio" ';
 $comentario = buscaexame($conn, $id);
 $exame_obs = buscaexame($conn, $id);
-include("header.php"); ?>
+?>
 
     <main>
         <section class='menu-inicial'>

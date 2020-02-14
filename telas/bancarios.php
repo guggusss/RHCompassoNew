@@ -3,13 +3,33 @@ require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 include("../static/php/RemoveMascAndFormatDate.php");
-
+include("header.php"); 
 $listar = listar($conn);
+
+if($grupo == "Suporte Interno"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:index.php');
+        exit;
+    }
+}
+
+if($grupo == "Gestores"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:index.php');
+        exit;
+    }
+}
+
+if($grupo == "Compasso - RH Integração"){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location:index.php');
+        exit;
+    }
+}
 
 if (!isset($id)) {
     $id = $_SESSION['id'];
 }
-
 $resultado1 = mysqli_query($conn, "SELECT ID_USUARIO, NOME, ID_SEDE, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 
@@ -49,7 +69,7 @@ $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $bancarios_obs = buscaBancario($conn, $id);
 $campoV = 'class="txtVazio" ';
-include("header.php"); ?>
+?>
 
     <main>
         <section class='menu-inicial'>
